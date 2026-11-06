@@ -2,7 +2,7 @@
 
 将真人照片转换为具有辨识特征的人物头像插图：保留脸型、发型、眉眼关系、神态与关键配饰，采用艺术配色、平顺轮廓和局部渐变。默认先生成 **512×512 预览**，经用户对话确认后，再生成 **1000×1000 PNG 高清头像**。
 
-仓库名称为 `tanshui-touxiang-skill`，安装后的 Skill 名称保留为 `photo-avatar-illustrator`，可在 Codex 中通过 `$photo-avatar-illustrator` 调用。
+仓库与 Skill 统一使用名称 `tanshui-touxiang-skill`，在 Codex 中显示为“碳水头像”，通过 `$tanshui-touxiang-skill` 调用。
 
 ## 工作方式
 
@@ -40,11 +40,11 @@
 ```bash
 mkdir -p "$HOME/.codex/skills"
 git clone https://github.com/tanshuisir/tanshui-touxiang-skill.git \
-  "$HOME/.codex/skills/photo-avatar-illustrator"
+  "$HOME/.codex/skills/tanshui-touxiang-skill"
 python3 -m pip install Pillow
 ```
 
-如果目标目录已经存在，先保留或备份旧版本，再选择新的安装位置；不要直接覆盖正在使用的 Skill。设置了自定义 `CODEX_HOME` 时，安装位置相应为 `$CODEX_HOME/skills/photo-avatar-illustrator`。
+如果目标目录已经存在，先保留或备份旧版本，再选择新的安装位置；不要直接覆盖正在使用的 Skill。设置了自定义 `CODEX_HOME` 时，安装位置相应为 `$CODEX_HOME/skills/tanshui-touxiang-skill`。
 
 执行器默认在 `$CODEX_HOME/skills/gen-img` 查找依赖；未设置 `CODEX_HOME` 时使用 `~/.codex/skills/gen-img`。其他位置可通过环境变量指定：
 
@@ -58,7 +58,7 @@ export GEN_IMG_SKILL_DIR="/你的安装路径/gen-img"
 
 上传照片后，可以这样提出要求：
 
-> 使用 $photo-avatar-illustrator，把这张照片转为人物头像。保留主要人物特征，采用艺术配色和局部渐变，先出一张预览。
+> 使用 $tanshui-touxiang-skill，把这张照片转为人物头像。保留主要人物特征，采用艺术配色和局部渐变，先出一张预览。
 
 认可预览后回复：
 
@@ -77,7 +77,7 @@ export GEN_IMG_SKILL_DIR="/你的安装路径/gen-img"
 从自己的项目工作区运行，图片与记录会写入该项目，**不要在 Skill 安装目录中运行生成命令**。
 
 ```bash
-AVATAR_SKILL="${CODEX_HOME:-$HOME/.codex}/skills/photo-avatar-illustrator"
+AVATAR_SKILL="${CODEX_HOME:-$HOME/.codex}/skills/tanshui-touxiang-skill"
 mkdir -p "$HOME/avatar-project"
 cd "$HOME/avatar-project"
 ```

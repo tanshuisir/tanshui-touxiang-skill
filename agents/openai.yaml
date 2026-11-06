@@ -1,4 +1,4 @@
 interface:
-  display_name: "照片转人物头像插图"
+  display_name: "碳水头像"
   short_description: "保留人物特点，采用艺术配色与局部渐变；先出小尺寸预览，经对话确认后生成高清头像。"
-  default_prompt: "使用 $photo-avatar-illustrator 的快速流程，保留照片人物主要特征，采用参考库艺术配色并包含清楚的局部渐变，先生成512×512预览；等我通过对话确认后，再沿用已确认内容生成高清头像。"
+  default_prompt: "使用 $tanshui-touxiang-skill 的快速流程，保留照片人物主要特征，采用参考库艺术配色并包含清楚的局部渐变，先生成512×512预览；等我通过对话确认后，再沿用已确认内容生成高清头像。"

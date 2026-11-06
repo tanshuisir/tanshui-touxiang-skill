@@ -34,20 +34,20 @@ class PortablePathTests(unittest.TestCase):
         result = self.probe()
         home = Path.home() / '.codex' / 'skills'
         self.assertEqual(result['gateway'], str(home / 'gen-img/scripts/run.py'))
-        self.assertEqual(result['installed'], str(home / 'photo-avatar-illustrator'))
+        self.assertEqual(result['installed'], str(home / 'tanshui-touxiang-skill'))
 
     def test_custom_codex_home(self):
         with tempfile.TemporaryDirectory() as directory:
             result = self.probe(CODEX_HOME=directory)
             self.assertEqual(result['gateway'], str(Path(directory) / 'skills/gen-img/scripts/run.py'))
-            self.assertEqual(result['installed'], str(Path(directory) / 'skills/photo-avatar-illustrator'))
+            self.assertEqual(result['installed'], str(Path(directory) / 'skills/tanshui-touxiang-skill'))
 
     def test_gateway_directory_override(self):
         with tempfile.TemporaryDirectory() as directory:
             dependency = Path(directory) / 'custom image skill'
             result = self.probe(CODEX_HOME=directory, GEN_IMG_SKILL_DIR=str(dependency))
             self.assertEqual(result['gateway'], str(dependency / 'scripts/run.py'))
-            self.assertEqual(result['installed'], str(Path(directory) / 'skills/photo-avatar-illustrator'))
+            self.assertEqual(result['installed'], str(Path(directory) / 'skills/tanshui-touxiang-skill'))
 
 
 if __name__ == '__main__':

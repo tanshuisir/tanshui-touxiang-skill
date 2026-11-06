@@ -16,7 +16,7 @@ import finalize_avatar
 
 
 SKILL = Path(__file__).resolve().parents[1]
-INSTALLED_SKILL = Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))).expanduser() / 'skills/photo-avatar-illustrator'
+INSTALLED_SKILL = Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))).expanduser() / 'skills/tanshui-touxiang-skill'
 
 
 def _inside(path, directory):
