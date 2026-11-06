@@ -1,0 +1,38 @@
+{
+  "status": "用户认可的近似照片参考，未确认作者原照",
+  "processing": "比较图仅裁剪和缩放，未镜像或旋转照片",
+  "candidates": [
+    {
+      "label": "A",
+      "file": "photo-a.jpg",
+      "image": "https://n.sinaimg.cn/translate/20170731/BOi4-fyinvyk2616511.jpg",
+      "source": "https://news.sina.com.cn/o/2017-08-01/doc-ifyinwmp0954783.shtml",
+      "similar": "歪头方向、眼镜、齐刘海、领结与西装",
+      "different": "照片带笑，插图抬眼且嘴角下压；服装颜色不同",
+      "sha256": "bb50830800752bd51eeccfe7a30f327adc2085749f0fea1052a5050ced7cca0e"
+    },
+    {
+      "label": "B",
+      "file": "photo-b.jpg",
+      "image": "https://img2.jiemian.com/101/original/20150906/144151729813462300.jpg",
+      "source": "https://www.jiemian.com/article/372055.html",
+      "similar": "侧向视线、抿嘴、齐刘海、眼镜、领结与胸章",
+      "different": "头部更直，蓝色西装",
+      "sha256": "1e73d3392d31365e030b0494b1ab82dbcdd84804ca28906531dc06dfbf3b8247"
+    },
+    {
+      "label": "C",
+      "file": "photo-c.jpeg",
+      "image": "https://e0.ifengimg.com/01/2018/1212/ECA100E57EF6DAAB73EA6F35D29BB26A59066A02_size96_w690_h657.jpeg",
+      "source": "https://ent.ifeng.com/c/7iaB52bjqez",
+      "similar": "绿色西装、眼镜、齐刘海、领结与胸前饰物",
+      "different": "头倾斜方向与插图不同，眼睛近闭，嘴张开",
+      "sha256": "dc89e390f26790e31f027060b8d060dc7db983417a4cf658bae46ad661d914e9"
+    }
+  ],
+  "review_date": "2026-11-06",
+  "user_accepted_use": "选择性夸张人物特征、姿态与神态，不要求与照片角度一比一重合",
+  "illustration": "../../portraits/087.png",
+  "comparison": "comparison.jpg",
+  "comparison_sha256": "a1518a5cad3aa81473a438c60b27160b1d3395454203c0a12305a4528c69ca25"
+}

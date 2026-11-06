@@ -1,0 +1,6114 @@
+{
+  "version": "0.2.0",
+  "reference_count": 100,
+  "declared_swatch_count": 400,
+  "unique_declared_color_count": 389,
+  "provenance": "User-supplied screenshots from Zcool work ZMzcxNzUwMDA=; visual transcription of printed HEX labels.",
+  "distinction": "declared_hex preserves printed labels. sampled_swatch_hex is the modal decoded RGB from the recorded swatch box. Neither guarantees all colors inside each portrait.",
+  "numbering": "Within each of source images 5–10: row-major, three columns. 18 portraits per page except the final 10.",
+  "role_order": "No global role order: assign background, line, skin, hair, clothing and accent by inspecting the selected portrait.",
+  "portraits": [
+    {
+      "id": 1,
+      "source_image": 5,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/001.png",
+      "reference_sha256": "c6ac14913037803e39a75abbe642ee962e704535bd1fef6e7b70a9eb74955c84",
+      "pose": "回眸",
+      "technique": "gradient",
+      "observed_cues": "长发大S曲线、背肩重叠、暖肤与金黄渐变",
+      "declared_hex": [
+        "#CEDCF4",
+        "#D56955",
+        "#F4FB3D",
+        "#FF8C01"
+      ],
+      "sampled_swatch_hex": [
+        "#CEDDF3",
+        "#D46A55",
+        "#F3FB3E",
+        "#FE8C01"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2750,
+          127,
+          2781
+        ],
+        [
+          143,
+          2750,
+          198,
+          2781
+        ],
+        [
+          214,
+          2750,
+          269,
+          2781
+        ],
+        [
+          285,
+          2750,
+          340,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "source_image": 5,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/002.png",
+      "reference_sha256": "2938f559b8b2ae86b7a8c2766e19e2ec4b487cb174c29a10f634e8cc6502a99b",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "偏分短发、长脸斜颈、酒红西装",
+      "declared_hex": [
+        "#281D48",
+        "#FCB1AB",
+        "#706397",
+        "#570630"
+      ],
+      "sampled_swatch_hex": [
+        "#281D48",
+        "#FCB2AB",
+        "#716498",
+        "#56072F"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2750,
+          511,
+          2781
+        ],
+        [
+          527,
+          2750,
+          582,
+          2781
+        ],
+        [
+          598,
+          2750,
+          653,
+          2781
+        ],
+        [
+          669,
+          2750,
+          724,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "source_image": 5,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/003.png",
+      "reference_sha256": "92bac5387d78428809eec41718b4d9d405c43882bfb0bf40af68a7ce65ffb41c",
+      "pose": "侧面",
+      "technique": "gradient",
+      "observed_cues": "短发尖簇、冷暖发色、浅青外套",
+      "declared_hex": [
+        "#FF8347",
+        "#6FC2D0",
+        "#BFF8FD",
+        "#F497E1"
+      ],
+      "sampled_swatch_hex": [
+        "#FF8447",
+        "#70C2CF",
+        "#BEF9FE",
+        "#F398E2"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2750,
+          895,
+          2781
+        ],
+        [
+          911,
+          2750,
+          966,
+          2781
+        ],
+        [
+          982,
+          2750,
+          1037,
+          2781
+        ],
+        [
+          1053,
+          2750,
+          1108,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "source_image": 5,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/004.png",
+      "reference_sha256": "7275167d166c867cac66645c17b9510694b31d2acf5ab8e865cbeb5b18aacdb0",
+      "pose": "三分之二侧",
+      "technique": "texture",
+      "observed_cues": "后梳短发、深色高领、低对比服装线",
+      "declared_hex": [
+        "#C9D1D7",
+        "#5E7F8C",
+        "#201215",
+        "#FFDBC7"
+      ],
+      "sampled_swatch_hex": [
+        "#C9D1D7",
+        "#5D7F8D",
+        "#1E1214",
+        "#FEDBC7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2857,
+          127,
+          2888
+        ],
+        [
+          143,
+          2857,
+          198,
+          2888
+        ],
+        [
+          214,
+          2857,
+          269,
+          2888
+        ],
+        [
+          285,
+          2857,
+          340,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "source_image": 5,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/005.png",
+      "reference_sha256": "a0f02032d5a99268111e01ab5334619e72cdf637b515546d588c6f6dfef925d9",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "长直发、对称衣领、洋红至黄橙撞色",
+      "declared_hex": [
+        "#D488FF",
+        "#FF3781",
+        "#FFD102",
+        "#C61FA4"
+      ],
+      "sampled_swatch_hex": [
+        "#D488FF",
+        "#FF3781",
+        "#FFD101",
+        "#C520A5"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2857,
+          511,
+          2888
+        ],
+        [
+          527,
+          2857,
+          582,
+          2888
+        ],
+        [
+          598,
+          2857,
+          653,
+          2888
+        ],
+        [
+          669,
+          2857,
+          724,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "source_image": 5,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/006.png",
+      "reference_sha256": "637b74e34d1650b98501f55421fbd02ffe11d8e164af669d686cae9e4f75a262",
+      "pose": "倾头",
+      "technique": "flat",
+      "observed_cues": "短波波头、大V领、蓝紫同类色",
+      "declared_hex": [
+        "#302CDD",
+        "#7159F7",
+        "#79D8BD",
+        "#CDC7FF"
+      ],
+      "sampled_swatch_hex": [
+        "#302CDD",
+        "#7159F7",
+        "#79D9BD",
+        "#CEC7FF"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2857,
+          895,
+          2888
+        ],
+        [
+          911,
+          2857,
+          966,
+          2888
+        ],
+        [
+          982,
+          2857,
+          1037,
+          2888
+        ],
+        [
+          1053,
+          2857,
+          1108,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "source_image": 5,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/007.png",
+      "reference_sha256": "4f8590f29c1d29eed54009a0f99a2a7d210f006a90e79d39828b5fbf748bba66",
+      "pose": "侧面闭眼笑",
+      "technique": "gradient",
+      "observed_cues": "长发、半闭眼与张嘴弧线、精简耳饰",
+      "declared_hex": [
+        "#FFCBCF",
+        "#7BF9DE",
+        "#FED770",
+        "#2F2F2F"
+      ],
+      "sampled_swatch_hex": [
+        "#FFCBD2",
+        "#7AFADD",
+        "#FED871",
+        "#2F2F2F"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2964,
+          127,
+          2995
+        ],
+        [
+          143,
+          2964,
+          198,
+          2995
+        ],
+        [
+          214,
+          2964,
+          269,
+          2995
+        ],
+        [
+          285,
+          2964,
+          340,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        3,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 8,
+      "source_image": 5,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/008.png",
+      "reference_sha256": "bc2bafbd636be026c966da80ad7200a2077d3b096cb9ad116d344bb8828b2e6c",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "微卷短发、手部触领、黄绿棕配色",
+      "declared_hex": [
+        "#A19C1A",
+        "#7EEDCB",
+        "#FEBD03",
+        "#996302"
+      ],
+      "sampled_swatch_hex": [
+        "#A19D18",
+        "#7DEECC",
+        "#FFBE05",
+        "#996201"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2964,
+          511,
+          2995
+        ],
+        [
+          527,
+          2964,
+          582,
+          2995
+        ],
+        [
+          598,
+          2964,
+          653,
+          2995
+        ],
+        [
+          669,
+          2964,
+          724,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "source_image": 5,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/009.png",
+      "reference_sha256": "50128003626a73c5063ba4bad0ba3d1112bf8a1175882f70e4bec712a28a3249",
+      "pose": "回眸",
+      "technique": "duotone",
+      "observed_cues": "亮粉长发、白色负形脸、黄色少量点缀",
+      "declared_hex": [
+        "#FFEAF2",
+        "#FE0264",
+        "#FDFE00",
+        "#FF913E"
+      ],
+      "sampled_swatch_hex": [
+        "#FFEBF2",
+        "#FD0265",
+        "#FDFE01",
+        "#FF923C"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2964,
+          895,
+          2995
+        ],
+        [
+          911,
+          2964,
+          966,
+          2995
+        ],
+        [
+          982,
+          2964,
+          1037,
+          2995
+        ],
+        [
+          1053,
+          2964,
+          1108,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 10,
+      "source_image": 5,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1523,
+        368,
+        1748
+      ],
+      "reference_image": "assets/portraits/010.png",
+      "reference_sha256": "0bd568057bde401b92ce20fb26eb0c0251f776fbb0effca1a7bfb04960bd60a6",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "中分盘发、手搭肩、浅粉腮红",
+      "declared_hex": [
+        "#FFD992",
+        "#368280",
+        "#FFD8D0",
+        "#E86442"
+      ],
+      "sampled_swatch_hex": [
+        "#FFD991",
+        "#36827F",
+        "#FFD8D1",
+        "#E86542"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3071,
+          127,
+          3102
+        ],
+        [
+          143,
+          3071,
+          198,
+          3102
+        ],
+        [
+          214,
+          3071,
+          269,
+          3102
+        ],
+        [
+          285,
+          3071,
+          340,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "source_image": 5,
+      "source_grid_row": 4,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1523,
+        752,
+        1748
+      ],
+      "reference_image": "assets/portraits/011.png",
+      "reference_sha256": "77ea97052fc651eb90b36371e8c061931b708db1588e41b4e63271a2a3ce08e1",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "后梳大卷、西装翻领、青绿轮廓",
+      "declared_hex": [
+        "#70E2C2",
+        "#8AB4A3",
+        "#FFC78B",
+        "#FFE4A7"
+      ],
+      "sampled_swatch_hex": [
+        "#70E2C3",
+        "#8AB4A3",
+        "#FFC889",
+        "#FFE5A7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3071,
+          511,
+          3102
+        ],
+        [
+          527,
+          3071,
+          582,
+          3102
+        ],
+        [
+          598,
+          3071,
+          653,
+          3102
+        ],
+        [
+          669,
+          3071,
+          724,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "source_image": 5,
+      "source_grid_row": 4,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1523,
+        1136,
+        1748
+      ],
+      "reference_image": "assets/portraits/012.png",
+      "reference_sha256": "7999a4433f5d2765403337fb19ee268dd7543df3a04ec245decca4c666dbfcda",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "中分卷发、手触领口、棕橙肤与青绿衣",
+      "declared_hex": [
+        "#07B3AD",
+        "#FF8849",
+        "#8B2C0C",
+        "#FFC17B"
+      ],
+      "sampled_swatch_hex": [
+        "#07B3AB",
+        "#FF8749",
+        "#892D0C",
+        "#FFC17B"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3071,
+          895,
+          3102
+        ],
+        [
+          911,
+          3071,
+          966,
+          3102
+        ],
+        [
+          982,
+          3071,
+          1037,
+          3102
+        ],
+        [
+          1053,
+          3071,
+          1108,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "source_image": 5,
+      "source_grid_row": 5,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1907,
+        368,
+        2132
+      ],
+      "reference_image": "assets/portraits/013.png",
+      "reference_sha256": "4d72e88937141c24c9e152d40eb987ce7f2312dc215885fd347f17e022bb3780",
+      "pose": "俯头",
+      "technique": "flat",
+      "observed_cues": "偏分发、口罩遮挡、外套纽扣",
+      "declared_hex": [
+        "#B3C730",
+        "#174900",
+        "#4D9523",
+        "#02FF88"
+      ],
+      "sampled_swatch_hex": [
+        "#B3C731",
+        "#174A00",
+        "#4D9421",
+        "#01FF89"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3178,
+          127,
+          3209
+        ],
+        [
+          143,
+          3178,
+          198,
+          3209
+        ],
+        [
+          214,
+          3178,
+          269,
+          3209
+        ],
+        [
+          285,
+          3178,
+          340,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 14,
+      "source_image": 5,
+      "source_grid_row": 5,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1907,
+        752,
+        2132
+      ],
+      "reference_image": "assets/portraits/014.png",
+      "reference_sha256": "a80c10d62c48e0284627aca1e622735e8f779a35f1dc44af07ac8b9ba2b52e03",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "短刘海、单侧耳饰、橙红上衣",
+      "declared_hex": [
+        "#FF5B55",
+        "#FFB9FC",
+        "#13134A",
+        "#FF7DF8"
+      ],
+      "sampled_swatch_hex": [
+        "#FF5C55",
+        "#FFBAFD",
+        "#13134A",
+        "#FF7DF9"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3178,
+          511,
+          3209
+        ],
+        [
+          527,
+          3178,
+          582,
+          3209
+        ],
+        [
+          598,
+          3178,
+          653,
+          3209
+        ],
+        [
+          669,
+          3178,
+          724,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "source_image": 5,
+      "source_grid_row": 5,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1907,
+        1136,
+        2132
+      ],
+      "reference_image": "assets/portraits/015.png",
+      "reference_sha256": "166dae273d901c1e2b587373fb10eee5e1c796102c9b87ae478385acfa3f60a4",
+      "pose": "正面",
+      "technique": "cartoon",
+      "observed_cues": "锅盖发型、短脸实心眼、黑白西装",
+      "declared_hex": [
+        "#C3C3C3",
+        "#FFD4D4",
+        "#252525",
+        "#02C4B9"
+      ],
+      "sampled_swatch_hex": [
+        "#C4C4C4",
+        "#FFD4D5",
+        "#252525",
+        "#00C6BA"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3178,
+          895,
+          3209
+        ],
+        [
+          911,
+          3178,
+          966,
+          3209
+        ],
+        [
+          982,
+          3178,
+          1037,
+          3209
+        ],
+        [
+          1053,
+          3178,
+          1108,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 16,
+      "source_image": 5,
+      "source_grid_row": 6,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        2291,
+        368,
+        2516
+      ],
+      "reference_image": "assets/portraits/016.png",
+      "reference_sha256": "5e6733fddb353ca363423b015b0b75a958c38ea8a38af908e0f3f824440f3a05",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "偏分发、衬衫口袋、荧光黄与紫",
+      "declared_hex": [
+        "#EBFF4F",
+        "#8857EA",
+        "#FF95EB",
+        "#462870"
+      ],
+      "sampled_swatch_hex": [
+        "#E9FE51",
+        "#8857EA",
+        "#FF96EB",
+        "#442970"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3285,
+          127,
+          3316
+        ],
+        [
+          143,
+          3285,
+          198,
+          3316
+        ],
+        [
+          214,
+          3285,
+          269,
+          3316
+        ],
+        [
+          285,
+          3285,
+          340,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 17,
+      "source_image": 5,
+      "source_grid_row": 6,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        2291,
+        752,
+        2516
+      ],
+      "reference_image": "assets/portraits/017.png",
+      "reference_sha256": "d1f5d7962d369fc58cdb066052cf497598e168bc2338262c15075b17a6fdf9da",
+      "pose": "纯侧面",
+      "technique": "flat",
+      "observed_cues": "短浅发、鼻唇下巴连续侧影、深色圆领",
+      "declared_hex": [
+        "#32C0FF",
+        "#FFD5B4",
+        "#FF7D8B",
+        "#FFFEAB"
+      ],
+      "sampled_swatch_hex": [
+        "#32C1FE",
+        "#FFD6B2",
+        "#FF7E8C",
+        "#FDFFAA"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3285,
+          511,
+          3316
+        ],
+        [
+          527,
+          3285,
+          582,
+          3316
+        ],
+        [
+          598,
+          3285,
+          653,
+          3316
+        ],
+        [
+          669,
+          3285,
+          724,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 18,
+      "source_image": 5,
+      "source_grid_row": 6,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        2291,
+        1136,
+        2516
+      ],
+      "reference_image": "assets/portraits/018.png",
+      "reference_sha256": "f579ed26b476f40e5cc614947a71c7071b1bc915cf3b9a62a4b53f45378ce1cd",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "短发、透明墨镜、酒红衣领",
+      "declared_hex": [
+        "#B3B2C3",
+        "#6D102E",
+        "#8F1F46",
+        "#FFDDDD"
+      ],
+      "sampled_swatch_hex": [
+        "#B3B3C1",
+        "#6E102E",
+        "#8E1F47",
+        "#FFDDDE"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3285,
+          895,
+          3316
+        ],
+        [
+          911,
+          3285,
+          966,
+          3316
+        ],
+        [
+          982,
+          3285,
+          1037,
+          3316
+        ],
+        [
+          1053,
+          3285,
+          1108,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 19,
+      "source_image": 6,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/019.png",
+      "reference_sha256": "50a20752b6a12ced708997ef49ff97df07857ffb04360a4c856ba38437101a4f",
+      "pose": "俯头",
+      "technique": "gradient",
+      "observed_cues": "中分发、圆领、红蓝强对比",
+      "declared_hex": [
+        "#D72250",
+        "#3E5DEB",
+        "#FFBDC4",
+        "#B71540"
+      ],
+      "sampled_swatch_hex": [
+        "#D62251",
+        "#3E5DEB",
+        "#FFBDC3",
+        "#B71540"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2750,
+          127,
+          2781
+        ],
+        [
+          143,
+          2750,
+          198,
+          2781
+        ],
+        [
+          214,
+          2750,
+          269,
+          2781
+        ],
+        [
+          285,
+          2750,
+          340,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "source_image": 6,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/020.png",
+      "reference_sha256": "e36ab8a390c7bbb66bb7c3096d02e26d66d37c2f61e54d8c2be6b910e9c73c30",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "肩长发、中开衣领、青绿渐变衣",
+      "declared_hex": [
+        "#FF7B63",
+        "#FFAD9E",
+        "#EF6B94",
+        "#F9AA88"
+      ],
+      "sampled_swatch_hex": [
+        "#FF7A63",
+        "#FFAD9D",
+        "#EF6B95",
+        "#F9AA87"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2750,
+          511,
+          2781
+        ],
+        [
+          527,
+          2750,
+          582,
+          2781
+        ],
+        [
+          598,
+          2750,
+          653,
+          2781
+        ],
+        [
+          669,
+          2750,
+          724,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 21,
+      "source_image": 6,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/021.png",
+      "reference_sha256": "b5ba035acf43fe01b554c72757974e21b325bd8b16ef08e88769e5a5a7a0f2fb",
+      "pose": "仰头侧面",
+      "technique": "flat",
+      "observed_cues": "蓬松卷发、白色高领、粉色外套",
+      "declared_hex": [
+        "#FFD9DA",
+        "#FF74B4",
+        "#A8A7FF",
+        "#5C40A6"
+      ],
+      "sampled_swatch_hex": [
+        "#FFD8DA",
+        "#FF75B3",
+        "#A7A7FE",
+        "#5C40A7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2750,
+          895,
+          2781
+        ],
+        [
+          911,
+          2750,
+          966,
+          2781
+        ],
+        [
+          982,
+          2750,
+          1037,
+          2781
+        ],
+        [
+          1053,
+          2750,
+          1108,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 22,
+      "source_image": 6,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/022.png",
+      "reference_sha256": "62a350845ad3ddc917cc1c35b393f358d8034b0d249fa0d8de6f993fc9e693d0",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "短发、手扶领结、黄色衬衫与深绿西装",
+      "declared_hex": [
+        "#292945",
+        "#FDE63C",
+        "#7C7C9D",
+        "#145F63"
+      ],
+      "sampled_swatch_hex": [
+        "#292944",
+        "#FBE73C",
+        "#7D7C9E",
+        "#155F64"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2857,
+          127,
+          2888
+        ],
+        [
+          143,
+          2857,
+          198,
+          2888
+        ],
+        [
+          214,
+          2857,
+          269,
+          2888
+        ],
+        [
+          285,
+          2857,
+          340,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 23,
+      "source_image": 6,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/023.png",
+      "reference_sha256": "b1ce2226205e62a9694ff2a659fc70b31364ba897f1f02483d0286073fd796c0",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "中长分缕头发、胡须、条纹内搭",
+      "declared_hex": [
+        "#FF5B55",
+        "#2630E1",
+        "#505BF1",
+        "#FF6B9A"
+      ],
+      "sampled_swatch_hex": [
+        "#FF5C55",
+        "#2630E3",
+        "#4F5CF0",
+        "#FF6B9B"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2857,
+          511,
+          2888
+        ],
+        [
+          527,
+          2857,
+          582,
+          2888
+        ],
+        [
+          598,
+          2857,
+          653,
+          2888
+        ],
+        [
+          669,
+          2857,
+          724,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 24,
+      "source_image": 6,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/024.png",
+      "reference_sha256": "90f8c9f04f850d4de2a150d6d99353d4cee35ad937b4174e453f6a20bfd31248",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "长波浪发、透明圆墨镜、深绿背心",
+      "declared_hex": [
+        "#01CBAD",
+        "#FFBCAD",
+        "#004D42",
+        "#FEDB24"
+      ],
+      "sampled_swatch_hex": [
+        "#01CCAE",
+        "#FFBBAE",
+        "#004C43",
+        "#FED922"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2857,
+          895,
+          2888
+        ],
+        [
+          911,
+          2857,
+          966,
+          2888
+        ],
+        [
+          982,
+          2857,
+          1037,
+          2888
+        ],
+        [
+          1053,
+          2857,
+          1108,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 25,
+      "source_image": 6,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/025.png",
+      "reference_sha256": "bb3662b1877f9af59f4fc5fb1b868ef0abfc39a93637e0391b76b14833c88322",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "中分浅发、高领、背带与细项链",
+      "declared_hex": [
+        "#F38AAC",
+        "#343434",
+        "#FFDACF",
+        "#C23D69"
+      ],
+      "sampled_swatch_hex": [
+        "#F48AAB",
+        "#343434",
+        "#FFDBCC",
+        "#C33C6A"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2964,
+          127,
+          2995
+        ],
+        [
+          143,
+          2964,
+          198,
+          2995
+        ],
+        [
+          214,
+          2964,
+          269,
+          2995
+        ],
+        [
+          285,
+          2964,
+          340,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "source_image": 6,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/026.png",
+      "reference_sha256": "87249df48fcb3cfa036fda5e45de6f7e11d1a8b419ab2dfc17f4285ca9bf0b45",
+      "pose": "俯头",
+      "technique": "flat",
+      "observed_cues": "短碎卷发、黄衬衫、紫色背景",
+      "declared_hex": [
+        "#E6B9FF",
+        "#FEE40A",
+        "#E77D6D",
+        "#AB4937"
+      ],
+      "sampled_swatch_hex": [
+        "#E6B8FF",
+        "#FEE409",
+        "#E77D6C",
+        "#AA4936"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2964,
+          511,
+          2995
+        ],
+        [
+          527,
+          2964,
+          582,
+          2995
+        ],
+        [
+          598,
+          2964,
+          653,
+          2995
+        ],
+        [
+          669,
+          2964,
+          724,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 27,
+      "source_image": 6,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/027.png",
+      "reference_sha256": "450e98a31c4fd40a707fe47f2877ae1a71635c8a513fb77950434cd9d280dae9",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "短侧梳发、深色肤面与衣服渐变",
+      "declared_hex": [
+        "#456A4D",
+        "#A15866",
+        "#EC798E",
+        "#CD566C"
+      ],
+      "sampled_swatch_hex": [
+        "#466A4E",
+        "#A15966",
+        "#EB7A8E",
+        "#CE566C"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2964,
+          895,
+          2995
+        ],
+        [
+          911,
+          2964,
+          966,
+          2995
+        ],
+        [
+          982,
+          2964,
+          1037,
+          2995
+        ],
+        [
+          1053,
+          2964,
+          1108,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 28,
+      "source_image": 6,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1523,
+        368,
+        1748
+      ],
+      "reference_image": "assets/portraits/028.png",
+      "reference_sha256": "8261d3b68e026f4d8c66a22d7e353c6c45e3b69f11a2fb164f0ffafaa204db88",
+      "pose": "三分之二侧",
+      "technique": "gradient",
+      "observed_cues": "长波浪发、螺旋耳饰、蓝紫衣与渐变发",
+      "declared_hex": [
+        "#6A69EF",
+        "#4034FB",
+        "#F33D9F",
+        "#B9ABFA"
+      ],
+      "sampled_swatch_hex": [
+        "#6B69F0",
+        "#4034FB",
+        "#F33D9F",
+        "#B8ABFB"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3071,
+          127,
+          3102
+        ],
+        [
+          143,
+          3071,
+          198,
+          3102
+        ],
+        [
+          214,
+          3071,
+          269,
+          3102
+        ],
+        [
+          285,
+          3071,
+          340,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "source_image": 6,
+      "source_grid_row": 4,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1523,
+        752,
+        1748
+      ],
+      "reference_image": "assets/portraits/029.png",
+      "reference_sha256": "3e3612fbedf2444e420fec4dcc4b082e5897d5ce5eb06c4eb976dc11632f5406",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "齐刘海波波头、暗色肩部与红色衣身",
+      "declared_hex": [
+        "#FE2850",
+        "#00242B",
+        "#EBC1BB",
+        "#FFE8E8"
+      ],
+      "sampled_swatch_hex": [
+        "#FE2850",
+        "#00232A",
+        "#EBC1BB",
+        "#FFE8E9"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3071,
+          511,
+          3102
+        ],
+        [
+          527,
+          3071,
+          582,
+          3102
+        ],
+        [
+          598,
+          3071,
+          653,
+          3102
+        ],
+        [
+          669,
+          3071,
+          724,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 30,
+      "source_image": 6,
+      "source_grid_row": 4,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1523,
+        1136,
+        1748
+      ],
+      "reference_image": "assets/portraits/030.png",
+      "reference_sha256": "d1a4c7cade9367e0e1c873b15066e82a869a9071c5d9a31bdf160e3f975f669b",
+      "pose": "三分之二侧",
+      "technique": "bold",
+      "observed_cues": "后梳发与胡须、粗棕轮廓、粉色背景",
+      "declared_hex": [
+        "#FF718F",
+        "#B05252",
+        "#FFEEB6",
+        "#804641"
+      ],
+      "sampled_swatch_hex": [
+        "#FF728F",
+        "#B05352",
+        "#FFEDB6",
+        "#814741"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3071,
+          895,
+          3102
+        ],
+        [
+          911,
+          3071,
+          966,
+          3102
+        ],
+        [
+          982,
+          3071,
+          1037,
+          3102
+        ],
+        [
+          1053,
+          3071,
+          1108,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 31,
+      "source_image": 6,
+      "source_grid_row": 5,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1907,
+        368,
+        2132
+      ],
+      "reference_image": "assets/portraits/031.png",
+      "reference_sha256": "1a643a49309e4f7445bc4cb65a42db2e1a66f396efb16343b66ac87b13581b50",
+      "pose": "倾头",
+      "technique": "texture",
+      "observed_cues": "圆眼镜、短刺发、黄色衣身平行细纹",
+      "declared_hex": [
+        "#FDBC02",
+        "#3CB131",
+        "#F8E106",
+        "#0832F7"
+      ],
+      "sampled_swatch_hex": [
+        "#FDBC03",
+        "#3DB231",
+        "#F9E204",
+        "#0A30F7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3178,
+          127,
+          3209
+        ],
+        [
+          143,
+          3178,
+          198,
+          3209
+        ],
+        [
+          214,
+          3178,
+          269,
+          3209
+        ],
+        [
+          285,
+          3178,
+          340,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": 32,
+      "source_image": 6,
+      "source_grid_row": 5,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1907,
+        752,
+        2132
+      ],
+      "reference_image": "assets/portraits/032.png",
+      "reference_sha256": "b98725d0d78e8d7d2ed2b3a088608130e9bcf25c08b4d21cfaea138627d9433b",
+      "pose": "倾头闭眼",
+      "technique": "texture",
+      "observed_cues": "短刘海、高领针织、心形衣服符号",
+      "declared_hex": [
+        "#FF3DAE",
+        "#203EC8",
+        "#0A8DF0",
+        "#01A151"
+      ],
+      "sampled_swatch_hex": [
+        "#FF3CAC",
+        "#203EC6",
+        "#088EF0",
+        "#00A251"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3178,
+          511,
+          3209
+        ],
+        [
+          527,
+          3178,
+          582,
+          3209
+        ],
+        [
+          598,
+          3178,
+          653,
+          3209
+        ],
+        [
+          669,
+          3178,
+          724,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 33,
+      "source_image": 6,
+      "source_grid_row": 5,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1907,
+        1136,
+        2132
+      ],
+      "reference_image": "assets/portraits/033.png",
+      "reference_sha256": "03c1cb5b4be46482810e414c9b2e76dea126d728be33900028ddeee8ad635ef3",
+      "pose": "低头侧面",
+      "technique": "duotone",
+      "observed_cues": "宽檐帽、长耳饰、粉色线描与白衣负形",
+      "declared_hex": [
+        "#E8F215",
+        "#4352F3",
+        "#D1E4FD",
+        "#FFB3FE"
+      ],
+      "sampled_swatch_hex": [
+        "#E8F317",
+        "#4351F5",
+        "#D2E3FB",
+        "#FFB3FF"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3178,
+          895,
+          3209
+        ],
+        [
+          911,
+          3178,
+          966,
+          3209
+        ],
+        [
+          982,
+          3178,
+          1037,
+          3209
+        ],
+        [
+          1053,
+          3178,
+          1108,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 34,
+      "source_image": 6,
+      "source_grid_row": 6,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        2291,
+        368,
+        2516
+      ],
+      "reference_image": "assets/portraits/034.png",
+      "reference_sha256": "8661db76b1288dc6db16d3ceefd6329092cb32c67cfc436d5bbee41419510d38",
+      "pose": "侧面",
+      "technique": "duotone",
+      "observed_cues": "偏分短发、白色留白、粉色线条",
+      "declared_hex": [
+        "#C93A84",
+        "#FF55AA",
+        "#FF99CE",
+        "#F0E23F"
+      ],
+      "sampled_swatch_hex": [
+        "#CA3A82",
+        "#FF55AA",
+        "#FF99CE",
+        "#EFE341"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3285,
+          127,
+          3316
+        ],
+        [
+          143,
+          3285,
+          198,
+          3316
+        ],
+        [
+          214,
+          3285,
+          269,
+          3316
+        ],
+        [
+          285,
+          3285,
+          340,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 35,
+      "source_image": 6,
+      "source_grid_row": 6,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        2291,
+        752,
+        2516
+      ],
+      "reference_image": "assets/portraits/035.png",
+      "reference_sha256": "034a0697bed354355dc3355f6b6c5b9d495a46abe3d63db27d6397ee7d50329e",
+      "pose": "正面",
+      "technique": "duotone",
+      "observed_cues": "眼镜、中长发与胡茬、紫红线条",
+      "declared_hex": [
+        "#FFE4EF",
+        "#8E3183",
+        "#FE7FB5",
+        "#FAF7FA"
+      ],
+      "sampled_swatch_hex": [
+        "#FFE4F0",
+        "#8E3183",
+        "#FE7FB3",
+        "#FAF7FA"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3285,
+          511,
+          3316
+        ],
+        [
+          527,
+          3285,
+          582,
+          3316
+        ],
+        [
+          598,
+          3285,
+          653,
+          3316
+        ],
+        [
+          669,
+          3285,
+          724,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "id": 36,
+      "source_image": 6,
+      "source_grid_row": 6,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        2291,
+        1136,
+        2516
+      ],
+      "reference_image": "assets/portraits/036.png",
+      "reference_sha256": "b54a161cccf9bbfe37ef95f06d23a13a4f66432ad3ae5b6b8ab217e3f5a640ec",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "长深色发、下垂口角、细项链",
+      "declared_hex": [
+        "#FFADAC",
+        "#FFCFCF",
+        "#865B78",
+        "#48263E"
+      ],
+      "sampled_swatch_hex": [
+        "#FFAEAC",
+        "#FFCFCF",
+        "#875C78",
+        "#492740"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3285,
+          895,
+          3316
+        ],
+        [
+          911,
+          3285,
+          966,
+          3316
+        ],
+        [
+          982,
+          3285,
+          1037,
+          3316
+        ],
+        [
+          1053,
+          3285,
+          1108,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 37,
+      "source_image": 7,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/037.png",
+      "reference_sha256": "7e43792e6cf3a3305219823759c19724ac9db9ca978574ef57b29797017feccd",
+      "pose": "三分之二侧",
+      "technique": "duotone",
+      "observed_cues": "鸭舌帽、帽檐弧线、蓝线与黄耳饰",
+      "declared_hex": [
+        "#F5EC0E",
+        "#004FFF",
+        "#C3D6FF",
+        "#CACC4A"
+      ],
+      "sampled_swatch_hex": [
+        "#F5EC0D",
+        "#014FFF",
+        "#C4D6FD",
+        "#C9CC4A"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2750,
+          127,
+          2781
+        ],
+        [
+          143,
+          2750,
+          198,
+          2781
+        ],
+        [
+          214,
+          2750,
+          269,
+          2781
+        ],
+        [
+          285,
+          2750,
+          340,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 38,
+      "source_image": 7,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/038.png",
+      "reference_sha256": "ef1f16739dfe9b35e12f568552de2440257fbd7f05b72f37b40600f00d531405",
+      "pose": "侧面",
+      "technique": "duotone",
+      "observed_cues": "极短发、高领、紫线和荧光绿暗面",
+      "declared_hex": [
+        "#A0D1C3",
+        "#6300F5",
+        "#4BFF00",
+        "#DBFFF5"
+      ],
+      "sampled_swatch_hex": [
+        "#A1D1C3",
+        "#6300F5",
+        "#4BFF01",
+        "#DBFFF5"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2750,
+          511,
+          2781
+        ],
+        [
+          527,
+          2750,
+          582,
+          2781
+        ],
+        [
+          598,
+          2750,
+          653,
+          2781
+        ],
+        [
+          669,
+          2750,
+          724,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 39,
+      "source_image": 7,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/039.png",
+      "reference_sha256": "76b2c4801704e2ba54109d300d877c1af6adce9731450f733ee4c1a18c570357",
+      "pose": "三分之二侧",
+      "technique": "gradient",
+      "observed_cues": "短波波头、耳钉、紫发与青绿衣",
+      "declared_hex": [
+        "#5B39C6",
+        "#B41DFE",
+        "#26DDB0",
+        "#FFCBCB"
+      ],
+      "sampled_swatch_hex": [
+        "#5C39C7",
+        "#B41DFF",
+        "#26DDAF",
+        "#FFCBCB"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2750,
+          895,
+          2781
+        ],
+        [
+          911,
+          2750,
+          966,
+          2781
+        ],
+        [
+          982,
+          2750,
+          1037,
+          2781
+        ],
+        [
+          1053,
+          2750,
+          1108,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 40,
+      "source_image": 7,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/040.png",
+      "reference_sha256": "e1e766b1e9af1283c689dd514ec08953e70cf3ecb6bb71abfb010561e9ae39fd",
+      "pose": "三分之二侧",
+      "technique": "glitch",
+      "observed_cues": "极短黑发、黑白色块、青红窄偏移边",
+      "declared_hex": [
+        "#F92D7E",
+        "#000000",
+        "#01F9F4",
+        "#DAFFFF"
+      ],
+      "sampled_swatch_hex": [
+        "#F92D7D",
+        "#000000",
+        "#02F9F3",
+        "#DBFFFF"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2857,
+          127,
+          2888
+        ],
+        [
+          143,
+          2857,
+          198,
+          2888
+        ],
+        [
+          214,
+          2857,
+          269,
+          2888
+        ],
+        [
+          285,
+          2857,
+          340,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 41,
+      "source_image": 7,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/041.png",
+      "reference_sha256": "db89a8fc81d2f8a10b020b4223c83af3fec5ddebdcc12b99bdab3a212c2202a2",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "长直发、黑轮廓、粉至青色发束渐变",
+      "declared_hex": [
+        "#3BEFE6",
+        "#49316B",
+        "#FC036F",
+        "#000000"
+      ],
+      "sampled_swatch_hex": [
+        "#3AEFE6",
+        "#4A306D",
+        "#FC036E",
+        "#000000"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2857,
+          511,
+          2888
+        ],
+        [
+          527,
+          2857,
+          582,
+          2888
+        ],
+        [
+          598,
+          2857,
+          653,
+          2888
+        ],
+        [
+          669,
+          2857,
+          724,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 42,
+      "source_image": 7,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/042.png",
+      "reference_sha256": "456ef4bfb90a9e3b2b3bf9a2c9fae905a8df7c89620fd999d5a49da8bd42a81d",
+      "pose": "三分之二侧",
+      "technique": "texture",
+      "observed_cues": "短侧分发、格纹外套、棕色同类色",
+      "declared_hex": [
+        "#F1A661",
+        "#F9B46E",
+        "#7C4A1D",
+        "#796004"
+      ],
+      "sampled_swatch_hex": [
+        "#F1A662",
+        "#F9B56F",
+        "#7C4A1D",
+        "#786104"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2857,
+          895,
+          2888
+        ],
+        [
+          911,
+          2857,
+          966,
+          2888
+        ],
+        [
+          982,
+          2857,
+          1037,
+          2888
+        ],
+        [
+          1053,
+          2857,
+          1108,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 43,
+      "source_image": 7,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/043.png",
+      "reference_sha256": "8046962ab294b9521111bbb57b6ff773bc27cb78880c17bad344f1ca697ba3af",
+      "pose": "仰头纯侧面",
+      "technique": "bold",
+      "observed_cues": "浅短发、喉颈与下颌侧影、深绿衣",
+      "declared_hex": [
+        "#2F8761",
+        "#01665E",
+        "#FFCDB2",
+        "#FFECE0"
+      ],
+      "sampled_swatch_hex": [
+        "#2E8861",
+        "#02655F",
+        "#FDCDB2",
+        "#FFEEE2"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2964,
+          127,
+          2995
+        ],
+        [
+          143,
+          2964,
+          198,
+          2995
+        ],
+        [
+          214,
+          2964,
+          269,
+          2995
+        ],
+        [
+          285,
+          2964,
+          340,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": 44,
+      "source_image": 7,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/044.png",
+      "reference_sha256": "a351daaa32ef4aae4fda9f6601f7c3200239f3be3dff4b6582771b75492e7316",
+      "pose": "三分之二侧",
+      "technique": "duotone",
+      "observed_cues": "短中分发、蓝色线条、白色上衣",
+      "declared_hex": [
+        "#FFA29A",
+        "#FFD5B4",
+        "#4D5CE8",
+        "#7988F9"
+      ],
+      "sampled_swatch_hex": [
+        "#FEA298",
+        "#FFD6B4",
+        "#4D5CE9",
+        "#7888F9"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2964,
+          511,
+          2995
+        ],
+        [
+          527,
+          2964,
+          582,
+          2995
+        ],
+        [
+          598,
+          2964,
+          653,
+          2995
+        ],
+        [
+          669,
+          2964,
+          724,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 45,
+      "source_image": 7,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/045.png",
+      "reference_sha256": "b53842b1d0a07f92983370f8441c3ce3fdb58fbae9718754f8bb81a7ac957cbe",
+      "pose": "侧面",
+      "technique": "flat",
+      "observed_cues": "波浪短发、手与手机遮口、蓝衣",
+      "declared_hex": [
+        "#738FD6",
+        "#B40A48",
+        "#2D4571",
+        "#FFEDE6"
+      ],
+      "sampled_swatch_hex": [
+        "#748FD6",
+        "#B30A48",
+        "#2A466F",
+        "#FDEEE8"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2964,
+          895,
+          2995
+        ],
+        [
+          911,
+          2964,
+          966,
+          2995
+        ],
+        [
+          982,
+          2964,
+          1037,
+          2995
+        ],
+        [
+          1053,
+          2964,
+          1108,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": 46,
+      "source_image": 7,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1523,
+        368,
+        1748
+      ],
+      "reference_image": "assets/portraits/046.png",
+      "reference_sha256": "b65373619da7933058a0fd86b3d03618e927cfecabad1647505664bd6eafa11c",
+      "pose": "三分之二侧",
+      "technique": "texture",
+      "observed_cues": "上翘碎发、单侧长耳饰、低对比衣线",
+      "declared_hex": [
+        "#7C977A",
+        "#86CE8A",
+        "#D5A8AC",
+        "#F8EFC2"
+      ],
+      "sampled_swatch_hex": [
+        "#7C977A",
+        "#86CE8B",
+        "#D4A8AC",
+        "#F8EFC2"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3071,
+          127,
+          3102
+        ],
+        [
+          143,
+          3071,
+          198,
+          3102
+        ],
+        [
+          214,
+          3071,
+          269,
+          3102
+        ],
+        [
+          285,
+          3071,
+          340,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 47,
+      "source_image": 7,
+      "source_grid_row": 4,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1523,
+        752,
+        1748
+      ],
+      "reference_image": "assets/portraits/047.png",
+      "reference_sha256": "8dc8023f7b54cfda0664b99c8549cef0cdc33b3d7a38585dd56907bd792276bc",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "圆眼镜、橙黄齐刘海、深绿背景",
+      "declared_hex": [
+        "#034D33",
+        "#FEBD03",
+        "#107B88",
+        "#FF9200"
+      ],
+      "sampled_swatch_hex": [
+        "#034E32",
+        "#FEBD04",
+        "#0F7A88",
+        "#FE9200"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3071,
+          511,
+          3102
+        ],
+        [
+          527,
+          3071,
+          582,
+          3102
+        ],
+        [
+          598,
+          3071,
+          653,
+          3102
+        ],
+        [
+          669,
+          3071,
+          724,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 48,
+      "source_image": 7,
+      "source_grid_row": 4,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1523,
+        1136,
+        1748
+      ],
+      "reference_image": "assets/portraits/048.png",
+      "reference_sha256": "6589c2f0a77f5799bab40e5ae42fb409169252677f6dcb756ead944c7bbc79fe",
+      "pose": "侧面",
+      "technique": "gradient",
+      "observed_cues": "短齐刘海、深绿衣、橙棕背景",
+      "declared_hex": [
+        "#FED6CF",
+        "#DC427F",
+        "#DF8851",
+        "#25422C"
+      ],
+      "sampled_swatch_hex": [
+        "#FFD6D2",
+        "#DB427F",
+        "#DF8851",
+        "#25422D"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3071,
+          895,
+          3102
+        ],
+        [
+          911,
+          3071,
+          966,
+          3102
+        ],
+        [
+          982,
+          3071,
+          1037,
+          3102
+        ],
+        [
+          1053,
+          3071,
+          1108,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        3,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 49,
+      "source_image": 7,
+      "source_grid_row": 5,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1907,
+        368,
+        2132
+      ],
+      "reference_image": "assets/portraits/049.png",
+      "reference_sha256": "00eb324e50eeeaf54ac49e7bd5523029e379d7a60b991f017ae5b8ddece1fd06",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "短侧梳发、荧光黄绿背景与细衣边",
+      "declared_hex": [
+        "#D8FF00",
+        "#545C27",
+        "#7573FB",
+        "#FFC9B3"
+      ],
+      "sampled_swatch_hex": [
+        "#D8FF00",
+        "#545C27",
+        "#7574FB",
+        "#FEC9B2"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3178,
+          127,
+          3209
+        ],
+        [
+          143,
+          3178,
+          198,
+          3209
+        ],
+        [
+          214,
+          3178,
+          269,
+          3209
+        ],
+        [
+          285,
+          3178,
+          340,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 50,
+      "source_image": 7,
+      "source_grid_row": 5,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1907,
+        752,
+        2132
+      ],
+      "reference_image": "assets/portraits/050.png",
+      "reference_sha256": "b7251aae0f0a7e19cd590f002e52a7daed571e1460298981e3a040a8797f74d9",
+      "pose": "三分之二侧",
+      "technique": "gradient",
+      "observed_cues": "低马尾、紫线、荧光色小耳钉",
+      "declared_hex": [
+        "#FFB9FF",
+        "#FE87FB",
+        "#8608DD",
+        "#EFFF8E"
+      ],
+      "sampled_swatch_hex": [
+        "#FFB9FF",
+        "#FE87FB",
+        "#8608DD",
+        "#EFFF8D"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3178,
+          511,
+          3209
+        ],
+        [
+          527,
+          3178,
+          582,
+          3209
+        ],
+        [
+          598,
+          3178,
+          653,
+          3209
+        ],
+        [
+          669,
+          3178,
+          724,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 51,
+      "source_image": 7,
+      "source_grid_row": 5,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1907,
+        1136,
+        2132
+      ],
+      "reference_image": "assets/portraits/051.png",
+      "reference_sha256": "9e6804ddd97f7cb4b884f13577b72e21d95848db1df6a6d5455968388373d3b8",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "偏分浅发、白衬衫、暖橙线",
+      "declared_hex": [
+        "#FF9C00",
+        "#FFF4AD",
+        "#AD430D",
+        "#FF9494"
+      ],
+      "sampled_swatch_hex": [
+        "#FF9B00",
+        "#FEF5AD",
+        "#AD440C",
+        "#FF9594"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3178,
+          895,
+          3209
+        ],
+        [
+          911,
+          3178,
+          966,
+          3209
+        ],
+        [
+          982,
+          3178,
+          1037,
+          3209
+        ],
+        [
+          1053,
+          3178,
+          1108,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 52,
+      "source_image": 7,
+      "source_grid_row": 6,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        2291,
+        368,
+        2516
+      ],
+      "reference_image": "assets/portraits/052.png",
+      "reference_sha256": "8470096588785415342b08b816722590236061c030ab209bec48d9fe09b6a24a",
+      "pose": "三分之二侧",
+      "technique": "gradient",
+      "observed_cues": "短发、背带斜线与条纹内搭",
+      "declared_hex": [
+        "#35BEAB",
+        "#F57A5F",
+        "#007C63",
+        "#612F24"
+      ],
+      "sampled_swatch_hex": [
+        "#35BEAB",
+        "#F57A5F",
+        "#007C62",
+        "#612F24"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3285,
+          127,
+          3316
+        ],
+        [
+          143,
+          3285,
+          198,
+          3316
+        ],
+        [
+          214,
+          3285,
+          269,
+          3316
+        ],
+        [
+          285,
+          3285,
+          340,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 53,
+      "source_image": 7,
+      "source_grid_row": 6,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        2291,
+        752,
+        2516
+      ],
+      "reference_image": "assets/portraits/053.png",
+      "reference_sha256": "617016b94a57606a9c57d7aa8c1675a65a7dedcd67316789f5120c18929c6872",
+      "pose": "倾头",
+      "technique": "flat",
+      "observed_cues": "低马尾、大V领、浅青衣与暗棕背景",
+      "declared_hex": [
+        "#4F3440",
+        "#C1F6E7",
+        "#FFC4C4",
+        "#FFFEAB"
+      ],
+      "sampled_swatch_hex": [
+        "#4F3440",
+        "#C1F6E6",
+        "#FFC5C4",
+        "#FEFEAA"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3285,
+          511,
+          3316
+        ],
+        [
+          527,
+          3285,
+          582,
+          3316
+        ],
+        [
+          598,
+          3285,
+          653,
+          3316
+        ],
+        [
+          669,
+          3285,
+          724,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 54,
+      "source_image": 7,
+      "source_grid_row": 6,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        2291,
+        1136,
+        2516
+      ],
+      "reference_image": "assets/portraits/054.png",
+      "reference_sha256": "7206358cb535c77471aef0341459041f30245200d7b9e694054579d26ffd986f",
+      "pose": "正面",
+      "technique": "duotone",
+      "observed_cues": "中分波波头、黑发、黄肤黄背景",
+      "declared_hex": [
+        "#FFF402",
+        "#FFD902",
+        "#282828",
+        "#0A0A0B"
+      ],
+      "sampled_swatch_hex": [
+        "#FFF402",
+        "#FFD902",
+        "#282828",
+        "#0A0A0A"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3285,
+          895,
+          3316
+        ],
+        [
+          911,
+          3285,
+          966,
+          3316
+        ],
+        [
+          982,
+          3285,
+          1037,
+          3316
+        ],
+        [
+          1053,
+          3285,
+          1108,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 55,
+      "source_image": 8,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/055.png",
+      "reference_sha256": "9df5f0a7f1eff65dc19dec33a68523ec5757ceb01b8bd99596c0c0495335c5e4",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "后梳发、同类青色衣与背景",
+      "declared_hex": [
+        "#3B98A4",
+        "#58C6D1",
+        "#FCBBB8",
+        "#B3EAEF"
+      ],
+      "sampled_swatch_hex": [
+        "#3B98A4",
+        "#58C6D1",
+        "#FCBBB8",
+        "#B3EAEC"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2750,
+          127,
+          2781
+        ],
+        [
+          143,
+          2750,
+          198,
+          2781
+        ],
+        [
+          214,
+          2750,
+          269,
+          2781
+        ],
+        [
+          285,
+          2750,
+          340,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "id": 56,
+      "source_image": 8,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/056.png",
+      "reference_sha256": "abfce7bc1bae827fdcefcd866a56cf8e473b6dbefb36a74562e229cf369538cc",
+      "pose": "回眸",
+      "technique": "flat",
+      "observed_cues": "长直发、深蓝轮廓、少量荧光黄边线",
+      "declared_hex": [
+        "#E4FFF2",
+        "#2A4D81",
+        "#E8FF00",
+        "#A8FFD6"
+      ],
+      "sampled_swatch_hex": [
+        "#E4FFF2",
+        "#2A4D81",
+        "#E8FF00",
+        "#A9FFD7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2750,
+          511,
+          2781
+        ],
+        [
+          527,
+          2750,
+          582,
+          2781
+        ],
+        [
+          598,
+          2750,
+          653,
+          2781
+        ],
+        [
+          669,
+          2750,
+          724,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 57,
+      "source_image": 8,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/057.png",
+      "reference_sha256": "a940ae6b58cf43d73569726b14c53ace002d44dfe6624801f04b6df67b20b1f2",
+      "pose": "正面",
+      "technique": "gradient",
+      "observed_cues": "极短刘海、单侧长耳饰、橄榄绿衣身渐变",
+      "declared_hex": [
+        "#B0DDFF",
+        "#878933",
+        "#484725",
+        "#842C46"
+      ],
+      "sampled_swatch_hex": [
+        "#B1DDFF",
+        "#878A32",
+        "#484725",
+        "#832D45"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2750,
+          895,
+          2781
+        ],
+        [
+          911,
+          2750,
+          966,
+          2781
+        ],
+        [
+          982,
+          2750,
+          1037,
+          2781
+        ],
+        [
+          1053,
+          2750,
+          1108,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 58,
+      "source_image": 8,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/058.png",
+      "reference_sha256": "e05b14c10fb7cd03472c6330f3fa59902d51ff3d5dfc1ca43c515ff8ee2f99bb",
+      "pose": "仰头",
+      "technique": "gradient",
+      "observed_cues": "长直发、手握发束、蓝紫头发与暖红衣",
+      "declared_hex": [
+        "#3A7190",
+        "#EF6960",
+        "#4200FF",
+        "#A0EDFF"
+      ],
+      "sampled_swatch_hex": [
+        "#3C708E",
+        "#EF6A60",
+        "#4200FF",
+        "#A1EEFD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2857,
+          127,
+          2888
+        ],
+        [
+          143,
+          2857,
+          198,
+          2888
+        ],
+        [
+          214,
+          2857,
+          269,
+          2888
+        ],
+        [
+          285,
+          2857,
+          340,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 59,
+      "source_image": 8,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/059.png",
+      "reference_sha256": "93a826d983461161cf4c876cbeec5f0683b322350e52beab6080f506419bbd44",
+      "pose": "正面",
+      "technique": "texture",
+      "observed_cues": "侧分短发、黄色衣服红色重复斜线",
+      "declared_hex": [
+        "#911D22",
+        "#FFFF05",
+        "#FF0F7C",
+        "#FFD7BE"
+      ],
+      "sampled_swatch_hex": [
+        "#C86C2B",
+        "#FFFF05",
+        "#FF0E7B",
+        "#FDD9BE"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2857,
+          511,
+          2888
+        ],
+        [
+          527,
+          2857,
+          582,
+          2888
+        ],
+        [
+          598,
+          2857,
+          653,
+          2888
+        ],
+        [
+          669,
+          2857,
+          724,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        79,
+        0,
+        1,
+        2
+      ],
+      "source_label_discrepancy": "Printed HEX and visible swatch fill disagree materially. Preserve both; use sampled fill when reproducing the visual reference."
+    },
+    {
+      "id": 60,
+      "source_image": 8,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/060.png",
+      "reference_sha256": "561f55c7e501850620e25bcab5a569a58997c88e15c582efb13771a09f9aff38",
+      "pose": "正面",
+      "technique": "bold",
+      "observed_cues": "中分浅发、黑粗轮廓、粉色西装与橙底",
+      "declared_hex": [
+        "#FE6223",
+        "#F92E71",
+        "#000000",
+        "#DB4AA1"
+      ],
+      "sampled_swatch_hex": [
+        "#FC6320",
+        "#F82E72",
+        "#000000",
+        "#DB49A1"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2857,
+          895,
+          2888
+        ],
+        [
+          911,
+          2857,
+          966,
+          2888
+        ],
+        [
+          982,
+          2857,
+          1037,
+          2888
+        ],
+        [
+          1053,
+          2857,
+          1108,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        3,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 61,
+      "source_image": 8,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/061.png",
+      "reference_sha256": "5d4a5f38a8bff4065c33f882fdfd92fbfc3f15f2784bcc4fc246aa10b9effad6",
+      "pose": "仰头侧面",
+      "technique": "gradient",
+      "observed_cues": "长卷发、翻领、暖红与肤色同类色",
+      "declared_hex": [
+        "#FCC8A1",
+        "#FD8576",
+        "#FF1423",
+        "#DC62E7"
+      ],
+      "sampled_swatch_hex": [
+        "#FBC8A0",
+        "#FE8577",
+        "#FF1426",
+        "#DC63E7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2964,
+          127,
+          2995
+        ],
+        [
+          143,
+          2964,
+          198,
+          2995
+        ],
+        [
+          214,
+          2964,
+          269,
+          2995
+        ],
+        [
+          285,
+          2964,
+          340,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "id": 62,
+      "source_image": 8,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/062.png",
+      "reference_sha256": "7fcccb8495ce4e21abf41cc70b4c0d61c5bde3c0247fcf751f00731733913a70",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "遮一眼偏分发、大翻领皮衣、黄细边",
+      "declared_hex": [
+        "#FFBA45",
+        "#443734",
+        "#FFC093",
+        "#3C261F"
+      ],
+      "sampled_swatch_hex": [
+        "#FEBB44",
+        "#423734",
+        "#FFC094",
+        "#3C271E"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2964,
+          511,
+          2995
+        ],
+        [
+          527,
+          2964,
+          582,
+          2995
+        ],
+        [
+          598,
+          2964,
+          653,
+          2995
+        ],
+        [
+          669,
+          2964,
+          724,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 63,
+      "source_image": 8,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/063.png",
+      "reference_sha256": "db31130f088c741f3b9d7ffb12c7270c0bdafcb0e532c2a4313d3b5cc4d3c24d",
+      "pose": "三分之二侧",
+      "technique": "texture",
+      "observed_cues": "短后梳发、高领、细密平行罗纹",
+      "declared_hex": [
+        "#AC97AB",
+        "#519298",
+        "#90B2C4",
+        "#5B4044"
+      ],
+      "sampled_swatch_hex": [
+        "#AB98AA",
+        "#519297",
+        "#92B3C5",
+        "#5B3F44"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2964,
+          895,
+          2995
+        ],
+        [
+          911,
+          2964,
+          966,
+          2995
+        ],
+        [
+          982,
+          2964,
+          1037,
+          2995
+        ],
+        [
+          1053,
+          2964,
+          1108,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 64,
+      "source_image": 8,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1523,
+        368,
+        1748
+      ],
+      "reference_image": "assets/portraits/064.png",
+      "reference_sha256": "fb27dc828212c3794675ee4983b98adaabf99ccc74578332ce6493b7566d0793",
+      "pose": "回眸",
+      "technique": "gradient",
+      "observed_cues": "长卷发、露肩、青底与紫橙渐变发",
+      "declared_hex": [
+        "#FF6826",
+        "#00DED6",
+        "#3B01F4",
+        "#7B61FE"
+      ],
+      "sampled_swatch_hex": [
+        "#FF6825",
+        "#00DED5",
+        "#3B02F4",
+        "#7A61FD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3071,
+          127,
+          3102
+        ],
+        [
+          143,
+          3071,
+          198,
+          3102
+        ],
+        [
+          214,
+          3071,
+          269,
+          3102
+        ],
+        [
+          285,
+          3071,
+          340,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 65,
+      "source_image": 8,
+      "source_grid_row": 4,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1523,
+        752,
+        1748
+      ],
+      "reference_image": "assets/portraits/065.png",
+      "reference_sha256": "2667a2833d11732f6d191b2aabd9a7d5bbf7584ffabc514dcf0aa246de827d28",
+      "pose": "三分之二侧",
+      "technique": "texture",
+      "observed_cues": "极短发、手贴耳、青色衬衫黑圆点",
+      "declared_hex": [
+        "#FFCDCB",
+        "#01B5B9",
+        "#FFC001",
+        "#FFA4A0"
+      ],
+      "sampled_swatch_hex": [
+        "#FFCDCC",
+        "#02B5B9",
+        "#FEC001",
+        "#FDA5A1"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3071,
+          511,
+          3102
+        ],
+        [
+          527,
+          3071,
+          582,
+          3102
+        ],
+        [
+          598,
+          3071,
+          653,
+          3102
+        ],
+        [
+          669,
+          3071,
+          724,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 66,
+      "source_image": 8,
+      "source_grid_row": 4,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1523,
+        1136,
+        1748
+      ],
+      "reference_image": "assets/portraits/066.png",
+      "reference_sha256": "09d350c3797e0b282b44e56c61c38b78b02934f1b65fdf54bcca4eddfdd4646e",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "短发、工装翻领、绿底与黄绿肤面",
+      "declared_hex": [
+        "#4E8367",
+        "#FFF266",
+        "#245036",
+        "#C7DA7F"
+      ],
+      "sampled_swatch_hex": [
+        "#4E8268",
+        "#FFF267",
+        "#235136",
+        "#C7DB80"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3071,
+          895,
+          3102
+        ],
+        [
+          911,
+          3071,
+          966,
+          3102
+        ],
+        [
+          982,
+          3071,
+          1037,
+          3102
+        ],
+        [
+          1053,
+          3071,
+          1108,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 67,
+      "source_image": 8,
+      "source_grid_row": 5,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1907,
+        368,
+        2132
+      ],
+      "reference_image": "assets/portraits/067.png",
+      "reference_sha256": "f2ca01f9d51d3676ce8f21526486c1f4ff2a15ff02128fe0fc3e0e877bcab70a",
+      "pose": "正面",
+      "technique": "texture",
+      "observed_cues": "短波浪发、露肩上衣、横向细纹",
+      "declared_hex": [
+        "#0C5A3A",
+        "#DFCF51",
+        "#1FC279",
+        "#004F2F"
+      ],
+      "sampled_swatch_hex": [
+        "#0C5A39",
+        "#DFD051",
+        "#1EC379",
+        "#004F2F"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3178,
+          127,
+          3209
+        ],
+        [
+          143,
+          3178,
+          198,
+          3209
+        ],
+        [
+          214,
+          3178,
+          269,
+          3209
+        ],
+        [
+          285,
+          3178,
+          340,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 68,
+      "source_image": 8,
+      "source_grid_row": 5,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1907,
+        752,
+        2132
+      ],
+      "reference_image": "assets/portraits/068.png",
+      "reference_sha256": "cf6d534130349722c83c7afa5ca0065edd1371a360c92544cee055ac96e43352",
+      "pose": "侧面",
+      "technique": "flat",
+      "observed_cues": "帽子、棕色线条、粉红外套",
+      "declared_hex": [
+        "#FF6768",
+        "#933802",
+        "#669ACC",
+        "#FFD7C0"
+      ],
+      "sampled_swatch_hex": [
+        "#FF6769",
+        "#933704",
+        "#659BCD",
+        "#FFD8C0"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3178,
+          511,
+          3209
+        ],
+        [
+          527,
+          3178,
+          582,
+          3209
+        ],
+        [
+          598,
+          3178,
+          653,
+          3209
+        ],
+        [
+          669,
+          3178,
+          724,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 69,
+      "source_image": 8,
+      "source_grid_row": 5,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1907,
+        1136,
+        2132
+      ],
+      "reference_image": "assets/portraits/069.png",
+      "reference_sha256": "fb7a69ad209e00aebe930218ba9a090f563532f4d74acfa7956291c3828d6242",
+      "pose": "侧面",
+      "technique": "gradient",
+      "observed_cues": "后梳短发、蓝色发丝点线、暖棕圆领",
+      "declared_hex": [
+        "#933638",
+        "#10509B",
+        "#E29A7E",
+        "#10ABC1"
+      ],
+      "sampled_swatch_hex": [
+        "#933537",
+        "#10519B",
+        "#E39A7E",
+        "#0FABC1"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3178,
+          895,
+          3209
+        ],
+        [
+          911,
+          3178,
+          966,
+          3209
+        ],
+        [
+          982,
+          3178,
+          1037,
+          3209
+        ],
+        [
+          1053,
+          3178,
+          1108,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 70,
+      "source_image": 8,
+      "source_grid_row": 6,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        2291,
+        368,
+        2516
+      ],
+      "reference_image": "assets/portraits/070.png",
+      "reference_sha256": "8e90e5b248583ff8e299aa1ad9e9685a3ad2349e48c3a7b664474d50dfebbdc6",
+      "pose": "纯侧面",
+      "technique": "flat",
+      "observed_cues": "短侧铲发型、白衬衫、蓝轮廓",
+      "declared_hex": [
+        "#3F40F2",
+        "#94A4C6",
+        "#04266E",
+        "#F97FB5"
+      ],
+      "sampled_swatch_hex": [
+        "#3F40F1",
+        "#95A4C5",
+        "#04266F",
+        "#FA7FB6"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3285,
+          127,
+          3316
+        ],
+        [
+          143,
+          3285,
+          198,
+          3316
+        ],
+        [
+          214,
+          3285,
+          269,
+          3316
+        ],
+        [
+          285,
+          3285,
+          340,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 71,
+      "source_image": 8,
+      "source_grid_row": 6,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        2291,
+        752,
+        2516
+      ],
+      "reference_image": "assets/portraits/071.png",
+      "reference_sha256": "774d1c2e4f2622e53f8b86d2dac9545f928204727bea5e82eabc0860845d02b6",
+      "pose": "俯头闭眼",
+      "technique": "flat",
+      "observed_cues": "短橙发、手扶鬓角、青绿外套",
+      "declared_hex": [
+        "#05F2BD",
+        "#015F4B",
+        "#FFA065",
+        "#FFD0D0"
+      ],
+      "sampled_swatch_hex": [
+        "#06F2BE",
+        "#035F49",
+        "#FFA065",
+        "#FFD0D0"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3285,
+          511,
+          3316
+        ],
+        [
+          527,
+          3285,
+          582,
+          3316
+        ],
+        [
+          598,
+          3285,
+          653,
+          3316
+        ],
+        [
+          669,
+          3285,
+          724,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 72,
+      "source_image": 8,
+      "source_grid_row": 6,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        2291,
+        1136,
+        2516
+      ],
+      "reference_image": "assets/portraits/072.png",
+      "reference_sha256": "68822356f8c2a80a83353e161fb2c4faa19289d1258e0e00ab9fbf2e5bd2355a",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "短卷发、棕线、米色西装",
+      "declared_hex": [
+        "#E7D1BA",
+        "#C8A391",
+        "#5A3723",
+        "#3B6A7C"
+      ],
+      "sampled_swatch_hex": [
+        "#E7D1BB",
+        "#C7A492",
+        "#5A3723",
+        "#3B6A7D"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3285,
+          895,
+          3316
+        ],
+        [
+          911,
+          3285,
+          966,
+          3316
+        ],
+        [
+          982,
+          3285,
+          1037,
+          3316
+        ],
+        [
+          1053,
+          3285,
+          1108,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 73,
+      "source_image": 9,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/073.png",
+      "reference_sha256": "d8c5f5f801e07fe158ac23db49a6bfd7c4351625a3234087c586f66c0d5e6510",
+      "pose": "回眸",
+      "technique": "texture",
+      "observed_cues": "长直粉发、长串珠耳饰、紫衣网点",
+      "declared_hex": [
+        "#FE90B3",
+        "#9C25FC",
+        "#FE0C6A",
+        "#FFE9F0"
+      ],
+      "sampled_swatch_hex": [
+        "#FC90B2",
+        "#9C24FC",
+        "#FF0C6A",
+        "#FFEAF1"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2750,
+          127,
+          2781
+        ],
+        [
+          143,
+          2750,
+          198,
+          2781
+        ],
+        [
+          214,
+          2750,
+          269,
+          2781
+        ],
+        [
+          285,
+          2750,
+          340,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 74,
+      "source_image": 9,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/074.png",
+      "reference_sha256": "ee69982bdffbc93babed17fa7c13a131ac6f26d0b1370849619d950761b816e8",
+      "pose": "倾头",
+      "technique": "gradient",
+      "observed_cues": "短刺发、黄衬衫、深青背景渐变",
+      "declared_hex": [
+        "#FFF91E",
+        "#041054",
+        "#39A2B8",
+        "#155864"
+      ],
+      "sampled_swatch_hex": [
+        "#FDFA1C",
+        "#040F54",
+        "#38A2B7",
+        "#165864"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2750,
+          511,
+          2781
+        ],
+        [
+          527,
+          2750,
+          582,
+          2781
+        ],
+        [
+          598,
+          2750,
+          653,
+          2781
+        ],
+        [
+          669,
+          2750,
+          724,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 75,
+      "source_image": 9,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/075.png",
+      "reference_sha256": "cf98b01e2b39d7e2f0967a47fca4899e70892b1a27a40eeb9be53475791a3efc",
+      "pose": "回眸",
+      "technique": "texture",
+      "observed_cues": "低马尾、格纹衣与露肩结构",
+      "declared_hex": [
+        "#FF90B4",
+        "#7C4FD8",
+        "#FFA188",
+        "#FF7D61"
+      ],
+      "sampled_swatch_hex": [
+        "#FD91B4",
+        "#7C4FD9",
+        "#FFA188",
+        "#FF7D62"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2750,
+          895,
+          2781
+        ],
+        [
+          911,
+          2750,
+          966,
+          2781
+        ],
+        [
+          982,
+          2750,
+          1037,
+          2781
+        ],
+        [
+          1053,
+          2750,
+          1108,
+          2781
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 76,
+      "source_image": 9,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/076.png",
+      "reference_sha256": "7670b712821c61dad0be9387ba7631956064ee8fc3002c3dd62f63548179fbee",
+      "pose": "仰头侧面",
+      "technique": "texture",
+      "observed_cues": "后梳发、外套密线排线、橙底",
+      "declared_hex": [
+        "#FF7A20",
+        "#FFBBAB",
+        "#EE410C",
+        "#F6D809"
+      ],
+      "sampled_swatch_hex": [
+        "#FF7A1E",
+        "#FFBCAC",
+        "#EE410C",
+        "#F6D80A"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2857,
+          127,
+          2888
+        ],
+        [
+          143,
+          2857,
+          198,
+          2888
+        ],
+        [
+          214,
+          2857,
+          269,
+          2888
+        ],
+        [
+          285,
+          2857,
+          340,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 77,
+      "source_image": 9,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/077.png",
+      "reference_sha256": "76d8fe89a6bc5d883c81026998ccbad3eb0888d545e1b912f32d998407c644b7",
+      "pose": "三分之二侧",
+      "technique": "bold",
+      "observed_cues": "短黑发、自拍手机与手遮挡、黑白衣",
+      "declared_hex": [
+        "#30C394",
+        "#FDCCD6",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "sampled_swatch_hex": [
+        "#2FC494",
+        "#FECCD6",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2857,
+          511,
+          2888
+        ],
+        [
+          527,
+          2857,
+          582,
+          2888
+        ],
+        [
+          598,
+          2857,
+          653,
+          2888
+        ],
+        [
+          669,
+          2857,
+          724,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 78,
+      "source_image": 9,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/078.png",
+      "reference_sha256": "f127d75ec2fd82fbebfc91092b62a72b6baf6945df77502bba57906fc124a391",
+      "pose": "三分之二侧",
+      "technique": "duotone",
+      "observed_cues": "圆眼镜、短卷发、青色单色线与块",
+      "declared_hex": [
+        "#CCF3F1",
+        "#01C4B9",
+        "#00847D",
+        "#F9C3D2"
+      ],
+      "sampled_swatch_hex": [
+        "#CDF4F0",
+        "#01C4B9",
+        "#01847C",
+        "#FAC3D3"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2857,
+          895,
+          2888
+        ],
+        [
+          911,
+          2857,
+          966,
+          2888
+        ],
+        [
+          982,
+          2857,
+          1037,
+          2888
+        ],
+        [
+          1053,
+          2857,
+          1108,
+          2888
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 79,
+      "source_image": 9,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/079.png",
+      "reference_sha256": "b422544c5b4fa622f52ed5d7d49cd069d28dfa22b0e3063312f8c44df1cc0d10",
+      "pose": "回眸",
+      "technique": "duotone",
+      "observed_cues": "长发、耳饰、绿色线条和浅粉负形",
+      "declared_hex": [
+        "#F6D2DE",
+        "#4DAF64",
+        "#FFCEDA",
+        "#A9F2EA"
+      ],
+      "sampled_swatch_hex": [
+        "#F4D2DD",
+        "#4DAF65",
+        "#FECFDA",
+        "#A9F1E9"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2964,
+          127,
+          2995
+        ],
+        [
+          143,
+          2964,
+          198,
+          2995
+        ],
+        [
+          214,
+          2964,
+          269,
+          2995
+        ],
+        [
+          285,
+          2964,
+          340,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 80,
+      "source_image": 9,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/080.png",
+      "reference_sha256": "84faebd7bc67eab661c09524d691ad3dbfdcabe3d477462bb1700111245b554d",
+      "pose": "俯头",
+      "technique": "gradient",
+      "observed_cues": "后梳发、荧光黄衣、蓝色背景",
+      "declared_hex": [
+        "#309DE8",
+        "#D8FF00",
+        "#FA6202",
+        "#153F4E"
+      ],
+      "sampled_swatch_hex": [
+        "#309DE8",
+        "#D8FF00",
+        "#FC6303",
+        "#14404F"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2964,
+          511,
+          2995
+        ],
+        [
+          527,
+          2964,
+          582,
+          2995
+        ],
+        [
+          598,
+          2964,
+          653,
+          2995
+        ],
+        [
+          669,
+          2964,
+          724,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 81,
+      "source_image": 9,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/081.png",
+      "reference_sha256": "541813475e084f1f1737660ebfa909391377c8481d23c41768e9282c918eed3d",
+      "pose": "三分之二侧",
+      "technique": "duotone",
+      "observed_cues": "中分波浪发、暖橙同色系、少量白衣领",
+      "declared_hex": [
+        "#FD8F00",
+        "#C83900",
+        "#FFC788",
+        "#FF9965"
+      ],
+      "sampled_swatch_hex": [
+        "#FC8F00",
+        "#C83900",
+        "#FFC788",
+        "#FF9A63"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2964,
+          895,
+          2995
+        ],
+        [
+          911,
+          2964,
+          966,
+          2995
+        ],
+        [
+          982,
+          2964,
+          1037,
+          2995
+        ],
+        [
+          1053,
+          2964,
+          1108,
+          2995
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 82,
+      "source_image": 9,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1523,
+        368,
+        1748
+      ],
+      "reference_image": "assets/portraits/082.png",
+      "reference_sha256": "78c510aafb9548d575c9b08b9dd8d38cf0b335825ddae571a70376acc98d6fc7",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "大兜帽、黑袖、棕色轮廓与暖白肤面",
+      "declared_hex": [
+        "#000000",
+        "#C9A390",
+        "#F4C0A3",
+        "#FFDECD"
+      ],
+      "sampled_swatch_hex": [
+        "#000000",
+        "#C9A392",
+        "#F5C0A5",
+        "#FFDFCC"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3071,
+          127,
+          3102
+        ],
+        [
+          143,
+          3071,
+          198,
+          3102
+        ],
+        [
+          214,
+          3071,
+          269,
+          3102
+        ],
+        [
+          285,
+          3071,
+          340,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 83,
+      "source_image": 9,
+      "source_grid_row": 4,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1523,
+        752,
+        1748
+      ],
+      "reference_image": "assets/portraits/083.png",
+      "reference_sha256": "76ba5965171f7b5bbc6c983e5ba454d89d0f196143bd883eddad88dc6a583f14",
+      "pose": "倾头",
+      "technique": "flat",
+      "observed_cues": "短侧分发、单侧长耳饰、浅蓝衣与背景",
+      "declared_hex": [
+        "#C5D8E1",
+        "#337389",
+        "#95B8CB",
+        "#FFAE93"
+      ],
+      "sampled_swatch_hex": [
+        "#C6D8E2",
+        "#337489",
+        "#95B8CC",
+        "#FFAE93"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3071,
+          511,
+          3102
+        ],
+        [
+          527,
+          3071,
+          582,
+          3102
+        ],
+        [
+          598,
+          3071,
+          653,
+          3102
+        ],
+        [
+          669,
+          3071,
+          724,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "id": 84,
+      "source_image": 9,
+      "source_grid_row": 4,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1523,
+        1136,
+        1748
+      ],
+      "reference_image": "assets/portraits/084.png",
+      "reference_sha256": "6b36db2fb5cd700ab565b8455c4321e1a2869297049777a22848ae8b33af722e",
+      "pose": "正面仰视",
+      "technique": "duotone",
+      "observed_cues": "短发、双手触领、橙黄块与黑轮廓",
+      "declared_hex": [
+        "#FF6703",
+        "#FFEE00",
+        "#911C22",
+        "#FF1E00"
+      ],
+      "sampled_swatch_hex": [
+        "#FF6702",
+        "#FFEE01",
+        "#911C22",
+        "#FF1E02"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3071,
+          895,
+          3102
+        ],
+        [
+          911,
+          3071,
+          966,
+          3102
+        ],
+        [
+          982,
+          3071,
+          1037,
+          3102
+        ],
+        [
+          1053,
+          3071,
+          1108,
+          3102
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 85,
+      "source_image": 9,
+      "source_grid_row": 5,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1907,
+        368,
+        2132
+      ],
+      "reference_image": "assets/portraits/085.png",
+      "reference_sha256": "3c351c353535e064f313363c1ca74265fcf3d5ce190f93077e272ebd529e86cc",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "短发、蓝色皮肤暗面、白T恤",
+      "declared_hex": [
+        "#E68960",
+        "#124874",
+        "#A4CCEE",
+        "#609AC7"
+      ],
+      "sampled_swatch_hex": [
+        "#E78960",
+        "#114873",
+        "#A4CCEE",
+        "#609BC7"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3178,
+          127,
+          3209
+        ],
+        [
+          143,
+          3178,
+          198,
+          3209
+        ],
+        [
+          214,
+          3178,
+          269,
+          3209
+        ],
+        [
+          285,
+          3178,
+          340,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 86,
+      "source_image": 9,
+      "source_grid_row": 5,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1907,
+        752,
+        2132
+      ],
+      "reference_image": "assets/portraits/086.png",
+      "reference_sha256": "91238337b7454447024c14f5b197571e4e727eb58f5d26a9d728ce5890838692",
+      "pose": "侧面",
+      "technique": "duotone",
+      "observed_cues": "齐刘海、高领遮下巴、暖棕线与留白",
+      "declared_hex": [
+        "#DB8F4D",
+        "#9E5F40",
+        "#FFFFFF",
+        "#FDE2D1"
+      ],
+      "sampled_swatch_hex": [
+        "#DB8F4E",
+        "#9E5F40",
+        "#FFFFFF",
+        "#FCE2CF"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3178,
+          511,
+          3209
+        ],
+        [
+          527,
+          3178,
+          582,
+          3209
+        ],
+        [
+          598,
+          3178,
+          653,
+          3209
+        ],
+        [
+          669,
+          3178,
+          724,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 87,
+      "source_image": 9,
+      "source_grid_row": 5,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1907,
+        1136,
+        2132
+      ],
+      "reference_image": "assets/portraits/087.png",
+      "reference_sha256": "9dcc9e6126ab6258501ea22177b2dfcaea5d98df328c809ccbf2be601f368b97",
+      "pose": "倾头",
+      "technique": "cartoon",
+      "observed_cues": "圆大眼镜、蘑菇头、红色粗线",
+      "declared_hex": [
+        "#01FFD1",
+        "#36DCC0",
+        "#FDCAD0",
+        "#A07555"
+      ],
+      "sampled_swatch_hex": [
+        "#00FFD0",
+        "#36DDC0",
+        "#FDCAD0",
+        "#9F7555"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3178,
+          895,
+          3209
+        ],
+        [
+          911,
+          3178,
+          966,
+          3209
+        ],
+        [
+          982,
+          3178,
+          1037,
+          3209
+        ],
+        [
+          1053,
+          3178,
+          1108,
+          3209
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 88,
+      "source_image": 9,
+      "source_grid_row": 6,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        2291,
+        368,
+        2516
+      ],
+      "reference_image": "assets/portraits/088.png",
+      "reference_sha256": "b5892d821211fc578f962d748ea5c6f730765f554c64d65420618b6394ec6ebe",
+      "pose": "正面",
+      "technique": "flat",
+      "observed_cues": "长发、手持心形道具、黄色衬衫",
+      "declared_hex": [
+        "#FF5221",
+        "#7C5D65",
+        "#FFC36B",
+        "#542A33"
+      ],
+      "sampled_swatch_hex": [
+        "#FF5322",
+        "#7C5D66",
+        "#FFC46B",
+        "#562B35"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          3285,
+          127,
+          3316
+        ],
+        [
+          143,
+          3285,
+          198,
+          3316
+        ],
+        [
+          214,
+          3285,
+          269,
+          3316
+        ],
+        [
+          285,
+          3285,
+          340,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 89,
+      "source_image": 9,
+      "source_grid_row": 6,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        2291,
+        752,
+        2516
+      ],
+      "reference_image": "assets/portraits/089.png",
+      "reference_sha256": "c3ed11203e06c13a925a402d1611d9f41abb2556ba1932dce468e1fa7a173e45",
+      "pose": "侧面",
+      "technique": "flat",
+      "observed_cues": "后梳短发、黄衣领、暗红背景",
+      "declared_hex": [
+        "#B13D3E",
+        "#F6D006",
+        "#613D27",
+        "#F0D7AE"
+      ],
+      "sampled_swatch_hex": [
+        "#B13D3D",
+        "#F6D208",
+        "#623F29",
+        "#F0D7AD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          3285,
+          511,
+          3316
+        ],
+        [
+          527,
+          3285,
+          582,
+          3316
+        ],
+        [
+          598,
+          3285,
+          653,
+          3316
+        ],
+        [
+          669,
+          3285,
+          724,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 90,
+      "source_image": 9,
+      "source_grid_row": 6,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        2291,
+        1136,
+        2516
+      ],
+      "reference_image": "assets/portraits/090.png",
+      "reference_sha256": "4eb09748421a8ae6b228e6746fadb01c9b8d191dd7fde8850e83762d3f432ff1",
+      "pose": "三分之二侧",
+      "technique": "gradient",
+      "observed_cues": "短波波头、红黄发渐变、绿衣",
+      "declared_hex": [
+        "#FECFD8",
+        "#43C694",
+        "#FF4D8D",
+        "#FFC842"
+      ],
+      "sampled_swatch_hex": [
+        "#FECFD8",
+        "#44C794",
+        "#FF4E8F",
+        "#FEC942"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          3285,
+          895,
+          3316
+        ],
+        [
+          911,
+          3285,
+          966,
+          3316
+        ],
+        [
+          982,
+          3285,
+          1037,
+          3316
+        ],
+        [
+          1053,
+          3285,
+          1108,
+          3316
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 91,
+      "source_image": 10,
+      "source_grid_row": 1,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        371,
+        368,
+        596
+      ],
+      "reference_image": "assets/portraits/091.png",
+      "reference_sha256": "cbf5457f0d9957afa728d6d7fb475c23c1d23ea75c5eff3a9fc9e250ffe11553",
+      "pose": "正面",
+      "technique": "cartoon",
+      "observed_cues": "极短发、圆点五官、白圆领",
+      "declared_hex": [
+        "#F6AFB5",
+        "#E76162",
+        "#112256",
+        "#273D83"
+      ],
+      "sampled_swatch_hex": [
+        "#F6AFB5",
+        "#E86161",
+        "#112257",
+        "#273E83"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          1966,
+          127,
+          1997
+        ],
+        [
+          143,
+          1966,
+          198,
+          1997
+        ],
+        [
+          214,
+          1966,
+          269,
+          1997
+        ],
+        [
+          285,
+          1966,
+          340,
+          1997
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 92,
+      "source_image": 10,
+      "source_grid_row": 1,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        371,
+        752,
+        596
+      ],
+      "reference_image": "assets/portraits/092.png",
+      "reference_sha256": "4dd8e6ae068743c2f4aef8b8c0e80eeadb2916b21b460f08066c1be35ca43b76",
+      "pose": "三分之二侧",
+      "technique": "cartoon",
+      "observed_cues": "连帽外套、蓝色粗轮廓、粉色脸",
+      "declared_hex": [
+        "#5292CF",
+        "#0A629F",
+        "#F6BED7",
+        "#EE9EBE"
+      ],
+      "sampled_swatch_hex": [
+        "#5392CF",
+        "#0B62A0",
+        "#F6BED8",
+        "#EE9EBD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          1966,
+          511,
+          1997
+        ],
+        [
+          527,
+          1966,
+          582,
+          1997
+        ],
+        [
+          598,
+          1966,
+          653,
+          1997
+        ],
+        [
+          669,
+          1966,
+          724,
+          1997
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 93,
+      "source_image": 10,
+      "source_grid_row": 1,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        371,
+        1136,
+        596
+      ],
+      "reference_image": "assets/portraits/093.png",
+      "reference_sha256": "fb74273e1a7a53924739bf81c20f3ef62b9b890ba439cdf474854255591d13ad",
+      "pose": "正面",
+      "technique": "cartoon",
+      "observed_cues": "头套造型、短刘海、简化微笑",
+      "declared_hex": [
+        "#0B7048",
+        "#FFF0C0",
+        "#2F4D37",
+        "#FABDAC"
+      ],
+      "sampled_swatch_hex": [
+        "#0A7047",
+        "#FFF0C0",
+        "#2E4D37",
+        "#FABCAD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          1966,
+          895,
+          1997
+        ],
+        [
+          911,
+          1966,
+          966,
+          1997
+        ],
+        [
+          982,
+          1966,
+          1037,
+          1997
+        ],
+        [
+          1053,
+          1966,
+          1108,
+          1997
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 94,
+      "source_image": 10,
+      "source_grid_row": 2,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        755,
+        368,
+        980
+      ],
+      "reference_image": "assets/portraits/094.png",
+      "reference_sha256": "3a28f3f84315cc5d39931b4b83fc08be96b782388ad4961ffaddcd6377f30f5d",
+      "pose": "正面",
+      "technique": "cartoon",
+      "observed_cues": "双侧扎发、粉色粗线、留白面部",
+      "declared_hex": [
+        "#C1E3EE",
+        "#7CCDDE",
+        "#F130C7",
+        "#F1F4B3"
+      ],
+      "sampled_swatch_hex": [
+        "#C0E3EE",
+        "#7CCDDF",
+        "#F230C8",
+        "#F1F5B4"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2073,
+          127,
+          2104
+        ],
+        [
+          143,
+          2073,
+          198,
+          2104
+        ],
+        [
+          214,
+          2073,
+          269,
+          2104
+        ],
+        [
+          285,
+          2073,
+          340,
+          2104
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 95,
+      "source_image": 10,
+      "source_grid_row": 2,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        755,
+        752,
+        980
+      ],
+      "reference_image": "assets/portraits/095.png",
+      "reference_sha256": "6923f00443d69ad8677a87ea5f6822f17ecdb12a720ffb002097d279ab019026",
+      "pose": "正面",
+      "technique": "cartoon",
+      "observed_cues": "短发、粗蓝轮廓、青绿圆领",
+      "declared_hex": [
+        "#0135FF",
+        "#FFEE00",
+        "#FF50A3",
+        "#1F2456"
+      ],
+      "sampled_swatch_hex": [
+        "#0235FF",
+        "#FF50A4",
+        "#00FFF2",
+        "#1F2557"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2073,
+          511,
+          2104
+        ],
+        [
+          527,
+          2073,
+          582,
+          2104
+        ],
+        [
+          598,
+          2073,
+          653,
+          2104
+        ],
+        [
+          669,
+          2073,
+          724,
+          2104
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        164,
+        255,
+        1
+      ],
+      "source_label_discrepancy": "Printed HEX and visible swatch fill disagree materially. Preserve both; use sampled fill when reproducing the visual reference."
+    },
+    {
+      "id": 96,
+      "source_image": 10,
+      "source_grid_row": 2,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        755,
+        1136,
+        980
+      ],
+      "reference_image": "assets/portraits/096.png",
+      "reference_sha256": "f048543d90d1a195839f4f59af05e628acf149cf0d6a1ee646d2917db3de9847",
+      "pose": "倾头侧面",
+      "technique": "gradient",
+      "observed_cues": "橙色偏分发、蓝紫渐变外套",
+      "declared_hex": [
+        "#5B78D8",
+        "#F58428",
+        "#FFABAB",
+        "#D08FFE"
+      ],
+      "sampled_swatch_hex": [
+        "#5A78DB",
+        "#F48428",
+        "#FFABAD",
+        "#CF8FFD"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2073,
+          895,
+          2104
+        ],
+        [
+          911,
+          2073,
+          966,
+          2104
+        ],
+        [
+          982,
+          2073,
+          1037,
+          2104
+        ],
+        [
+          1053,
+          2073,
+          1108,
+          2104
+        ]
+      ],
+      "max_channel_deltas": [
+        3,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 97,
+      "source_image": 10,
+      "source_grid_row": 3,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1139,
+        368,
+        1364
+      ],
+      "reference_image": "assets/portraits/097.png",
+      "reference_sha256": "de23a679170509a5317c8fcc545dea1fc1b3df0c83dd4e78fcbb6a155ed4bf13",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "圆弧刘海、深蓝衣、红背景",
+      "declared_hex": [
+        "#EA4E76",
+        "#FF80A1",
+        "#2E3296",
+        "#060A29"
+      ],
+      "sampled_swatch_hex": [
+        "#E95176",
+        "#FF80A2",
+        "#2E3498",
+        "#080A27"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2180,
+          127,
+          2211
+        ],
+        [
+          143,
+          2180,
+          198,
+          2211
+        ],
+        [
+          214,
+          2180,
+          269,
+          2211
+        ],
+        [
+          285,
+          2180,
+          340,
+          2211
+        ]
+      ],
+      "max_channel_deltas": [
+        3,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": 98,
+      "source_image": 10,
+      "source_grid_row": 3,
+      "source_grid_column": 2,
+      "crop_box_xyxy": [
+        527,
+        1139,
+        752,
+        1364
+      ],
+      "reference_image": "assets/portraits/098.png",
+      "reference_sha256": "86e5e0243132fd155aa0712b1adc9b0e067294205e5156a2d8fccc29504a0cdc",
+      "pose": "三分之二侧",
+      "technique": "flat",
+      "observed_cues": "短分缕发、外套大翻领、浅蓝背景",
+      "declared_hex": [
+        "#C7ECFE",
+        "#60ADD7",
+        "#2C4A7F",
+        "#FCAE99"
+      ],
+      "sampled_swatch_hex": [
+        "#C8ECFD",
+        "#5FB0D7",
+        "#2D4B81",
+        "#FFAE97"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          456,
+          2180,
+          511,
+          2211
+        ],
+        [
+          527,
+          2180,
+          582,
+          2211
+        ],
+        [
+          598,
+          2180,
+          653,
+          2211
+        ],
+        [
+          669,
+          2180,
+          724,
+          2211
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        3,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 99,
+      "source_image": 10,
+      "source_grid_row": 3,
+      "source_grid_column": 3,
+      "crop_box_xyxy": [
+        911,
+        1139,
+        1136,
+        1364
+      ],
+      "reference_image": "assets/portraits/099.png",
+      "reference_sha256": "1a61585fffff0b9b51bfda589519bb610311e88038e885bb26498da30232dc6f",
+      "pose": "仰头侧面",
+      "technique": "flat",
+      "observed_cues": "短卷发、手触领、黄色发与深青衣",
+      "declared_hex": [
+        "#023D3C",
+        "#0BB2AC",
+        "#F58F7C",
+        "#FFB72C"
+      ],
+      "sampled_swatch_hex": [
+        "#033E3C",
+        "#0CB1AB",
+        "#F7907C",
+        "#FFB729"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          840,
+          2180,
+          895,
+          2211
+        ],
+        [
+          911,
+          2180,
+          966,
+          2211
+        ],
+        [
+          982,
+          2180,
+          1037,
+          2211
+        ],
+        [
+          1053,
+          2180,
+          1108,
+          2211
+        ]
+      ],
+      "max_channel_deltas": [
+        1,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 100,
+      "source_image": 10,
+      "source_grid_row": 4,
+      "source_grid_column": 1,
+      "crop_box_xyxy": [
+        143,
+        1511,
+        368,
+        1736
+      ],
+      "reference_image": "assets/portraits/100.png",
+      "reference_sha256": "dacd12fbd6e517855d3dd1efcdad908dc12a0c8fae29622d8b88f7607e1b5c02",
+      "pose": "正面",
+      "technique": "duotone",
+      "observed_cues": "短后梳发、手抓围巾、暖橙红同色系",
+      "declared_hex": [
+        "#E26B36",
+        "#EE5D44",
+        "#C4321E",
+        "#FFB079"
+      ],
+      "sampled_swatch_hex": [
+        "#E26B36",
+        "#EE5E43",
+        "#C5321D",
+        "#FFB079"
+      ],
+      "sample_boxes_xyxy": [
+        [
+          72,
+          2287,
+          127,
+          2318
+        ],
+        [
+          143,
+          2287,
+          198,
+          2318
+        ],
+        [
+          214,
+          2287,
+          269,
+          2318
+        ],
+        [
+          285,
+          2287,
+          340,
+          2318
+        ]
+      ],
+      "max_channel_deltas": [
+        0,
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

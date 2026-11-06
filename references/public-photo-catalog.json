@@ -1,0 +1,1368 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-11-06",
+  "purpose": "按用户提供姓名建立公开照片造型参考；未标注插图不进行人脸身份识别。",
+  "case_levels": {
+    "photo_only": "有姓名出处的照片，插图编号未确认",
+    "comparison_reference": "人物对应有文字依据，照片只是近似参考",
+    "author_source_pair": "作者明确给出创作原照，本轮未取得此级别"
+  },
+  "hd_unlabelled_count": 69,
+  "people": [
+    {
+      "id": "cai",
+      "raw_names": [
+        "蔡徐坤"
+      ],
+      "name": "蔡徐坤",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/cai-1.jpg",
+          "sha256": "0dd0a82da40b09309b3aa01e8ca5a3b38016cbdb7cf01136b30c19f6ecdfde34",
+          "dimensions": [
+            532,
+            800
+          ],
+          "article_url": "https://k.sina.com.cn/article_5158158791_p1337341c702700bjzj.html",
+          "image_url": "https://n.sinaimg.cn/sinacn07/532/w532h800/20180909/28ab-hivtsyk3142242.jpg",
+          "source_title": "蔡徐坤 视觉中国 智族GQ年度人物盛典红毯视觉中国镜头下的蔡徐坤今",
+          "identity_evidence": "原文标题/图注明确写人物名字，且该图片精确嵌入原文；未使用面部识别。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "头部略转向画面右侧，颈部竖直，眼睛向右上方看。",
+            "黑发分缝，有前额碎发和向外蓬起的顶部体积。",
+            "白衬衫、黑色小领结、黑色宽翻领，形成清楚的黑白领口结构。",
+            "嘴唇闭合；下颌转折与耳前暗部可见。"
+          ],
+          "translation_proposals": [],
+          "limitations": "页面由娱乐圈小师姐发布，图有视觉中国水印；水印保留。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "translation_proposals": [
+        "分缝、前额碎发和顶部体积比逐根发丝更值得锁定。",
+        "领结、白衬衫三角、宽翻领可转为三个黑白几何块。",
+        "脸转角允许适度调整，保留注视方向和发型重心。"
+      ]
+    },
+    {
+      "id": "yang",
+      "raw_names": [
+        "杨超越"
+      ],
+      "name": "杨超越",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/yang-1.jpg",
+          "sha256": "b6da7665d8431aa5756c9b5bf875998f44b97f160b00fdc0a2b96a606d5adf1f",
+          "dimensions": [
+            2048,
+            3073
+          ],
+          "article_url": "https://cj.sina.com.cn/articles/view/6178972579/p1704ba3a3027019akp",
+          "image_url": "https://n.sinaimg.cn/sinakd20114/321/w2048h3073/20230419/8d60-62528da6c08fb077a208323be8844e1f.jpg",
+          "source_title": "杨超越出席2023电视剧品质盛典……",
+          "identity_evidence": "原文标题/图注明确写人物名字，且该图片精确嵌入原文；未使用面部识别。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "黑色高盘发，头部低垂，眼睛向下。",
+            "露肩白色礼服，有单侧肩部花苞/折片和斜向领口，项链清楚。",
+            "主要是全身图，脸部在画面中较小；适合头肩朝向与服装结构参考。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "translation_proposals": [
+        "先判断用户目标造型是盘发还是长发，不能混合两套外观。",
+        "低头照片的眼眉压缩关系要保留；不要为了大眼统一抬头。",
+        "肩部服装折片可概括成2–3个干净色块。"
+      ],
+      "pending_sources": [
+        {
+          "article_url": "https://yule.sohu.com/a/600513715_598290",
+          "image_url": "https://p7.itc.cn/q_70/images01/20221028/33902e8a4000453db21df576ebb284b1.jpeg",
+          "status": "image_reviewed_source_blocked"
+        }
+      ]
+    },
+    {
+      "id": "yan",
+      "raw_names": [
+        "颜如晶"
+      ],
+      "name": "颜如晶",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/yan-rujing/photo-a.jpg",
+          "sha256": "bb50830800752bd51eeccfe7a30f327adc2085749f0fea1052a5050ced7cca0e",
+          "dimensions": [
+            440,
+            248
+          ],
+          "article_url": "https://news.sina.com.cn/o/2017-08-01/doc-ifyinwmp0954783.shtml",
+          "image_url": "https://n.sinaimg.cn/translate/20170731/BOi4-fyinvyk2616511.jpg",
+          "source_title": "颜如晶近似参考 A",
+          "identity_evidence": "已有来源记录和用户认可的对照案例；人物对应来自用户提供的附文。",
+          "verification_status": "previously_user_accepted_comparison",
+          "visual_observations": [
+            "歪头方向、眼镜、齐刘海、领结与西装"
+          ],
+          "limitations": "照片带笑，插图抬眼且嘴角下压；服装颜色不同；未证明是作者原照。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        },
+        {
+          "asset": "assets/cases/yan-rujing/photo-b.jpg",
+          "sha256": "1e73d3392d31365e030b0494b1ab82dbcdd84804ca28906531dc06dfbf3b8247",
+          "dimensions": [
+            688,
+            393
+          ],
+          "article_url": "https://www.jiemian.com/article/372055.html",
+          "image_url": "https://img2.jiemian.com/101/original/20150906/144151729813462300.jpg",
+          "source_title": "颜如晶近似参考 B",
+          "identity_evidence": "已有来源记录和用户认可的对照案例；人物对应来自用户提供的附文。",
+          "verification_status": "previously_user_accepted_comparison",
+          "visual_observations": [
+            "侧向视线、抿嘴、齐刘海、眼镜、领结与胸章"
+          ],
+          "limitations": "头部更直，蓝色西装；未证明是作者原照。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        },
+        {
+          "asset": "assets/cases/yan-rujing/photo-c.jpeg",
+          "sha256": "dc89e390f26790e31f027060b8d060dc7db983417a4cf658bae46ad661d914e9",
+          "dimensions": [
+            690,
+            657
+          ],
+          "article_url": "https://ent.ifeng.com/c/7iaB52bjqez",
+          "image_url": "https://e0.ifengimg.com/01/2018/1212/ECA100E57EF6DAAB73EA6F35D29BB26A59066A02_size96_w690_h657.jpeg",
+          "source_title": "颜如晶近似参考 C",
+          "identity_evidence": "已有来源记录和用户认可的对照案例；人物对应来自用户提供的附文。",
+          "verification_status": "previously_user_accepted_comparison",
+          "visual_observations": [
+            "绿色西装、眼镜、齐刘海、领结与胸前饰物"
+          ],
+          "limitations": "头倾斜方向与插图不同，眼睛近闭，嘴张开；未证明是作者原照。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "comparison_reference",
+        "hd_ids": [],
+        "legacy_ids": [
+          87
+        ],
+        "evidence": "用户提供含‘颜如晶 / NO.14 Rujin’的附文截图，并认可近似照片对照。"
+      },
+      "alias_evidence": null,
+      "translation_proposals": []
+    },
+    {
+      "id": "top",
+      "raw_names": [
+        "TOP",
+        "top"
+      ],
+      "name": "T.O.P / 崔胜铉（照片页：CHOI Seung-hyun）",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/top-1.jpg",
+          "sha256": "dba4288e1cafaf5dbdcded10375be15de73bcf7b0553753159023ed30dc460d2",
+          "dimensions": [
+            600,
+            800
+          ],
+          "article_url": "https://www.koreanfilm.or.kr/eng/films/index/peopleView.jsp?peopleCd=10072431",
+          "image_url": "http://kobis.or.kr/common/mast/people/2013/01/d353b9c9eea44a9887c56f7557669c69.jpg",
+          "source_title": "CHOI Seung-hyun — KoBiz / Korean Film Council",
+          "identity_evidence": "KoBiz 标题 CHOI Seung-hyun、正文 Big-Bang 成员经历，资料照片归属清楚；本页没有 T.O.P 字样，不能把它写作本页直接证明的别名。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面、浅棕短发向上扫起，露额头；头肩保持直立。",
+            "浓直眉，闭嘴，白色立领上衣融入白背景。",
+            "脸部柔和连续明暗，没有显著硬投影。"
+          ],
+          "translation_proposals": [
+            "用一个蓬松发型外轮廓加两三个发块来代替碎发。",
+            "眉形与眉眼间距比鼻翼细节更值得优先保留。",
+            "白衣与白背景可用少量领口边界分开，不必额外添加粗外框。"
+          ],
+          "limitations": "本地原始 top.jpg 下载中断，禁止使用；已验证完整的 top-resized.jpg 为官方缩略图接口返回。；只有名字候选，不给任何高清插图编号认人。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": {
+        "url": "https://www.jishi3.com/kr/30751.html",
+        "text": "BIGBANG的T.O.P崔胜贤太帅了?穿着西装的近况照片让粉丝兴奋不已",
+        "location": "页面标题及正文",
+        "strength": "secondary_entertainment_site",
+        "corroborating_url": "https://www.52tp.cn/bizhi/29504.html",
+        "corroborating_text": "BIGBANG成员崔胜铉TOP写真高清壁纸",
+        "note": "两站文字明确 TOP/T.O.P 与中文姓名并列；都属二手站点。KoBiz 本身只写 CHOI Seung-hyun 和 Big-Bang 经历，没有 T.O.P 字样，罗马名对应不冒称得到此页直接证明。",
+        "saved_html": [
+          "alias-top-jishi.html",
+          "alias-top-52tp.html"
+        ]
+      },
+      "alias_status": "top_chinese_name_secondary_text_verified_romanized_link_contextual"
+    },
+    {
+      "id": "dilraba",
+      "raw_names": [
+        "热巴",
+        "迪丽热巴"
+      ],
+      "name": "迪丽热巴",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/dilraba-1.jpg",
+          "sha256": "d83dc5d3177d7b6371e2758b8c983dcdff0d098e4938338a46807a7076b2cfee",
+          "dimensions": [
+            640,
+            886
+          ],
+          "article_url": "https://photo.sina.cn/album_4_704_375688.htm?vt=4&pos=108&his=0",
+          "image_url": "https://k.sinaimg.cn/n/ent/4_img/upload/d0788465/45/w690h955/20220925/89a9-837b89db210099fb3a27ff373a9b91d7.jpg/w640slw.jpg",
+          "source_title": "迪丽热巴穿白色露背长裙秀雪肌 大波浪造型似港风美人_新浪图片",
+          "identity_evidence": "原文标题/图注明确写人物名字，且该图片精确嵌入原文；未使用面部识别。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "头肩近景，头向画面右侧微转，下巴略抬。",
+            "大体积深色卷发，在画面右侧呈连续波浪外形。",
+            "一侧金色长耳饰、红唇、上扬眼线清楚。",
+            "亮面在前额鼻梁，脸侧和发际区域较暗，颈部有真实明暗转折。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "translation_proposals": [
+        "大波浪以3–5段主弧线和完整外轮廓概括，不逐根描发。",
+        "保留眉眼的倾斜关系、唇形和耳饰的大轮廓。",
+        "脸部暗面可收敛为一块受转头方向约束的封闭硬边色形。"
+      ]
+    },
+    {
+      "id": "maomao",
+      "raw_names": [
+        "毛毛姐"
+      ],
+      "name": "毛毛姐（角色造型）",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/maomao-1.jpg",
+          "sha256": "22baa967764671c6b4b7537eb4f11383a379ef133144569c748babd1e29bc9f5",
+          "dimensions": [
+            996,
+            620
+          ],
+          "article_url": "https://k.sina.com.cn/article_1229799315_494d3f930010105c4.html",
+          "image_url": "http://n.sinaimg.cn/sinakd20220814ac/16/w996h620/20220814/d345-07f915b4835d92323dafbf4b69f0aa82.jpg",
+          "source_title": "毛毛姐一句“好嗨哟”曾火遍全网 如今过气一次掉粉80万|抖音|毛毛|一夜_新浪新闻",
+          "identity_evidence": "原文标题/图注明确写人物名字，且该图片精确嵌入原文；未使用面部识别。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "两张并置视频截图，均为橘红齐刘海卷发造型。",
+            "左侧脸转向画面右侧、眉部挤压、嘴张开；右侧双眼闭合且张嘴。",
+            "橘红头发与浅色脸部、黑色服装构成强对比。",
+            "照片含原视频字幕，适合作表情与假发剪影研究，不应复制字幕。"
+          ],
+          "translation_proposals": [],
+          "limitations": "新浪平台作者金牌审片馆；正文明确称毛毛姐本名余兆和、一人分饰多角。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "translation_proposals": [
+        "若用户要角色造型，橘红齐刘海卷发是可保留的外观事实。",
+        "张嘴和挤眼可选择一项加强，避免把两幅相邻表情混成一幅。",
+        "发型夸张不等于增添无照片依据的配饰。"
+      ]
+    },
+    {
+      "id": "yamy",
+      "raw_names": [
+        "Yamy"
+      ],
+      "name": "Yamy",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/yamy-1.jpg",
+          "sha256": "452c2717a5ff53ac578b25b2d32dd116f12878c23ebc7442165ecd5053d6586b",
+          "dimensions": [
+            584,
+            389
+          ],
+          "article_url": "https://www.sogou.com/web?query=Yamy",
+          "image_url": "https://pic.baike.soso.com/ugc/baikepic2/0/20230521094421-1805944891_jpeg_584_389_91069.jpg/0",
+          "source_title": "Yamy — 搜狗人物知识卡（搜狗百科摘要）",
+          "identity_evidence": "知识卡标题Yamy、正文“Yamy，本名郭颖”和同卡人物图明确关联；百科详情访问返回567，不能记为原文核验。",
+          "verification_status": "search_card_reference",
+          "visual_observations": [
+            "头肩近景，肩部向画面左侧旋转，头略向画面右侧回转，下巴抬起。",
+            "黑色齐下颌短直发，偏侧分，头发外轮廓清楚，发尾近水平。",
+            "眼睛半睁，细长眼线向外上挑；嘴唇略张。",
+            "一侧长垂链耳饰、宽松白色不对称露肩衬衫。",
+            "灰背景、黑发、白衣形成明确三段明度。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": {
+        "article_url": "https://www.sogou.com/web?query=Yamy",
+        "source_html": "制作归档（未随仓库发布）：outputs/avatar-photo-research/yamy-sogou.html",
+        "observation": "搜狗人物知识卡明确写“Yamy，本名郭颖”，卡片标题Yamy并与同一张人物图、搜狗百科详情链接关联。"
+      },
+      "translation_proposals": [
+        "锁定短发齐切外轮廓、窄长眼形与抬下巴关系。",
+        "短直发用一个大色块加2–3条转折线表示，保留发尾切口。",
+        "白衬衫斜领概括为大白形，长耳饰保留主链和一个端点。",
+        "半睁眼和头部回转可适度强化，无需逐度照搬。"
+      ]
+    },
+    {
+      "id": "minjun",
+      "raw_names": [
+        "都教授",
+        "都敏俊"
+      ],
+      "name": "都敏俊（角色造型候选，归属待补证）",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/minjun-1.jpg",
+          "sha256": "5a7fe1c44e69f82ed620c89fda38baf5ff06d4ba6cb057b65d7dfc0172dc9986",
+          "dimensions": [
+            500,
+            375
+          ],
+          "article_url": "http://lady.people.com.cn/n/2014/0221/c1014-24429776-4.html",
+          "image_url": "http://www.people.com.cn/mediafile/pic/20140221/95/11814143820930497455.jpg",
+          "source_title": "《来自星星的你》都敏俊千颂伊的爱情语录【4】— 人民网",
+          "identity_evidence": "人民网文章题名和图片 alt 指向《来自星星的你》都敏俊、千颂伊；只按角色图片上下文引用，不凭脸识别演员。本文页未直接写演员名，演员映射未补证。",
+          "verification_status": "contextual_candidate",
+          "visual_observations": [
+            "胸部以上近景，身体侧转、脸略回向观众；黑色长刘海斜向覆盖额头。",
+            "深色高翻领大衣遮住大部分颈部，嘴闭合。",
+            "大衣的斜领口与下颌构成明显的前后遮挡。"
+          ],
+          "translation_proposals": [
+            "刘海压为一个主要斜向发块，加一两条分叉线。",
+            "高衣领替代裸露颈部，不能机械添加一整条颈影。",
+            "头身相对旋转与衣领遮挡比精确复制面部角度更有信息量。"
+          ],
+          "limitations": "角色名不能当作演员本名；这里不将用户“都教授”自动写成某个真人身份。；文章图注含两个角色名，图片按文章上下文作候选造型参考，非原照配对证明。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "alias_status": "character_name_verified_actor_link_not_proven_by_this_page"
+    },
+    {
+      "id": "liuwen",
+      "raw_names": [
+        "刘雯",
+        "大表姐"
+      ],
+      "name": "刘雯",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/liuwen-1.jpg",
+          "sha256": "5c42fd3761871bd3eb277413e4c591a684b71af8834c70241180cc7ecda04f91",
+          "dimensions": [
+            600,
+            780
+          ],
+          "article_url": "http://www.trendsgroup.com.cn/2018/0806/224086.shtml",
+          "image_url": "http://upload.trends.com.cn/2018/0806/1533540463777.jpg",
+          "source_title": "刘雯 | 理想的生活 一直在未来 _人物_时尚集团官网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "正面近景，头略低，目光朝镜头，闭口。",
+            "黑发中分、侧面贴头，颈后有短发束轮廓；深色外套配金属项链。",
+            "眉眼、颧颊转折、下颌与中分发线清楚；适合研究收敛细节后保留骨架关系。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [
+        {
+          "alias": "大表姐",
+          "source_url": "https://zhuanlan.zhihu.com/p/598593374",
+          "evidence": "搜索结果标题“湖南小城走出来的国际超模‘大表姐’——刘雯”",
+          "verification_status": "仅检索结果文字，未读取原文；作为别名线索"
+        }
+      ],
+      "translation_proposals": []
+    },
+    {
+      "id": "zhangziyi",
+      "raw_names": [
+        "章子怡"
+      ],
+      "name": "章子怡",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/zhangziyi-1.jpg",
+          "sha256": "f8caed985ec744946018a4507616fdb66326cde5dca850beb776321858c696ab",
+          "dimensions": [
+            640,
+            868
+          ],
+          "article_url": "https://photo.sina.cn/album_4_704_382426.htm?cid=star/w&vt=4&pos=108",
+          "image_url": "https://k.sinaimg.cn/n/ent/4_img/upload/c3e23ce9/14/w1024h1390/20230228/baf8-a1ecc39418dea49483a4f9482d61b06b.jpg/w640slw.jpg",
+          "source_title": "章子怡巴黎时装周看秀造型 白衬衫黑皮裙配湿发御姐范儿_新浪图片",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "坐姿，头略倾，手托下巴；正面微侧、露齿笑。",
+            "发向后梳，露出额头与耳部；白衬衫、深色长裙。",
+            "手与下颌接触形成明确遮挡，衣袖与手臂交叠；适合研究托腮时的负形与接触暗部。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "jialing",
+      "raw_names": [
+        "贾玲"
+      ],
+      "name": "贾玲",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/jialing-1.jpg",
+          "sha256": "9ad063a564d788c674bff61ffbb8358a26cf6b3902d1528b11a689cf33266f90",
+          "dimensions": [
+            1422,
+            2133
+          ],
+          "article_url": "https://ishare.ifeng.com/c/s/v002dquctEi8vuo8w4IYtHdVoxxn7TQnFJCup2cYOAX-_72I__",
+          "image_url": "https://ugc-img.ifengimg.com/img/2021-06-13-110740/rc-upload-1623553630835-6.jpg",
+          "source_title": "2021微博电影之夜启幕，贾玲获得年度最受欢迎导演荣誉_凤凰网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "站姿面向前方略侧，一手持话筒到嘴边，另一手垂下。",
+            "棕色短发与短刘海，浅色宽袖衬衫、深色裙。",
+            "可比较圆润脸外轮廓、刘海剪影和持话筒手臂的概括；嘴部受话筒遮挡。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "gaoxiaosong",
+      "raw_names": [
+        "高晓松"
+      ],
+      "name": "高晓松",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/gaoxiaosong-1.jpg",
+          "sha256": "06f0a1e03550bbb91f7986ac779bd05a3156740e4e215e3cf988b0b2d75825ed",
+          "dimensions": [
+            550,
+            825
+          ],
+          "article_url": "http://ent.sina.com.cn/y/yneidi/2015-07-15/doc-ifxewnia9462181.shtml",
+          "image_url": "http://n.sinaimg.cn/transform/20150715/52mC-fxewxfu4196119.jpg",
+          "source_title": "阿里成立音乐集团 高晓松宋柯加盟|阿里|高晓松|宋柯_新浪娱乐_新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "坐姿，身体略斜，头转向画面右侧；手持展开的折扇。",
+            "中长深色发，方形深框眼镜，可见胡须；条纹上衣与棕色背带。",
+            "眼镜外形、发型外缘、胡须和折扇是画面中显著形状；适合研究配饰优先级。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "huachenyu",
+      "raw_names": [
+        "华晨宇"
+      ],
+      "name": "华晨宇",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/huachenyu-1.jpg",
+          "sha256": "797a74fece06b005de73a0ec41094484d8d40991e25851be8052ef6af189ffa3",
+          "dimensions": [
+            630,
+            945
+          ],
+          "article_url": "http://ent.sina.com.cn/tv/zy/2018-03-28/doc-ifysqfnh7948746.shtml",
+          "image_url": "http://n.sinaimg.cn/ent/transform/775/w630h945/20180328/mR5D-fysqfnh7935382.jpg",
+          "source_title": "华晨宇仪式感演绎《平凡之路》 自曝享受创作过程|平凡之路|歌手|华晨宇_新浪娱乐_新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "舞台侧面站姿，低头，脸转向画面右侧。",
+            "深色蓬松长刘海遮住部分眼部，浅灰连帽上衣；蓝色舞台光占比较大。",
+            "侧面鼻口轮廓、头颈倾斜与帽兜叠层可见；不宜用该图推断自然肤发色。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "wuyifan",
+      "raw_names": [
+        "吴亦凡"
+      ],
+      "name": "吴亦凡",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/wuyifan-1.jpg",
+          "sha256": "5dead834aefa3ec4588777c90244a27abccb91c7c2fdad61ecbec8544015cd39",
+          "dimensions": [
+            640,
+            960
+          ],
+          "article_url": "https://photo.sina.cn/album_4_704_124823.htm",
+          "image_url": "https://k.sinaimg.cn/www/dy/slidenews/4_img/2015_47/704_1779701_283607.jpg/w640slw.jpg",
+          "source_title": "吴亦凡全新拍摄写真曝光 尽展嘻哈风_新浪图片",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "正面头肩肖像，头轻斜、下巴略抬，闭口；一手在领口前。",
+            "反戴深色棒球帽、耳环、黑白印花衬衫与金属项链。",
+            "帽檐后扣、眉眼、手部遮挡和领口层次明确；印花适合压缩为少量节奏色块。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "sehun",
+      "raw_names": [
+        "吴世勋",
+        "世勋"
+      ],
+      "name": "吴世勋",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/sehun-1.jpg",
+          "sha256": "182adfb20e22ee69ae6ee972cfa9f6a89496689070fd7c7c3ad10bf167fe7e22",
+          "dimensions": [
+            700,
+            1104
+          ],
+          "article_url": "https://cj.sina.com.cn/articles/view/2342673701/8ba25d25040019ecq",
+          "image_url": "http://k.sinaimg.cn/n/sinakd/sni/109/w1284h2025/20251214/1147-cfbc707e54054edb8479b3494ce677d1.jpg/w700d1q75cms.jpg?by=cms_fixed_width",
+          "source_title": "吴世勋EXO见面会原相机生图曝光 — 新浪新闻",
+          "identity_evidence": "页面标题明确吴世勋，主体连续刊载见面会照片；这是新浪平台账号稿件，非艺人官方。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面中景，黑色碎刘海，白色圆领开扣上衣与黑皮衣。",
+            "一手举麦，头部直立，眼看镜头附近。",
+            "脸部有强侧光，颈部和衣领暗部明显，背景人群复杂。"
+          ],
+          "translation_proposals": [
+            "发型主要保留刘海长度、额头开口与侧边体积。",
+            "按头像裁切需求可去掉举麦手与人群，保留皮衣领的两三块方向。",
+            "把现场复杂暗部压成单一颈影与领口接触暗部，勿涂黑半张脸。"
+          ],
+          "limitations": "源文章发表于 2025-12-14，描述见面会照片；实际拍摄日期未独立核实，不能把网页日期当成拍摄日期。；只作照片造型参考，没有作者原照依据，也没有与任何 HD 插图编号建立身份对应。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "alias_status": "requested_full_name_verified_short_alias_user_context_only"
+    },
+    {
+      "id": "chen",
+      "raw_names": [
+        "chen"
+      ],
+      "name": "CHEN",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/chen-1.jpg",
+          "sha256": "006dc304b7a6ed573d3741c496a81a3f07d2166b739c5abc27f80e65ba0d2ec0",
+          "dimensions": [
+            1360,
+            1700
+          ],
+          "article_url": "https://chen-official.jp/profile/",
+          "image_url": "https://chen-official.jp/wp-content/uploads/2026/03/chen_profile.jpeg",
+          "source_title": "プロフィール｜CHEN JAPAN OFFICIAL FANCLUB",
+          "identity_evidence": "官方资料页正文写 CHEN / チェン，人物图位于该资料区。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面，头部轻微偏斜，身体前倾坐姿；中分黑发，发块向两侧展开。",
+            "浅灰无袖圆领上衣，嘴微张，耳朵可见。",
+            "柔和摄影阴影，颈部暗面和脸侧起伏弱。"
+          ],
+          "translation_proposals": [
+            "把发型压成左右两大块并保留中缝与垂落方向。",
+            "胸肩简化时保留前倾关系，头像裁切无需带入鼓组。",
+            "鼻口用少量短线，颈部只保留一块结构暗形，避免复制高光。"
+          ],
+          "limitations": "本次读取的官方资料照，其 URL 含 2026/03 上传路径；路径不能证明拍摄年份，尚无实际拍摄日期。；没有作者原照配对依据，不能用当前网站素材推断早期插画创作过程。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "alias_status": "official_name_case_normalized"
+    },
+    {
+      "id": "do",
+      "raw_names": [
+        "都璟秀"
+      ],
+      "name": "DOH Kyung-soo / D.O.（都璟秀）",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/do-1.jpg",
+          "sha256": "cbec785d3c11578c72afc4513ba7ea457f1d4cb7c011d57823144d27341d3686",
+          "dimensions": [
+            182,
+            242
+          ],
+          "article_url": "https://www.koreanfilm.or.kr/eng/films/index/peopleView.jsp?peopleCd=20209526",
+          "image_url": "http://kobis.or.kr/common/mast/people/2020/10/9be99d0bbe1a430e9d4c9c15072fdae8.jpg",
+          "source_title": "DOH Kyung-soo — KoBiz / Korean Film Council",
+          "identity_evidence": "韩国电影振兴委员会资料页标题 DOH Kyung-soo，正文明确 stage name D.O. 及 EXO。中文译名按用户输入记录，非本站中文原文。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面短发头像，发型向上蓬起且额头露出。",
+            "白色立领拉链上衣，黑色外套；嘴闭合、头部较直。",
+            "背景有明显红色偏侧投影，脖颈相对清楚。"
+          ],
+          "translation_proposals": [
+            "短发用锯齿与整块轮廓表现，不保留逐根发丝。",
+            "白立领作为胸前负形保留，外套合成大暗块。",
+            "背景投影属于摄影场景，头像风格迁移时默认去掉，颈影单独规划。"
+          ],
+          "limitations": "原图仅 182×242，可作结构参照，不能称为高清成品照片。；URL 含 /2020/10/ 目录，仅为服务器路径信息；照片实际拍摄时间与作者原照关系未确定。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "alias_status": "official_romanized_name_and_stage_name_verified_chinese_name_contextual"
+    },
+    {
+      "id": "xiumin",
+      "raw_names": [
+        "秀敏"
+      ],
+      "name": "XIUMIN（“秀敏”的待确认候选）",
+      "name_status": "ambiguous",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/xiumin-1.jpg",
+          "sha256": "a81eeb8c3a256d8e3573d1c3fadf8defd85b86dffbb24accb5dfb1364aef8257",
+          "dimensions": [
+            1360,
+            1700
+          ],
+          "article_url": "https://xiumin-official.jp/profile/",
+          "image_url": "https://xiumin-official.jp/wp-content/uploads/2026/03/xiumin_profile2.jpeg",
+          "source_title": "プロフィール｜XIUMIN JAPAN OFFICIAL FANCLUB",
+          "identity_evidence": "官方资料页写 XIUMIN / シウミン；本来源未证明用户输入“秀敏”一定指他。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面，黑发中分，少量尖细发束垂向额头。",
+            "黑色衣领、银色圈耳饰与细项链；嘴闭合。",
+            "冷蓝偏色的侧光，画面右侧脸部为大暗面，明暗分区清晰。"
+          ],
+          "translation_proposals": [
+            "保留中分负形与少量关键尖发束，其余发丝合并。",
+            "眼部妆色应缩为眼缘附近的小色面，避免把双眼统一画大。",
+            "侧光可转为一块硬边脸侧暗面，耳饰留一个简洁圆环。"
+          ],
+          "limitations": "用户“秀敏”与 XIUMIN 的对应尚待文字或用户确认。；URL 含 2026/03 上传路径，不能证明照片拍摄年份；作者原照关系未确定。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": null,
+      "alias_status": "candidate_alias_not_confirmed",
+      "note": "来源照片人物为 XIUMIN；用户所写‘秀敏’是否指此人仍待确认。"
+    },
+    {
+      "id": "wangyuan",
+      "raw_names": [
+        "王源"
+      ],
+      "name": "王源",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/wangyuan-1.jpg",
+          "sha256": "0348c1328774def165c3979be5d3558ee1187ad736d8f6da084a0fda6d77e306",
+          "dimensions": [
+            2000,
+            3000
+          ],
+          "article_url": "https://cj.sina.com.cn/articles/view/3946228785/peb36ac3102701guvf",
+          "image_url": "https://n.sinaimg.cn/sinakd20115/200/w2000h3000/20230418/cf77-38df9edd97cf030bc2457ea7bce924be.jpg",
+          "source_title": "王源今日活动路透 一身绿色套装亮相品牌活动，干净利落……_高清图集_新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "上半身侧面偏三分之二视角，低头看画面左下方。",
+            "蓬松黑色侧分发，浅绿色西装、白上衣、细项链。",
+            "额前大块发束、鼻口侧影、颈部前倾及西装翻领关系清楚。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "xiefeiji",
+      "raw_names": [
+        "谢飞机"
+      ],
+      "name": "谢飞机",
+      "name_status": "user_supplied",
+      "photos": [],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      }
+    },
+    {
+      "id": "wangyibo",
+      "raw_names": [
+        "王一博"
+      ],
+      "name": "王一博",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/wangyibo-1.jpg",
+          "sha256": "4870dba707455f4c77c44fd3020e8024b95d8be12032daa77aa9134e33ec011c",
+          "dimensions": [
+            1080,
+            1620
+          ],
+          "article_url": "https://fashion.sina.cn/2020-07-17/detail-iivhuipn3156285.d.html",
+          "image_url": "https://n.sinaimg.cn/sinakd2020714s/300/w1080h1620/20200714/1270-iwhseiu3975743.jpg",
+          "source_title": "今日不心动挑战之王一博发型篇_手机新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "头肩肖像，面向镜头略偏转，头有轻微倾斜，闭口。",
+            "深色长分缝刘海，有数缕垂到脸侧；细条纹衬衫、波点领带与点纹西装。",
+            "脸旁发束和耳侧露肤构成可保留的负形；西装纹样宜降低密度。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "yanyikuan",
+      "raw_names": [
+        "严屹宽"
+      ],
+      "name": "严屹宽",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/yanyikuan-1.jpg",
+          "sha256": "80a6043e21cba09cd4263bd1ad537a4ecfa254b47eca0dd7834e72c054ef74e0",
+          "dimensions": [
+            600,
+            900
+          ],
+          "article_url": "https://ent.qingdaonews.com/content/2015-03/26/content_10982060_all.htm",
+          "image_url": "https://ent.qingdaonews.com/images/attachement/jpg/site1/20150326/00215d6d9e06167e0e6914.jpg",
+          "source_title": "严屹宽全新时尚写真 多面个性演绎魅力型男 - 青岛新闻网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "上半身面向前方，头略低，目光向上；双手抬起拉开外套。",
+            "头发向后梳，额头显露，眉峰与下颌转折清楚。",
+            "外套张开、肩部抬起、内搭图案形成强剪影；先保头肩动作，再压缩衣服复杂印花。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "yanxiujing",
+      "raw_names": [
+        "妍秀晶"
+      ],
+      "name": "妍秀晶",
+      "name_status": "ambiguous",
+      "photos": [],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "‘妍秀晶’没有取得唯一文字指向，不默改成其他相近姓名。"
+    },
+    {
+      "id": "gd",
+      "raw_names": [
+        "GD"
+      ],
+      "name": "权志龙 / G-DRAGON",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/gd-1.jpg",
+          "sha256": "af4f72064f396593ce25d26afd505d7d845fe8b147ea71a1cda28a3280f69135",
+          "dimensions": [
+            550,
+            826
+          ],
+          "article_url": "https://ent.sina.cn/xglm/k/2023-01-10/detail-imxzsuqn2245465.d.html?pos=12",
+          "image_url": "https://n.sinaimg.cn/ent/transform/576/w550h826/20230110/aea9-98ea85796ae4795b06f94eaba056ca89.jpg",
+          "source_title": "权志龙与YG续约将发新专辑 与财阀千金关系受关注 — 新浪娱乐",
+          "identity_evidence": "新闻标题与正文以及图片 alt 均写“权志龙”；G-DRAGON 官方社区 https://gdragon.ai/ 已能读取标题，但只取到文字标识，未找到可用于本例的官方人像。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "正面，黑色针织帽露额，左右大圈耳饰且末端有红点。",
+            "绿色外衣、红色斜肩带、胸前多条项链。",
+            "嘴轻抿，眉眼清楚；背景有品牌板，图片带 MyDaily 水印。"
+          ],
+          "translation_proposals": [
+            "帽檐与额头边界是强造型符号，优先于细发丝。",
+            "大圈耳饰和红肩带保留为醒目符号，项链合并为一两条线。",
+            "服装纹理压成绿色大面与少量黑色领缘，摄影水印和背景不进入插画。"
+          ],
+          "limitations": "新闻发表于 2023，但未交代照片实际拍摄时间，不推断为 2023 拍摄。；不证明其与任何给定插图是同一造型或作者原照。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "alias_evidence": {
+        "url": "https://i.ifeng.com/c/8VlCS9XV5oc",
+        "text": "权志龙 G-Dragon 希望成为韩国禁毒大使",
+        "location": "页面标题、og:title、正文",
+        "strength": "secondary_public_article",
+        "note": "明确并列 G-Dragon 与权志龙；用户短写 GD 按上下文记录，本文未直接定义缩写 GD。",
+        "saved_html": "alias-gd-ifeng.html"
+      },
+      "alias_status": "g_dragon_and_chinese_name_verified_by_article_GD_short_form_user_context"
+    },
+    {
+      "id": "minguo",
+      "raw_names": [
+        "民国"
+      ],
+      "name": "民国",
+      "name_status": "ambiguous",
+      "photos": [],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "‘民国’可能为简称；没有唯一文字依据，不自动指向宋民国。"
+    },
+    {
+      "id": "erlv",
+      "raw_names": [
+        "二律"
+      ],
+      "name": "二律",
+      "name_status": "ambiguous",
+      "photos": [],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "‘二律’可能为昵称或误写；未取得唯一文字指向。"
+    },
+    {
+      "id": "huangzitao",
+      "raw_names": [
+        "黄子韬"
+      ],
+      "name": "黄子韬",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/huangzitao-1.jpg",
+          "sha256": "0f26997cf08c17202ebcee0ca7f759b18f96e2e9c1cadcecbc6f4daf06446758",
+          "dimensions": [
+            630,
+            945
+          ],
+          "article_url": "http://ent.sina.com.cn/y/yneidi/2017-05-05/doc-ifyeychk7038269.shtml",
+          "image_url": "http://n.sinaimg.cn/ent/transform/20170505/7F7r-fyeyqek9171091.jpg",
+          "source_title": "黄子韬新曲《Collateral Love》首发 飙高音撩妹|黄子韬|新曲|巡演_新浪娱乐_新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "半身站姿，头微斜，身体略转，两手在口袋附近。",
+            "浅金色蓬松碎发；白色连帽内搭、深色彩色刺绣外套。",
+            "头发外缘与暗眉眼形成对比；兜帽白色与外套深色可分为两个清楚衣片。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "zhuyilong",
+      "raw_names": [
+        "朱一龙"
+      ],
+      "name": "朱一龙",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/zhuyilong-1.jpg",
+          "sha256": "716bcdef14de6e8ef87857bb3a7c3102ed6bbd86df06dcb440e0c79fe0e44d8b",
+          "dimensions": [
+            750,
+            1000
+          ],
+          "article_url": "https://sd.ifeng.com/a/20190417/7370108_0.shtml",
+          "image_url": "http://p0.ifengimg.com/a/2019_16/9c4a1898c4155f9_size376_w750_h1000.jpg",
+          "source_title": "朱一龙写真曝光 释放绅士型格_凤凰网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "头肩近景，头略倾，一眼闭合、一眼朝镜头，嘴角轻微上扬。",
+            "蓬松侧分深色发，白色圆领与黄色外套。",
+            "单眼闭合的不对称表情是明确可见动作；可保留眼口节奏并简化黄色外套褶皱。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "yaochen",
+      "raw_names": [
+        "姚晨"
+      ],
+      "name": "姚晨",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/yaochen-1.jpg",
+          "sha256": "05c5eb2f4ecf652356f024d239c161263d749a8b9ca134c820d2cd864240dd1f",
+          "dimensions": [
+            630,
+            945
+          ],
+          "article_url": "https://ent.sina.cn/film/chinese/2019-04-29/detail-ihvhiewr8897943.d.html?vt=4",
+          "image_url": "https://n.sinaimg.cn/ent/transform/775/w630h945/20190429/uxdn-hwfpcxm9229777.jpg",
+          "source_title": "姚晨出席大学生电影节 凭《找到你》获最佳女演员 — 新浪娱乐",
+          "identity_evidence": "文章标题写姚晨，所选图片 alt 明确“姚晨出席第26届北京大学生电影节”。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "近正面，头部稍转向画面右侧；长直黑发侧分，一侧头发靠近面颊、另一侧露出耳部。",
+            "黑色亮片连身服装，领口呈窄V形；红色闭合唇，表情平静。",
+            "双手插袋、肩部略不对称，暖色走廊背景；脸部明暗柔和。"
+          ],
+          "translation_proposals": [
+            "发型合并为侧分大轮廓与两侧发束，保留额头开口和左右体积差。",
+            "嘴型的横向尺度与唇色可作为强调，但不因公众印象自动夸张，按这张照片事实决定。",
+            "服装亮片压为黑色主面与少量局部亮点，避免把金属高光铺满头发或皮肤。",
+            "头像裁切可以去掉手部与走廊，保留肩线不对称和V形领口；颈影受长发、下颌与衣领遮挡共同约束。"
+          ],
+          "limitations": "这是有文字归属的公开造型参考，尚无证据对应某个高清插图编号或作者原照。；网页发布时间与URL日期不严格证明照片拍摄日期。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": null,
+      "translation_proposals": []
+    },
+    {
+      "id": "meng",
+      "raw_names": [
+        "孟美琦"
+      ],
+      "name": "孟美琦（候选：孟美岐）",
+      "name_status": "ambiguous",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/meng-1.jpg",
+          "sha256": "f711f252212e50b5591edb8df1062a7d738d63e6c0b3fbccda6e19c6f7201a0f",
+          "dimensions": [
+            690,
+            690
+          ],
+          "article_url": "https://3w.huanqiu.com/a/64d6f1/9CaKrnKruod",
+          "image_url": "https://himg2.huanqiucdn.cn/attachment2010/2020/0618/20200618085308687.jpg",
+          "source_title": "孟美岐分享最新造型美照 染银发梳高马尾眼神魅惑",
+          "identity_evidence": "原文标题/图注明确写人物名字，且该图片精确嵌入原文；未使用面部识别。",
+          "verification_status": "source_and_image_verified",
+          "visual_observations": [
+            "头向画面左侧转，侧眼看镜头，手靠近耳侧。",
+            "头发由深色发根过渡为灰银色长马尾，马尾高束。",
+            "黑色高领衣片带银色/白色珠饰和图案。",
+            "耳饰小而清楚，眼线向外上挑，唇为深红。"
+          ],
+          "translation_proposals": [],
+          "limitations": "环球网页面注明新浪娱乐。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "用户写作孟美琦；取得的来源使用孟美岐，姓名解释尚待确认。",
+      "alias_evidence": {
+        "article_url": "https://3w.huanqiu.com/a/64d6f1/9CaKrnKruod",
+        "source_html": "制作归档（未随仓库发布）：outputs/avatar-photo-research/cn-a/meng-source.html",
+        "observation": "可读原文使用“孟美岐”，不能据此认定用户“孟美琦”就是同一人。"
+      },
+      "translation_proposals": [
+        "渐变色只放在马尾封闭色块内；发根和扎点保持清楚。",
+        "装饰密集衣服先保大衣片和两三组对比纹样。",
+        "手接近脸时保留间隙与遮挡，避免形成偶然切线。"
+      ]
+    },
+    {
+      "id": "chenweiting",
+      "raw_names": [
+        "陈伟霆"
+      ],
+      "name": "陈伟霆",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/chenweiting-1.jpg",
+          "sha256": "be23a6725c6f6ca1d7137e4cd236db1c9f3c3e10fbc4aded5c9af355cd5dda0a",
+          "dimensions": [
+            1600,
+            2401
+          ],
+          "article_url": "https://k.sina.cn/article_3270824053_c2f4d07500100ncz4.html?from=ent&subch=star",
+          "image_url": "http://n.sinaimg.cn/sinakd20200713ac/1/w1600h2401/20200713/77ed-iwhseiu0717610.jpg",
+          "source_title": "陈伟霆黑白质感写真曝光 诠释时间流逝下的艺术_新浪新闻",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "黑白站姿正面肖像，头正，双臂交叠在胸腹前。",
+            "短竖发，深色翻领外套、白色内搭，手表可见。",
+            "墙面投影与人物距离分离，属于照片背景影；头像图可只研究颈领遮挡，不机械迁移墙影。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "liyuchun",
+      "raw_names": [
+        "李宇春"
+      ],
+      "name": "李宇春",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/liyuchun-1.jpg",
+          "sha256": "528c79bd0648ed786b5e4e8520f166de62de25599655aa1ab223b6eccd215a01",
+          "dimensions": [
+            630,
+            947
+          ],
+          "article_url": "http://fashion.sina.com.cn/s/ce/2017-05-18/1217/doc-ifyfkqiv6491803.shtml",
+          "image_url": "http://n.sinaimg.cn/fashion/transform/20170518/f-Xt-fyfeutq2351323.jpg",
+          "source_title": "李宇春荷叶边喇叭裤装 戛纳玩转暗黑王子范儿|李宇春|戛纳|晚宴_新浪时尚_新浪网",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "上半身近正面，闭口，目光朝镜头。",
+            "灰色短发，额前大片斜刘海，露耳；深色条纹双排扣外套、细项链。",
+            "短发外缘、斜分发片与领口V形关系清楚；条纹可作为少量顺衣片的局部线。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    },
+    {
+      "id": "maobuyi",
+      "raw_names": [
+        "毛不易"
+      ],
+      "name": "毛不易",
+      "name_status": "user_supplied",
+      "photos": [
+        {
+          "asset": "assets/cases/public-photos/maobuyi-1.jpg",
+          "sha256": "82169af0aa3ad1c94ea9d742a4b72db36337ac8f46e7ae46e42f832eb1272bbb",
+          "dimensions": [
+            1242,
+            1494
+          ],
+          "article_url": "https://k.sina.cn/article_1844235935_6decce9f04000arlm.html",
+          "image_url": "http://n.sinaimg.cn/sinacn23/336/w1242h1494/20180906/bfc4-hitesuz4461801.jpg",
+          "source_title": "毛不易 最新机场照释出！全素颜赶飞机的毛不易_新浪新闻",
+          "identity_evidence": "原页面标题明确写出姓名，HTML 中包含所下载图片的文件名；身份归属依据文字标注。",
+          "verification_status": "已读取原页面、核对嵌图、下载原图并视觉检查 contact sheet",
+          "visual_observations": [
+            "机场行走抓拍，近正面，头略偏；闭口。",
+            "深色齐刘海、深框眼镜，黑色T恤、双肩包肩带、白色耳机线。",
+            "刘海外缘与镜框重叠，肩带和耳机线是衣服上的独立配饰线；背景人群不进入头像。"
+          ],
+          "translation_proposals": [],
+          "limitations": "按姓名检索的造型参考；没有证明作者原照关系或高清插图人物编号。",
+          "checked_on": "2026-11-06",
+          "original_pair_confirmed": false
+        }
+      ],
+      "illustration_mapping": {
+        "status": "unlabelled",
+        "hd_ids": [],
+        "legacy_ids": []
+      },
+      "note": "",
+      "alias_evidence": [],
+      "translation_proposals": []
+    }
+  ]
+}
