@@ -1,19 +1,16 @@
 {
   "schema_version": 1,
-  "basis": "八套供新头像使用的创作角色色方案，参考用户提供的高清成品及已采样RGB；不代表作者源工程色板。角色可重新分配，颜色不要求跟随照片。渐变位置、方向和两端均为本Skill的创作选择；即便端点取自成品，也不声称它们是原工程渐变节点。每张新头像必须实际出现至少一处清楚连续的局部渐变，这是一项用户制作要求，不是对69张作品逐张渐变审计的结论。",
+  "basis": "参考原作代表色的八套发衣/主线配色方案，不是肤色或背景色库；渐变端点可为创作选择，但仅限头发或衣服。",
   "sampled_hex_definition": "来自本套source_hd_id成品的most_frequent_colors；只说明RGB出现过，不保证沿用其原角色。",
   "designed_hex_definition": "本套为新人物创作而增加的颜色，没有标记为该参考的精确采样。",
-  "selection_note": "用于快速流程自动选择或用户指定，单次只采用一套；不需要每次遍历或重新分析69张。发型/脸型/服饰结构由用户照片决定。",
+  "selection_note": "八套方案仅用于主线、头发、服装和强调色。肤色及背景统一由source-role-colors.json按原作真实角色取样选择，禁止将头发/衣服色重分配为肤色；旧角色配色不再授权使用。",
   "palettes": [
     {
       "id": "mint-apricot",
       "name": "薄荷杏黄",
       "source_hd_id": 25,
       "color_roles": {
-        "background": "#A1E5D2",
         "outline": "#0A654B",
-        "skin_base": "#FDD4D7",
-        "skin_shadow": "#F6B4BE",
         "hair": "#FFE4A6",
         "clothing": "#8AB4A3",
         "accent": "#FFFFFF"
@@ -35,17 +32,14 @@
         "#FFFFFF"
       ],
       "designed_hex": [],
-      "notes": "参考薄荷背景与粉肤/杏黄发的冷暖关系；两端为成品代表色，不是作者源渐变节点。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "sky-lemon",
       "name": "天蓝柠檬",
       "source_hd_id": 5,
       "color_roles": {
-        "background": "#32C0FF",
         "outline": "#181C2C",
-        "skin_base": "#FFFEAB",
-        "skin_shadow": "#FF7D8B",
         "hair": "#FFD5B4",
         "clothing": "#212539",
         "accent": "#FF7D8B"
@@ -67,17 +61,14 @@
       "designed_hex": [
         "#8BE0FF"
       ],
-      "notes": "把参考的浅黄发色重新分配为柠檬黄肤面、暖肤色分配为发色；浅蓝渐变端点是新设计。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "cobalt-white",
       "name": "钴蓝瓷白",
       "source_hd_id": 26,
       "color_roles": {
-        "background": "#5377BD",
         "outline": "#092356",
-        "skin_base": "#FFFFFF",
-        "skin_shadow": "#FFD2D5",
         "hair": "#2A4D81",
         "clothing": "#B2FFDA",
         "accent": "#E4FF00"
@@ -100,17 +91,14 @@
         "#FFFFFF",
         "#F1FFF9"
       ],
-      "notes": "瓷白肤面与浅薄荷渐变亮端是创作配色；蓝背景/深蓝发线/黄绿强调借用参考关系。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "teal-coral",
-      "name": "青肤珊瑚",
+      "name": "青线珊瑚发",
       "source_hd_id": 35,
       "color_roles": {
-        "background": "#3B98A4",
         "outline": "#0C535A",
-        "skin_base": "#B2EAEE",
-        "skin_shadow": "#58C6D1",
         "hair": "#FCBBB8",
         "clothing": "#58C6D1",
         "accent": "#E1F4FE"
@@ -131,17 +119,14 @@
         "#FF9AA0"
       ],
       "designed_hex": [],
-      "notes": "将参考浅青发块转为艺术青肤面、暖粉肤面转为珊瑚发色，保持深青线与冷暖分离。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "pink-plum",
       "name": "粉底紫梅",
       "source_hd_id": 55,
       "color_roles": {
-        "background": "#F7CFDA",
         "outline": "#4C293F",
-        "skin_base": "#FFCFCF",
-        "skin_shadow": "#FFAEAD",
         "hair": "#603A53",
         "clothing": "#865B79",
         "accent": "#FFAEAD"
@@ -161,17 +146,14 @@
         "#FFCFCF"
       ],
       "designed_hex": [],
-      "notes": "采用粉背景、紫褐头发与珊瑚暗面的有限色族；必须让发块渐变清楚可见。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "forest-yellow",
-      "name": "森林亮黄",
+      "name": "森林黄绿发",
       "source_hd_id": 60,
       "color_roles": {
-        "background": "#4E8367",
         "outline": "#224D35",
-        "skin_base": "#FFF265",
-        "skin_shadow": "#C5DA7D",
         "hair": "#B9CD75",
         "clothing": "#FFF4B4",
         "accent": "#FFDC40"
@@ -192,17 +174,14 @@
         "#FFF4B4"
       ],
       "designed_hex": [],
-      "notes": "将原发色亮黄用作肤面，黄绿衣色用作头发；是新人物的角色重分配，不要求复制参考造型。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "orange-ember",
       "name": "暖橙赤红",
       "source_hd_id": 67,
       "color_roles": {
-        "background": "#E26B36",
         "outline": "#9B200B",
-        "skin_base": "#FFB079",
-        "skin_shadow": "#FF8649",
         "hair": "#C3311C",
         "clothing": "#EC5B42",
         "accent": "#FFB079"
@@ -222,17 +201,14 @@
         "#FFB079"
       ],
       "designed_hex": [],
-      "notes": "暖橙同类色方案；背景渐变由成品现有代表色重新组合，不声称参考原背景已经是这组渐变。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     },
     {
       "id": "turquoise-violet",
       "name": "青底紫橙白肤",
       "source_hd_id": 49,
       "color_roles": {
-        "background": "#00DDD6",
         "outline": "#350F91",
-        "skin_base": "#FFFFFF",
-        "skin_shadow": "#FED0CC",
         "hair": "#4706F3",
         "clothing": "#7B61FE",
         "accent": "#FC2626"
@@ -255,7 +231,7 @@
       "designed_hex": [
         "#FFFFFF"
       ],
-      "notes": "参考紫橙长发渐变与青色背景；肤面改为新设计的纯白，结构保持照片人物。"
+      "notes": "仅供主线、发色、衣色及强调色；肤色和背景执行原作同角色采样库，不沿用历史跨角色分配。"
     }
   ]
 }

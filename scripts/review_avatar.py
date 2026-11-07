@@ -32,12 +32,13 @@ def load_request(path):
 
 
 def checks_for(request):
-    checks = [
-        {'id': f'identity.{i + 1}', 'expected': item['render_as'],
-         'photo_evidence': item['photo_evidence'], 'emphasis': item['emphasis'],
-         'do_not_change': item['do_not_change']}
-        for i, item in enumerate(request['review_spec']['identity_plan'])
-    ]
+    checks = []
+    for i, item in enumerate(request['review_spec']['identity_plan']):
+        check = {'id': f'identity.{i + 1}', 'expected': item['render_as'],
+                 'emphasis': item['emphasis'], 'do_not_change': item['do_not_change']}
+        source_key = 'requirement' if request['review_spec'].get('plan_source') == 'photo_requirements' else 'photo_evidence'
+        check[source_key] = item[source_key]
+        checks.append(check)
     checks += [
         {'id': 'expression_pose', 'expected':
          '保留照片神态、视线及头肩关系；只接受计划中同方向的适度夸张。'
@@ -48,11 +49,40 @@ def checks_for(request):
         {'id': 'style', 'expected': '保持本次选定参考的平顺轮廓、五官符号、色面、腮红与主模式；'
          + json.dumps(request['review_spec']['style_lock'], ensure_ascii=False)},
         {'id': 'art_color_gradient', 'expected': '肤发、服饰和背景按本次角色色组织，不按照片颜色判人物一致性；'
-         '至少一处有可见面积与色差的连续二色渐变，硬边色块/亮线/噪点不算；'
-         + request.get('color_plan', {}).get('gradient_instructions', '渐变在头发、服饰或背景内部，外缘清楚')},
+         '每张成品（含四配色每版）至少一处连续二色渐变，在普通头像尺寸看清两端颜色与中间连续过渡，两端各占可辨认面积；微弱同色变化、细边、硬边色块/亮线/噪点不算；'
+         + request.get('color_plan', {}).get('gradient_instructions', '渐变只在头发或服饰内部，背景为单一纯色')},
         {'id': 'shadow_detail', 'expected': '暗面留在对应脸、颈或衣面；线条、纹理与局部细节服从本次 shadow_plan，不改画风'},
-        {'id': 'framing_readability', 'expected': '实际交付图及128像素缩略图中关键面部特征可读；头顶、道具和肩部按本次构图保留'},
+        {'id': 'background_contrast', 'expected': '背景为均匀单一纯色，铺满整幅且不透明，与头发和服装等大色面形成清楚反差；'
+         '严禁白色、近白色背景，必须使用本次选定的库内明亮非白色；'
+         '禁止背景渐变、纹理、图案或投影；'
+         '不能把透明区、查看器灰底或白色画板当作已绘制背景。'
+         + request.get('background_plan', {}).get('instructions', '')},
+        {'id': 'framing_readability', 'expected': '实际交付图及128像素缩略图中关键面部特征可读；按framing_plan核对头高、顶空、侧边留白与肩胸可见，避免大头挤满画面'},
     ]
+    eye_style = request['review_spec']['style_lock'].get('eye_style')
+    if eye_style:
+        checks.append({'id': 'eye_style', 'expected': eye_style['instructions']})
+    source_colors = request['review_spec']['style_lock'].get('source_colors')
+    if source_colors:
+        checks.append({'id': 'source_skin_background', 'expected':
+                       '肤面及皮肤暗面严格使用69张原作库内同一模板的指定HEX，不能调亮、调暗、混色或新增皮肤高光；'
+                       '腮红和线条为独立角色，边缘抗锯齿不作为新肤色。背景为本次原作背景采样的明亮非白单色；'
+                       '若编码语义分错区导致发衣色落入皮肤，仍判失败，不因填色程序通过就声称合格。'
+                       + json.dumps(source_colors, ensure_ascii=False)})
+    for index, plan in enumerate(request.get('variant_plans', []), 1):
+        if plan.get('source_colorway'):
+            checks.append({'id': f'source_colorway.{index}', 'expected':
+                           f'第{index}版逐角色对照其对应原作HD-{plan["source_hd_id"]:03d}；'
+                           '肤面/肤影、明亮非白纯色背景、发衣、腮红、细节、主线和人物渐变均沿用该套来源，'
+                           '不能全部按造型参考025判配色。分区语义错误或库外肤色仍判失败。'
+                           + json.dumps({'source_colorway': plan['source_colorway'],
+                                         'roles': plan['roles'], 'gradient': plan['gradient']}, ensure_ascii=False)})
+    source_colorway = request['review_spec']['style_lock'].get('source_colorway')
+    if source_colorway:
+        checks.append({'id': 'complete_source_colorway', 'expected':
+                       '单图与四图逐版核对同一张原作的肤色、肤影、背景、头发、服装、腮红、细节、主线与渐变；'
+                       '全部角色必须保持该原作的配对关系，不能因各颜色分别在库内而接受跨原作混搭。'
+                       + json.dumps(source_colorway, ensure_ascii=False)})
     return checks
 
 
@@ -72,14 +102,20 @@ def bindings_for(request_path, request, image):
 
 
 def automatic_checks(image, request):
-    target = tuple(int(v) for v in request['delivery_size'].split('x'))
+    size = request.get('delivery_size', 'native')
+    target = None if size in ('native', 'auto', None) else tuple(int(v) for v in size.split('x'))
     with Image.open(image) as im:
         im.load()
-        return [
-            {'id': 'delivery_size', 'passed': im.size == target,
-             'observed': list(im.size), 'expected': list(target)},
+        alpha = im.convert('RGBA').getchannel('A').getextrema()
+        checks = []
+        if target is not None:
+            checks.append({'id': 'delivery_size', 'passed': im.size == target,
+                           'observed': list(im.size), 'expected': list(target)})
+        return checks + [
             {'id': 'png_single_frame', 'passed': im.format == 'PNG' and getattr(im, 'n_frames', 1) == 1,
              'observed': im.format, 'expected': 'single-frame PNG'},
+            {'id': 'opaque_pixels', 'passed': alpha == (255, 255),
+             'observed': list(alpha), 'expected': [255, 255]},
         ]
 
 

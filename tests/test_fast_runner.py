@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 import hashlib
 import io
 import json
-import os
 from pathlib import Path
 import subprocess
 import sys
@@ -12,7 +11,8 @@ import tempfile
 import unittest
 from unittest import mock
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageOps
+from avatar_test_fixture import encoded_fixture
 
 SKILL = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SKILL / 'scripts'))
@@ -24,9 +24,6 @@ class FastRunnerTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-fast-runner-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
-        previous_cwd = Path.cwd()
-        os.chdir(self.root)
-        self.addCleanup(os.chdir, previous_cwd)
         self.photo = self.root / 'photo.png'
         Image.new('RGB', (240, 320), '#ba8968').save(self.photo)
         self.brief = {
@@ -36,8 +33,8 @@ class FastRunnerTests(unittest.TestCase):
         }
         self.originals = {}
 
-    def gateway(self, status='completed', image_size=(512, 512), returncode=0,
-                write_result=True, files=True):
+    def gateway(self, status='completed', image_size=(1024, 1024), returncode=0,
+                write_result=True, files=True, semantic=True):
         def fake(argv, **kwargs):
             render = Path(argv[argv.index('--out-dir') + 1])
             render.mkdir(parents=True)
@@ -47,7 +44,10 @@ class FastRunnerTests(unittest.TestCase):
                        'request_id': 'offline-fixture', 'model': 'offline-model',
                        'started_at': '2026-11-07T00:00:00+00:00'}
             if status == 'completed' and files:
-                Image.new('RGB', image_size, '#a1e5d2').save(original)
+                if semantic:
+                    encoded_fixture(original, image_size)
+                else:
+                    Image.new('RGB', image_size, '#A1E5D2').save(original)
                 self.originals[str(original)] = original.read_bytes()
                 payload['files'] = [{'original': str(original), 'format': 'png',
                                      'bytes': original.stat().st_size}]
@@ -75,34 +75,112 @@ class FastRunnerTests(unittest.TestCase):
         self.assertEqual(result['status'], 'completed')
         self.assertEqual(result['upstream_status'], 'completed')
         self.assertEqual(result['visual_review'], 'not_performed')
+        self.assertEqual(result['master_encoding'], 'semantic-cube-v1')
+        self.assertEqual(result['variants'], 1)
         with Image.open(result['delivery']) as image:
-            self.assertEqual((image.format, image.size), ('PNG', (512, 512)))
+            self.assertEqual((image.format, image.size), ('PNG', (1024, 1024)))
         self.assertEqual(result['stage'], 'preview')
         self.assertTrue(result['awaiting_hd_confirmation'])
         self.assertTrue(result['render_size_honored'])
-        self.assertEqual(argv[argv.index('--size')+1], '512x512')
+        self.assertEqual(argv[argv.index('--size') + 1], '1024x1024')
         self.assertEqual(argv[argv.index('--quality')+1], 'low')
         original = Path(result['original'])
         self.assertEqual(original.read_bytes(), self.originals[str(original)])
         with Image.open(original) as image:
-            self.assertEqual(image.size, (512, 512))
+            self.assertEqual(image.size, (1024, 1024))
         self.assertTrue((self.root / 'run' / 'brief.json').is_file())
         self.assertTrue((self.root / 'run' / 'request' / 'generation-request.json').is_file())
         self.assertFalse((self.root / 'run' / 'review').exists())
         self.assertEqual(len(log.splitlines()), 1)
         self.assertEqual(json.loads(log)['status'], 'completed')
 
+    def test_single_avatar_locally_fills_source_skin_roles_and_keeps_manifest_paths(self):
+        result, _ = self.invoke()
+        request = json.loads((self.root/'run/request/generation-request.json').read_text())
+        self.assertEqual(len(request['variant_plans']), 1)
+        self.assertEqual(request['variants'], 1)
+        self.assertEqual(result['delivery'], str(self.root/'run/avatar.png'))
+        self.assertEqual(result['variant_files'], [result['delivery']])
+        self.assertEqual(result['delivery_details']['variant_details'][0]['delivery'], result['delivery'])
+        manifest = json.loads(Path(result['mask_manifest']).read_text())
+        with Image.open(manifest['line_alpha_file']) as alpha:
+            fill_core = ImageOps.invert(alpha).point([255 if value == 255 else 0 for value in range(256)])
+        with Image.open(result['delivery']) as output:
+            for role in ('skin_base', 'skin_shadow'):
+                with Image.open(self.root/'run/variants'/('mask-' + role + '.png')) as region:
+                    mask = ImageChops.multiply(region, fill_core)
+                self.assertIsNotNone(mask.getbbox())
+                expected = Image.new('RGB', output.size, request['color_plan']['roles'][role])
+                self.assertEqual(output.histogram(mask=mask), expected.histogram(mask=mask))
+
+    def test_single_ordinary_model_colors_are_rejected_without_retry_or_delivery(self):
+        gateway = self.gateway(semantic=False)
+        result, _ = self.invoke(gateway)
+        gateway.assert_called_once()
+        self.assertEqual(result['upstream_status'], 'completed')
+        self.assertEqual(result['error_code'], 'delivery_failed')
+        self.assertNotIn('delivery', result)
+        self.assertTrue(Path(result['original']).is_file())
+        self.assertFalse((self.root/'run/avatar.png').exists())
+
+    def test_summary_exposes_original_review_inputs_without_claiming_review(self):
+        Image.new('RGB', (1800, 2400), '#ba8968').save(self.photo)
+        result, log = self.invoke()
+        summary = json.loads(log)
+        request = json.loads((self.root / 'run' / 'request' / 'generation-request.json').read_text())
+        self.assertNotEqual(request['upload_inputs'][0]['upload'], str(self.photo))
+        self.assertEqual(summary['review_assets'], {
+            'photo': str(self.photo), 'output': result['delivery'],
+            'style_reference': request['style_reference'],
+        })
+        self.assertEqual(result['visual_review'], 'not_performed')
+
+    def test_cli_photo_only_submits_one_edit_without_invented_observations(self):
+        gateway = self.gateway(image_size=(1160, 1220))
+        directory = self.root / 'direct-photo'
+        with mock.patch.object(run_avatar.subprocess, 'run', gateway):
+            with contextlib.redirect_stdout(io.StringIO()):
+                code = run_avatar.main(['--photo', str(self.photo), '--variants', '1', '--out-dir', str(directory)])
+        self.assertEqual(code, 0)
+        gateway.assert_called_once()
+        brief = json.loads((directory / 'brief.json').read_text())
+        request = json.loads((directory / 'request' / 'generation-request.json').read_text())
+        self.assertEqual(brief['identity_source'], 'photo')
+        self.assertNotIn('identity_features', brief)
+        self.assertNotIn('expression', brief)
+        self.assertNotIn('pose', brief)
+        self.assertEqual(request['review_spec']['plan_source'], 'photo_requirements')
+        for item in request['review_spec']['identity_plan']:
+            self.assertIn('requirement', item)
+            self.assertNotIn('photo_evidence', item)
+        argv = gateway.call_args[0][0]
+        self.assertEqual(argv[argv.index('--size') + 1], '1024x1024')
+        self.assertEqual(argv[argv.index('--background') + 1], 'opaque')
+        with Image.open(directory / 'avatar.png') as image:
+            self.assertEqual(image.size, (1024, 1024))
+
+    def test_partial_observed_feature_list_fails_before_generation(self):
+        with mock.patch.object(run_avatar, 'run') as runner:
+            with contextlib.redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit) as failure:
+                    run_avatar.main(['--photo', str(self.photo), '--feature', 'short hair'])
+        self.assertEqual(failure.exception.code, 2)
+        runner.assert_not_called()
+
     def test_monotonic_timings_and_short_log_do_not_echo_brief_or_body(self):
-        clock = [0, 1, 2, 3, 8, 9, 10, 11]
+        clock = [0, 1, 1.2, 1.3, 2, 3, 8, 9, 10, 11]
         brief = dict(self.brief, user_notes='private-input-not-for-log')
         with mock.patch.object(run_avatar, 'monotonic', side_effect=clock):
             result, log = self.invoke(self.gateway(), brief=brief)
-        self.assertEqual(result['timings'], {
+        timings = dict(result['timings'])
+        self.assertGreaterEqual(timings.pop('local_recolor_seconds'), 0)
+        self.assertEqual(timings, {
             'preparation_seconds': 1.0, 'gateway_process_seconds': 5.0,
+            'input_preparation_seconds': 0.1,
             'delivery_seconds': 1.0, 'total_seconds': 11.0,
             'upstream_api_seconds': 3.5, 'gateway_overhead_seconds': 1.5,
         })
-        self.assertLess(len(log), 1200)
+        self.assertLess(len(log), 2000)
         self.assertNotIn('private-input-not-for-log', log)
         self.assertNotIn('headers_seconds', log)
         self.assertNotIn('body_seconds', log)
@@ -197,7 +275,8 @@ class FastRunnerTests(unittest.TestCase):
 
     def test_small_image_failure_does_not_generate_again(self):
         gateway = self.gateway(image_size=(256, 256))
-        result, _ = self.invoke(gateway)
+        result, _ = self.invoke(gateway, brief=dict(self.brief, size_policy='explicit',
+                                                   size='512x512', render_size='512x512'))
         gateway.assert_called_once()
         self.assertEqual(result['status'], 'failed')
         self.assertEqual(result['upstream_status'], 'completed')
@@ -268,7 +347,7 @@ class FastRunnerTests(unittest.TestCase):
         with mock.patch.object(run_avatar.subprocess, 'run', gateway):
             with contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(run_avatar.main([
-                    '--brief', str(brief_path), '--out-dir', str(out_dir)]), 0)
+                    '--brief', str(brief_path), '--variants', '1', '--out-dir', str(out_dir)]), 0)
         gateway.assert_called_once()
         request = json.loads((out_dir / 'request' / 'generation-request.json').read_text())
         self.assertEqual(request['mode'], 'gradient')
@@ -288,7 +367,8 @@ class FastRunnerTests(unittest.TestCase):
 
     def test_oversized_preview_is_disclosed_without_claiming_resource_savings(self):
         gateway = self.gateway(image_size=(1024, 1024))
-        result, log = self.invoke(gateway)
+        result, log = self.invoke(gateway, brief=dict(self.brief, size_policy='explicit',
+                                                     size='512x512', render_size='512x512'))
         gateway.assert_called_once()
         self.assertEqual(result['status'], 'completed')
         self.assertFalse(result['render_size_honored'])
@@ -306,7 +386,7 @@ class FastRunnerTests(unittest.TestCase):
                     '--approved-preview', first['delivery'], '--out-dir', str(self.root/'hd')]), 0)
         gateway.assert_called_once()
         argv = gateway.call_args[0][0]
-        self.assertEqual(argv[argv.index('--size')+1], '1024x1024')
+        self.assertEqual(argv[argv.index('--size') + 1], '1024x1024')
         self.assertEqual(argv[argv.index('--quality')+1], 'high')
         images = [argv[i+1] for i, value in enumerate(argv) if value == '--image']
         self.assertEqual(images[0], str(self.photo))
@@ -314,7 +394,7 @@ class FastRunnerTests(unittest.TestCase):
         result = json.loads((self.root/'hd'/'result.json').read_text())
         self.assertEqual(result['stage'], 'final')
         self.assertFalse(result['awaiting_hd_confirmation'])
-        self.assertEqual(result['delivery_size'], [1000, 1000])
+        self.assertEqual(result['delivery_size'], [1024, 1024])
         self.assertTrue(Path(first['delivery']).is_file())
         preview_request = json.loads((self.root/'preview'/'request'/'generation-request.json').read_text())
         final_request = json.loads((self.root/'hd'/'request'/'generation-request.json').read_text())

@@ -1,125 +1,117 @@
-"""Offline color-policy checks; none of these claim a generated image passed."""
+"""Complete source palettes across single/four, preview/final, fast/review."""
+from copy import deepcopy
 import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest import mock
-
 from PIL import Image
 
-SKILL = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(SKILL/'scripts'))
+SKILL=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(SKILL/'scripts'))
 import build_prompt
-import review_avatar
-
+from source_colorways import catalog, colorway, validate_plan
 
 class ArtisticColorTests(unittest.TestCase):
     def setUp(self):
-        temporary = tempfile.TemporaryDirectory(prefix='avatar-art-color-')
-        self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
-        self.photo = self.root/'photo.png'
-        Image.new('RGB', (240, 320), '#BC8866').save(self.photo)
-        self.brief = {'photo': str(self.photo),
-                      'identity_features': ['圆下颌', '侧分棕发剪影', '长眼与宽眉眼间距'],
-                      'expression': '闭口平静', 'pose': '轻微侧转'}
-        self.palettes = json.loads((SKILL/'references/artistic-palettes.json').read_text())['palettes']
+        temp=tempfile.TemporaryDirectory(prefix='avatar-complete-colors-')
+        self.addCleanup(temp.cleanup)
+        self.root=Path(temp.name)
+        self.photo=self.root/'photo.png'
+        Image.new('RGB',(240,320),'#BC8866').save(self.photo)
+        self.brief={'photo':str(self.photo),'identity_source':'photo'}
+        self.counter=0
 
-    def prepare(self, name='request', **kwargs):
-        result = build_prompt.prepare(dict(self.brief, **kwargs), self.root/'brief.json', self.root/name)
-        return result, Path(result['prompt_file']).read_text()
+    def prepare(self,**kw):
+        self.counter+=1
+        result=build_prompt.prepare(dict(self.brief,**kw),self.root/'brief.json',self.root/str(self.counter))
+        plan=dict(result['color_plan'],background_plan=result['background_plan'],line_plan=result['line_plan'])
+        validate_plan(plan)
+        expected=colorway(plan['source_hd_id'])
+        self.assertEqual(plan['roles'],expected['roles'])
+        self.assertEqual(plan['gradient'],expected['gradient'])
+        self.assertEqual(result['review_spec']['style_lock']['source_colorway'],plan['source_colorway'])
+        return result,plan
 
-    def test_default_uses_art_colors_and_explicit_continuous_gradient_in_both_routes(self):
-        for workflow in ('fast', 'review'):
-            result, prompt = self.prepare(workflow, workflow=workflow)
-            self.assertEqual(result['color_mode'], 'expressive')
-            self.assertIn('不受照片原色约束', prompt)
-            self.assertIn('连续过渡至', prompt)
-            self.assertIn(result['color_plan']['gradient']['from'], prompt)
-            self.assertIn(result['color_plan']['gradient']['to'], prompt)
-            self.assertNotIn('不自动添加渐变', prompt)
-            self.assertNotIn('保留照片肤发基调', prompt)
+    def test_all_complete_catalog_palettes_work_in_both_stages_and_routes(self):
+        for item in catalog()['colorways']:
+            for workflow in ('fast','review'):
+                for stage in ('preview','final'):
+                    with self.subTest(reference=item['source_hd_id'],workflow=workflow,stage=stage):
+                        r,p=self.prepare(source_colorway_id=item['id'],workflow=workflow,stage=stage)
+                        self.assertEqual(p['source_hd_id'],item['source_hd_id'])
+                        text=Path(r['prompt_file']).read_text()
+                        self.assertEqual(r['master_encoding'], 'semantic-cube-v1')
+                        self.assertEqual(r['variant_plans'][0]['roles'],p['roles'])
+                        self.assertIn('背景#FFFFFF',text)
+                        self.assertEqual(p['source_selection']['skin']['source_hd_id'],p['source_hd_id'])
+                        self.assertEqual(p['source_selection']['background']['source_hd_id'],p['source_hd_id'])
 
-    def test_fixed_white_and_yellow_skin_palettes_override_photo_colors(self):
-        for palette_id, expected in [('cobalt-white', '#FFFFFF'), ('forest-yellow', '#FFF265')]:
-            result, prompt = self.prepare(palette_id, art_palette=palette_id)
-            self.assertEqual(result['color_plan']['id'], palette_id)
-            self.assertEqual(result['color_plan']['roles']['skin_base'], expected)
-            self.assertIn('skin_base: '+expected, prompt)
-            self.assertIn('颜色词只是原照观察', prompt)
+    def test_same_source_has_identical_roles_in_single_and_four(self):
+        quad,_=self.prepare(variants=4)
+        for original in quad['variant_plans']:
+            _,single=self.prepare(source_colorway_id=original['id'])
+            self.assertEqual(single['roles'],original['roles'])
+            self.assertEqual(single['gradient'],original['gradient'])
+            self.assertEqual(single['source_colorway'],original['source_colorway'])
 
-    def test_all_modes_require_a_gradient_even_when_main_mode_is_flat(self):
+    def test_every_drawing_mode_keeps_complete_source_colors(self):
         for mode in build_prompt.MODES:
-            brief = {'mode': mode, 'art_palette': 'sky-lemon'}
-            if mode == 'glitch':
-                brief['palette_id'] = 40
-            result, prompt = self.prepare(mode, **brief)
-            self.assertEqual(result['mode'], mode)
-            self.assertIn('渐变：必须在', prompt)
-            self.assertIn('不能用两块硬切色', prompt)
-            self.assertEqual(result['review_spec']['style_lock']['gradient'],
-                             result['color_plan']['gradient'])
+            for source in ('photo','observations'):
+                kw={'mode':mode,'identity_source':source,'source_colorway_id':'HD-055-colorway'}
+                if source=='observations':
+                    kw.update(identity_features=['圆下颌','侧分发型','长眼'],expression='平视',pose='侧转')
+                _,p=self.prepare(**kw)
+                self.assertEqual(p['source_hd_id'],55)
 
-    def test_auto_can_select_different_palettes_without_inspecting_photo_colors(self):
-        selected = []
-        for index in (0, len(self.palettes)-1):
-            with mock.patch.object(build_prompt.secrets, 'choice', side_effect=lambda values: values[index]):
-                result, _ = self.prepare(str(index))
-            selected.append(result['color_plan']['id'])
-        self.assertNotEqual(*selected)
+    def test_partial_legacy_overrides_are_replaced_as_one_palette_with_migration(self):
+        _,p=self.prepare(color_roles={'skin_base':'#010203','background':'#00DDD6','clothing':'原照衣色'},
+                         skin_template_id='HD-048-skin',background_template_id='HD-049-bg-1',
+                         gradient={'region':'background','from':'#112233','to':'#445566'})
+        self.assertEqual(p['source_hd_id'],25)
+        self.assertEqual(p['migration']['from'],'legacy-independent-role-selection')
+        self.assertEqual(p['migration']['previous']['skin_template_id'],'HD-048-skin')
+        self.assertEqual(p['gradient'],colorway(25)['gradient'])
 
-    def test_partial_color_override_keeps_remaining_roles_and_supports_explicit_gradient(self):
-        gradient = {'region': 'background', 'from': '#3400FF', 'to': '#FFB300', 'direction': '从左向右'}
-        result, prompt = self.prepare(art_palette='cobalt-white',
-                                      color_roles={'background': '#3400FF'}, gradient=gradient)
-        self.assertEqual(result['color_plan']['roles']['skin_base'], '#FFFFFF')
-        self.assertEqual(result['color_plan']['roles']['background'], '#3400FF')
-        self.assertEqual(result['color_plan']['gradient'], gradient)
-        self.assertIn('从左向右', prompt)
+    def test_even_malformed_old_gradients_cannot_disable_source_gradient(self):
+        for gradient in (None,False,{}, {'region':'face','from':'#123456','to':'#123456'}):
+            _,p=self.prepare(gradient=gradient)
+            self.assertEqual(p['gradient'],colorway(25)['gradient'])
+            self.assertIn('migration',p)
 
-    def test_invalid_or_zero_color_change_cannot_disable_required_gradient(self):
-        for i, gradient in enumerate((None, False, {},
-            {'region': 'hair', 'from': '#112233', 'to': '#112233'},
-            {'region': 'hair', 'from': '#112233', 'to': '#112234'},
-            {'region': 'face', 'from': '#112233', 'to': '#FFFFFF'})):
-            with self.subTest(gradient=gradient), self.assertRaises(ValueError):
-                self.prepare(str(i), gradient=gradient)
+    def test_saved_complete_scheme_overrides_stale_legacy_selectors(self):
+        _,p=self.prepare(source_colorway_id='HD-055-colorway',art_palette='mint-apricot',
+                         line_reference_id=25,skin_template_id='HD-066-skin')
+        self.assertEqual(p['source_hd_id'],55)
+        self.assertEqual(p['line_plan']['source_reference_id'],55)
 
-    def test_sample_provenance_matches_original_reference_data(self):
-        catalog = json.loads((SKILL/'references/finished-reference-library.json').read_text())['portraits']
-        by_id = {record['id']: record for record in catalog}
-        seen = set()
-        for palette in self.palettes:
-            self.assertNotIn(palette['id'], seen)
-            seen.add(palette['id'])
-            original = {item['hex'].upper() for item in by_id[palette['source_hd_id']]['most_frequent_colors']}
-            sampled = {color.upper() for color in palette['sampled_hex']}
-            designed = {color.upper() for color in palette['designed_hex']}
-            self.assertTrue(sampled <= original)
-            used = set(palette['color_roles'].values()) | {palette['gradient']['from'], palette['gradient']['to']}
-            self.assertTrue({color.upper() for color in used} <= sampled | designed)
+    def test_new_explicit_source_can_replace_a_frozen_choice(self):
+        _,p=self.prepare(source_colorway_id='HD-055-colorway',colorway_reference_id=47)
+        self.assertEqual(p['source_hd_id'],47)
 
-    def test_explicit_review_has_color_and_gradient_evidence_item(self):
-        result, _ = self.prepare(workflow='review')
-        check = next(item for item in review_avatar.checks_for(result) if item['id'] == 'art_color_gradient')
-        self.assertIn('连续二色渐变', check['expected'])
-        self.assertIn(result['color_plan']['gradient']['to'], check['expected'])
+    def test_unavailable_explicit_source_never_silently_falls_back(self):
+        for field,value in (('source_colorway_id','invented'),('colorway_reference_id',26),
+                            ('requested_palette','cobalt-white')):
+            with self.subTest(field=field),self.assertRaises(ValueError):
+                self.prepare(**{field:value})
 
-    def test_legacy_reference_palette_does_not_claim_an_hd_source(self):
-        result, _ = self.prepare(palette_id=24, art_palette='reference')
-        self.assertIsNone(result['color_plan']['source_hd_id'])
-        self.assertEqual(result['reference_set'], 'legacy')
+    def test_unavailable_style_reference_falls_back_as_complete_default(self):
+        _,p=self.prepare(hd_reference_id=26)
+        self.assertEqual(p['source_hd_id'],25)
 
-    def test_old_color_locks_are_explicitly_superseded_without_losing_structure(self):
-        plan = build_prompt.identity_plan_for(self.brief, self.brief['identity_features'])
-        plan[1]['do_not_change'] = '不能改成金发；保留侧分发型轮廓'
-        result, prompt = self.prepare(identity_plan=plan, art_palette='mint-apricot')
-        self.assertIn('保留侧分发型轮廓', prompt)
-        self.assertIn('旧brief内保留原色或禁止改色约束不再生效', prompt)
-        self.assertEqual(result['color_plan']['roles']['hair'], '#FFE4A6')
-        self.assertIn('本次角色色优先', result['review_spec']['style_lock']['color_policy'])
+    def test_natural_cannot_bypass_complete_palette_in_any_variant_mode(self):
+        for variants in (1,4):
+            with self.subTest(variants=variants),self.assertRaises(ValueError):
+                self.prepare(color_mode='natural',variants=variants)
 
+    def test_available_legacy_palette_alias_selects_complete_original(self):
+        _,p=self.prepare(requested_palette='pink-plum')
+        self.assertEqual(p['source_hd_id'],55)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_tampered_plan_is_rejected_for_each_role_and_gradient(self):
+        _,p=self.prepare()
+        for role in p['roles']:
+            changed=deepcopy(p);changed['roles'][role]='#010203'
+            with self.subTest(role=role),self.assertRaises(ValueError):validate_plan(changed)
+        changed=deepcopy(p);changed['gradient']['to']='#010203'
+        with self.assertRaises(ValueError):validate_plan(changed)

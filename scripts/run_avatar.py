@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare one avatar edit, run gen-img once, and deliver a square PNG."""
+"""Run one semantic avatar edit, then locally fill one or four colorways."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -13,6 +13,9 @@ from uuid import uuid4
 
 import build_prompt
 import finalize_avatar
+from composition import DEFAULT_SIZE, FRAMING_ID
+from prepare_inputs import prepare_inputs
+from line_plan import FAMILY_IDS
 
 
 SKILL = Path(__file__).resolve().parents[1]
@@ -47,7 +50,7 @@ def _finish(result, out_dir, started):
     _write_json(out_dir / 'result.json', result)
     summary = {key: result[key] for key in
                ('status', 'upstream_status', 'result_file', 'timing_scope', 'timings')}
-    for key in ('stage', 'delivery', 'delivery_size', 'awaiting_hd_confirmation', 'size_notice', 'error_code', 'error'):
+    for key in ('stage', 'delivery', 'delivery_size', 'review_assets', 'variants', 'variant_files', 'colorway_sources', 'awaiting_hd_confirmation', 'size_notice', 'background_notice', 'error_code', 'error'):
         if key in result:
             summary[key] = result[key]
     # The gateway streams its own progress. Do not repeat its argv, prompt,
@@ -80,6 +83,7 @@ def run(brief, out_dir, gateway_runner=None):
         'timing_scope': 'script execution only; excludes prelaunch tool and approval waits',
         'timings': {
             'preparation_seconds': 0.0, 'gateway_process_seconds': 0.0,
+            'input_preparation_seconds': 0.0,
             'delivery_seconds': 0.0, 'total_seconds': 0.0,
             'upstream_api_seconds': None, 'gateway_overhead_seconds': None,
         },
@@ -96,13 +100,49 @@ def run(brief, out_dir, gateway_runner=None):
             prepared_brief['approved_preview'] = str(preview.resolve())
         prepared_brief.setdefault('workflow', 'fast')
         prepared_brief.setdefault('stage', 'preview')
+        if prepared_brief.get('size_policy', 'square') in ('native', 'square'):
+            prepared_brief.pop('size', None)
+            prepared_brief.pop('render_size', None)
+            prepared_brief['size_policy'] = 'square'
         brief_path = out_dir / 'brief.json'
         request = build_prompt.prepare(prepared_brief, brief_path, out_dir / 'request')
-        # Freeze the locally chosen palette before saving a reusable brief.
-        # A later confirmed HD request must not choose a new random palette.
+        inputs_started = monotonic()
+        prepare_inputs(request, out_dir / 'inputs')
+        result['timings']['input_preparation_seconds'] = monotonic() - inputs_started
+        request_path = out_dir / 'request' / 'generation-request.json'
+        request_path.write_text(json.dumps(request, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        # Freeze all selected source templates and line rules for the HD brief.
         prepared_brief['art_palette'] = request['color_plan']['id']
         prepared_brief['color_roles'] = dict(request['color_plan']['roles'])
         prepared_brief['gradient'] = dict(request['color_plan']['gradient'])
+        prepared_brief['line_reference_id'] = request['line_plan']['source_reference_id']
+        prepared_brief['line_family'] = request['line_plan']['family_id']
+        source_colors = request['color_plan']['source_selection']
+        prepared_brief['skin_template_id'] = source_colors['skin']['template_id']
+        prepared_brief['background_template_id'] = source_colors['background']['template_id']
+        prepared_brief['size_policy'] = request['size_policy']
+        prepared_brief['size'] = request['delivery_size']
+        prepared_brief['render_size'] = request['render_size']
+        prepared_brief['framing_policy'] = FRAMING_ID
+        prepared_brief['framing'] = request['review_spec']['style_lock']['framing']
+        prepared_brief.pop('gradient_adjustment', None)
+        if request['color_plan']['gradient_adjustment']:
+            prepared_brief['gradient_adjustment'] = request['color_plan']['gradient_adjustment']
+        if request.get('variants') == 4:
+            prepared_brief['variants'] = 4
+            prepared_brief['variant_plans'] = request['variant_plans']
+            # Explicit selections choose a new set once; subsequent HD runs
+            # reuse the saved plans, rather than regenerating them from IDs.
+            prepared_brief.pop('colorway_reference_ids', None)
+        else:
+            prepared_brief['variants'] = 1
+            prepared_brief.pop('variant_plans', None)
+        if request['color_plan'].get('source_colorway'):
+            prepared_brief['source_colorway_id'] = request['color_plan']['id']
+        prepared_brief.pop('colorway_reference_id', None)
+        prepared_brief.pop('requested_palette', None)
+        if request['color_plan'].get('migration'):
+            prepared_brief['colorway_migration'] = request['color_plan']['migration']
         _write_json(brief_path, prepared_brief)
     except (OSError, ValueError, KeyError, TypeError) as error:
         result.update(error_code='preparation_failed', error=str(error))
@@ -110,8 +150,12 @@ def run(brief, out_dir, gateway_runner=None):
     result['timings']['preparation_seconds'] = monotonic() - preparation_started
     if request is None:
         return _finish(result, out_dir, started)
-    result.update(stage=request['stage'], requested_render_size=request['render_size'],
+    result.update(stage=request['stage'], size_policy=request['size_policy'],
+                  requested_render_size=request['render_size'],
                   requested_quality=request['quality'])
+    background = request['background_plan']
+    if not background['meets_plan'] or background['unevaluated_roles']:
+        result['background_notice'] = background['reason'] + '；须实际看图确认人物与背景反差。'
 
     argv = list(request['argv']) + ['--out-dir', str(out_dir / 'render')]
     gateway_started = monotonic()
@@ -173,16 +217,58 @@ def run(brief, out_dir, gateway_runner=None):
     delivery_started = monotonic()
     try:
         size = int(request['delivery_size'].split('x')[0])
-        delivered = finalize_avatar.finalize(source, out_dir / 'avatar.png', size=size)
+        from PIL import Image
+        from recolor_avatar import render_variants
+        # Normalize once before exact source-backed local filling. The single
+        # route keeps its transparent-margin composition: technical white is
+        # replaced with the final non-white background by the local renderer.
+        if request.get('variants') == 4:
+            with Image.open(source) as master_image:
+                if ('A' in master_image.getbands() or 'transparency' in master_image.info) and master_image.convert('RGBA').getchannel('A').getextrema() != (255, 255):
+                    raise ValueError('四配色技术底稿必须不透明，不能猜补透明区域')
+        normalized = finalize_avatar.finalize(source, out_dir / 'master.png', size=size,
+                                              background={'color': '#FFFFFF'},
+                                              fit_square=request['size_policy'] == 'square')
+        delivered = render_variants(Path(normalized['delivery']), request['variant_plans'], out_dir / 'variants')
+        delivered['original_size'] = normalized['original_size']
+        delivered['master_operations'] = normalized['operations']
+        delivered['operations'] = normalized['operations']
+        delivered['background_composited'] = normalized['background_composited']
+        delivered['opaque'] = True
+        if request['variants'] == 1:
+            destination = out_dir / 'avatar.png'
+            Path(delivered['delivery']).rename(destination)
+            delivered['delivery'] = str(destination)
+            delivered['variants'] = [str(destination)]
+            for item in delivered['variant_details']:
+                item['delivery'] = str(destination)
+        result['variants'] = request['variants']
+        result['variant_files'] = delivered['variants']
+        if any(plan.get('source_colorway') for plan in request['variant_plans']):
+            result['colorway_sources'] = [
+                {'template_id': plan['id'], 'source_hd_id': plan['source_hd_id'],
+                 'name': plan['source_colorway']['name'],
+                 'reference_image': str(SKILL/plan['source_colorway']['source_image'])}
+                for plan in request['variant_plans'] if plan.get('source_colorway')]
+        result['geometry_lock'] = delivered['geometry_lock']
+        result['mask_manifest'] = delivered['mask_manifest']
+        result['timings']['local_recolor_seconds'] = delivered['timings']['total_seconds']
+        result['master_encoding'] = request['master_encoding']
         result.update(status='completed', delivery=delivered['delivery'],
                       delivery_size=delivered['delivery_size'],
-                      original_preserved=delivered['original_preserved'],
+                      original_preserved=delivered.get('original_preserved', True),
                       delivery_details=delivered)
+        # Original inputs, rather than the compressed upload copies, support
+        # the required single visual comparison without another JSON read.
+        result['review_assets'] = {
+            'photo': request['photo'], 'output': delivered['delivery'],
+            'style_reference': request['style_reference'],
+        }
         expected_size = [int(v) for v in request['render_size'].split('x')]
         result['render_size_honored'] = delivered['original_size'] == expected_size
         result['awaiting_hd_confirmation'] = request['stage'] == 'preview'
-        if request['stage'] == 'preview' and not result['render_size_honored']:
-            result['size_notice'] = ('上游返回尺寸未匹配小尺寸请求；已整理为预览，'
+        if request['stage'] == 'preview' and result['render_size_honored'] is False:
+            result['size_notice'] = ('上游返回尺寸未匹配请求；已在本地整理为正方形预览，'
                                      '不能据此声称已节省生图资源。')
     except (OSError, ValueError, KeyError, TypeError) as error:
         result.update(error_code='delivery_failed', error=str(error))
@@ -195,7 +281,7 @@ def main(argv=None):
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument('--brief', type=Path, help='Existing brief JSON; relative photo paths use its directory')
     source.add_argument('--photo', type=Path)
-    parser.add_argument('--feature', action='append', help='Visible identity feature; repeat at least three times')
+    parser.add_argument('--feature', action='append', help='Optional observed features; repeat at least three times with expression and pose')
     parser.add_argument('--expression')
     parser.add_argument('--pose')
     parser.add_argument('--clothing')
@@ -204,13 +290,25 @@ def main(argv=None):
     parser.add_argument('--reference', type=int, help='HD reference; default 25')
     parser.add_argument('--mode', choices=['auto'] + list(build_prompt.MODES),
                         help='Default flat with --photo; auto for an existing brief without mode')
-    parser.add_argument('--color-mode', choices=['natural', 'expressive'], help='Default expressive; natural only when explicitly requested')
-    parser.add_argument('--palette', help='Art palette id, auto (default), or reference')
+    parser.add_argument('--color-mode', choices=['natural', 'expressive'], help='Complete source palettes only; natural is retained solely to report a clear incompatibility error')
+    parser.add_argument('--palette', help='Whole source colorway ID, legacy palette alias, auto, or reference; cannot override individual roles')
+    parser.add_argument('--variants', type=int, choices=(1, 4),
+                        help='Default 4: one master, four local colorways; 1 uses the single-avatar route')
+    parser.add_argument('--select-variant', type=int, choices=(1, 2, 3, 4),
+                        help='Choose a saved colorway from --brief for a new single-avatar render')
+    parser.add_argument('--colorway-references', type=int, nargs=4,
+                        help='Four verified whole-reference palettes, e.g. 25 55 16 47')
+    parser.add_argument('--colorway-reference', type=int, help='One complete source palette for --variants 1, e.g. 25 or 55')
+    parser.add_argument('--line-reference', type=int, help='Compatibility selector for one complete HD palette, including its line color')
+    parser.add_argument('--line-family', choices=FAMILY_IDS,
+                        help='Drawing category from the local line library')
     parser.add_argument('--model', help='Optional; passed to global gen-img for model filtering')
     parser.add_argument('--stage', choices=['preview', 'final'],
                         help='Default preview; final only after user confirmation or an explicit HD request')
     parser.add_argument('--approved-preview', type=Path, help='Approved preview as the third image for final rendering')
     parser.add_argument('--quality', help='Default low for preview, high for final; explicit values are preserved')
+    parser.add_argument('--size', help='Fresh explicit square size; otherwise 1024x1024 in both stages')
+    parser.add_argument('--render-size', help='Optional render size for explicit --size')
     parser.add_argument('--out-dir', type=Path)
     args = parser.parse_args(argv)
     try:
@@ -229,29 +327,70 @@ def main(argv=None):
                     preview = brief_path.parent / preview
                 brief['approved_preview'] = str(preview.resolve())
         else:
-            if not args.feature or len(args.feature) < 3 or not args.expression or not args.pose:
-                parser.error('--photo 需要至少三个 --feature，以及 --expression 和 --pose')
-            brief = {'photo': str(args.photo.expanduser().resolve()),
-                     'identity_features': args.feature,
-                     'expression': args.expression, 'pose': args.pose}
+            brief = {'photo': str(args.photo.expanduser().resolve())}
+            if args.feature:
+                if len(args.feature) < 3 or not args.expression or not args.pose:
+                    parser.error('手写特征需至少三个 --feature，以及 --expression 和 --pose')
+                brief['identity_source'] = 'observations'
+            else:
+                # The generation model reads these facts directly from the
+                # supplied photo. No preliminary observations are invented.
+                brief['identity_source'] = 'photo'
+        if args.color_mode == 'natural':
+            parser.error('单图与四图均执行完整同源配色，natural 已停用')
+        if args.select_variant is not None:
+            if not args.brief or args.variants == 4 or args.colorway_references:
+                parser.error('--select-variant 需要四配色的 --brief，且不能与 --variants 4 同用')
+            from variant_plans import select_variant_plan
+            brief = select_variant_plan(brief, args.select_variant)
+        if args.colorway_references:
+            if args.variants == 1:
+                parser.error('--colorway-references 需要四配色模式')
+            brief['colorway_reference_ids'] = args.colorway_references
+            brief['variants'] = 4
         for name, key in (
             ('feature', 'identity_features'), ('expression', 'expression'), ('pose', 'pose'),
             ('clothing', 'clothing'), ('stylization', 'stylization'), ('notes', 'user_notes'),
             ('reference', 'hd_reference_id'), ('mode', 'mode'), ('color_mode', 'color_mode'),
             ('palette', 'art_palette'),
+            ('variants', 'variants'),
+            ('line_reference', 'line_reference_id'), ('line_family', 'line_family'),
             ('model', 'model'), ('quality', 'quality'),
             ('stage', 'stage'),
         ):
             value = getattr(args, name)
             if value is not None:
                 brief[key] = value
+        if args.palette is not None or args.colorway_reference is not None or args.line_reference is not None:
+            from source_colorways import requested_colorway
+            if brief.get('variants', 4) != 1:
+                parser.error('四图用 --colorway-references 选择整套原作；单图选色请加 --variants 1')
+            choices = [requested_colorway(value, brief.get('hd_reference_id', 25))
+                       for value in (args.colorway_reference, args.palette, args.line_reference) if value is not None]
+            if len({item['id'] for item in choices}) != 1:
+                parser.error('配色与线色选择冲突，所有角色必须来自同一原作')
+            brief['colorway_reference_id'] = choices[0]['source_hd_id']
+            brief.pop('source_colorway_id', None)
         if args.approved_preview is not None:
             brief['approved_preview'] = str(args.approved_preview.expanduser().resolve())
+        if args.render_size and not args.size:
+            parser.error('--render-size 需要本次明确指定 --size')
+        # Reusing a saved brief must not resurrect a previous pixel target.
+        brief['size_policy'] = 'explicit' if args.size else 'square'
+        brief.pop('size', None)
+        brief.pop('render_size', None)
+        brief['framing_policy'] = FRAMING_ID
+        brief.pop('framing', None)
+        if args.size:
+            brief['size'] = args.size
+            if args.render_size:
+                brief['render_size'] = args.render_size
         if 'palette_id' not in brief:
             brief.setdefault('hd_reference_id', 25)
         brief.setdefault('mode', 'auto' if args.brief else 'flat')
         brief.setdefault('color_mode', 'expressive')
         brief.setdefault('stage', 'preview')
+        brief.setdefault('variants', 4)
         out_dir = args.out_dir or (
             Path.cwd() / 'outputs' / 'avatars' /
             (datetime.now().strftime('%Y%m%d-%H%M%S') + '-' + uuid4().hex[:8]))

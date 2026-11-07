@@ -1,0 +1,1507 @@
+{
+  "schema_version": 1,
+  "policy_id": "single-source-colorways-v1",
+  "source_library_count": 69,
+  "scope": "从69张原作中视觉审核后的完整同图配色。每一套只映射该原作实际同角色取样，不要求全部原作自动适用四配色；背景只取原作已沉淀的明亮纯色样本。",
+  "default_reference_ids": [
+    25,
+    55,
+    16,
+    47
+  ],
+  "colorways": [
+    {
+      "id": "HD-025-colorway",
+      "source_hd_id": 25,
+      "name": "薄荷杏黄",
+      "source_image": "assets/finished/025.png",
+      "source_sha256": "1d2ab1a83168888990f19c38cc1e3a43206dbf755852666bdf906301aca97ec9",
+      "skin_template_id": "HD-025-skin",
+      "background_template_id": "HD-025-bg-1",
+      "roles": {
+        "outline": "#0A654B",
+        "skin_base": "#FDD4D7",
+        "skin_shadow": "#F6B4BE",
+        "hair": "#FFE3A5",
+        "clothing": "#8AB4A3",
+        "background": "#A1E5D2",
+        "cheek": "#F6B4BE",
+        "detail": "#FFFFFF"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#FFE3A5",
+        "to": "#FFA268",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#FFE3A5",
+          "to": "#FFA268",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                450,
+                110
+              ],
+              "hex": "#FFE3A5"
+            },
+            "to": {
+              "xy": [
+                685,
+                390
+              ],
+              "hex": "#FFA268"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            476,
+            448
+          ],
+          "hex": "#0A654B"
+        },
+        "skin_base": {
+          "xy": [
+            420,
+            300
+          ],
+          "hex": "#FDD4D7"
+        },
+        "skin_shadow": {
+          "xy": [
+            600,
+            590
+          ],
+          "hex": "#F6B4BE"
+        },
+        "background": {
+          "xy": [
+            30,
+            30
+          ],
+          "hex": "#A1E5D2"
+        },
+        "hair": {
+          "xy": [
+            450,
+            110
+          ],
+          "hex": "#FFE3A5"
+        },
+        "clothing": {
+          "xy": [
+            780,
+            840
+          ],
+          "hex": "#8AB4A3"
+        },
+        "cheek": {
+          "xy": [
+            455,
+            500
+          ],
+          "hex": "#F6B4BE"
+        },
+        "detail": {
+          "xy": [
+            500,
+            820
+          ],
+          "hex": "#FFFFFF"
+        },
+        "gradient_from": {
+          "xy": [
+            450,
+            110
+          ],
+          "hex": "#FFE3A5"
+        },
+        "gradient_to": {
+          "xy": [
+            685,
+            390
+          ],
+          "hex": "#FFA268"
+        }
+      },
+      "notes": "头发渐变两端均取原作同一片杏黄发面；其余为原作绿线、粉肤、薄荷底、灰绿衣及白衬衫。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。 头发橙端实际位于右侧发面下端(685,390)，不可退回(350,260)的浅橙中段。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#FFE3A5",
+          "to": "#FFC084",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#FFE3A5",
+            "to": "#FFC084",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  450,
+                  110
+                ],
+                "hex": "#FFE3A5"
+              },
+              "to": {
+                "xy": [
+                  350,
+                  260
+                ],
+                "hex": "#FFC084"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              450,
+              110
+            ],
+            "hex": "#FFE3A5"
+          },
+          "gradient_to": {
+            "xy": [
+              350,
+              260
+            ],
+            "hex": "#FFC084"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-055-colorway",
+      "source_hd_id": 55,
+      "name": "浅粉梅紫",
+      "source_image": "assets/finished/055.png",
+      "source_sha256": "18f0d475b2703ee4648a688c257763ba9d8bb6f42dcb87bc429eb5540f88b81c",
+      "skin_template_id": "HD-055-skin",
+      "background_template_id": "HD-055-bg-1",
+      "roles": {
+        "outline": "#4C293F",
+        "skin_base": "#FFCFCF",
+        "skin_shadow": "#FFAEAD",
+        "hair": "#603A53",
+        "clothing": "#865B79",
+        "background": "#F7CFDA",
+        "cheek": "#FFAEAD",
+        "detail": "#FFFFFF"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#603A53",
+        "to": "#BC84AB",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#603A53",
+          "to": "#BC84AB",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                320,
+                210
+              ],
+              "hex": "#603A53"
+            },
+            "to": {
+              "xy": [
+                250,
+                900
+              ],
+              "hex": "#BC84AB"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            470,
+            320
+          ],
+          "hex": "#4C293F"
+        },
+        "skin_base": {
+          "xy": [
+            465,
+            275
+          ],
+          "hex": "#FFCFCF"
+        },
+        "skin_shadow": {
+          "xy": [
+            525,
+            620
+          ],
+          "hex": "#FFAEAD"
+        },
+        "background": {
+          "xy": [
+            20,
+            20
+          ],
+          "hex": "#F7CFDA"
+        },
+        "hair": {
+          "xy": [
+            320,
+            210
+          ],
+          "hex": "#603A53"
+        },
+        "clothing": {
+          "xy": [
+            800,
+            810
+          ],
+          "hex": "#865B79"
+        },
+        "cheek": {
+          "xy": [
+            490,
+            450
+          ],
+          "hex": "#FFAEAD"
+        },
+        "detail": {
+          "xy": [
+            337,
+            381
+          ],
+          "hex": "#FFFFFF"
+        },
+        "gradient_from": {
+          "xy": [
+            320,
+            210
+          ],
+          "hex": "#603A53"
+        },
+        "gradient_to": {
+          "xy": [
+            250,
+            900
+          ],
+          "hex": "#BC84AB"
+        }
+      },
+      "notes": "头发渐变两端均取原作梅紫长发同一连续发面；衣服为原作肩部紫灰，白色细节取原作眼部实际白像素。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#603A53",
+          "to": "#BC84AB",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#603A53",
+            "to": "#BC84AB",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  320,
+                  210
+                ],
+                "hex": "#603A53"
+              },
+              "to": {
+                "xy": [
+                  250,
+                  900
+                ],
+                "hex": "#BC84AB"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              320,
+              210
+            ],
+            "hex": "#603A53"
+          },
+          "gradient_to": {
+            "xy": [
+              250,
+              900
+            ],
+            "hex": "#BC84AB"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-016-colorway",
+      "source_hd_id": 16,
+      "name": "暖橙冰蓝",
+      "source_image": "assets/finished/016.png",
+      "source_sha256": "186721f6d9d435a495eb8c0da4e037976b70acdf177f9d6014887e3dd386a222",
+      "skin_template_id": "HD-016-skin",
+      "background_template_id": "HD-016-bg-1",
+      "roles": {
+        "outline": "#813B19",
+        "skin_base": "#FFCEB7",
+        "skin_shadow": "#FFCEB7",
+        "hair": "#C2EEF9",
+        "clothing": "#6FC2D0",
+        "background": "#FF8347",
+        "cheek": "#FFB18B",
+        "detail": "#FFCEB7"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#BCF5FA",
+        "to": "#FB8DDF",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#BCF5FA",
+          "to": "#FB8DDF",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                440,
+                170
+              ],
+              "hex": "#BCF5FA"
+            },
+            "to": {
+              "xy": [
+                375,
+                470
+              ],
+              "hex": "#FB8DDF"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            505,
+            445
+          ],
+          "hex": "#813B19"
+        },
+        "skin_base": {
+          "xy": [
+            490,
+            330
+          ],
+          "hex": "#FFCEB7"
+        },
+        "skin_shadow": {
+          "xy": [
+            490,
+            330
+          ],
+          "hex": "#FFCEB7"
+        },
+        "background": {
+          "xy": [
+            30,
+            30
+          ],
+          "hex": "#FF8347"
+        },
+        "hair": {
+          "xy": [
+            440,
+            200
+          ],
+          "hex": "#C2EEF9"
+        },
+        "clothing": {
+          "xy": [
+            300,
+            800
+          ],
+          "hex": "#6FC2D0"
+        },
+        "cheek": {
+          "xy": [
+            510,
+            500
+          ],
+          "hex": "#FFB18B"
+        },
+        "detail": {
+          "xy": [
+            490,
+            330
+          ],
+          "hex": "#FFCEB7"
+        },
+        "gradient_from": {
+          "xy": [
+            440,
+            170
+          ],
+          "hex": "#BCF5FA"
+        },
+        "gradient_to": {
+          "xy": [
+            375,
+            470
+          ],
+          "hex": "#FB8DDF"
+        }
+      },
+      "notes": "头发渐变两端均取原作青蓝至淡紫发面，不从背景或皮肤凑色。原作肤影库没有独立暗面，沿用主肤色；无纯白细节，detail沿用实际面部浅色。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#C2EEF9",
+          "to": "#EDA5E4",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#C2EEF9",
+            "to": "#EDA5E4",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  440,
+                  200
+                ],
+                "hex": "#C2EEF9"
+              },
+              "to": {
+                "xy": [
+                  300,
+                  400
+                ],
+                "hex": "#EDA5E4"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              440,
+              200
+            ],
+            "hex": "#C2EEF9"
+          },
+          "gradient_to": {
+            "xy": [
+              300,
+              400
+            ],
+            "hex": "#EDA5E4"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-047-colorway",
+      "source_hd_id": 47,
+      "name": "珊瑚青棕",
+      "source_image": "assets/finished/047.png",
+      "source_sha256": "5c0b65927ec76186d0def52f36e31ab5562754ebc45f546293d3798dfb1cd330",
+      "skin_template_id": "HD-047-skin",
+      "background_template_id": "HD-047-bg-3",
+      "roles": {
+        "outline": "#623025",
+        "skin_base": "#FFDED7",
+        "skin_shadow": "#FFC7BA",
+        "hair": "#48B7A4",
+        "clothing": "#B09266",
+        "background": "#FF7D61",
+        "cheek": "#FFC7BA",
+        "detail": "#FFFFFF"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#35BDAB",
+        "to": "#FF7D61",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#35BDAB",
+          "to": "#FF7D61",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                450,
+                100
+              ],
+              "hex": "#35BDAB"
+            },
+            "to": {
+              "xy": [
+                650,
+                450
+              ],
+              "hex": "#FF7D61"
+            }
+          }
+        },
+        {
+          "region": "clothing",
+          "from": "#819E68",
+          "to": "#E48463",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                650,
+                640
+              ],
+              "hex": "#819E68"
+            },
+            "to": {
+              "xy": [
+                780,
+                940
+              ],
+              "hex": "#E48463"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            393,
+            381
+          ],
+          "hex": "#623025"
+        },
+        "skin_base": {
+          "xy": [
+            390,
+            370
+          ],
+          "hex": "#FFDED7"
+        },
+        "skin_shadow": {
+          "xy": [
+            530,
+            500
+          ],
+          "hex": "#FFC7BA"
+        },
+        "background": {
+          "xy": [
+            970,
+            30
+          ],
+          "hex": "#FF7D61"
+        },
+        "hair": {
+          "xy": [
+            450,
+            140
+          ],
+          "hex": "#48B7A4"
+        },
+        "clothing": {
+          "xy": [
+            750,
+            780
+          ],
+          "hex": "#B09266"
+        },
+        "cheek": {
+          "xy": [
+            420,
+            460
+          ],
+          "hex": "#FFC7BA"
+        },
+        "detail": {
+          "xy": [
+            470,
+            750
+          ],
+          "hex": "#FFFFFF"
+        },
+        "gradient_from": {
+          "xy": [
+            450,
+            100
+          ],
+          "hex": "#35BDAB"
+        },
+        "gradient_to": {
+          "xy": [
+            650,
+            450
+          ],
+          "hex": "#FF7D61"
+        }
+      },
+      "notes": "头发渐变两端均在原作同一片青绿至暖棕发面；另收录衣服同一区域的绿棕至珊瑚渐变。原背景自身有渐变，纯色输出使用原作右上方已取样的明亮珊瑚色，不跨图换背景。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#48B7A4",
+          "to": "#CD8D74",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#48B7A4",
+            "to": "#CD8D74",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  450,
+                  140
+                ],
+                "hex": "#48B7A4"
+              },
+              "to": {
+                "xy": [
+                  570,
+                  330
+                ],
+                "hex": "#CD8D74"
+              }
+            }
+          },
+          {
+            "region": "clothing",
+            "from": "#819E68",
+            "to": "#E48463",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  650,
+                  640
+                ],
+                "hex": "#819E68"
+              },
+              "to": {
+                "xy": [
+                  780,
+                  940
+                ],
+                "hex": "#E48463"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              450,
+              140
+            ],
+            "hex": "#48B7A4"
+          },
+          "gradient_to": {
+            "xy": [
+              570,
+              330
+            ],
+            "hex": "#CD8D74"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-015-colorway",
+      "source_hd_id": 15,
+      "name": "暖陶梅棕",
+      "source_image": "assets/finished/015.png",
+      "source_sha256": "fcb5f4ea1787c02f166a07a77974c69994e4d80f0d55b2d20fba2b9c9c26c95c",
+      "skin_template_id": "HD-015-skin",
+      "background_template_id": "HD-015-bg-1",
+      "roles": {
+        "outline": "#7E421E",
+        "skin_base": "#FED6CF",
+        "skin_shadow": "#FFAEAD",
+        "hair": "#583039",
+        "clothing": "#25422C",
+        "background": "#DF8852",
+        "cheek": "#FFAEAD",
+        "detail": "#FED6CF"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#502F36",
+        "to": "#DA427D",
+        "direction": "从右上到左下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#502F36",
+          "to": "#DA427D",
+          "direction": "从右上到左下",
+          "samples": {
+            "from": {
+              "xy": [
+                470,
+                145
+              ],
+              "hex": "#502F36"
+            },
+            "to": {
+              "xy": [
+                290,
+                315
+              ],
+              "hex": "#DA427D"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            553,
+            529
+          ],
+          "hex": "#7E421E"
+        },
+        "skin_base": {
+          "xy": [
+            380,
+            310
+          ],
+          "hex": "#FED6CF"
+        },
+        "skin_shadow": {
+          "xy": [
+            440,
+            660
+          ],
+          "hex": "#FFAEAD"
+        },
+        "background": {
+          "xy": [
+            30,
+            30
+          ],
+          "hex": "#DF8852"
+        },
+        "hair": {
+          "xy": [
+            470,
+            160
+          ],
+          "hex": "#583039"
+        },
+        "clothing": {
+          "xy": [
+            540,
+            850
+          ],
+          "hex": "#25422C"
+        },
+        "cheek": {
+          "xy": [
+            400,
+            475
+          ],
+          "hex": "#FFAEAD"
+        },
+        "detail": {
+          "xy": [
+            390,
+            315
+          ],
+          "hex": "#FED6CF"
+        },
+        "gradient_from": {
+          "xy": [
+            470,
+            145
+          ],
+          "hex": "#502F36"
+        },
+        "gradient_to": {
+          "xy": [
+            290,
+            315
+          ],
+          "hex": "#DA427D"
+        }
+      },
+      "notes": "头发渐变两端均取原作棕梅至玫红发面；衣服保留原作深森林绿。无纯白细节，detail沿用实际面部浅色。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。 原作从右上深梅棕过渡到左下莓粉，保留斜向。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#583039",
+          "to": "#C33F71",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#583039",
+            "to": "#C33F71",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  470,
+                  160
+                ],
+                "hex": "#583039"
+              },
+              "to": {
+                "xy": [
+                  590,
+                  420
+                ],
+                "hex": "#C33F71"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              470,
+              160
+            ],
+            "hex": "#583039"
+          },
+          "gradient_to": {
+            "xy": [
+              590,
+              420
+            ],
+            "hex": "#C33F71"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-006-colorway",
+      "source_hd_id": 6,
+      "name": "珊瑚蜜桃",
+      "source_image": "assets/finished/006.png",
+      "source_sha256": "69b23f1c017756e05438d5bc259cccc8876846ab9d94aae6538517490297d72a",
+      "skin_template_id": "HD-006-skin",
+      "background_template_id": "HD-006-bg-1",
+      "roles": {
+        "outline": "#F04E31",
+        "skin_base": "#FFFAF9",
+        "skin_shadow": "#FFFAF9",
+        "hair": "#FF9377",
+        "clothing": "#6DCBC2",
+        "background": "#FF7B63",
+        "cheek": "#FFDED8",
+        "detail": "#FFFAF9"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#FF8A6F",
+        "to": "#FFE9C1",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#FF8A6F",
+          "to": "#FFE9C1",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                480,
+                180
+              ],
+              "hex": "#FF8A6F"
+            },
+            "to": {
+              "xy": [
+                300,
+                730
+              ],
+              "hex": "#FFE9C1"
+            }
+          }
+        },
+        {
+          "region": "clothing",
+          "from": "#6ACFC5",
+          "to": "#AB747B",
+          "direction": "从左上到右下",
+          "samples": {
+            "from": {
+              "xy": [
+                700,
+                760
+              ],
+              "hex": "#6ACFC5"
+            },
+            "to": {
+              "xy": [
+                780,
+                950
+              ],
+              "hex": "#AB747B"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            512,
+            501
+          ],
+          "hex": "#F04E31"
+        },
+        "skin_base": {
+          "xy": [
+            490,
+            515
+          ],
+          "hex": "#FFFAF9"
+        },
+        "skin_shadow": {
+          "xy": [
+            490,
+            515
+          ],
+          "hex": "#FFFAF9"
+        },
+        "background": {
+          "xy": [
+            30,
+            30
+          ],
+          "hex": "#FF7B63"
+        },
+        "hair": {
+          "xy": [
+            480,
+            250
+          ],
+          "hex": "#FF9377"
+        },
+        "clothing": {
+          "xy": [
+            730,
+            760
+          ],
+          "hex": "#6DCBC2"
+        },
+        "cheek": {
+          "xy": [
+            455,
+            470
+          ],
+          "hex": "#FFDED8"
+        },
+        "detail": {
+          "xy": [
+            490,
+            515
+          ],
+          "hex": "#FFFAF9"
+        },
+        "gradient_from": {
+          "xy": [
+            480,
+            180
+          ],
+          "hex": "#FF8A6F"
+        },
+        "gradient_to": {
+          "xy": [
+            300,
+            730
+          ],
+          "hex": "#FFE9C1"
+        }
+      },
+      "notes": "头发渐变两端均取原作同一片蜜桃至浅杏发面；另收录同一件衣服的青绿至柔梅渐变。原作肤影库无独立暗面，沿用主肤色。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#FF9377",
+          "to": "#FFE6BE",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#FF9377",
+            "to": "#FFE6BE",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  480,
+                  250
+                ],
+                "hex": "#FF9377"
+              },
+              "to": {
+                "xy": [
+                  300,
+                  700
+                ],
+                "hex": "#FFE6BE"
+              }
+            }
+          },
+          {
+            "region": "clothing",
+            "from": "#6ACFC5",
+            "to": "#AB747B",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  700,
+                  760
+                ],
+                "hex": "#6ACFC5"
+              },
+              "to": {
+                "xy": [
+                  780,
+                  950
+                ],
+                "hex": "#AB747B"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              480,
+              250
+            ],
+            "hex": "#FF9377"
+          },
+          "gradient_to": {
+            "xy": [
+              300,
+              700
+            ],
+            "hex": "#FFE6BE"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-049-colorway",
+      "source_hd_id": 49,
+      "name": "青底紫橙",
+      "source_image": "assets/finished/049.png",
+      "source_sha256": "3ad715e98ca56926fe7ed13044a259de6603a1a3333241df7e1dfa3c43ebd035",
+      "skin_template_id": "HD-049-skin",
+      "background_template_id": "HD-049-bg-1",
+      "roles": {
+        "outline": "#350F91",
+        "skin_base": "#FDE8E6",
+        "skin_shadow": "#FED0CC",
+        "hair": "#3D01FD",
+        "clothing": "#7B61FE",
+        "background": "#00DDD6",
+        "cheek": "#FED0CC",
+        "detail": "#FDE8E6"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#3C00FF",
+        "to": "#FD6A2B",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#3C00FF",
+          "to": "#FD6A2B",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                400,
+                95
+              ],
+              "hex": "#3C00FF"
+            },
+            "to": {
+              "xy": [
+                760,
+                890
+              ],
+              "hex": "#FD6A2B"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            350,
+            367
+          ],
+          "hex": "#350F91"
+        },
+        "skin_base": {
+          "xy": [
+            335,
+            335
+          ],
+          "hex": "#FDE8E6"
+        },
+        "skin_shadow": {
+          "xy": [
+            423,
+            650
+          ],
+          "hex": "#FED0CC"
+        },
+        "background": {
+          "xy": [
+            20,
+            20
+          ],
+          "hex": "#00DDD6"
+        },
+        "hair": {
+          "xy": [
+            400,
+            110
+          ],
+          "hex": "#3D01FD"
+        },
+        "clothing": {
+          "xy": [
+            550,
+            950
+          ],
+          "hex": "#7B61FE"
+        },
+        "cheek": {
+          "xy": [
+            435,
+            470
+          ],
+          "hex": "#FED0CC"
+        },
+        "detail": {
+          "xy": [
+            340,
+            335
+          ],
+          "hex": "#FDE8E6"
+        },
+        "gradient_from": {
+          "xy": [
+            400,
+            95
+          ],
+          "hex": "#3C00FF"
+        },
+        "gradient_to": {
+          "xy": [
+            760,
+            890
+          ],
+          "hex": "#FD6A2B"
+        }
+      },
+      "notes": "头发渐变两端均取原作同一片紫至橙长发，衣服为原作紫色。无纯白细节，detail沿用原作浅肤色；不将红唇色挪作肤色。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#3D01FD",
+          "to": "#EC6235",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#3D01FD",
+            "to": "#EC6235",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  400,
+                  110
+                ],
+                "hex": "#3D01FD"
+              },
+              "to": {
+                "xy": [
+                  800,
+                  850
+                ],
+                "hex": "#EC6235"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              400,
+              110
+            ],
+            "hex": "#3D01FD"
+          },
+          "gradient_to": {
+            "xy": [
+              800,
+              850
+            ],
+            "hex": "#EC6235"
+          }
+        }
+      }
+    },
+    {
+      "id": "HD-054-colorway",
+      "source_hd_id": 54,
+      "name": "浅粉莓金",
+      "source_image": "assets/finished/054.png",
+      "source_sha256": "2de598f428b047c7bd84a04939649222bc0774eb8df3e9439d7467b0c3e3d6ef",
+      "skin_template_id": "HD-054-skin",
+      "background_template_id": "HD-054-bg-1",
+      "roles": {
+        "outline": "#FF5172",
+        "skin_base": "#FFF2F2",
+        "skin_shadow": "#FFD6D6",
+        "hair": "#FF4A8F",
+        "clothing": "#3EC187",
+        "background": "#FECFD8",
+        "cheek": "#FFD6D6",
+        "detail": "#FFF2F2"
+      },
+      "gradient": {
+        "region": "hair",
+        "from": "#FF4A8F",
+        "to": "#FFC83F",
+        "direction": "从上到下"
+      },
+      "gradient_options": [
+        {
+          "region": "hair",
+          "from": "#FF4A8F",
+          "to": "#FFC83F",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                450,
+                65
+              ],
+              "hex": "#FF4A8F"
+            },
+            "to": {
+              "xy": [
+                660,
+                495
+              ],
+              "hex": "#FFC83F"
+            }
+          }
+        },
+        {
+          "region": "clothing",
+          "from": "#45B46C",
+          "to": "#3EC187",
+          "direction": "从上到下",
+          "samples": {
+            "from": {
+              "xy": [
+                400,
+                800
+              ],
+              "hex": "#45B46C"
+            },
+            "to": {
+              "xy": [
+                250,
+                950
+              ],
+              "hex": "#3EC187"
+            }
+          }
+        }
+      ],
+      "samples": {
+        "outline": {
+          "xy": [
+            462,
+            381
+          ],
+          "hex": "#FF5172"
+        },
+        "skin_base": {
+          "xy": [
+            450,
+            340
+          ],
+          "hex": "#FFF2F2"
+        },
+        "skin_shadow": {
+          "xy": [
+            550,
+            520
+          ],
+          "hex": "#FFD6D6"
+        },
+        "background": {
+          "xy": [
+            20,
+            20
+          ],
+          "hex": "#FECFD8"
+        },
+        "hair": {
+          "xy": [
+            450,
+            65
+          ],
+          "hex": "#FF4A8F"
+        },
+        "clothing": {
+          "xy": [
+            250,
+            950
+          ],
+          "hex": "#3EC187"
+        },
+        "cheek": {
+          "xy": [
+            540,
+            360
+          ],
+          "hex": "#FFD6D6"
+        },
+        "detail": {
+          "xy": [
+            500,
+            400
+          ],
+          "hex": "#FFF2F2"
+        },
+        "gradient_from": {
+          "xy": [
+            450,
+            65
+          ],
+          "hex": "#FF4A8F"
+        },
+        "gradient_to": {
+          "xy": [
+            660,
+            495
+          ],
+          "hex": "#FFC83F"
+        }
+      },
+      "notes": "头发渐变两端均取原作同一片莓粉至杏黄短发；另收录同一绿衣区域的轻微连续渐变。纯白近似细节使用原作实际浅肤色。 本轮重核渐变，取完整发面的明亮端与浓色端，不把中段颜色作为渐变终点。",
+      "legacy_gradient_v1": {
+        "gradient": {
+          "region": "hair",
+          "from": "#FF4A8F",
+          "to": "#FFC541",
+          "direction": "从上到下"
+        },
+        "gradient_options": [
+          {
+            "region": "hair",
+            "from": "#FF4A8F",
+            "to": "#FFC541",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  450,
+                  65
+                ],
+                "hex": "#FF4A8F"
+              },
+              "to": {
+                "xy": [
+                  650,
+                  480
+                ],
+                "hex": "#FFC541"
+              }
+            }
+          },
+          {
+            "region": "clothing",
+            "from": "#45B46C",
+            "to": "#3EC187",
+            "direction": "从上到下",
+            "samples": {
+              "from": {
+                "xy": [
+                  400,
+                  800
+                ],
+                "hex": "#45B46C"
+              },
+              "to": {
+                "xy": [
+                  250,
+                  950
+                ],
+                "hex": "#3EC187"
+              }
+            }
+          }
+        ],
+        "samples": {
+          "gradient_from": {
+            "xy": [
+              450,
+              65
+            ],
+            "hex": "#FF4A8F"
+          },
+          "gradient_to": {
+            "xy": [
+              650,
+              480
+            ],
+            "hex": "#FFC541"
+          }
+        }
+      }
+    }
+  ],
+  "gradient_policy_id": "visible-source-gradients-v2"
+}

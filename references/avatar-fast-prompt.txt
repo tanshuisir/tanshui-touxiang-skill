@@ -1,11 +1,12 @@
-把图1人物画成${size}正方形头像。图1决定人物结构与神态，图2提供线条造型；配色以下列方案为准，不迁移其脸、发型或服装形状。
-人物重点：${identity_drawing}
-表情视线：${expression}；头肩方向：${pose}
-服饰：${clothing}
-处理：${fast_stylization} 保留年龄、可见不对称与遮挡，不猜补五官，不统一成尖脸或大眼幼态。
-画法：${mode_instructions} 平顺深色轮廓，简化实心眉眼、短鼻口线、平涂圆腮红，有限色族，清楚色面边缘。
+将图1画成${size}人物头像：图1决定人物结构、神态及衣饰形状；图2只供线条造型，勿复制其人物，颜色用本次方案。
+人物：${identity_drawing}
+表情视线：${expression}；头肩：${pose}；服饰：${clothing}
+处理：${fast_stylization} 保留年龄、不对称和遮挡，不猜补，不统一成尖脸大眼幼态。
+画法：${mode_instructions} 平顺的库内主线轮廓、实心简化眉眼、短鼻口线、圆腮红、有限色族与清楚色面边缘。
+线条库：${line_instructions}
 暗面：${fast_shadow}
 颜色：${fast_colors}
-渐变：${gradient_instructions}
+主体必需渐变：${gradient_instructions}
 构图：${fast_framing} 不加文字、色卡、拼版、边框或样机。
-补充：${user_notes}
+用户补充（完整执行）：${user_notes}
+最终背景要求：${background_instructions}

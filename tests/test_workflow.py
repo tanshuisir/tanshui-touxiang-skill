@@ -24,7 +24,7 @@ class WorkflowTests(unittest.TestCase):
         self.photo = self.root / 'photo.png'
         self.image = self.root / 'avatar.png'
         Image.new('RGB', (200, 300), '#ba8968').save(self.photo)
-        Image.new('RGB', (1000, 1000), '#a1e5d2').save(self.image)
+        Image.new('RGB', (1024, 1024), '#a1e5d2').save(self.image)
         self.brief = {
             'photo': str(self.photo),
             'identity_features': ['较宽的圆下颌', '短发轮廓', '细长眼与闭口微笑'],
@@ -55,7 +55,9 @@ class WorkflowTests(unittest.TestCase):
         _, result = self.request()
         self.assertEqual((result['reference_set'], result['reference_id']), ('finished', 25))
         self.assertEqual((result['mode'], result['color_mode']), ('flat', 'expressive'))
-        self.assertEqual((result['delivery_size'], result['render_size']), ('512x512', '512x512'))
+        self.assertEqual((result['delivery_size'], result['render_size']), ('1024x1024', '1024x1024'))
+        self.assertEqual(result['size_policy'], 'square')
+        self.assertEqual(result['argv'][result['argv'].index('--size') + 1], '1024x1024')
         self.assertEqual(result['stage'], 'preview')
         self.assertFalse(result['executed'])
         self.assertIn(str(build_prompt.GEN_IMG), result['argv'])
@@ -67,7 +69,8 @@ class WorkflowTests(unittest.TestCase):
 
     def test_final_defaults_use_photo_style_and_approved_preview(self):
         _, result = self.request(dict(self.brief, stage='final', approved_preview=str(self.image)))
-        self.assertEqual((result['delivery_size'], result['render_size']), ('1000x1000', '1024x1024'))
+        self.assertEqual((result['delivery_size'], result['render_size']), ('1024x1024', '1024x1024'))
+        self.assertEqual(result['argv'][result['argv'].index('--size') + 1], '1024x1024')
         self.assertEqual(result['quality'], 'high')
         images = [result['argv'][i+1] for i, v in enumerate(result['argv']) if v == '--image']
         self.assertEqual(images, [str(self.photo.resolve()), result['style_reference'], str(self.image.resolve())])
@@ -83,12 +86,13 @@ class WorkflowTests(unittest.TestCase):
     def test_fast_prompt_is_short_and_preserves_observations_once(self):
         _, result = self.request()
         prompt = Path(result['prompt_file']).read_text()
-        self.assertLess(len(prompt), 1150)
+        # Shared eyes, hair and framing rules remain on the short prompt route.
+        self.assertLess(len(prompt), 1750)
         for feature in self.brief['identity_features']:
             self.assertEqual(prompt.count(feature), 1)
         self.assertIn(self.brief['expression'], prompt)
         self.assertIn(self.brief['pose'], prompt)
-        self.assertIn('不迁移其脸', prompt)
+        self.assertRegex(prompt, r'不迁移其脸|勿复制其人物|不复制图2人物')
         self.assertIn('硬边暗面', prompt)
         self.assertNotIn('照片依据：', prompt)
 
@@ -108,16 +112,33 @@ class WorkflowTests(unittest.TestCase):
         # This is only argv preparation: global gen-img owns the exact exclusion
         # and rejects gpt-image-2 before any image API call.
 
+    def test_four_variant_review_binds_every_complete_source_palette(self):
+        _, request = self.request(dict(self.brief, workflow='review', variants=4))
+        checks = {item['id']: item for item in review_avatar.checks_for(request)
+                  if item['id'].startswith('source_colorway.')}
+        self.assertEqual(set(checks), {f'source_colorway.{index}' for index in range(1, 5)})
+        self.assertEqual(len(request['variant_plans']), 4)
+        for index, plan in enumerate(request['variant_plans'], 1):
+            expected = checks[f'source_colorway.{index}']['expected']
+            self.assertIn(f'HD-{plan["source_hd_id"]:03d}', expected)
+            self.assertIn(json.dumps(plan['roles'], ensure_ascii=False), expected)
+            self.assertIn(json.dumps(plan['gradient'], ensure_ascii=False), expected)
+        self.assertFalse(request['executed'])
+
+    def test_natural_without_observed_hair_stops_before_output(self):
+        with self.assertRaisesRegex(ValueError,'natural'):
+            self.request(dict(self.brief,color_mode='natural'))
+        self.assertFalse((self.root/'request').exists())
+
     def test_invalid_workflow_is_rejected_before_output(self):
         with self.assertRaises(ValueError):
             self.request(dict(self.brief, workflow='retry-until-perfect'))
         self.assertFalse((self.root/'request').exists())
 
-    def test_custom_role_does_not_remove_natural_skin_and_hair_strategy(self):
-        _, result = self.request(dict(self.brief, color_mode='natural', color_roles={'background': '#ABCDEF'}))
-        prompt = Path(result['prompt_file']).read_text()
-        self.assertIn('保留照片肤发基调', prompt)
-        self.assertIn('background: #ABCDEF', prompt)
+    def test_natural_is_rejected_before_writing_a_request(self):
+        with self.assertRaises(ValueError):
+            self.request(dict(self.brief,color_mode='natural'))
+        self.assertFalse((self.root/'request').exists())
 
     def test_fast_explicit_plan_does_not_select_new_exaggeration_targets(self):
         plan = build_prompt.identity_plan_for(self.brief, self.brief['identity_features'])
@@ -136,12 +157,13 @@ class WorkflowTests(unittest.TestCase):
 
     def test_existing_modes_and_custom_size_still_work(self):
         for i, (mode, reference, color) in enumerate([
-            ('gradient', 8, 'natural'), ('texture', 17, 'natural'),
-            ('bold', 11, 'natural'), ('cartoon', 42, 'natural'),
+            ('gradient', 8, 'expressive'), ('texture', 17, 'expressive'),
+            ('bold', 11, 'expressive'), ('cartoon', 42, 'expressive'),
             ('duotone', 33, 'expressive'),
         ]):
             brief = dict(self.brief, hd_reference_id=reference, mode=mode, color_mode=color,
-                         size='800x800', render_size='1024x1024')
+                         size_policy='explicit', size='800x800', render_size='1024x1024',
+                         color_roles={'hair': '#BA8968'} if color == 'expressive' else None)
             _, result = self.request(brief, name=f'request-{i}')
             self.assertEqual(result['mode'], mode)
             self.assertEqual(result['delivery_size'], '800x800')
@@ -167,6 +189,24 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(review_avatar.assess(path)['status'], 'awaiting_visual_review')
         self.assertTrue((path.parent/'comparison.png').is_file())
         self.assertTrue((path.parent/'thumbnail-128.png').is_file())
+
+    def test_photo_requirements_survive_review_without_becoming_observations(self):
+        request_path, request = self.request({
+            'photo': str(self.photo), 'identity_source': 'photo', 'workflow': 'review',
+        })
+        prepared = review_avatar.prepare(request_path, self.image, self.root / 'photo-review')
+        path = Path(prepared['review'])
+        report = json.loads(path.read_text())
+        identity_checks = [item for item in report['checks'] if item['id'].startswith('identity.')]
+        self.assertEqual(len(identity_checks), len(request['review_spec']['identity_plan']))
+        for check, plan in zip(identity_checks, request['review_spec']['identity_plan']):
+            self.assertEqual(check['requirement'], plan['requirement'])
+            self.assertNotIn('photo_evidence', check)
+            self.assertEqual(check['observed'], '')
+        self.assertEqual(review_avatar.assess(path)['status'], 'awaiting_visual_review')
+        self.complete_fixture(report)
+        self.save(path, report)
+        self.assertEqual(review_avatar.assess(path)['status'], 'passed')
 
     def test_pass_requires_observations(self):
         path, report = self.review()
@@ -243,7 +283,7 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             review_avatar.assess(path)
 
-    def test_dimensions_are_not_visual_likeness(self):
+    def test_unexpected_dimensions_fail_square_review(self):
         Image.new('RGB', (900, 900), '#a1e5d2').save(self.image)
         path, report = self.review()
         self.complete_fixture(report)
@@ -254,7 +294,7 @@ class WorkflowTests(unittest.TestCase):
         large = self.root/'large.png'
         Image.new('RGB', (1024, 1024), '#a1e5d2').save(large)
         before = hashlib.sha256(large.read_bytes()).hexdigest()
-        result = finalize_avatar.finalize(large, self.root/'final.png')
+        result = finalize_avatar.finalize(large, self.root/'final.png', size=1000)
         self.assertEqual(result['delivery_size'], [1000, 1000])
         self.assertEqual(hashlib.sha256(large.read_bytes()).hexdigest(), before)
 

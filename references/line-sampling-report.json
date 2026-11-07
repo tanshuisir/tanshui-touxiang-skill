@@ -1,0 +1,1433 @@
+{
+  "status": "verified",
+  "scope": "source hashes and sampled raster RGB; semantic roles are curated",
+  "count": 69,
+  "portraits": [
+    {
+      "id": 1,
+      "source_sha256": "f043d51ce26a69d77f8502719e23cd7ba0274668d5a94ed1fecf79b23cb5fbc9",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#2F2155",
+          "xy": [
+            572,
+            490
+          ],
+          "exact_rgb_pixels": 33318,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "source_sha256": "b7f1c127b6d3aecc16a4dcf4e0322840fa98ae8ca13f6d9f4477cf3560291da8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#4A0955",
+          "xy": [
+            513,
+            480
+          ],
+          "exact_rgb_pixels": 25257,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "source_sha256": "4bd17021ec09976eb28f24677cca856ffb6a1d882026b7dcba692b3aaba5904d",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#181818",
+          "xy": [
+            484,
+            484
+          ],
+          "exact_rgb_pixels": 36282,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "source_sha256": "d658436acc70f75fffc627326e98595cc37d64fa6819b548699bd7ea5d272e79",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#9E4A37",
+          "xy": [
+            504,
+            494
+          ],
+          "exact_rgb_pixels": 35868,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "source_sha256": "60b10be1296292d9e1c1b8e4a95419cf289b5b2debad85db2b4f1322c797f0f9",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#181C2C",
+          "xy": [
+            500,
+            500
+          ],
+          "exact_rgb_pixels": 27869,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "source_sha256": "69b23f1c017756e05438d5bc259cccc8876846ab9d94aae6538517490297d72a",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#F04E31",
+          "xy": [
+            512,
+            501
+          ],
+          "exact_rgb_pixels": 30993,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "source_sha256": "85174a81159506d4f1c0f006ce9b457e41c60abc65274db222fff038c6b861fb",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#9A6500",
+          "xy": [
+            491,
+            499
+          ],
+          "exact_rgb_pixels": 31006,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "source_sha256": "36d6c9fb15cfe2471d6ed0cd8889f135257fbbd0ef469228738e521730898efb",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#333333",
+          "xy": [
+            441,
+            535
+          ],
+          "exact_rgb_pixels": 24308,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "肩上链条的白色线状配饰",
+          "hex": "#FFFFFF",
+          "xy": [
+            447,
+            790
+          ],
+          "exact_rgb_pixels": 4753,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "source_sha256": "b6f4815363877f374987def7228049d39aee9a858c756142766872181f65230d",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#040201",
+          "xy": [
+            558,
+            526
+          ],
+          "exact_rgb_pixels": 17563,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "source_sha256": "1a49be3efbbcda99c7dfcf29b00201e9c87c3e82b13ef00d2bcff2e2b84572a8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#162CA5",
+          "xy": [
+            540,
+            495
+          ],
+          "exact_rgb_pixels": 26450,
+          "core_3x3_matches": 2,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "source_sha256": "63ef9ac1f633c0460a243b5bab09539fe54b01a8d5acca270b0a8fbe644f97cc",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            512,
+            519
+          ],
+          "exact_rgb_pixels": 164662,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "source_sha256": "b308daa42687987ce49a5c9cf0230292db2eb50763b20b4c1eb322d51b3ec2fc",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#C64DC6",
+          "xy": [
+            541,
+            459
+          ],
+          "exact_rgb_pixels": 15601,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "耳饰流苏的亮黄细线；局部配饰，不是主线",
+          "hex": "#EAFF00",
+          "xy": [
+            383,
+            606
+          ],
+          "exact_rgb_pixels": 2286,
+          "core_3x3_matches": 2,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "source_sha256": "bcf2c6e19b0b583831fa0aeca30782e54eb2351c388197423421b1ee6722a561",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#252525",
+          "xy": [
+            535,
+            511
+          ],
+          "exact_rgb_pixels": 18022,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "source_sha256": "9f2b357020f99f7202b09b8ae759c6a43b79a8a2e5d90579dc4bdc94a6abcba2",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#9B280C",
+          "xy": [
+            514,
+            506
+          ],
+          "exact_rgb_pixels": 14115,
+          "core_3x3_matches": 2,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "source_sha256": "fcb5f4ea1787c02f166a07a77974c69994e4d80f0d55b2d20fba2b9c9c26c95c",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#7E421E",
+          "xy": [
+            553,
+            529
+          ],
+          "exact_rgb_pixels": 7591,
+          "core_3x3_matches": 1,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "source_sha256": "186721f6d9d435a495eb8c0da4e037976b70acdf177f9d6014887e3dd386a222",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#813B19",
+          "xy": [
+            505,
+            445
+          ],
+          "exact_rgb_pixels": 11861,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "source_sha256": "2f0df3b48755e837a7a7c3a280330f8bb903e97d8b8e5bcf5c54e85116686f23",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#1A2868",
+          "xy": [
+            473,
+            495
+          ],
+          "exact_rgb_pixels": 52837,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "衣领与肩袖局部薄荷亮线",
+          "hex": "#57FFE9",
+          "xy": [
+            644,
+            664
+          ],
+          "exact_rgb_pixels": 6386,
+          "core_3x3_matches": 6,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "脸颊沿下颌走向的一段近白装饰线",
+          "hex": "#FFFBFB",
+          "xy": [
+            248,
+            543
+          ],
+          "exact_rgb_pixels": 1111,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "source_sha256": "702ccc72bc5870717d4359d554779d5adf1fe8ef96b1e196751a9d9b7a1a9f1f",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#152259",
+          "xy": [
+            477,
+            563
+          ],
+          "exact_rgb_pixels": 13994,
+          "core_3x3_matches": 1,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "衬衫衣片内的橙黄纹理细线",
+          "hex": "#FFAE00",
+          "xy": [
+            776,
+            795
+          ],
+          "exact_rgb_pixels": 42770,
+          "core_3x3_matches": 6,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "source_sha256": "90b82b49a3b95b9f83650db1430b5dc0d11420531f4d0e590f05f343ef0a7357",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#262662",
+          "xy": [
+            485,
+            487
+          ],
+          "exact_rgb_pixels": 41414,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "螺旋耳饰及项链细线",
+          "hex": "#FFFFFF",
+          "xy": [
+            655,
+            519
+          ],
+          "exact_rgb_pixels": 3160,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "source_sha256": "042952d31a4e69da00c5311ce321f242fb24735bd062e4bdf17723a335927249",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#083224",
+          "xy": [
+            500,
+            495
+          ],
+          "exact_rgb_pixels": 31929,
+          "core_3x3_matches": 6,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "source_sha256": "92272c4b04e9f35572f70d841b35c83469d3d492faea083df822bdc3b6bb8b2e",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#5B0320",
+          "xy": [
+            604,
+            504
+          ],
+          "exact_rgb_pixels": 11940,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "source_sha256": "a6301e4432135478d35447f1258dbf00f8ed5a8839e9ca55e675eda28ea56215",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#670300",
+          "xy": [
+            489,
+            538
+          ],
+          "exact_rgb_pixels": 49615,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "source_sha256": "2324f14883b18d4c94d54b8f880203171f680bc5abd3a7a5a255d948e53951fd",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#005E4A",
+          "xy": [
+            408,
+            604
+          ],
+          "exact_rgb_pixels": 20815,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "前发内部的一小段浅白亮线",
+          "hex": "#F0EDF1",
+          "xy": [
+            283,
+            261
+          ],
+          "exact_rgb_pixels": 331,
+          "core_3x3_matches": 6,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "太阳穴发块内极少橘色细结构线",
+          "hex": "#FE7A2A",
+          "xy": [
+            535,
+            273
+          ],
+          "exact_rgb_pixels": 31461,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "source_sha256": "fccb27eb1f181a1948b7224a6f0d101ef23b19b5f1073bcaa5e0054f5aa13686",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#B40C37",
+          "xy": [
+            454,
+            455
+          ],
+          "exact_rgb_pixels": 28351,
+          "core_3x3_matches": 1,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "source_sha256": "1d2ab1a83168888990f19c38cc1e3a43206dbf755852666bdf906301aca97ec9",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#0A654B",
+          "xy": [
+            476,
+            448
+          ],
+          "exact_rgb_pixels": 47036,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "source_sha256": "46781a90fcf57e7c0374440955f93e201b752343b242a36037f64128f8ecdf9e",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#092356",
+          "xy": [
+            453,
+            581
+          ],
+          "exact_rgb_pixels": 18050,
+          "core_3x3_matches": 1,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "头发和肩部局部黄绿亮线",
+          "hex": "#E4FF00",
+          "xy": [
+            459,
+            184
+          ],
+          "exact_rgb_pixels": 10286,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "source_sha256": "6a060f8feff6a6b1d1ca6ffc624a1a128783d736fc0c703fbc42a1bcb5ca8061",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#303802",
+          "xy": [
+            500,
+            500
+          ],
+          "exact_rgb_pixels": 51771,
+          "core_3x3_matches": 7,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "翻领内部黄绿装饰亮线",
+          "hex": "#E4FF00",
+          "xy": [
+            283,
+            852
+          ],
+          "exact_rgb_pixels": 1812,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "source_sha256": "bd2832e5064dfa2966b875acbcf8cd84c2b31e89697d84dd7008ad2fc56b7516",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#040202",
+          "xy": [
+            428,
+            485
+          ],
+          "exact_rgb_pixels": 14701,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "头发内部青绿发流亮线",
+          "hex": "#09FCE4",
+          "xy": [
+            477,
+            244
+          ],
+          "exact_rgb_pixels": 1123,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "source_sha256": "662f413dec3b437b8e538a8ce15a59d4535a9d72b23766ddc2c61bce55743667",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            500,
+            500
+          ],
+          "exact_rgb_pixels": 169436,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "source_sha256": "148018d5a685d4c6c296e129b9c3d424d090984b811465e7a516452f38c02b50",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#673035",
+          "xy": [
+            517,
+            517
+          ],
+          "exact_rgb_pixels": 41348,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "衣领与衣片内部浅绿亮线",
+          "hex": "#87D88C",
+          "xy": [
+            550,
+            630
+          ],
+          "exact_rgb_pixels": 4939,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "耳环的亮黄线状配饰",
+          "hex": "#FDEA15",
+          "xy": [
+            581,
+            446
+          ],
+          "exact_rgb_pixels": 450,
+          "core_3x3_matches": 6,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "source_sha256": "6cad20db614ec97305c1b788ac38404cfed1a92cdd2c66c5ddb153f19119e244",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#040201",
+          "xy": [
+            537,
+            468
+          ],
+          "exact_rgb_pixels": 16543,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "衣服翻领内缘的橘色窄线，与背景同色但位于衣片内",
+          "hex": "#FE6223",
+          "xy": [
+            692,
+            809
+          ],
+          "exact_rgb_pixels": 558606,
+          "core_3x3_matches": 3,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "source_sha256": "5588fecbef143afcb6d8cde8c4163b23f594a2a526f2d90528c63aecd771c6dd",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#715A6F",
+          "xy": [
+            522,
+            512
+          ],
+          "exact_rgb_pixels": 33829,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "source_sha256": "f48bd87ffa3b2b8705d4881295fcbd18ea4e9fe84c4eb524354ff518fc734a89",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#161958",
+          "xy": [
+            495,
+            472
+          ],
+          "exact_rgb_pixels": 30397,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "source_sha256": "2c0c17433890665bca6d82755e1198ec5fde58bf119d5b5b2c91ff318778d32e",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#913586",
+          "xy": [
+            500,
+            500
+          ],
+          "exact_rgb_pixels": 25824,
+          "core_3x3_matches": 8,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "source_sha256": "45ed1521f48619cb7671a0f04082600cbf00e718d30cdd082ad5352ad3996621",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#0C535A",
+          "xy": [
+            535,
+            508
+          ],
+          "exact_rgb_pixels": 35935,
+          "core_3x3_matches": 5,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "翻领门襟肩袖上的冰蓝局部亮线",
+          "hex": "#E1F4FE",
+          "xy": [
+            573,
+            743
+          ],
+          "exact_rgb_pixels": 4167,
+          "core_3x3_matches": 4,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "source_sha256": "64aeeda2ae5645f84ce7a90bc8092f86a9108a8ee9acb6922942114a1a779261",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#0B3553",
+          "xy": [
+            306,
+            459
+          ],
+          "exact_rgb_pixels": 36302,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "source_sha256": "43835328a77dcff9c228d724dae691bc9aed1778f3deb1abc51e3786b7cb07d3",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#833601",
+          "xy": [
+            417,
+            392
+          ],
+          "exact_rgb_pixels": 13982,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "衣服短斜纹理线",
+          "hex": "#FF0000",
+          "xy": [
+            390,
+            820
+          ],
+          "exact_rgb_pixels": 23132,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "source_sha256": "88590ec406e838efbc109cd78c31a4210e5168382c394c603d2890fc6c325658",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            570,
+            360
+          ],
+          "exact_rgb_pixels": 30901,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "高领与肩部褶缝线",
+          "hex": "#341F24",
+          "xy": [
+            307,
+            803
+          ],
+          "exact_rgb_pixels": 30059,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "source_sha256": "6d8d61a0156c8058864d13790a65935488184e77d4bfc0a49ae18fa26d84f615",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#33201C",
+          "xy": [
+            451,
+            412
+          ],
+          "exact_rgb_pixels": 72320,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "头发内部暖黄装饰亮线",
+          "hex": "#EAAD46",
+          "xy": [
+            184,
+            320
+          ],
+          "exact_rgb_pixels": 6310,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "source_sha256": "eb3677dbb6344d3f7bc27fd8505441471443cab18705b337d726ae38cdbfc8ba",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#AB4000",
+          "xy": [
+            358,
+            320
+          ],
+          "exact_rgb_pixels": 39311,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "白衬衫内侧平行装饰线",
+          "hex": "#B6D8E5",
+          "xy": [
+            319,
+            801
+          ],
+          "exact_rgb_pixels": 8437,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "source_sha256": "de22a6ebf685b4d588f004433eab4189d12174f29446ee415fe21fe4303d9241",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#AF2110",
+          "xy": [
+            560,
+            314
+          ],
+          "exact_rgb_pixels": 17960,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "source_sha256": "716d8fcc9ff5a369ecd861cfac7c29e45e1feef3caed27bd86246c5442bf84a5",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            400,
+            370
+          ],
+          "exact_rgb_pixels": 96175,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "source_sha256": "fd91f21fbe396210fdf892cdbda3551a7c62757c27c4a2a82f36d67b3cfed058",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#40AC58",
+          "xy": [
+            390,
+            172
+          ],
+          "exact_rgb_pixels": 8698,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "source_sha256": "85e07daf2c1dec582a636392dafcaff2bcabcf41b60aa9d60ee282a87f141202",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#BF009F",
+          "xy": [
+            468,
+            416
+          ],
+          "exact_rgb_pixels": 37853,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "source_sha256": "0bc70352f28b6f9bd338513e4e7b92489ac2a83bd2b9bb661f2ea10292baa0a8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#00817A",
+          "xy": [
+            349,
+            349
+          ],
+          "exact_rgb_pixels": 62476,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "source_sha256": "a3014577b3fdd2f45827ea9cf9e620460a3bdcf0ec75ea0cca1fa0f0877e2f39",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#351926",
+          "xy": [
+            327,
+            406
+          ],
+          "exact_rgb_pixels": 41874,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "source_sha256": "5c0b65927ec76186d0def52f36e31ab5562754ebc45f546293d3798dfb1cd330",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#623025",
+          "xy": [
+            393,
+            381
+          ],
+          "exact_rgb_pixels": 44518,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "source_sha256": "1695529402fc3a505d5c3d3b9c1aac316e217c6feda0de3bdb72a01441a62946",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#5934A1",
+          "xy": [
+            330,
+            329
+          ],
+          "exact_rgb_pixels": 41969,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "source_sha256": "3ad715e98ca56926fe7ed13044a259de6603a1a3333241df7e1dfa3c43ebd035",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#350F91",
+          "xy": [
+            350,
+            367
+          ],
+          "exact_rgb_pixels": 32967,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "source_sha256": "386061a835c802322744a3ced2f76dbbf4e588b2a11f429eba1d660b5e4c8d12",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#6B3B13",
+          "xy": [
+            312,
+            371
+          ],
+          "exact_rgb_pixels": 27957,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "source_sha256": "30756a1c23ba0b36e779233e8b6e9e148673bd340e1c6859fd2e88f0ecbde8f6",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#004D2D",
+          "xy": [
+            384,
+            294
+          ],
+          "exact_rgb_pixels": 19815,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "source_sha256": "f56b80d4319f330ab84e50fbdfc143c83d37506517676f446a2ae5ceb3ae8a75",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#F1497E",
+          "xy": [
+            543,
+            314
+          ],
+          "exact_rgb_pixels": 37170,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "source_sha256": "2de598f428b047c7bd84a04939649222bc0774eb8df3e9439d7467b0c3e3d6ef",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#FF5172",
+          "xy": [
+            462,
+            381
+          ],
+          "exact_rgb_pixels": 12631,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "source_sha256": "18f0d475b2703ee4648a688c257763ba9d8bb6f42dcb87bc429eb5540f88b81c",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#4C293F",
+          "xy": [
+            470,
+            320
+          ],
+          "exact_rgb_pixels": 43122,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "头发内部局部短亮线",
+          "hex": "#FDADAE",
+          "xy": [
+            205,
+            551
+          ],
+          "exact_rgb_pixels": 10188,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "source_sha256": "14602ac96fae7381f1d57bb303dcc4ad456511381f25423b8e734e919f0548c3",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#8A133A",
+          "xy": [
+            368,
+            326
+          ],
+          "exact_rgb_pixels": 65339,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "source_sha256": "c6e93a0072b853b2687239f1e66fa342f91024c64bc3634a7c021eaff7759ba8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#B42900",
+          "xy": [
+            410,
+            401
+          ],
+          "exact_rgb_pixels": 71352,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "source_sha256": "23f867ef1ae3560381742a054d48b4dca16cf979d9649e0c0c14abce34252a79",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#120732",
+          "xy": [
+            350,
+            380
+          ],
+          "exact_rgb_pixels": 52132,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "发束内部暖粉弧形亮线",
+          "hex": "#FAA993",
+          "xy": [
+            320,
+            110
+          ],
+          "exact_rgb_pixels": 4918,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "source_sha256": "7eb12f63cf83e3705fa769fa2078b36a978719b83c5fd1d64f27f293ffe7eff3",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            523,
+            271
+          ],
+          "exact_rgb_pixels": 13449,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "source_sha256": "3d04775207b3f649f429f6ed68c8535f11d452fb04ab4de178841096269f8d85",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#224D35",
+          "xy": [
+            599,
+            551
+          ],
+          "exact_rgb_pixels": 20498,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "source_sha256": "2ce577319e5344e8f984b5d70eccca956a51e06c6841d98db551b62a734ff087",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#BA1FB1",
+          "xy": [
+            478,
+            434
+          ],
+          "exact_rgb_pixels": 25929,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "细项链",
+          "hex": "#FFFFFF",
+          "xy": [
+            289,
+            841
+          ],
+          "exact_rgb_pixels": 3525,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "source_sha256": "431c4e2445d3d0f202c5c00d4372e0c3e54523909d2b981e2cd66eb146fd0e4a",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#9A3928",
+          "xy": [
+            450,
+            380
+          ],
+          "exact_rgb_pixels": 36004,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "source_sha256": "cae91d36c1e0f636b4ec621fa420b4ec1ad56820a6809b9b69b984ef231873d8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#FF5CAD",
+          "xy": [
+            341,
+            430
+          ],
+          "exact_rgb_pixels": 28379,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "source_sha256": "6ad5f1f2be13baa0029557aa84c2034adcb0a7ce32b8f5f4f9b1309e9b22f533",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#C5466F",
+          "xy": [
+            450,
+            299
+          ],
+          "exact_rgb_pixels": 3815,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "source_sha256": "da9b5f97415673f2e7ce4b6b894a8dfc55bd6555b6ba6c94234db69b98ad7bd8",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#000000",
+          "xy": [
+            330,
+            358
+          ],
+          "exact_rgb_pixels": 47748,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        },
+        {
+          "role": "大衣衣片局部荧绿亮边",
+          "hex": "#01FD82",
+          "xy": [
+            431,
+            738
+          ],
+          "exact_rgb_pixels": 11184,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "source_sha256": "98f53c0168d9de3ae21b03a3448ca7942647f66b3a7c1337cba68cc28174cfc0",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#7E2918",
+          "xy": [
+            482,
+            305
+          ],
+          "exact_rgb_pixels": 34573,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "source_sha256": "d8c1bc3ece7aae6cc9eb39307d8084c867cd59e0fe62715e2bf5c056a2a7975c",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#C53B27",
+          "xy": [
+            363,
+            281
+          ],
+          "exact_rgb_pixels": 35785,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "source_sha256": "2eb7222b1f3a19367e39cb3791be0b950a731371869c3efe2b302df9c510c978",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#06082E",
+          "xy": [
+            400,
+            350
+          ],
+          "exact_rgb_pixels": 59262,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "source_sha256": "a8adbbc7d573ec071ad4156b40f095f408e3aeeccc29505a83c8e3ae9a538831",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#191936",
+          "xy": [
+            387,
+            361
+          ],
+          "exact_rgb_pixels": 49250,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "source_sha256": "a66e641fa2abeb8274a00262fdf869acefddcb5e4f5a8a2e1367329f99f63eca",
+      "samples": [
+        {
+          "role": "primary",
+          "hex": "#21047C",
+          "xy": [
+            393,
+            427
+          ],
+          "exact_rgb_pixels": 23548,
+          "core_3x3_matches": 9,
+          "core_3x3_total": 9
+        }
+      ]
+    }
+  ]
+}

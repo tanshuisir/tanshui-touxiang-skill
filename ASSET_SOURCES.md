@@ -11,6 +11,7 @@
 | `assets/finished/NNN.png` | 用户提供的 69 张高清参考，原编号 1–70，缺少 51；统一标记为 HD 编号 |
 | `assets/finished/contact-*.jpg` | 由高清参考制作的检索总览，沿用原插画素材归属 |
 | `assets/finished/detail-overview.jpg` | 由参考插画局部及文字标注组成的暗面、投影和细节研究图 |
+| `assets/line-library/line-atlas-*.jpg`、`line-colors.png` | 由高清原作局部裁切、分类、取色和标注制作的线条研究总览；图中原作部分沿用原插画素材归属 |
 | `assets/portraits/001.png` 至 `100.png` | 从用户提供的早期作品拼版截图逐格裁出的 100 张参考，与高清编号不是同一序列 |
 | `assets/reference-contact-sheet.jpg` | 早期参考的总览图 |
 
@@ -36,7 +37,9 @@ README 展示的 HD-025、HD-008、HD-055 属于上述参考插画，**不是本
 
 线宽建议、造型概括、阴影解释、细节预算和绘制顺序，是本 Skill 根据可见画面归纳的制作建议，不是原作者的笔刷参数、源图层工程或逐步创作记录。
 
-[艺术角色色组](references/artistic-palettes.json) 区分了参考图中实际出现的采样色和为新头像添加的设计色。颜色角色重分配、渐变区域、方向与端点是本 Skill 的制作选择，不代表作者源色板或工程渐变节点。
+[完整原作配色目录](references/source-colorways.json) 记录当前单图与四图使用的同源方案：每套角色色、渐变端色与取样依据均来自对应原作的可见像素，保留原图编号、哈希及角色来源。肤面与肤影的同角色取样另见[角色色库](references/source-role-colors.json)，主线取样见[线色库](references/line-library.json)。这些记录是本 Skill 对成品图的采样与归纳，不是原作者提供的源色板、图层或工程渐变节点；将可见采样映射到新人物仍是本 Skill 的绘制处理。
+
+[艺术角色色组](references/artistic-palettes.json) 是保留的旧版资料，区分过实际采样色与新增设计色。当前 `single-source-colorways-v1` 不从该旧库跨原作拼接或新增角色色；旧版的设计色和角色重分配不能作为当前成品的取色依据。
 
 参考资料收录不等于模型训练、权重更新、作者原照确认或新照片生成效果验证。高清参考的人名对应不能仅凭外观相似推断。
 
