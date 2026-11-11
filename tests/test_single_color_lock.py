@@ -16,6 +16,8 @@ import source_colorways
 
 class SingleColorLockTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-single-colors-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -34,7 +36,7 @@ class SingleColorLockTests(unittest.TestCase):
         for stage in ('preview', 'final'):
             request = self.prepare(stage, stage=stage)
             self.assertEqual(request['variants'], 1)
-            self.assertEqual(request['master_encoding'], 'semantic-cube-v1')
+            self.assertEqual(request['master_encoding'], 'semantic-props-v3')
             self.assertEqual(len(request['variant_plans']), 1)
             plan = request['variant_plans'][0]
             self.assertEqual(plan['roles'], request['color_plan']['roles'])
@@ -44,7 +46,7 @@ class SingleColorLockTests(unittest.TestCase):
             self.assertEqual(request['quality'], 'low' if stage == 'preview' else 'high')
 
     def test_complete_source_single_keeps_its_own_cheek_detail_and_gradient_options(self):
-        selected = source_colorways.catalog()['colorways'][0]
+        selected = source_colorways.eligible_colorways()[0]
         request = self.prepare(source_colorway_id=selected['id'])
         plan = request['variant_plans'][0]
         self.assertEqual(plan['roles'], selected['roles'])

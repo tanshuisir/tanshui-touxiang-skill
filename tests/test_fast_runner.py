@@ -21,6 +21,8 @@ import run_avatar
 
 class FastRunnerTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-fast-runner-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
@@ -45,7 +47,7 @@ class FastRunnerTests(unittest.TestCase):
                        'started_at': '2026-11-07T00:00:00+00:00'}
             if status == 'completed' and files:
                 if semantic:
-                    encoded_fixture(original, image_size)
+                    encoded_fixture(original, image_size, garments=True)
                 else:
                     Image.new('RGB', image_size, '#A1E5D2').save(original)
                 self.originals[str(original)] = original.read_bytes()
@@ -63,6 +65,21 @@ class FastRunnerTests(unittest.TestCase):
                                     gateway_runner=gateway or self.gateway())
         return result, stream.getvalue()
 
+    def test_flat_current_template_saves_null_gradient_and_delivers_opaque_image(self):
+        import source_colorways
+        selected=next(x for x in source_colorways.eligible_colorways() if x['gradient'] is None)
+        gateway=self.gateway()
+        result,_=self.invoke(gateway,brief=dict(self.brief,colorway_reference_id=selected['source_hd_id']))
+        gateway.assert_called_once()
+        self.assertEqual(result['status'],'completed')
+        saved=json.loads((self.root/'run/brief.json').read_text())
+        self.assertIsNone(saved['gradient'])
+        with Image.open(result['delivery']) as image:
+            self.assertEqual(image.mode,'RGB')
+            self.assertEqual(image.getpixel((0,0)),tuple(bytes.fromhex(selected['roles']['background'][1:])))
+        request=json.loads((self.root/'run/request/generation-request.json').read_text())
+        self.assertFalse(request['review_spec']['style_lock']['gradient_visibility']['required_per_image'])
+
     def test_completed_uses_one_process_and_preserves_original(self):
         gateway = self.gateway()
         result, log = self.invoke(gateway)
@@ -75,7 +92,7 @@ class FastRunnerTests(unittest.TestCase):
         self.assertEqual(result['status'], 'completed')
         self.assertEqual(result['upstream_status'], 'completed')
         self.assertEqual(result['visual_review'], 'not_performed')
-        self.assertEqual(result['master_encoding'], 'semantic-cube-v1')
+        self.assertEqual(result['master_encoding'], 'semantic-props-v3')
         self.assertEqual(result['variants'], 1)
         with Image.open(result['delivery']) as image:
             self.assertEqual((image.format, image.size), ('PNG', (1024, 1024)))

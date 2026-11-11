@@ -1,0 +1,5506 @@
+{
+  "schema_version": 1,
+  "library_id": "user-four-swatch-cards-v1",
+  "name": "用户提供的100组四色卡",
+  "added_on": "2026-11-10",
+  "activation": "reference_only",
+  "default_selection_changed": false,
+  "card_count": 100,
+  "swatch_count": 400,
+  "unique_hex_count": 389,
+  "source_count": 6,
+  "ordering": "按上传图片1至6；每图按从上到下、从左到右；卡内从左到右。",
+  "hex_authority": "图片中标注的六位HEX文字；截图像素仅交叉核验。",
+  "role_mapping_status": "未定义。四色位置不代表固定的人物部位。",
+  "gradient_policy": "原卡没有渐变定义，不自动生成端点、方向或衍生色。",
+  "usage_note": "用户选择先完整入库，保留现有69套默认抽色；此库不进入现有执行器随机候选，不改变肤色、肤影、腮红、线色及服饰规则。",
+  "source_label_display_discrepancy_count": 3,
+  "sources": [
+    {
+      "sheet": 1,
+      "filename": "codex-clipboard-446d8ee3-cd45-4ea1-ab6f-fe20cd7beb91.png",
+      "sha256": "f072336141619ec05f5c724ea9c787dbd33faf892500820fe7ba3a4cb6b260f7",
+      "image_size": [
+        1610,
+        1016
+      ],
+      "card_count": 18
+    },
+    {
+      "sheet": 2,
+      "filename": "codex-clipboard-02c1ef2a-6b01-4720-adaa-efcc7533763c.png",
+      "sha256": "ebc73fa3a0fdf20dc0f0d74733c336ba7e10ef9b94b89407cbc00053eec29d69",
+      "image_size": [
+        1602,
+        1024
+      ],
+      "card_count": 18
+    },
+    {
+      "sheet": 3,
+      "filename": "codex-clipboard-001bd4d8-ff9b-4fa5-a857-a5726a73107f.png",
+      "sha256": "9fabd185c6e3d937960f372293a0e3917f77898035e190d6370dd97af03db333",
+      "image_size": [
+        1590,
+        1050
+      ],
+      "card_count": 18
+    },
+    {
+      "sheet": 4,
+      "filename": "codex-clipboard-1843b5e8-288c-4b31-80b6-16b78b2f7eb9.png",
+      "sha256": "53f60e415d79f6fec70a52922eacff06356a967205e01ec97240b9733efe00fc",
+      "image_size": [
+        1712,
+        1086
+      ],
+      "card_count": 18
+    },
+    {
+      "sheet": 5,
+      "filename": "codex-clipboard-065a639d-54cb-427a-bb96-6aa7df199157.png",
+      "sha256": "d879901c13f39aa2bbee1046a6ca774cf11839e0301c089bd87969c40b4291c6",
+      "image_size": [
+        1606,
+        1028
+      ],
+      "card_count": 18
+    },
+    {
+      "sheet": 6,
+      "filename": "codex-clipboard-29349da7-0521-4c2b-8658-10e2ed4dad81.png",
+      "sha256": "e10a0829a8a2cc134896f996c913d0bcdb43dfdfcd87be32911bdeeaff420683",
+      "image_size": [
+        1586,
+        748
+      ],
+      "card_count": 10
+    }
+  ],
+  "cards": [
+    {
+      "id": "CC-001",
+      "source": {
+        "sheet": 1,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#CEDCF4",
+        "#D56955",
+        "#F4FB3D",
+        "#FF8C01"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#CEDCF4",
+          "rgb": [
+            206,
+            220,
+            244
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#D56955",
+          "rgb": [
+            213,
+            105,
+            85
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F4FB3D",
+          "rgb": [
+            244,
+            251,
+            61
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF8C01",
+          "rgb": [
+            255,
+            140,
+            1
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-002",
+      "source": {
+        "sheet": 1,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#281D48",
+        "#FCB1AB",
+        "#706397",
+        "#570630"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#281D48",
+          "rgb": [
+            40,
+            29,
+            72
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FCB1AB",
+          "rgb": [
+            252,
+            177,
+            171
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#706397",
+          "rgb": [
+            112,
+            99,
+            151
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#570630",
+          "rgb": [
+            87,
+            6,
+            48
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-003",
+      "source": {
+        "sheet": 1,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#FF8347",
+        "#6FC2D0",
+        "#BFF8FD",
+        "#F497E1"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF8347",
+          "rgb": [
+            255,
+            131,
+            71
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#6FC2D0",
+          "rgb": [
+            111,
+            194,
+            208
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#BFF8FD",
+          "rgb": [
+            191,
+            248,
+            253
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F497E1",
+          "rgb": [
+            244,
+            151,
+            225
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-004",
+      "source": {
+        "sheet": 1,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#C9D1D7",
+        "#5E7F8C",
+        "#201215",
+        "#FFDBC7"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C9D1D7",
+          "rgb": [
+            201,
+            209,
+            215
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#5E7F8C",
+          "rgb": [
+            94,
+            127,
+            140
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#201215",
+          "rgb": [
+            32,
+            18,
+            21
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFDBC7",
+          "rgb": [
+            255,
+            219,
+            199
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-005",
+      "source": {
+        "sheet": 1,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#D488FF",
+        "#FF3781",
+        "#FFD102",
+        "#C61FA4"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#D488FF",
+          "rgb": [
+            212,
+            136,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FF3781",
+          "rgb": [
+            255,
+            55,
+            129
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFD102",
+          "rgb": [
+            255,
+            209,
+            2
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#C61FA4",
+          "rgb": [
+            198,
+            31,
+            164
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-006",
+      "source": {
+        "sheet": 1,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#302CDD",
+        "#7159F7",
+        "#79D8BD",
+        "#CDC7FF"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#302CDD",
+          "rgb": [
+            48,
+            44,
+            221
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7159F7",
+          "rgb": [
+            113,
+            89,
+            247
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#79D8BD",
+          "rgb": [
+            121,
+            216,
+            189
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#CDC7FF",
+          "rgb": [
+            205,
+            199,
+            255
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-007",
+      "source": {
+        "sheet": 1,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#FFCBCF",
+        "#7BF9DE",
+        "#FED770",
+        "#2F2F2F"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFCBCF",
+          "rgb": [
+            255,
+            203,
+            207
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7BF9DE",
+          "rgb": [
+            123,
+            249,
+            222
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FED770",
+          "rgb": [
+            254,
+            215,
+            112
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#2F2F2F",
+          "rgb": [
+            47,
+            47,
+            47
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-008",
+      "source": {
+        "sheet": 1,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#A19C1A",
+        "#7EEDCB",
+        "#FEBD03",
+        "#996302"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#A19C1A",
+          "rgb": [
+            161,
+            156,
+            26
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7EEDCB",
+          "rgb": [
+            126,
+            237,
+            203
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FEBD03",
+          "rgb": [
+            254,
+            189,
+            3
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#996302",
+          "rgb": [
+            153,
+            99,
+            2
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-009",
+      "source": {
+        "sheet": 1,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#FFEAF2",
+        "#FE0264",
+        "#FDFE00",
+        "#FF913E"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFEAF2",
+          "rgb": [
+            255,
+            234,
+            242
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FE0264",
+          "rgb": [
+            254,
+            2,
+            100
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FDFE00",
+          "rgb": [
+            253,
+            254,
+            0
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF913E",
+          "rgb": [
+            255,
+            145,
+            62
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-010",
+      "source": {
+        "sheet": 1,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#FFD992",
+        "#368280",
+        "#FFD8D0",
+        "#E86442"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFD992",
+          "rgb": [
+            255,
+            217,
+            146
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#368280",
+          "rgb": [
+            54,
+            130,
+            128
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFD8D0",
+          "rgb": [
+            255,
+            216,
+            208
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#E86442",
+          "rgb": [
+            232,
+            100,
+            66
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-011",
+      "source": {
+        "sheet": 1,
+        "row": 4,
+        "column": 2
+      },
+      "colors": [
+        "#70E2C2",
+        "#8AB4A3",
+        "#FFC78B",
+        "#FFE4A7"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#70E2C2",
+          "rgb": [
+            112,
+            226,
+            194
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#8AB4A3",
+          "rgb": [
+            138,
+            180,
+            163
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC78B",
+          "rgb": [
+            255,
+            199,
+            139
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFE4A7",
+          "rgb": [
+            255,
+            228,
+            167
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-012",
+      "source": {
+        "sheet": 1,
+        "row": 4,
+        "column": 3
+      },
+      "colors": [
+        "#07B3AD",
+        "#FF8849",
+        "#8B2C0C",
+        "#FFC17B"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#07B3AD",
+          "rgb": [
+            7,
+            179,
+            173
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FF8849",
+          "rgb": [
+            255,
+            136,
+            73
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#8B2C0C",
+          "rgb": [
+            139,
+            44,
+            12
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFC17B",
+          "rgb": [
+            255,
+            193,
+            123
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-013",
+      "source": {
+        "sheet": 1,
+        "row": 5,
+        "column": 1
+      },
+      "colors": [
+        "#B3C730",
+        "#174900",
+        "#4D9523",
+        "#02FF88"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#B3C730",
+          "rgb": [
+            179,
+            199,
+            48
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#174900",
+          "rgb": [
+            23,
+            73,
+            0
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#4D9523",
+          "rgb": [
+            77,
+            149,
+            35
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#02FF88",
+          "rgb": [
+            2,
+            255,
+            136
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-014",
+      "source": {
+        "sheet": 1,
+        "row": 5,
+        "column": 2
+      },
+      "colors": [
+        "#FF5B55",
+        "#FFB9FC",
+        "#13134A",
+        "#FF7DF8"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF5B55",
+          "rgb": [
+            255,
+            91,
+            85
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFB9FC",
+          "rgb": [
+            255,
+            185,
+            252
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#13134A",
+          "rgb": [
+            19,
+            19,
+            74
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF7DF8",
+          "rgb": [
+            255,
+            125,
+            248
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-015",
+      "source": {
+        "sheet": 1,
+        "row": 5,
+        "column": 3
+      },
+      "colors": [
+        "#C3C3C3",
+        "#FFD4D4",
+        "#252525",
+        "#02C4B9"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C3C3C3",
+          "rgb": [
+            195,
+            195,
+            195
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFD4D4",
+          "rgb": [
+            255,
+            212,
+            212
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#252525",
+          "rgb": [
+            37,
+            37,
+            37
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#02C4B9",
+          "rgb": [
+            2,
+            196,
+            185
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-016",
+      "source": {
+        "sheet": 1,
+        "row": 6,
+        "column": 1
+      },
+      "colors": [
+        "#EBFF4F",
+        "#8857EA",
+        "#FF95EB",
+        "#462870"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#EBFF4F",
+          "rgb": [
+            235,
+            255,
+            79
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#8857EA",
+          "rgb": [
+            136,
+            87,
+            234
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF95EB",
+          "rgb": [
+            255,
+            149,
+            235
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#462870",
+          "rgb": [
+            70,
+            40,
+            112
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-017",
+      "source": {
+        "sheet": 1,
+        "row": 6,
+        "column": 2
+      },
+      "colors": [
+        "#32C0FF",
+        "#FFD5B4",
+        "#FF7D8B",
+        "#FFFEAB"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#32C0FF",
+          "rgb": [
+            50,
+            192,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFD5B4",
+          "rgb": [
+            255,
+            213,
+            180
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF7D8B",
+          "rgb": [
+            255,
+            125,
+            139
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFFEAB",
+          "rgb": [
+            255,
+            254,
+            171
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-018",
+      "source": {
+        "sheet": 1,
+        "row": 6,
+        "column": 3
+      },
+      "colors": [
+        "#B3B2C3",
+        "#6D102E",
+        "#8F1F46",
+        "#FFDDDD"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#B3B2C3",
+          "rgb": [
+            179,
+            178,
+            195
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#6D102E",
+          "rgb": [
+            109,
+            16,
+            46
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#8F1F46",
+          "rgb": [
+            143,
+            31,
+            70
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFDDDD",
+          "rgb": [
+            255,
+            221,
+            221
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-019",
+      "source": {
+        "sheet": 2,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#D72250",
+        "#3E5DEB",
+        "#FFBDC4",
+        "#B71540"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#D72250",
+          "rgb": [
+            215,
+            34,
+            80
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#3E5DEB",
+          "rgb": [
+            62,
+            93,
+            235
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFBDC4",
+          "rgb": [
+            255,
+            189,
+            196
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#B71540",
+          "rgb": [
+            183,
+            21,
+            64
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-020",
+      "source": {
+        "sheet": 2,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#FF7B63",
+        "#FFAD9E",
+        "#EF6B94",
+        "#F9AA88"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF7B63",
+          "rgb": [
+            255,
+            123,
+            99
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFAD9E",
+          "rgb": [
+            255,
+            173,
+            158
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#EF6B94",
+          "rgb": [
+            239,
+            107,
+            148
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F9AA88",
+          "rgb": [
+            249,
+            170,
+            136
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-021",
+      "source": {
+        "sheet": 2,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#FFD9DA",
+        "#FF74B4",
+        "#A8A7FF",
+        "#5C40A6"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFD9DA",
+          "rgb": [
+            255,
+            217,
+            218
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FF74B4",
+          "rgb": [
+            255,
+            116,
+            180
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#A8A7FF",
+          "rgb": [
+            168,
+            167,
+            255
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#5C40A6",
+          "rgb": [
+            92,
+            64,
+            166
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-022",
+      "source": {
+        "sheet": 2,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#292945",
+        "#FDE63C",
+        "#7C7C9D",
+        "#145F63"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#292945",
+          "rgb": [
+            41,
+            41,
+            69
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FDE63C",
+          "rgb": [
+            253,
+            230,
+            60
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#7C7C9D",
+          "rgb": [
+            124,
+            124,
+            157
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#145F63",
+          "rgb": [
+            20,
+            95,
+            99
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-023",
+      "source": {
+        "sheet": 2,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#FF5B55",
+        "#2630E1",
+        "#505BF1",
+        "#FF6B9A"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF5B55",
+          "rgb": [
+            255,
+            91,
+            85
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#2630E1",
+          "rgb": [
+            38,
+            48,
+            225
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#505BF1",
+          "rgb": [
+            80,
+            91,
+            241
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF6B9A",
+          "rgb": [
+            255,
+            107,
+            154
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-024",
+      "source": {
+        "sheet": 2,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#01CBAD",
+        "#FFBCAD",
+        "#004D42",
+        "#FED824"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#01CBAD",
+          "rgb": [
+            1,
+            203,
+            173
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFBCAD",
+          "rgb": [
+            255,
+            188,
+            173
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#004D42",
+          "rgb": [
+            0,
+            77,
+            66
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FED824",
+          "rgb": [
+            254,
+            216,
+            36
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-025",
+      "source": {
+        "sheet": 2,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#F38AAC",
+        "#343434",
+        "#FFDACF",
+        "#C23D69"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F38AAC",
+          "rgb": [
+            243,
+            138,
+            172
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#343434",
+          "rgb": [
+            52,
+            52,
+            52
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFDACF",
+          "rgb": [
+            255,
+            218,
+            207
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#C23D69",
+          "rgb": [
+            194,
+            61,
+            105
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-026",
+      "source": {
+        "sheet": 2,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#E6B9FF",
+        "#FEE40A",
+        "#E77D6D",
+        "#AB4937"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E6B9FF",
+          "rgb": [
+            230,
+            185,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FEE40A",
+          "rgb": [
+            254,
+            228,
+            10
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#E77D6D",
+          "rgb": [
+            231,
+            125,
+            109
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#AB4937",
+          "rgb": [
+            171,
+            73,
+            55
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-027",
+      "source": {
+        "sheet": 2,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#456A4D",
+        "#A15866",
+        "#EC798E",
+        "#CD566C"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#456A4D",
+          "rgb": [
+            69,
+            106,
+            77
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#A15866",
+          "rgb": [
+            161,
+            88,
+            102
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#EC798E",
+          "rgb": [
+            236,
+            121,
+            142
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#CD566C",
+          "rgb": [
+            205,
+            86,
+            108
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-028",
+      "source": {
+        "sheet": 2,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#6A69EF",
+        "#4034FB",
+        "#F33D9F",
+        "#B9ABFA"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#6A69EF",
+          "rgb": [
+            106,
+            105,
+            239
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#4034FB",
+          "rgb": [
+            64,
+            52,
+            251
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F33D9F",
+          "rgb": [
+            243,
+            61,
+            159
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#B9ABFA",
+          "rgb": [
+            185,
+            171,
+            250
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-029",
+      "source": {
+        "sheet": 2,
+        "row": 4,
+        "column": 2
+      },
+      "colors": [
+        "#FE2850",
+        "#00242B",
+        "#EBC1BB",
+        "#FFE8E8"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FE2850",
+          "rgb": [
+            254,
+            40,
+            80
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#00242B",
+          "rgb": [
+            0,
+            36,
+            43
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#EBC1BB",
+          "rgb": [
+            235,
+            193,
+            187
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFE8E8",
+          "rgb": [
+            255,
+            232,
+            232
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-030",
+      "source": {
+        "sheet": 2,
+        "row": 4,
+        "column": 3
+      },
+      "colors": [
+        "#FF718F",
+        "#B05252",
+        "#FFEEB6",
+        "#804641"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF718F",
+          "rgb": [
+            255,
+            113,
+            143
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#B05252",
+          "rgb": [
+            176,
+            82,
+            82
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFEEB6",
+          "rgb": [
+            255,
+            238,
+            182
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#804641",
+          "rgb": [
+            128,
+            70,
+            65
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-031",
+      "source": {
+        "sheet": 2,
+        "row": 5,
+        "column": 1
+      },
+      "colors": [
+        "#FDBC02",
+        "#3CB131",
+        "#F8E106",
+        "#0832F7"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FDBC02",
+          "rgb": [
+            253,
+            188,
+            2
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#3CB131",
+          "rgb": [
+            60,
+            177,
+            49
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F8E106",
+          "rgb": [
+            248,
+            225,
+            6
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#0832F7",
+          "rgb": [
+            8,
+            50,
+            247
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-032",
+      "source": {
+        "sheet": 2,
+        "row": 5,
+        "column": 2
+      },
+      "colors": [
+        "#FF3DAE",
+        "#203EC8",
+        "#0A8DF0",
+        "#01A151"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF3DAE",
+          "rgb": [
+            255,
+            61,
+            174
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#203EC8",
+          "rgb": [
+            32,
+            62,
+            200
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#0A8DF0",
+          "rgb": [
+            10,
+            141,
+            240
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#01A151",
+          "rgb": [
+            1,
+            161,
+            81
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-033",
+      "source": {
+        "sheet": 2,
+        "row": 5,
+        "column": 3
+      },
+      "colors": [
+        "#E8F215",
+        "#4352F3",
+        "#D1E4FD",
+        "#FFB3FE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E8F215",
+          "rgb": [
+            232,
+            242,
+            21
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#4352F3",
+          "rgb": [
+            67,
+            82,
+            243
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#D1E4FD",
+          "rgb": [
+            209,
+            228,
+            253
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFB3FE",
+          "rgb": [
+            255,
+            179,
+            254
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-034",
+      "source": {
+        "sheet": 2,
+        "row": 6,
+        "column": 1
+      },
+      "colors": [
+        "#C93A84",
+        "#FF55AA",
+        "#FF99CE",
+        "#F0E23F"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C93A84",
+          "rgb": [
+            201,
+            58,
+            132
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FF55AA",
+          "rgb": [
+            255,
+            85,
+            170
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF99CE",
+          "rgb": [
+            255,
+            153,
+            206
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F0E23F",
+          "rgb": [
+            240,
+            226,
+            63
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-035",
+      "source": {
+        "sheet": 2,
+        "row": 6,
+        "column": 2
+      },
+      "colors": [
+        "#FFE4EF",
+        "#8E3183",
+        "#FE7FB5",
+        "#FAF7FA"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFE4EF",
+          "rgb": [
+            255,
+            228,
+            239
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#8E3183",
+          "rgb": [
+            142,
+            49,
+            131
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FE7FB5",
+          "rgb": [
+            254,
+            127,
+            181
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FAF7FA",
+          "rgb": [
+            250,
+            247,
+            250
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-036",
+      "source": {
+        "sheet": 2,
+        "row": 6,
+        "column": 3
+      },
+      "colors": [
+        "#FFADAC",
+        "#FFCFCF",
+        "#865B78",
+        "#48263E"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFADAC",
+          "rgb": [
+            255,
+            173,
+            172
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFCFCF",
+          "rgb": [
+            255,
+            207,
+            207
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#865B78",
+          "rgb": [
+            134,
+            91,
+            120
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#48263E",
+          "rgb": [
+            72,
+            38,
+            62
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-037",
+      "source": {
+        "sheet": 3,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#F5EC0E",
+        "#004FFF",
+        "#C3D6FF",
+        "#CACC4A"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F5EC0E",
+          "rgb": [
+            245,
+            236,
+            14
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#004FFF",
+          "rgb": [
+            0,
+            79,
+            255
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#C3D6FF",
+          "rgb": [
+            195,
+            214,
+            255
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#CACC4A",
+          "rgb": [
+            202,
+            204,
+            74
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-038",
+      "source": {
+        "sheet": 3,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#A0D1C3",
+        "#6300F5",
+        "#4BFF00",
+        "#DBFFF5"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#A0D1C3",
+          "rgb": [
+            160,
+            209,
+            195
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#6300F5",
+          "rgb": [
+            99,
+            0,
+            245
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#4BFF00",
+          "rgb": [
+            75,
+            255,
+            0
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#DBFFF5",
+          "rgb": [
+            219,
+            255,
+            245
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-039",
+      "source": {
+        "sheet": 3,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#5B39C6",
+        "#B41DFE",
+        "#26DDB0",
+        "#FFCBCB"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#5B39C6",
+          "rgb": [
+            91,
+            57,
+            198
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#B41DFE",
+          "rgb": [
+            180,
+            29,
+            254
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#26DDB0",
+          "rgb": [
+            38,
+            221,
+            176
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFCBCB",
+          "rgb": [
+            255,
+            203,
+            203
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-040",
+      "source": {
+        "sheet": 3,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#F92D7E",
+        "#000000",
+        "#01F9F4",
+        "#DAFFFF"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F92D7E",
+          "rgb": [
+            249,
+            45,
+            126
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#01F9F4",
+          "rgb": [
+            1,
+            249,
+            244
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#DAFFFF",
+          "rgb": [
+            218,
+            255,
+            255
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-041",
+      "source": {
+        "sheet": 3,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#3BEFE6",
+        "#49316B",
+        "#FC036F",
+        "#000000"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#3BEFE6",
+          "rgb": [
+            59,
+            239,
+            230
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#49316B",
+          "rgb": [
+            73,
+            49,
+            107
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FC036F",
+          "rgb": [
+            252,
+            3,
+            111
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-042",
+      "source": {
+        "sheet": 3,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#F1A661",
+        "#F9B46E",
+        "#7C4A1D",
+        "#796004"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F1A661",
+          "rgb": [
+            241,
+            166,
+            97
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#F9B46E",
+          "rgb": [
+            249,
+            180,
+            110
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#7C4A1D",
+          "rgb": [
+            124,
+            74,
+            29
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#796004",
+          "rgb": [
+            121,
+            96,
+            4
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-043",
+      "source": {
+        "sheet": 3,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#2F8761",
+        "#01665E",
+        "#FFCDB2",
+        "#FFECE0"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#2F8761",
+          "rgb": [
+            47,
+            135,
+            97
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#01665E",
+          "rgb": [
+            1,
+            102,
+            94
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFCDB2",
+          "rgb": [
+            255,
+            205,
+            178
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFECE0",
+          "rgb": [
+            255,
+            236,
+            224
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-044",
+      "source": {
+        "sheet": 3,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#FFA29A",
+        "#FFD5B4",
+        "#4D5CE8",
+        "#7988F9"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFA29A",
+          "rgb": [
+            255,
+            162,
+            154
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFD5B4",
+          "rgb": [
+            255,
+            213,
+            180
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#4D5CE8",
+          "rgb": [
+            77,
+            92,
+            232
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#7988F9",
+          "rgb": [
+            121,
+            136,
+            249
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-045",
+      "source": {
+        "sheet": 3,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#738FD6",
+        "#B40A48",
+        "#2D4571",
+        "#FFEDE6"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#738FD6",
+          "rgb": [
+            115,
+            143,
+            214
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#B40A48",
+          "rgb": [
+            180,
+            10,
+            72
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#2D4571",
+          "rgb": [
+            45,
+            69,
+            113
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFEDE6",
+          "rgb": [
+            255,
+            237,
+            230
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-046",
+      "source": {
+        "sheet": 3,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#7C977A",
+        "#86CE8A",
+        "#D5ABAC",
+        "#F8EFC2"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#7C977A",
+          "rgb": [
+            124,
+            151,
+            122
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#86CE8A",
+          "rgb": [
+            134,
+            206,
+            138
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#D5ABAC",
+          "rgb": [
+            213,
+            171,
+            172
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F8EFC2",
+          "rgb": [
+            248,
+            239,
+            194
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-047",
+      "source": {
+        "sheet": 3,
+        "row": 4,
+        "column": 2
+      },
+      "colors": [
+        "#034D33",
+        "#FEBD03",
+        "#107B88",
+        "#FF9200"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#034D33",
+          "rgb": [
+            3,
+            77,
+            51
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FEBD03",
+          "rgb": [
+            254,
+            189,
+            3
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#107B88",
+          "rgb": [
+            16,
+            123,
+            136
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF9200",
+          "rgb": [
+            255,
+            146,
+            0
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-048",
+      "source": {
+        "sheet": 3,
+        "row": 4,
+        "column": 3
+      },
+      "colors": [
+        "#FED6CF",
+        "#DC427F",
+        "#DF8851",
+        "#25422C"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FED6CF",
+          "rgb": [
+            254,
+            214,
+            207
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#DC427F",
+          "rgb": [
+            220,
+            66,
+            127
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#DF8851",
+          "rgb": [
+            223,
+            136,
+            81
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#25422C",
+          "rgb": [
+            37,
+            66,
+            44
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-049",
+      "source": {
+        "sheet": 3,
+        "row": 5,
+        "column": 1
+      },
+      "colors": [
+        "#D8FF00",
+        "#545C27",
+        "#7573FB",
+        "#FFC9B3"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#D8FF00",
+          "rgb": [
+            216,
+            255,
+            0
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#545C27",
+          "rgb": [
+            84,
+            92,
+            39
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#7573FB",
+          "rgb": [
+            117,
+            115,
+            251
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFC9B3",
+          "rgb": [
+            255,
+            201,
+            179
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-050",
+      "source": {
+        "sheet": 3,
+        "row": 5,
+        "column": 2
+      },
+      "colors": [
+        "#FFB9FF",
+        "#FE87FB",
+        "#8608DD",
+        "#EFFF8E"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFB9FF",
+          "rgb": [
+            255,
+            185,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FE87FB",
+          "rgb": [
+            254,
+            135,
+            251
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#8608DD",
+          "rgb": [
+            134,
+            8,
+            221
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#EFFF8E",
+          "rgb": [
+            239,
+            255,
+            142
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-051",
+      "source": {
+        "sheet": 3,
+        "row": 5,
+        "column": 3
+      },
+      "colors": [
+        "#FF9C00",
+        "#FFF4AD",
+        "#AD430D",
+        "#FF9494"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF9C00",
+          "rgb": [
+            255,
+            156,
+            0
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFF4AD",
+          "rgb": [
+            255,
+            244,
+            173
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#AD430D",
+          "rgb": [
+            173,
+            67,
+            13
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF9494",
+          "rgb": [
+            255,
+            148,
+            148
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-052",
+      "source": {
+        "sheet": 3,
+        "row": 6,
+        "column": 1
+      },
+      "colors": [
+        "#35BEAB",
+        "#F57A5F",
+        "#007C63",
+        "#612F24"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#35BEAB",
+          "rgb": [
+            53,
+            190,
+            171
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#F57A5F",
+          "rgb": [
+            245,
+            122,
+            95
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#007C63",
+          "rgb": [
+            0,
+            124,
+            99
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#612F24",
+          "rgb": [
+            97,
+            47,
+            36
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-053",
+      "source": {
+        "sheet": 3,
+        "row": 6,
+        "column": 2
+      },
+      "colors": [
+        "#4F3440",
+        "#C1F6E7",
+        "#FFC4C4",
+        "#FFFEAB"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#4F3440",
+          "rgb": [
+            79,
+            52,
+            64
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#C1F6E7",
+          "rgb": [
+            193,
+            246,
+            231
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC4C4",
+          "rgb": [
+            255,
+            196,
+            196
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFFEAB",
+          "rgb": [
+            255,
+            254,
+            171
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-054",
+      "source": {
+        "sheet": 3,
+        "row": 6,
+        "column": 3
+      },
+      "colors": [
+        "#FFF402",
+        "#FFD902",
+        "#282828",
+        "#0A0A0B"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFF402",
+          "rgb": [
+            255,
+            244,
+            2
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFD902",
+          "rgb": [
+            255,
+            217,
+            2
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#282828",
+          "rgb": [
+            40,
+            40,
+            40
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#0A0A0B",
+          "rgb": [
+            10,
+            10,
+            11
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-055",
+      "source": {
+        "sheet": 4,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#3B98A4",
+        "#58C6D1",
+        "#FCBBB8",
+        "#B3EAEF"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#3B98A4",
+          "rgb": [
+            59,
+            152,
+            164
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#58C6D1",
+          "rgb": [
+            88,
+            198,
+            209
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FCBBB8",
+          "rgb": [
+            252,
+            187,
+            184
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#B3EAEF",
+          "rgb": [
+            179,
+            234,
+            239
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-056",
+      "source": {
+        "sheet": 4,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#E4FFF2",
+        "#2A4D81",
+        "#E8FF00",
+        "#A8FFD6"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E4FFF2",
+          "rgb": [
+            228,
+            255,
+            242
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#2A4D81",
+          "rgb": [
+            42,
+            77,
+            129
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#E8FF00",
+          "rgb": [
+            232,
+            255,
+            0
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#A8FFD6",
+          "rgb": [
+            168,
+            255,
+            214
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-057",
+      "source": {
+        "sheet": 4,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#B0DDFF",
+        "#878933",
+        "#484725",
+        "#842C46"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#B0DDFF",
+          "rgb": [
+            176,
+            221,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#878933",
+          "rgb": [
+            135,
+            137,
+            51
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#484725",
+          "rgb": [
+            72,
+            71,
+            37
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#842C46",
+          "rgb": [
+            132,
+            44,
+            70
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-058",
+      "source": {
+        "sheet": 4,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#3A7190",
+        "#EF6960",
+        "#4200FF",
+        "#A0EDFF"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#3A7190",
+          "rgb": [
+            58,
+            113,
+            144
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#EF6960",
+          "rgb": [
+            239,
+            105,
+            96
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#4200FF",
+          "rgb": [
+            66,
+            0,
+            255
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#A0EDFF",
+          "rgb": [
+            160,
+            237,
+            255
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-059",
+      "source": {
+        "sheet": 4,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#911D22",
+        "#FFFF05",
+        "#FF0F7C",
+        "#FFD7BE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#911D22",
+          "rgb": [
+            145,
+            29,
+            34
+          ],
+          "source_discrepancy": {
+            "note": "原图HEX文字与显示色块不一致，按HEX文字入库；未用吸管近似色替换。",
+            "sampled_display_rgb": [
+              203,
+              107,
+              42
+            ]
+          }
+        },
+        {
+          "position": 2,
+          "hex": "#FFFF05",
+          "rgb": [
+            255,
+            255,
+            5
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF0F7C",
+          "rgb": [
+            255,
+            15,
+            124
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFD7BE",
+          "rgb": [
+            255,
+            215,
+            190
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-060",
+      "source": {
+        "sheet": 4,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#FE6223",
+        "#F92E71",
+        "#000000",
+        "#DB4AA1"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FE6223",
+          "rgb": [
+            254,
+            98,
+            35
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#F92E71",
+          "rgb": [
+            249,
+            46,
+            113
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#DB4AA1",
+          "rgb": [
+            219,
+            74,
+            161
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-061",
+      "source": {
+        "sheet": 4,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#FCC8A1",
+        "#FD8576",
+        "#FF1423",
+        "#DC62E7"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FCC8A1",
+          "rgb": [
+            252,
+            200,
+            161
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FD8576",
+          "rgb": [
+            253,
+            133,
+            118
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF1423",
+          "rgb": [
+            255,
+            20,
+            35
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#DC62E7",
+          "rgb": [
+            220,
+            98,
+            231
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-062",
+      "source": {
+        "sheet": 4,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#FFBA45",
+        "#443734",
+        "#FFC093",
+        "#3C261F"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFBA45",
+          "rgb": [
+            255,
+            186,
+            69
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#443734",
+          "rgb": [
+            68,
+            55,
+            52
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC093",
+          "rgb": [
+            255,
+            192,
+            147
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#3C261F",
+          "rgb": [
+            60,
+            38,
+            31
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-063",
+      "source": {
+        "sheet": 4,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#AC97AB",
+        "#519298",
+        "#90B2C4",
+        "#5B4044"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#AC97AB",
+          "rgb": [
+            172,
+            151,
+            171
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#519298",
+          "rgb": [
+            81,
+            146,
+            152
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#90B2C4",
+          "rgb": [
+            144,
+            178,
+            196
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#5B4044",
+          "rgb": [
+            91,
+            64,
+            68
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-064",
+      "source": {
+        "sheet": 4,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#FF6826",
+        "#00DED6",
+        "#3B01F4",
+        "#7B61FE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF6826",
+          "rgb": [
+            255,
+            104,
+            38
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#00DED6",
+          "rgb": [
+            0,
+            222,
+            214
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#3B01F4",
+          "rgb": [
+            59,
+            1,
+            244
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#7B61FE",
+          "rgb": [
+            123,
+            97,
+            254
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-065",
+      "source": {
+        "sheet": 4,
+        "row": 4,
+        "column": 2
+      },
+      "colors": [
+        "#FFCDCB",
+        "#01B5B9",
+        "#FFC001",
+        "#FFA4A0"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFCDCB",
+          "rgb": [
+            255,
+            205,
+            203
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#01B5B9",
+          "rgb": [
+            1,
+            181,
+            185
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC001",
+          "rgb": [
+            255,
+            192,
+            1
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFA4A0",
+          "rgb": [
+            255,
+            164,
+            160
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-066",
+      "source": {
+        "sheet": 4,
+        "row": 4,
+        "column": 3
+      },
+      "colors": [
+        "#4E8367",
+        "#FFF266",
+        "#245036",
+        "#C7DA7F"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#4E8367",
+          "rgb": [
+            78,
+            131,
+            103
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFF266",
+          "rgb": [
+            255,
+            242,
+            102
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#245036",
+          "rgb": [
+            36,
+            80,
+            54
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#C7DA7F",
+          "rgb": [
+            199,
+            218,
+            127
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-067",
+      "source": {
+        "sheet": 4,
+        "row": 5,
+        "column": 1
+      },
+      "colors": [
+        "#0C5A3A",
+        "#DFCF51",
+        "#1FC279",
+        "#004F2F"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#0C5A3A",
+          "rgb": [
+            12,
+            90,
+            58
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#DFCF51",
+          "rgb": [
+            223,
+            207,
+            81
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#1FC279",
+          "rgb": [
+            31,
+            194,
+            121
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#004F2F",
+          "rgb": [
+            0,
+            79,
+            47
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-068",
+      "source": {
+        "sheet": 4,
+        "row": 5,
+        "column": 2
+      },
+      "colors": [
+        "#FF6768",
+        "#933802",
+        "#669ACC",
+        "#FFD7C0"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF6768",
+          "rgb": [
+            255,
+            103,
+            104
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#933802",
+          "rgb": [
+            147,
+            56,
+            2
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#669ACC",
+          "rgb": [
+            102,
+            154,
+            204
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFD7C0",
+          "rgb": [
+            255,
+            215,
+            192
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-069",
+      "source": {
+        "sheet": 4,
+        "row": 5,
+        "column": 3
+      },
+      "colors": [
+        "#933638",
+        "#10509B",
+        "#E29A7E",
+        "#10ABC1"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#933638",
+          "rgb": [
+            147,
+            54,
+            56
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#10509B",
+          "rgb": [
+            16,
+            80,
+            155
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#E29A7E",
+          "rgb": [
+            226,
+            154,
+            126
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#10ABC1",
+          "rgb": [
+            16,
+            171,
+            193
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-070",
+      "source": {
+        "sheet": 4,
+        "row": 6,
+        "column": 1
+      },
+      "colors": [
+        "#3F40F2",
+        "#94A4C6",
+        "#04266E",
+        "#F97FB5"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#3F40F2",
+          "rgb": [
+            63,
+            64,
+            242
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#94A4C6",
+          "rgb": [
+            148,
+            164,
+            198
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#04266E",
+          "rgb": [
+            4,
+            38,
+            110
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F97FB5",
+          "rgb": [
+            249,
+            127,
+            181
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-071",
+      "source": {
+        "sheet": 4,
+        "row": 6,
+        "column": 2
+      },
+      "colors": [
+        "#05F2BD",
+        "#015F4B",
+        "#FFA065",
+        "#FFD0D0"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#05F2BD",
+          "rgb": [
+            5,
+            242,
+            189
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#015F4B",
+          "rgb": [
+            1,
+            95,
+            75
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFA065",
+          "rgb": [
+            255,
+            160,
+            101
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFD0D0",
+          "rgb": [
+            255,
+            208,
+            208
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-072",
+      "source": {
+        "sheet": 4,
+        "row": 6,
+        "column": 3
+      },
+      "colors": [
+        "#E7D1BA",
+        "#C8A391",
+        "#5A3723",
+        "#3B6A7C"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E7D1BA",
+          "rgb": [
+            231,
+            209,
+            186
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#C8A391",
+          "rgb": [
+            200,
+            163,
+            145
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#5A3723",
+          "rgb": [
+            90,
+            55,
+            35
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#3B6A7C",
+          "rgb": [
+            59,
+            106,
+            124
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-073",
+      "source": {
+        "sheet": 5,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#FE90B3",
+        "#9C25FC",
+        "#FE0C6A",
+        "#FFE9F0"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FE90B3",
+          "rgb": [
+            254,
+            144,
+            179
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#9C25FC",
+          "rgb": [
+            156,
+            37,
+            252
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FE0C6A",
+          "rgb": [
+            254,
+            12,
+            106
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFE9F0",
+          "rgb": [
+            255,
+            233,
+            240
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-074",
+      "source": {
+        "sheet": 5,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#FFF91E",
+        "#041054",
+        "#39A2B8",
+        "#155864"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FFF91E",
+          "rgb": [
+            255,
+            249,
+            30
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#041054",
+          "rgb": [
+            4,
+            16,
+            84
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#39A2B8",
+          "rgb": [
+            57,
+            162,
+            184
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#155864",
+          "rgb": [
+            21,
+            88,
+            100
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-075",
+      "source": {
+        "sheet": 5,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#FF90B4",
+        "#7C4FD8",
+        "#FFA188",
+        "#FF7D61"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF90B4",
+          "rgb": [
+            255,
+            144,
+            180
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7C4FD8",
+          "rgb": [
+            124,
+            79,
+            216
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFA188",
+          "rgb": [
+            255,
+            161,
+            136
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF7D61",
+          "rgb": [
+            255,
+            125,
+            97
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-076",
+      "source": {
+        "sheet": 5,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#FF7A20",
+        "#FFBBAB",
+        "#EE410C",
+        "#F6D809"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF7A20",
+          "rgb": [
+            255,
+            122,
+            32
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFBBAB",
+          "rgb": [
+            255,
+            187,
+            171
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#EE410C",
+          "rgb": [
+            238,
+            65,
+            12
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F6D809",
+          "rgb": [
+            246,
+            216,
+            9
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-077",
+      "source": {
+        "sheet": 5,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#30C394",
+        "#FDCCD6",
+        "#000000",
+        "#FFFFFF"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#30C394",
+          "rgb": [
+            48,
+            195,
+            148
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FDCCD6",
+          "rgb": [
+            253,
+            204,
+            214
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-078",
+      "source": {
+        "sheet": 5,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#CCF3F1",
+        "#01C4B9",
+        "#00847D",
+        "#F9C3D2"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#CCF3F1",
+          "rgb": [
+            204,
+            243,
+            241
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#01C4B9",
+          "rgb": [
+            1,
+            196,
+            185
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#00847D",
+          "rgb": [
+            0,
+            132,
+            125
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F9C3D2",
+          "rgb": [
+            249,
+            195,
+            210
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-079",
+      "source": {
+        "sheet": 5,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#F6D2DE",
+        "#4DAF64",
+        "#FFCEDA",
+        "#A9F2EA"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F6D2DE",
+          "rgb": [
+            246,
+            210,
+            222
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#4DAF64",
+          "rgb": [
+            77,
+            175,
+            100
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFCEDA",
+          "rgb": [
+            255,
+            206,
+            218
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#A9F2EA",
+          "rgb": [
+            169,
+            242,
+            234
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-080",
+      "source": {
+        "sheet": 5,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#309DE8",
+        "#D8FF00",
+        "#FA6202",
+        "#153F4E"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#309DE8",
+          "rgb": [
+            48,
+            157,
+            232
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#D8FF00",
+          "rgb": [
+            216,
+            255,
+            0
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FA6202",
+          "rgb": [
+            250,
+            98,
+            2
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#153F4E",
+          "rgb": [
+            21,
+            63,
+            78
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-081",
+      "source": {
+        "sheet": 5,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#FD8F00",
+        "#C83900",
+        "#FFC788",
+        "#FF9965"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FD8F00",
+          "rgb": [
+            253,
+            143,
+            0
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#C83900",
+          "rgb": [
+            200,
+            57,
+            0
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC788",
+          "rgb": [
+            255,
+            199,
+            136
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF9965",
+          "rgb": [
+            255,
+            153,
+            101
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-082",
+      "source": {
+        "sheet": 5,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#000000",
+        "#C9A390",
+        "#F4C0A3",
+        "#FFDECD"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#C9A390",
+          "rgb": [
+            201,
+            163,
+            144
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F4C0A3",
+          "rgb": [
+            244,
+            192,
+            163
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFDECD",
+          "rgb": [
+            255,
+            222,
+            205
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-083",
+      "source": {
+        "sheet": 5,
+        "row": 4,
+        "column": 2
+      },
+      "colors": [
+        "#C5D8E1",
+        "#337389",
+        "#95B8CB",
+        "#FFAE93"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C5D8E1",
+          "rgb": [
+            197,
+            216,
+            225
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#337389",
+          "rgb": [
+            51,
+            115,
+            137
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#95B8CB",
+          "rgb": [
+            149,
+            184,
+            203
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFAE93",
+          "rgb": [
+            255,
+            174,
+            147
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-084",
+      "source": {
+        "sheet": 5,
+        "row": 4,
+        "column": 3
+      },
+      "colors": [
+        "#FF6703",
+        "#FFEE00",
+        "#911C22",
+        "#FF1E00"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF6703",
+          "rgb": [
+            255,
+            103,
+            3
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFEE00",
+          "rgb": [
+            255,
+            238,
+            0
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#911C22",
+          "rgb": [
+            145,
+            28,
+            34
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FF1E00",
+          "rgb": [
+            255,
+            30,
+            0
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-085",
+      "source": {
+        "sheet": 5,
+        "row": 5,
+        "column": 1
+      },
+      "colors": [
+        "#E68960",
+        "#124874",
+        "#A4CCEE",
+        "#609AC7"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E68960",
+          "rgb": [
+            230,
+            137,
+            96
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#124874",
+          "rgb": [
+            18,
+            72,
+            116
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#A4CCEE",
+          "rgb": [
+            164,
+            204,
+            238
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#609AC7",
+          "rgb": [
+            96,
+            154,
+            199
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-086",
+      "source": {
+        "sheet": 5,
+        "row": 5,
+        "column": 2
+      },
+      "colors": [
+        "#DB8F4D",
+        "#9E5F40",
+        "#FFFFFF",
+        "#FDE2D1"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#DB8F4D",
+          "rgb": [
+            219,
+            143,
+            77
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#9E5F40",
+          "rgb": [
+            158,
+            95,
+            64
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFFFFF",
+          "rgb": [
+            255,
+            255,
+            255
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FDE2D1",
+          "rgb": [
+            253,
+            226,
+            209
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-087",
+      "source": {
+        "sheet": 5,
+        "row": 5,
+        "column": 3
+      },
+      "colors": [
+        "#01FFD1",
+        "#36DCC0",
+        "#FDCAD0",
+        "#A07555"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#01FFD1",
+          "rgb": [
+            1,
+            255,
+            209
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#36DCC0",
+          "rgb": [
+            54,
+            220,
+            192
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FDCAD0",
+          "rgb": [
+            253,
+            202,
+            208
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#A07555",
+          "rgb": [
+            160,
+            117,
+            85
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-088",
+      "source": {
+        "sheet": 5,
+        "row": 6,
+        "column": 1
+      },
+      "colors": [
+        "#FF5221",
+        "#7C5D65",
+        "#FFC36B",
+        "#542A33"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FF5221",
+          "rgb": [
+            255,
+            82,
+            33
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7C5D65",
+          "rgb": [
+            124,
+            93,
+            101
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFC36B",
+          "rgb": [
+            255,
+            195,
+            107
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#542A33",
+          "rgb": [
+            84,
+            42,
+            51
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-089",
+      "source": {
+        "sheet": 5,
+        "row": 6,
+        "column": 2
+      },
+      "colors": [
+        "#B13D3E",
+        "#F6D006",
+        "#613D27",
+        "#F0D7AE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#B13D3E",
+          "rgb": [
+            177,
+            61,
+            62
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#F6D006",
+          "rgb": [
+            246,
+            208,
+            6
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#613D27",
+          "rgb": [
+            97,
+            61,
+            39
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F0D7AE",
+          "rgb": [
+            240,
+            215,
+            174
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-090",
+      "source": {
+        "sheet": 5,
+        "row": 6,
+        "column": 3
+      },
+      "colors": [
+        "#FECFD8",
+        "#43C694",
+        "#FF4D8D",
+        "#FFC842"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#FECFD8",
+          "rgb": [
+            254,
+            207,
+            216
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#43C694",
+          "rgb": [
+            67,
+            198,
+            148
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FF4D8D",
+          "rgb": [
+            255,
+            77,
+            141
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFC842",
+          "rgb": [
+            255,
+            200,
+            66
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-091",
+      "source": {
+        "sheet": 6,
+        "row": 1,
+        "column": 1
+      },
+      "colors": [
+        "#F6AFB5",
+        "#E76162",
+        "#112256",
+        "#273D83"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#F6AFB5",
+          "rgb": [
+            246,
+            175,
+            181
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#E76162",
+          "rgb": [
+            231,
+            97,
+            98
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#112256",
+          "rgb": [
+            17,
+            34,
+            86
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#273D83",
+          "rgb": [
+            39,
+            61,
+            131
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-092",
+      "source": {
+        "sheet": 6,
+        "row": 1,
+        "column": 2
+      },
+      "colors": [
+        "#5292CF",
+        "#0A629F",
+        "#F6BED7",
+        "#EE9EBE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#5292CF",
+          "rgb": [
+            82,
+            146,
+            207
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#0A629F",
+          "rgb": [
+            10,
+            98,
+            159
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F6BED7",
+          "rgb": [
+            246,
+            190,
+            215
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#EE9EBE",
+          "rgb": [
+            238,
+            158,
+            190
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-093",
+      "source": {
+        "sheet": 6,
+        "row": 1,
+        "column": 3
+      },
+      "colors": [
+        "#0B7048",
+        "#FFF0C0",
+        "#2F4D37",
+        "#FABDAC"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#0B7048",
+          "rgb": [
+            11,
+            112,
+            72
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFF0C0",
+          "rgb": [
+            255,
+            240,
+            192
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#2F4D37",
+          "rgb": [
+            47,
+            77,
+            55
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FABDAC",
+          "rgb": [
+            250,
+            189,
+            172
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-094",
+      "source": {
+        "sheet": 6,
+        "row": 2,
+        "column": 1
+      },
+      "colors": [
+        "#C1E3EE",
+        "#7CCDDE",
+        "#F130C7",
+        "#F1F4B3"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C1E3EE",
+          "rgb": [
+            193,
+            227,
+            238
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#7CCDDE",
+          "rgb": [
+            124,
+            205,
+            222
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F130C7",
+          "rgb": [
+            241,
+            48,
+            199
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#F1F4B3",
+          "rgb": [
+            241,
+            244,
+            179
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-095",
+      "source": {
+        "sheet": 6,
+        "row": 2,
+        "column": 2
+      },
+      "colors": [
+        "#0135FF",
+        "#FFEE00",
+        "#FF50A3",
+        "#1F2456"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#0135FF",
+          "rgb": [
+            1,
+            53,
+            255
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FFEE00",
+          "rgb": [
+            255,
+            238,
+            0
+          ],
+          "source_discrepancy": {
+            "note": "原图HEX文字与显示色块不一致，按HEX文字入库；未用吸管近似色替换。",
+            "sampled_display_rgb": [
+              255,
+              80,
+              164
+            ]
+          }
+        },
+        {
+          "position": 3,
+          "hex": "#FF50A3",
+          "rgb": [
+            255,
+            80,
+            163
+          ],
+          "source_discrepancy": {
+            "note": "原图HEX文字与显示色块不一致，按HEX文字入库；未用吸管近似色替换。",
+            "sampled_display_rgb": [
+              3,
+              255,
+              242
+            ]
+          }
+        },
+        {
+          "position": 4,
+          "hex": "#1F2456",
+          "rgb": [
+            31,
+            36,
+            86
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-096",
+      "source": {
+        "sheet": 6,
+        "row": 2,
+        "column": 3
+      },
+      "colors": [
+        "#5B78D8",
+        "#F58428",
+        "#FFABAB",
+        "#D08FFE"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#5B78D8",
+          "rgb": [
+            91,
+            120,
+            216
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#F58428",
+          "rgb": [
+            245,
+            132,
+            40
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#FFABAB",
+          "rgb": [
+            255,
+            171,
+            171
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#D08FFE",
+          "rgb": [
+            208,
+            143,
+            254
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-097",
+      "source": {
+        "sheet": 6,
+        "row": 3,
+        "column": 1
+      },
+      "colors": [
+        "#EA4E76",
+        "#FF80A1",
+        "#2E3296",
+        "#060A29"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#EA4E76",
+          "rgb": [
+            234,
+            78,
+            118
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#FF80A1",
+          "rgb": [
+            255,
+            128,
+            161
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#2E3296",
+          "rgb": [
+            46,
+            50,
+            150
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#060A29",
+          "rgb": [
+            6,
+            10,
+            41
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-098",
+      "source": {
+        "sheet": 6,
+        "row": 3,
+        "column": 2
+      },
+      "colors": [
+        "#C7ECFE",
+        "#60ADD7",
+        "#2C4A7F",
+        "#FCAE99"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#C7ECFE",
+          "rgb": [
+            199,
+            236,
+            254
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#60ADD7",
+          "rgb": [
+            96,
+            173,
+            215
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#2C4A7F",
+          "rgb": [
+            44,
+            74,
+            127
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FCAE99",
+          "rgb": [
+            252,
+            174,
+            153
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-099",
+      "source": {
+        "sheet": 6,
+        "row": 3,
+        "column": 3
+      },
+      "colors": [
+        "#023D3C",
+        "#0BB2AC",
+        "#F58F7C",
+        "#FFB72C"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#023D3C",
+          "rgb": [
+            2,
+            61,
+            60
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#0BB2AC",
+          "rgb": [
+            11,
+            178,
+            172
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#F58F7C",
+          "rgb": [
+            245,
+            143,
+            124
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFB72C",
+          "rgb": [
+            255,
+            183,
+            44
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    },
+    {
+      "id": "CC-100",
+      "source": {
+        "sheet": 6,
+        "row": 4,
+        "column": 1
+      },
+      "colors": [
+        "#E26B36",
+        "#EE5D44",
+        "#C4321E",
+        "#FFB079"
+      ],
+      "swatches": [
+        {
+          "position": 1,
+          "hex": "#E26B36",
+          "rgb": [
+            226,
+            107,
+            54
+          ]
+        },
+        {
+          "position": 2,
+          "hex": "#EE5D44",
+          "rgb": [
+            238,
+            93,
+            68
+          ]
+        },
+        {
+          "position": 3,
+          "hex": "#C4321E",
+          "rgb": [
+            196,
+            50,
+            30
+          ]
+        },
+        {
+          "position": 4,
+          "hex": "#FFB079",
+          "rgb": [
+            255,
+            176,
+            121
+          ]
+        }
+      ],
+      "role_assignment": null,
+      "gradient": null
+    }
+  ]
+}

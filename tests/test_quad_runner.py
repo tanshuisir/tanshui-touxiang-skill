@@ -23,6 +23,7 @@ def encoded_fixture(path):
     draw.ellipse((48, 40, 130, 155), fill='#FF0000', outline='#000000', width=4)
     draw.rectangle((112, 75, 123, 130), fill='#00FF00')
     draw.polygon(((15, 220), (40, 165), (135, 165), (170, 220)), fill='#00FFFF', outline='#000000', width=4)
+    draw.polygon(((75,165),(110,165),(125,220),(62,220)),fill='#FF8000',outline='#000000',width=2)
     draw.ellipse((61, 90, 69, 100), fill='#000000')
     draw.ellipse((101, 90, 109, 100), fill='#000000')
     draw.ellipse((54, 109, 68, 122), fill='#FF00FF')
@@ -33,6 +34,8 @@ def encoded_fixture(path):
 
 class QuadRunnerTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-quad-run-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -68,12 +71,14 @@ class QuadRunnerTests(unittest.TestCase):
         self.assertEqual(result['delivery_size'], [2048, 2048])
         self.assertEqual(len(result['variant_files']), 4)
         self.assertEqual(len(brief['variant_plans']), 4)
-        self.assertEqual([p['source_hd_id'] for p in brief['variant_plans']], [25, 55, 16, 47])
-        self.assertEqual([p['source_hd_id'] for p in result['colorway_sources']], [25, 55, 16, 47])
+        references = [p['source_hd_id'] for p in brief['variant_plans']]
+        self.assertEqual(len(set(references)), 4)
+        self.assertEqual([p['source_hd_id'] for p in result['colorway_sources']], references)
+        self.assertEqual(brief['palette_selection']['source_hd_ids'], references)
         self.assertTrue(result['original_preserved'])
         self.assertGreaterEqual(result['timings']['local_recolor_seconds'], 0)
         self.assertEqual(result['review_assets']['output'], result['delivery'])
-        self.assertEqual(request['master_encoding'], 'semantic-cube-v1')
+        self.assertEqual(request['master_encoding'], 'semantic-props-v3')
         argv = gateway.call_args[0][0]
         self.assertEqual(argv.count('--image'), 2)
         self.assertEqual(argv[argv.index('--size') + 1], '1024x1024')
@@ -122,7 +127,7 @@ class QuadRunnerTests(unittest.TestCase):
         self.assertEqual(request['color_plan']['gradient'], selected['gradient'])
         self.assertEqual(request['line_plan'], selected['line_plan'])
         self.assertEqual(gateway.call_args[0][0].count('--image'), 3)
-        self.assertEqual(request['master_encoding'], 'semantic-cube-v1')
+        self.assertEqual(request['master_encoding'], 'semantic-props-v3')
         self.assertEqual(len(request['variant_plans']), 1)
         self.assertEqual(request['variant_plans'][0]['roles'], selected['roles'])
         self.assertEqual(request['variant_plans'][0]['source_colorway'], selected['source_colorway'])
@@ -174,8 +179,8 @@ class QuadRunnerTests(unittest.TestCase):
         for key in ('roles', 'gradient', 'source_colorway'):
             self.assertEqual(requests[0]['color_plan'][key], requests[1]['color_plan'][key])
         self.assertEqual(requests[2]['color_plan']['source_hd_id'], 47)
-        self.assertEqual(requests[2]['color_plan']['roles']['skin_base'], '#FFDED7')
-        self.assertEqual(requests[2]['color_plan']['roles']['background'], '#FF7D61')
+        self.assertEqual(requests[2]['color_plan']['roles']['skin_base'], colorway(47)['roles']['skin_base'])
+        self.assertEqual(requests[2]['color_plan']['roles']['background'], colorway(47)['roles']['background'])
         result = json.loads((final/'result.json').read_text())
         self.assertEqual(result['colorway_sources'][0]['source_hd_id'], 55)
         self.assertEqual(requests[1]['quality'], 'high')

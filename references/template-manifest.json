@@ -1,0 +1,778 @@
+{
+  "schema_version": 1,
+  "count": 70,
+  "source": "approved-tanshui-templates",
+  "numbering": "Current independent template sequence TS-001 through TS-070",
+  "templates": [
+    {
+      "id": 1,
+      "label": "TS-001",
+      "image": "assets/templates/001.png",
+      "sha256": "4afe4871963f018c618c28fad8257c5b45fdb3a0801718afb14fd2633906ba20",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发胡须男子与立领衬衫"
+    },
+    {
+      "id": 2,
+      "label": "TS-002",
+      "image": "assets/templates/002.png",
+      "sha256": "d09d864b5d28cea41e2b8c689222732b335178900b826556e062119cd84a6ae4",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "戴软帽长发胡须男子与深色拉链夹克"
+    },
+    {
+      "id": 3,
+      "label": "TS-003",
+      "image": "assets/templates/003.png",
+      "sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "花边软帽长发女生与叠穿开衫"
+    },
+    {
+      "id": 4,
+      "label": "TS-004",
+      "image": "assets/templates/004.png",
+      "sha256": "4e8594e3846c420199b5151d244eba37c2561d50af4d66b6e4c6ec875a85caf8",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "头巾女生与宽领外衣"
+    },
+    {
+      "id": 5,
+      "label": "TS-005",
+      "image": "assets/templates/005.png",
+      "sha256": "39e181a4dff6f258193f6dadfdb815c9065255d15693877f101643613f4c1465",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发胡须男子与高领上衣"
+    },
+    {
+      "id": 6,
+      "label": "TS-006",
+      "image": "assets/templates/006.png",
+      "sha256": "f7932900576ae478303321fa8d2c8fb2f4b48ff5d508aa0e96960f9bfc31cd13",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与背心"
+    },
+    {
+      "id": 7,
+      "label": "TS-007",
+      "image": "assets/templates/007.png",
+      "sha256": "1d1d4b2f9f9eab826366bdebe8631f5f70f6fd59387e6e390a7af4dd5810c0ec",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发墨镜男子与开领衬衫"
+    },
+    {
+      "id": 8,
+      "label": "TS-008",
+      "image": "assets/templates/008.png",
+      "sha256": "f897d56485d99f42051dda080d5dfbcf4b8acb5c3c366e4a60ad0ffa0f42f332",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "含卡片女生与无袖上衣"
+    },
+    {
+      "id": 9,
+      "label": "TS-009",
+      "image": "assets/templates/009.png",
+      "sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "持手机女生与双肩带背带裤"
+    },
+    {
+      "id": 10,
+      "label": "TS-010",
+      "image": "assets/templates/010.png",
+      "sha256": "efb083a612b21537293e805478459a7c71faefa317cdf7f1f72cbc7bde8f8bf1",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与蝴蝶结细肩带上衣"
+    },
+    {
+      "id": 11,
+      "label": "TS-011",
+      "image": "assets/templates/011.png",
+      "sha256": "a585cd9c225a9100ba9885572a265c03ac87d25116f8a63f1795aa275927f26d",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短卷发男生与圆领短袖"
+    },
+    {
+      "id": 12,
+      "label": "TS-012",
+      "image": "assets/templates/012.png",
+      "sha256": "cb2b9ed2141a923bab0ae4dc00f67cb68bae8d0ab32b7027c611634a3079fb5b",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发男生与斜背包圆领短袖"
+    },
+    {
+      "id": 13,
+      "label": "TS-013",
+      "image": "assets/templates/013.png",
+      "sha256": "0e50ba68ba4e5d0928ddc40a2eca039af009c82ea751a2e4502d0ae0cc913548",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发女生与细肩带背心"
+    },
+    {
+      "id": 14,
+      "label": "TS-014",
+      "image": "assets/templates/014.png",
+      "sha256": "b9c8541cf9594988ceeaa16cea8f5157d45ce05867a80f4956fa04ebc7072a7c",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与浅色内搭深色背包带"
+    },
+    {
+      "id": 15,
+      "label": "TS-015",
+      "image": "assets/templates/015.png",
+      "sha256": "6530f519ec28a13aee235d9df91e69e4afa03a2335392d9ae803281b1ff66ce0",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "中长发女生与圆领短袖"
+    },
+    {
+      "id": 16,
+      "label": "TS-016",
+      "image": "assets/templates/016.png",
+      "sha256": "7ebcc52ed67540d3ea4e8106fcee9fc3a9cdf81568e96a87e31841f5152b90af",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发女生与花纹无袖上衣"
+    },
+    {
+      "id": 17,
+      "label": "TS-017",
+      "image": "assets/templates/017.png",
+      "sha256": "214c57e77b557acc62eaf7182f6551ccf1ac6f352d3dce7b09e1af293fb17707",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "侧身男生与连帽上衣"
+    },
+    {
+      "id": 18,
+      "label": "TS-018",
+      "image": "assets/templates/018.png",
+      "sha256": "1b4f4a534ad5ce0a60f990c839eebb123c42c64e7123ed5e7d90d7d0a69fe1b4",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "束发男生与连帽上衣"
+    },
+    {
+      "id": 19,
+      "label": "TS-019",
+      "image": "assets/templates/019.png",
+      "sha256": "d07b40d434ceafbb40e70d87b1989bbe1ee6a0d5bfb55e3f8dd955da3cb13370",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发女生与圆领长袖"
+    },
+    {
+      "id": 20,
+      "label": "TS-020",
+      "image": "assets/templates/020.png",
+      "sha256": "daced8500647def3b96751834bc2777f2bb43c454ae8b6b041838d9151160985",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "眼镜长发女生与条纹领口上衣"
+    },
+    {
+      "id": 21,
+      "label": "TS-021",
+      "image": "assets/templates/021.png",
+      "sha256": "56aabe59426d36e48bcd1e9135840f3aa02107c7c96169e520327b1c4fb5fb54",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与圆领短袖"
+    },
+    {
+      "id": 22,
+      "label": "TS-022",
+      "image": "assets/templates/022.png",
+      "sha256": "9d4169b0191924028bca418de2ac5821ac5739b214991a286031adec5888a21d",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "戴鸭舌帽女生与吊坠细链背心"
+    },
+    {
+      "id": 23,
+      "label": "TS-023",
+      "image": "assets/templates/023.png",
+      "sha256": "8b74776e8df4bc4a32e59b220ddc7f35e9fdcb67498cd11af928b49fd7b549fe",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "回头女生与无袖上衣肩部线饰"
+    },
+    {
+      "id": 24,
+      "label": "TS-024",
+      "image": "assets/templates/024.png",
+      "sha256": "41beab37c4ca92661ff3da519f6ec093fd8717af6f11b6fc332dc7fe34283473",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "双臂抬起女生与开襟上衣内搭背心"
+    },
+    {
+      "id": 25,
+      "label": "TS-025",
+      "image": "assets/templates/025.png",
+      "sha256": "d9243705c674f9997d50f025a900f98b338fa6a0fb50496218c0b151677b152d",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与宽肩带背心"
+    },
+    {
+      "id": 26,
+      "label": "TS-026",
+      "image": "assets/templates/026.png",
+      "sha256": "f720fd07b2f2b45785657149fd416ec42bb7e23a2e3c549c82bdfe34f13f1920",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "中长发女生与细肩带背心"
+    },
+    {
+      "id": 27,
+      "label": "TS-027",
+      "image": "assets/templates/027.png",
+      "sha256": "45fb8b0d2dcc35637eed1fe2f75e66bf5555c3e63945952c23ac92c2486cde11",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与开领衬衫"
+    },
+    {
+      "id": 28,
+      "label": "TS-028",
+      "image": "assets/templates/028.png",
+      "sha256": "84968b83df3a47684f503bf0c2dcc3143e2d6126219c2607745e69a49aaa0eeb",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "抬手托腮男生与叠穿圆领上衣"
+    },
+    {
+      "id": 29,
+      "label": "TS-029",
+      "image": "assets/templates/029.png",
+      "sha256": "2a5411416e56b42cd87ab2e4f4c92abaa2b1bf5e54a1069b66ace812f88149e8",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与西装内搭领结"
+    },
+    {
+      "id": 30,
+      "label": "TS-030",
+      "image": "assets/templates/030.png",
+      "sha256": "1dd52b17689df900a0ec44bd6a220e387972b6194740c191f9ab2dc6b3d766f0",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "侧身长发女生与开领衬衫"
+    },
+    {
+      "id": 31,
+      "label": "TS-031",
+      "image": "assets/templates/031.png",
+      "sha256": "9cdef890b7898ce88ef6da48c3f20a68ffb43a16bd4f41d981dc66b11266f9b1",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "含勺持杯女生与鸭舌帽细肩带上衣"
+    },
+    {
+      "id": 32,
+      "label": "TS-032",
+      "image": "assets/templates/032.png",
+      "sha256": "567462828e2cd35726c3870ba3aabfddb0d7150ceb808882e85ae72dad1a3839",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发眼镜男生与连帽上衣"
+    },
+    {
+      "id": 33,
+      "label": "TS-033",
+      "image": "assets/templates/033.png",
+      "sha256": "22ea4b79cc092f01b867a8d336ae940a97321d8ecee15f80ba7e51e73c4829ef",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发胡须男子与高领内搭深色上衣"
+    },
+    {
+      "id": 34,
+      "label": "TS-034",
+      "image": "assets/templates/034.png",
+      "sha256": "6fa653bdfc75c3c23bfa58576fb4e73a88e72a2c758940c4056f685a16ad6e78",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发吐舌男子与西装领带"
+    },
+    {
+      "id": 35,
+      "label": "TS-035",
+      "image": "assets/templates/035.png",
+      "sha256": "8730782fadde6f3bda3aac280a20e14753b42e52d91b20fb21d849f8cd4594ae",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "抬手女生与细肩带背心"
+    },
+    {
+      "id": 36,
+      "label": "TS-036",
+      "image": "assets/templates/036.png",
+      "sha256": "ebdf446ffde28d035519c4071d2f043e096123c738db000d83df755e243f8a87",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "中长发男生与肩章立领外套"
+    },
+    {
+      "id": 37,
+      "label": "TS-037",
+      "image": "assets/templates/037.png",
+      "sha256": "8945a51da2b1354321d5848923af35a3631e445e1e2eaa895aee0974c7616e36",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与立领纽扣外套内搭"
+    },
+    {
+      "id": 38,
+      "label": "TS-038",
+      "image": "assets/templates/038.png",
+      "sha256": "e7a5433024da2367f608f4391e52bcef4024ee5f0107f0de9994d4bb03f47c29",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与圆领短袖"
+    },
+    {
+      "id": 39,
+      "label": "TS-039",
+      "image": "assets/templates/039.png",
+      "sha256": "21fbdaeec8531fe305028956a1a2ee0d2453b8c3b76c3deb6100bc35bfc33f76",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "眼镜男子与外套内搭圆领短袖"
+    },
+    {
+      "id": 40,
+      "label": "TS-040",
+      "image": "assets/templates/040.png",
+      "sha256": "9f46c87b2544263d22f47de220eea3e09abfce40e5e03a0ea56868e2e770b31c",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "侧身女生与露肩上衣颈饰"
+    },
+    {
+      "id": 41,
+      "label": "TS-041",
+      "image": "assets/templates/041.png",
+      "sha256": "19e823b1ef08f1260ae3c9e126050c175bc4438845193fff03d490c48bfbe185",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "戴墨镜男子与链式项链图案短袖"
+    },
+    {
+      "id": 42,
+      "label": "TS-042",
+      "image": "assets/templates/042.png",
+      "sha256": "061247fd1f9413edfda3d6f308690f0f56bc9284773b66d669f72101ecd9f90f",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "举手男生与圆领长袖"
+    },
+    {
+      "id": 43,
+      "label": "TS-043",
+      "image": "assets/templates/043.png",
+      "sha256": "38a4e57c8ced59130676be989a0f32129174e281cbef73b87f72922cfa661de3",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与外套内搭短袖"
+    },
+    {
+      "id": 44,
+      "label": "TS-044",
+      "image": "assets/templates/044.png",
+      "sha256": "d1bfb71a8a7ba24d9448b4342f78f11750b53086115697ec1d08c4779772eb20",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与纽扣外套内搭短袖"
+    },
+    {
+      "id": 45,
+      "label": "TS-045",
+      "image": "assets/templates/045.png",
+      "sha256": "c06def20cc3512decab0e7cb8658493076f1093b67e8599adcb31821d7007aee",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "持手机束发女生与稀疏网格上衣"
+    },
+    {
+      "id": 46,
+      "label": "TS-046",
+      "image": "assets/templates/046.png",
+      "sha256": "bb13303a56776b6ce4d110949421a2f533a8738ba44092c88db9c0a0f4754088",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与平领露肩上衣"
+    },
+    {
+      "id": 47,
+      "label": "TS-047",
+      "image": "assets/templates/047.png",
+      "sha256": "11d2891fd2b5c9a90a0a06c1dd7e38b4e42c03da12f47ea22bc0d61d482439f3",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与西装内搭衬衫"
+    },
+    {
+      "id": 48,
+      "label": "TS-048",
+      "image": "assets/templates/048.png",
+      "sha256": "c89836917bdd0fdd5d6a530dccc8026051d100a10960d25b3d01803b40a595c2",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与外套立领内搭"
+    },
+    {
+      "id": 49,
+      "label": "TS-049",
+      "image": "assets/templates/049.png",
+      "sha256": "146b5c8ab215d277f518503390a2d18083bef35be14840b6239e38cde493aa90",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与立领上衣"
+    },
+    {
+      "id": 50,
+      "label": "TS-050",
+      "image": "assets/templates/050.png",
+      "sha256": "c55d9a7fdee909ce5876caa5f4ae47081941fc3327220d7d98668b73daa9ca6f",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与马甲衬衫领带"
+    },
+    {
+      "id": 51,
+      "label": "TS-051",
+      "image": "assets/templates/051.png",
+      "sha256": "31f9748ed8f5d243622fb19624a13956e9a7658df31fface3d6624db423fbfad",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与外套圆领内搭"
+    },
+    {
+      "id": 52,
+      "label": "TS-052",
+      "image": "assets/templates/052.png",
+      "sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "抬手男子与西装衬衫领带"
+    },
+    {
+      "id": 53,
+      "label": "TS-053",
+      "image": "assets/templates/053.png",
+      "sha256": "bc25a4d97837c17ccbcf42928464c6963b3c751a1aa7cc146e357a7584e1c3d0",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与圆领长袖"
+    },
+    {
+      "id": 54,
+      "label": "TS-054",
+      "image": "assets/templates/054.png",
+      "sha256": "3e19dbc9ecb864a11cb9fea7c361c3c52028067df4ab2b5efbd5e71be8a5d607",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "头巾露齿笑男子与黄色翻领衬衫深色内搭"
+    },
+    {
+      "id": 55,
+      "label": "TS-055",
+      "image": "assets/templates/055.png",
+      "sha256": "fe9ad5079e970797bb2633983beb48d197578abde47e49747852feac27dff69d",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "抬手男生与长袖领口纽扣上衣"
+    },
+    {
+      "id": 56,
+      "label": "TS-056",
+      "image": "assets/templates/056.png",
+      "sha256": "295e6ead5fb86dedd506cea71828732a714c9b7e3ee9e73a17cb04e4834c0b48",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "束发女生与花纹翻领上衣"
+    },
+    {
+      "id": 57,
+      "label": "TS-057",
+      "image": "assets/templates/057.png",
+      "sha256": "eff6b07c6de96ba1caadb35d48f46083477d104badb52881e537311603877b37",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与圆领上衣"
+    },
+    {
+      "id": 58,
+      "label": "TS-058",
+      "image": "assets/templates/058.png",
+      "sha256": "e59856863cce04e11e8fbc201d2834ccdb9bb95b41d8ca09eda49dbdeb7fc5e2",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发胡须男子与西装花纹衬衫"
+    },
+    {
+      "id": 59,
+      "label": "TS-059",
+      "image": "assets/templates/059.png",
+      "sha256": "7f3da9a903758b993679827bb710a8096e2c7426d8de85c4bdba4395b2e70b80",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "束发女生与宽松上衣"
+    },
+    {
+      "id": 60,
+      "label": "TS-060",
+      "image": "assets/templates/060.png",
+      "sha256": "393e4a7c6c2fba266147bb81208140c7c0c3171a7b1a06d9c956223b1c6f0f21",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "墨镜胡须男子与花纹内搭工装外套"
+    },
+    {
+      "id": 61,
+      "label": "TS-061",
+      "image": "assets/templates/061.png",
+      "sha256": "d1fdba2800d25d8f51fad3de4b49a695a39b1f99714059a47d3b9aeaaa614d9e",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "侧身男生与连帽外套"
+    },
+    {
+      "id": 62,
+      "label": "TS-062",
+      "image": "assets/templates/062.png",
+      "sha256": "55fd3c98e94d7e47f8fccfe5262fad949c8909da3f7387989883270c73c0d45a",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发女生与耳环花纹立领上衣"
+    },
+    {
+      "id": 63,
+      "label": "TS-063",
+      "image": "assets/templates/063.png",
+      "sha256": "eda2bfbf4539c26dd11f6d43b08b1988804b72fc323a9bf15764a64f98e46c19",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发女生与开襟外套内搭领带"
+    },
+    {
+      "id": 64,
+      "label": "TS-064",
+      "image": "assets/templates/064.png",
+      "sha256": "03a12fc5113fa68e8bead0105f271b18542ec40aa8b6e10d38eb45c7717ba994",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "束发女生与串珠项链露肩上衣"
+    },
+    {
+      "id": 65,
+      "label": "TS-065",
+      "image": "assets/templates/065.png",
+      "sha256": "fd396ecc10dd2168bb80e634fd34201aff54444397c157e3d5fc13679f5fe359",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "托腮女生与外衣内搭条纹上衣"
+    },
+    {
+      "id": 66,
+      "label": "TS-066",
+      "image": "assets/templates/066.png",
+      "sha256": "194de36efd14ee5f9c99c24024acfe131b9673824b76b3419c7ba7dc601cc7c4",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男子与西装圆领内搭"
+    },
+    {
+      "id": 67,
+      "label": "TS-067",
+      "image": "assets/templates/067.png",
+      "sha256": "20c7f676669ad4df6c06343c74fb79875f79441fa1fc8553a056e03fb911eedb",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "眼镜胡须男子与西装衬衫领带"
+    },
+    {
+      "id": 68,
+      "label": "TS-068",
+      "image": "assets/templates/068.png",
+      "sha256": "7237b5c4716bb9793fbbf1a4e221b7fe07519adec14aa52c39832cf6ee3a8630",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "长发女生与细肩带上衣"
+    },
+    {
+      "id": 69,
+      "label": "TS-069",
+      "image": "assets/templates/069.png",
+      "sha256": "dcf69e47f8224122f8c3c7a5cbbfce3b29e1a959d14703ff0638caf930800fed",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "卷发胡须男子与西装领结"
+    },
+    {
+      "id": 70,
+      "label": "TS-070",
+      "image": "assets/templates/070.png",
+      "sha256": "71ae1b51a495e30c3167fee731368dda4c8b3b0e5894c7c37a3c0cc9439dedad",
+      "size": [
+        1000,
+        1000
+      ],
+      "name": "短发男生与层次项链西装内搭"
+    }
+  ]
+}

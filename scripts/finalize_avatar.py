@@ -21,7 +21,10 @@ def background_image(size, plan):
     return Image.new('RGBA', size, plan['color'])
 
 
-def finalize(source, output, size=None, background=None, fit_square=False):
+def finalize(source, output, size=None, background=None, fit_square=False, resample=None):
+    resample = Image.Resampling.LANCZOS if resample is None else resample
+    if resample not in (Image.Resampling.LANCZOS, Image.Resampling.NEAREST):
+        raise ValueError('仅支持普通图像LANCZOS或技术编码稿NEAREST整理')
     source, output = source.resolve(), output.resolve()
     if output.exists():
         raise ValueError('输出已存在，请选择新文件，保留原图和此前版本')
@@ -50,7 +53,7 @@ def finalize(source, output, size=None, background=None, fit_square=False):
                 scale = size / max(image.size)
                 fitted_size = tuple(max(1, round(edge * scale)) for edge in image.size)
                 if fitted_size != image.size:
-                    image = image.resize(fitted_size, Image.Resampling.LANCZOS)
+                    image = image.resize(fitted_size, resample)
                 canvas = background_image((size, size), background)
                 offset = ((size - image.width) // 2, size - image.height)
                 canvas.alpha_composite(image.convert('RGBA'), offset)
@@ -64,8 +67,8 @@ def finalize(source, output, size=None, background=None, fit_square=False):
         if size is not None and image.size != (size, size):
             if image.width < size:
                 raise ValueError('模型原图小于目标尺寸；不能把放大图宣称为高清成品')
-            image = image.resize((size, size), Image.Resampling.LANCZOS)
-            operations.append({'operation':'uniform_lanczos_downsample','size':[size,size]})
+            image = image.resize((size, size), resample)
+            operations.append({'operation':'uniform_nearest_downsample' if resample == Image.Resampling.NEAREST else 'uniform_lanczos_downsample','size':[size,size]})
         composited = image.mode == 'RGBA' and image.getchannel('A').getextrema()[0] < 255
         if composited:
             image = Image.alpha_composite(background_image(image.size, background), image)

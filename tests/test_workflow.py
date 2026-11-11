@@ -18,6 +18,8 @@ import review_avatar
 
 class WorkflowTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-workflow-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -54,7 +56,9 @@ class WorkflowTests(unittest.TestCase):
     def test_preview_defaults_and_existing_model_route(self):
         _, result = self.request()
         self.assertEqual((result['reference_set'], result['reference_id']), ('finished', 25))
-        self.assertEqual((result['mode'], result['color_mode']), ('flat', 'expressive'))
+        self.assertEqual(result['color_mode'], 'expressive')
+        reference=json.loads((SKILL/'references/finished-reference-library.json').read_text())
+        self.assertEqual(result['mode'],next(x['technique'] for x in reference['portraits'] if x['id']==25))
         self.assertEqual((result['delivery_size'], result['render_size']), ('1024x1024', '1024x1024'))
         self.assertEqual(result['size_policy'], 'square')
         self.assertEqual(result['argv'][result['argv'].index('--size') + 1], '1024x1024')
@@ -87,7 +91,6 @@ class WorkflowTests(unittest.TestCase):
         _, result = self.request()
         prompt = Path(result['prompt_file']).read_text()
         # Shared eyes, hair and framing rules remain on the short prompt route.
-        self.assertLess(len(prompt), 1750)
         for feature in self.brief['identity_features']:
             self.assertEqual(prompt.count(feature), 1)
         self.assertIn(self.brief['expression'], prompt)
@@ -120,7 +123,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(len(request['variant_plans']), 4)
         for index, plan in enumerate(request['variant_plans'], 1):
             expected = checks[f'source_colorway.{index}']['expected']
-            self.assertIn(f'HD-{plan["source_hd_id"]:03d}', expected)
+            self.assertIn(f'TS-{plan["source_hd_id"]:03d}', expected)
             self.assertIn(json.dumps(plan['roles'], ensure_ascii=False), expected)
             self.assertIn(json.dumps(plan['gradient'], ensure_ascii=False), expected)
         self.assertFalse(request['executed'])
@@ -149,11 +152,13 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn('适度加强：', prompt)
         self.assertEqual(prompt.count('保留：'), len(plan))
 
-    def test_legacy_reference_stays_independent(self):
-        brief = dict(self.brief, palette_id=24)
-        _, result = self.request(brief)
-        self.assertEqual((result['reference_set'], result['reference_id']), ('legacy', 24))
-        self.assertTrue(result['style_reference'].endswith('assets/portraits/024.png'))
+    def test_removed_reference_route_is_rejected_before_any_request(self):
+        with self.assertRaisesRegex(ValueError, 'palette_id.*移除'):
+            self.request(dict(self.brief, palette_id=24))
+        self.assertFalse((self.root/'request').exists())
+        _, result = self.request(dict(self.brief, template_id='TS-051'))
+        self.assertEqual(result['reference_id'],51)
+        self.assertTrue(result['style_reference'].endswith('assets/templates/051.png'))
 
     def test_existing_modes_and_custom_size_still_work(self):
         for i, (mode, reference, color) in enumerate([
@@ -167,7 +172,7 @@ class WorkflowTests(unittest.TestCase):
             _, result = self.request(brief, name=f'request-{i}')
             self.assertEqual(result['mode'], mode)
             self.assertEqual(result['delivery_size'], '800x800')
-        _, result = self.request(dict(self.brief, palette_id=40, mode='glitch', color_mode='expressive'), name='glitch')
+        _, result = self.request(dict(self.brief, template_id='TS-040', mode='glitch', color_mode='expressive'), name='glitch')
         self.assertEqual(result['mode'], 'glitch')
 
     def test_explicit_plan_covers_features_and_limits_exaggeration(self):

@@ -1,0 +1,137 @@
+{
+  "kind": "photo_to_avatar_showcase",
+  "template_count": 70,
+  "image_policy": "Each photo and approved avatar is shown completely with fit scaling; no cropping.",
+  "samples": [
+    {
+      "template_id": "TS-003",
+      "caption": "帽饰与侧向视线",
+      "avatar": "../../assets/templates/003.png",
+      "avatar_sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e",
+      "photo_sha256": "7e88bd6a609c6782eb1dd2430c85438a24873fbeb7755ecc1c135fb70c6fbd67",
+      "photo_size": [
+        550,
+        608
+      ],
+      "avatar_size": [
+        1000,
+        1000
+      ],
+      "source_kind": "photograph",
+      "approval": "user_approved_avatar"
+    },
+    {
+      "template_id": "TS-009",
+      "caption": "自拍姿势与服装分层",
+      "avatar": "../../assets/templates/009.png",
+      "avatar_sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732",
+      "photo_sha256": "e0a81cd14fdaa1c9ca99187887bda90595a50d71b7b6498f1110dd5d5982925e",
+      "photo_size": [
+        722,
+        734
+      ],
+      "avatar_size": [
+        1000,
+        1000
+      ],
+      "source_kind": "photograph",
+      "approval": "user_approved_avatar"
+    },
+    {
+      "template_id": "TS-052",
+      "caption": "西装层次与抬臂遮挡",
+      "avatar": "../../assets/templates/052.png",
+      "avatar_sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468",
+      "photo_sha256": "4d1d994418357f2828c6c1d4be58a9a13f557ca3e6e9d89a35e5780febd3c962",
+      "photo_size": [
+        798,
+        764
+      ],
+      "avatar_size": [
+        1000,
+        1000
+      ],
+      "source_kind": "photograph",
+      "approval": "user_approved_avatar"
+    },
+    {
+      "template_id": "TS-057",
+      "caption": "笑容与五官概括",
+      "avatar": "../../assets/templates/057.png",
+      "avatar_sha256": "eff6b07c6de96ba1caadb35d48f46083477d104badb52881e537311603877b37",
+      "photo_sha256": "78310dd225952ab19dbdd62cb5131600ace3d6ce44b733cb01da1258df36d506",
+      "photo_size": [
+        1024,
+        1024
+      ],
+      "avatar_size": [
+        1000,
+        1000
+      ],
+      "source_kind": "photograph",
+      "approval": "user_approved_avatar"
+    },
+    {
+      "template_id": "TS-045",
+      "caption": "衣料线条与首饰概括",
+      "avatar": "../../assets/templates/045.png",
+      "avatar_sha256": "c06def20cc3512decab0e7cb8658493076f1093b67e8599adcb31821d7007aee",
+      "photo_sha256": "491134a9b937e87dfb0ac91c6b7386c73e1d7314b953c8c702685bbcb29e0ca2",
+      "photo_size": [
+        706,
+        768
+      ],
+      "avatar_size": [
+        1000,
+        1000
+      ],
+      "source_kind": "photograph",
+      "approval": "user_approved_avatar"
+    }
+  ],
+  "comparison_sheets": [
+    {
+      "file": "comparison-01.jpg",
+      "sha256": "cbd1f94d0e0958bc497a44dcae3f0e3a06495129ef29d94abb58e5e4cbee8863",
+      "size": [
+        1328,
+        1454
+      ],
+      "template_ids": [
+        "TS-003",
+        "TS-009"
+      ]
+    },
+    {
+      "file": "comparison-02.jpg",
+      "sha256": "fbca4751ad817f8ac7dbe2c617a87ca8464797b8a4c4555ab003e5f6ec24cff1",
+      "size": [
+        1328,
+        1454
+      ],
+      "template_ids": [
+        "TS-052",
+        "TS-057"
+      ]
+    },
+    {
+      "file": "comparison-03.jpg",
+      "sha256": "d40a461f69979d54539cb1f86235c3580a1d51155a46930a64bce4e2d10b1f09",
+      "size": [
+        1328,
+        802
+      ],
+      "template_ids": [
+        "TS-045"
+      ]
+    }
+  ],
+  "overview": {
+    "file": "templates-overview.jpg",
+    "size": [
+      1954,
+      1694
+    ],
+    "sha256": "e73c3b7d9cf290731874fa03ee6dd5a47b7b58b415f87c80b542c3f47dfdb2d0"
+  }
+}

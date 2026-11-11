@@ -22,6 +22,8 @@ from composition import FRAMING_ID
 
 class SquareCompositionTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-square-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -111,7 +113,7 @@ class SquareCompositionTests(unittest.TestCase):
             directory.mkdir()
             original = directory / 'image-01.png'
             from avatar_test_fixture import encoded_fixture
-            encoded_fixture(original, (1200, 1400))
+            encoded_fixture(original, (1200, 1400), garments=True)
             (directory / 'result.json').write_text(json.dumps({
                 'status': 'completed', 'files': [{'original': str(original)}]}))
             return subprocess.CompletedProcess(argv, 0)

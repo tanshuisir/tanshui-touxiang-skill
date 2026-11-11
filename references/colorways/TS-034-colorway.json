@@ -1,0 +1,142 @@
+{
+  "id": "TS-034-colorway",
+  "source_hd_id": 34,
+  "source_template_id": "TS-034",
+  "name": "卷发吐舌男子与西装领带",
+  "source_image": "assets/templates/034.png",
+  "source_sha256": "6fa653bdfc75c3c23bfa58576fb4e73a88e72a2c758940c4056f685a16ad6e78",
+  "skin_template_id": "TS-034-skin",
+  "background_template_id": "TS-034-bg-1",
+  "roles": {
+    "outline": "#33201C",
+    "skin_base": "#FFD8C5",
+    "skin_shadow": "#FFC093",
+    "background": "#FFBA45",
+    "hair": "#542E36",
+    "clothing": "#443734",
+    "cheek": "#FFC5A1",
+    "detail": "#FFBA45"
+  },
+  "samples": {
+    "outline": {
+      "xy": [
+        343,
+        480
+      ],
+      "hex": "#33201C",
+      "patch_exact_fraction": 1.0
+    },
+    "skin_base": {
+      "xy": [
+        492,
+        440
+      ],
+      "hex": "#FFD8C5",
+      "patch_exact_fraction": 1.0
+    },
+    "skin_shadow": {
+      "xy": [
+        539,
+        650
+      ],
+      "hex": "#FFC093",
+      "patch_exact_fraction": 1.0
+    },
+    "hair": {
+      "xy": [
+        657,
+        260
+      ],
+      "hex": "#542E36",
+      "patch_exact_fraction": 1.0
+    },
+    "clothing": {
+      "xy": [
+        620,
+        890
+      ],
+      "hex": "#443734",
+      "patch_exact_fraction": 1.0
+    },
+    "background": {
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFBA45",
+      "patch_exact_fraction": 1.0
+    },
+    "cheek": {
+      "xy": [
+        299,
+        507
+      ],
+      "hex": "#FFC5A1",
+      "patch_exact_fraction": 1.0
+    },
+    "detail": {
+      "xy": [
+        182,
+        788
+      ],
+      "hex": "#FFBA45",
+      "patch_exact_fraction": 1.0
+    }
+  },
+  "gradient": null,
+  "gradient_options": [],
+  "role_presence": {
+    "outline": {
+      "present": true
+    },
+    "skin_base": {
+      "present": true
+    },
+    "skin_shadow": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    },
+    "background": {
+      "present": true
+    },
+    "hair": {
+      "present": true
+    },
+    "clothing": {
+      "present": true
+    },
+    "cheek": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    },
+    "detail": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    }
+  },
+  "image_size": [
+    1000,
+    1000
+  ],
+  "coordinate_system": "1000×1000 template pixels; origin top-left",
+  "background_samples": [
+    {
+      "id": "TS-034-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFBA45",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    }
+  ],
+  "additional_skin_samples": [],
+  "generation_eligibility": {
+    "eligible": true,
+    "reasons": [],
+    "policy": "all-70-approved-template-palettes-v1",
+    "archive_complete": true
+  },
+  "gradient_observation": "Only actually sampled, sufficiently populated continuous hair/clothing ramps are executable. Absence means no observed executable ramp."
+}

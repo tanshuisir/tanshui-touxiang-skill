@@ -23,7 +23,7 @@ def _reference_id(value, field):
 
 
 def plan_lines(brief, library, palette_source_id, reference_id, mode):
-    """Resolve explicit choices first, then the palette, HD reference, and HD-025.
+    """Resolve explicit choices first, then the palette, TS template, and TS-025.
 
     An explicit outline color can select any existing primary ink. Supplying a
     different line_reference_id at the same time is a conflict, not permission
@@ -43,12 +43,12 @@ def plan_lines(brief, library, palette_source_id, reference_id, mode):
     if explicit_id is not None:
         _reference_id(explicit_id, 'line_reference_id')
         if explicit_id not in by_id:
-            raise ValueError(f'线条库不存在 HD-{explicit_id:03d}，051 缺号；请选择现有编号')
+            raise ValueError(f'线条库不存在 TS-{explicit_id:03d}，请选择现有编号')
         selected = by_id[explicit_id]
         reason = '用户明确指定线色参考'
     else:
         candidates = ((palette_source_id, '当前艺术色组的高清来源'),
-                      (reference_id, '当前高清造型参考'), (25, 'HD-025 默认参考'))
+                      (reference_id, '当前高清造型参考'), (25, 'TS-025 默认参考'))
         selected = next((by_id[number] for number, _ in candidates if number in by_id), None)
         if selected is None:
             raise ValueError('线条库中没有可追溯的默认主线色，不能随机生成替代色')
@@ -63,12 +63,12 @@ def plan_lines(brief, library, palette_source_id, reference_id, mode):
             raise ValueError(f'color_roles.outline={explicit_color} 不在逐图核心线色库；'
                              '旧 brief 请删除该 outline 字段，并用 line_reference_id 从库中重选')
         if explicit_id is not None and explicit_color != selected_hex:
-            raise ValueError(f'line_reference_id=HD-{explicit_id:03d} 的主线色为 {selected_hex}，'
+            raise ValueError(f'line_reference_id=TS-{explicit_id:03d} 的主线色为 {selected_hex}，'
                              f'与显式 outline={explicit_color} 冲突；删除旧 outline 或使用一致的库内颜色')
         if explicit_color != selected_hex:
             selected = min(matches, key=lambda item: item['id'])
             selected_hex = explicit_color
-            reason = '显式 outline 对应的库内核心线色；同色来源取最小 HD 编号'
+            reason = '显式 outline 对应的库内核心线色；同色来源取最小 TS 编号'
     family_id = brief.get('line_family')
     if family_id is None:
         family_id = MODE_FAMILIES.get(mode, selected['line_family'])
@@ -94,22 +94,22 @@ def plan_lines(brief, library, palette_source_id, reference_id, mode):
     if mode == 'texture' and texture_rule.get('instructions'):
         role_text += '；衣服纹理：' + texture_rule['instructions'] + '，使用同一核心线色，不另选新线色'
     instructions = (
-        f"从已沉淀线条库读取 HD-{selected['id']:03d} 核心线色 {selected_hex}；"
+        f"从已沉淀线条库读取 TS-{selected['id']:03d} 核心线色 {selected_hex}；"
         f"轮廓、眉眼鼻口、头发内部结构线与衣服结构线统一用该色，不随机换色。"
         f"分类 {family['name']}（{family_id}）：{family['instructions']}；{role_text}。"
         '阴影色面边界不另描线；不因线条分类补回碎发、眼白或眼内高光。'
         '辅助亮线与偏色边仅存档，本版执行器不添加；不能凭空增加其他线色。')
     short_labels = {'contour': '轮廓', 'face': '五官', 'hair': '发内', 'clothing': '衣饰'}
     short_instructions = (
-        f"HD-{selected['id']:03d} {selected_hex}统一用于轮廓/五官/发内/衣饰；"
+        f"TS-{selected['id']:03d} {selected_hex}统一用于轮廓/五官/发内/衣饰；"
         f"{family_id}：{family.get('short_instructions', family['instructions'])}；"
         + '；'.join(f'{short_labels[role]}：{short_rules[role]}' for role in CORE_ROLES)
         + '。辅助色仅存档，执行不添加；不加库外线色。')
     return {
         'schema_version': 1,
         'source_reference_id': selected['id'],
-        'source_label': selected.get('label', f"HD-{selected['id']:03d}"),
-        'source_image': selected.get('reference_image', f"assets/finished/{selected['id']:03d}.png"),
+        'source_label': selected.get('label', f"TS-{selected['id']:03d}"),
+        'source_image': selected.get('reference_image', f"assets/templates/{selected['id']:03d}.png"),
         'source_sha256': selected.get('sha256'),
         'primary_hex': selected_hex,
         'primary_sample_xy': list(source_xy),

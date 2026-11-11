@@ -14,9 +14,12 @@ from pathlib import Path
 import re
 from time import perf_counter
 
-from PIL import Image, ImageChops, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageFilter, ImageOps, ImageDraw
+import garment_plan
+import semantic_encoding
+import object_plan
+from style_language import validate_role_map, validate_cheek_edge_specks
 
-from source_colors import library, is_allowed_background, background_source
 
 
 
@@ -27,8 +30,10 @@ ENCODING = {
     'accent': '#FF00FF', 'detail': '#0000FF',
 }
 _IDS = {'line': 0, 'background': 7, 'skin_base': 4, 'skin_shadow': 2,
-        'hair': 6, 'clothing': 3, 'accent': 5, 'detail': 1}
-_DEFAULT_CHEEK = '#F6B4BE'
+        'hair': 6, 'clothing': 3, 'accent': 5, 'detail': 1,
+        'clothing_inner':8,'clothing_shadow':9,'clothing_trim':10,
+        'clothing_pattern':11,'accessory':12,'headwear':13}
+_IDS.update({role: semantic_encoding.PROP_IDS[role] for role in object_plan.ROLES})
 _HEX = re.compile(r'#[0-9A-Fa-f]{6}')
 
 
@@ -48,6 +53,56 @@ def _count(mask):
 
 def _mask(ids, role):
     return ids.point([255 if value == _IDS[role] else 0 for value in range(256)])
+
+
+def _validate_frame_corners(ids,line_alpha):
+    """Empty top corners; lower corners may contain a connected cropped coat."""
+    width,height=ids.size
+    corner=max(1,round(min(ids.size)*.01))
+    boxes=((0,0,corner,corner),(width-corner,0,width,corner),
+           (0,height-corner,corner,height),(width-corner,height-corner,width,height))
+    for box in boxes[:2]:
+        if ids.crop(box).getextrema()!=(7,7) or line_alpha.crop(box).getextrema()!=(0,0):
+            raise ValueError('技术底稿顶部四角检查失败：必须为纯背景，不能残留细节或其他角色')
+    clothes={_IDS[r] for r in garment_plan.GARMENT_ROLES}
+    body=ids.point([255 if v in clothes else 0 for v in range(256)])
+    support=ImageChops.lighter(body,line_alpha.point([255 if v>=64 else 0 for v in range(256)]))
+    connected=None
+    for box in boxes[2:]:
+        labels=ids.crop(box);alpha=line_alpha.crop(box)
+        if labels.getextrema()==(7,7) and alpha.getextrema()==(0,0):continue
+        if any(v not in clothes|{0,7} for v in labels.tobytes()):
+            raise ValueError('技术底稿底角不是背景或连续衣服，四角角色校验失败')
+        if connected is None:
+            seeds=[x for x,v in enumerate(body.crop((0,height-1,width,height)).tobytes()) if v]
+            if not seeds:raise ValueError('技术底稿底角衣服未连续连接到底缘')
+            flooded=support.copy()
+            ImageDraw.floodfill(flooded,(min(seeds,key=lambda x:abs(x-width/2)),height-1),128)
+            connected=flooded.point([255 if v==128 else 0 for v in range(256)])
+        fg=ImageChops.lighter(body.crop(box),alpha.point([255 if v>=64 else 0 for v in range(256)]))
+        # A cropped coat outline may reach the corner just before its fill.
+        # Connection to the bottom garment seed is the evidence; requiring
+        # garment fill inside this tiny corner wrongly rejects that outline.
+        if ImageChops.subtract(fg,connected.crop(box)).getbbox():
+            raise ValueError('技术底稿底角并非连续衣片，不把零散编码当成背景')
+
+
+def _decode_garments(master_path, *, encoding=semantic_encoding.ENCODING_ID):
+    image,ids,alpha,manifest=semantic_encoding.decode(master_path,encoding=encoding)
+    pixels=image.width*image.height
+    counts=manifest['role_pixel_counts']
+    if not .0002<=manifest['line_core_fraction']<=.4:
+        raise ValueError('技术底稿没有可靠黑线或暗面过多')
+    if any(counts[r]<max(4,pixels*.001) for r in ('background','skin_base')):
+        raise ValueError('技术底稿缺少背景或肤面角色')
+    _validate_frame_corners(ids,alpha)
+    manifest['background_corners_validated']=True
+    manifest['corner_validation_policy']='empty-top-connected-garment-bottom-v2'
+    visible=alpha.point([255 if v==0 else 0 for v in range(256)])
+    visible_counts={role:_count(ImageChops.multiply(_mask(ids,role),visible).filter(ImageFilter.MinFilter(3))) for role in garment_plan.GARMENT_ROLES}
+    if visible_counts['clothing']<max(4,pixels*.001):raise ValueError('底稿缺少主衣片，服饰分区不可靠')
+    manifest['visible_garment_roles']=visible_counts
+    return image,ids,alpha,manifest
 
 
 def _decode(master_path):
@@ -116,13 +171,7 @@ def _decode(master_path):
             raise ValueError('技术底稿缺少可识别的' + role + '区域')
     # The retained bust framing leaves all four corners empty. Do not let a
     # valid detail/skin code masquerade as background and survive as white.
-    corner = max(1, round(min(image.size) * 0.01))
-    corners = ((0, 0, corner, corner), (image.width - corner, 0, image.width, corner),
-               (0, image.height - corner, corner, image.height),
-               (image.width - corner, image.height - corner, image.width, image.height))
-    if any(ids.crop(box).getextrema() != (_IDS['background'], _IDS['background'])
-           or line_alpha.crop(box).getextrema() != (0, 0) for box in corners):
-        raise ValueError('技术底稿四角必须为纯背景区域，不能把细节白色或其他角色误作背景交付')
+    _validate_frame_corners(ids,line_alpha)
     if max(counts['hair'], counts['clothing']) < max(4, pixels * 0.001):
         raise ValueError('技术底稿没有可见头发或衣服区域，无法放置必需的人物局部渐变')
     return image, ids, line_alpha, {
@@ -136,73 +185,68 @@ def _decode(master_path):
     }
 
 
-def _validate_single_plan(plans):
-    if not isinstance(plans, list) or len(plans) != 1:
-        raise ValueError('需要恰好一个或四个 variant_plans')
-    sources = library()
-    skin_templates = {item['id']: item for item in sources['skins']}
-    backgrounds = {item['hex'] for item in sources['backgrounds']}
-    line_data = json.loads((Path(__file__).resolve().parents[1] / 'references/line-library.json').read_text())
-    lines = {item['primary_hex'] for item in line_data['portraits']}
-    outlines = set()
-    normalized = []
-    for item in plans:
-        if not isinstance(item, dict) or not isinstance(item.get('roles'), dict):
-            raise ValueError('每个方案必须包含 roles 颜色角色对象')
-        roles = {key: value.upper() if isinstance(value, str) else value for key, value in item['roles'].items()}
-        for key in ('outline', 'background', 'skin_base', 'skin_shadow', 'hair', 'clothing'):
-            _rgb(roles.get(key))
-        matches = [template for template in skin_templates.values()
-                   if (template['base']['hex'], (template['shadow'] or template['base'])['hex'])
-                   == (roles['skin_base'], roles['skin_shadow'])]
-        if not matches:
-            raise ValueError('肤色与肤影必须沿用同一个原作模板')
-        if roles['background'] not in backgrounds:
-            raise ValueError('背景必须在原作背景库内')
-        if not is_allowed_background(roles['background']):
-            raise ValueError('背景禁止白色、近白或深色，必须使用库内明亮非白纯色')
-        # Independent CLI requests may omit provenance; derive it from the
-        # verified swatches. If supplied, it must agree with those swatches.
-        selection = item.get('source_selection')
-        if selection is not None:
-            if not isinstance(selection, dict) or selection.get('policy_id') != sources['policy_id']:
-                raise ValueError('配色来源版本不符')
-            skin = selection.get('skin', {})
-            template = skin_templates.get(skin.get('template_id')) if isinstance(skin, dict) else None
-            if template not in matches or skin != {
-                    'template_id': template['id'], 'source_hd_id': template['source_hd_id'],
-                    'base': roles['skin_base'], 'shadow': roles['skin_shadow']}:
-                raise ValueError('肤色来源记录与原作模板或实际角色色不符')
-            background = selection.get('background')
-            if not isinstance(background, dict) or background != background_source(
-                    roles['background'], background.get('template_id')):
-                raise ValueError('背景来源记录与原作模板或实际角色色不符')
-        else:
-            template = matches[0]
-            selection = {'policy_id': sources['policy_id'], 'skin': {
-                'template_id': template['id'], 'source_hd_id': template['source_hd_id'],
-                'base': roles['skin_base'], 'shadow': roles['skin_shadow']},
-                'background': background_source(roles['background'])}
-        if roles['outline'] not in lines:
-            raise ValueError('主线必须使用已收录的原作核心线色')
-        outlines.add(roles['outline'])
-        roles['cheek'] = roles.get('cheek', _DEFAULT_CHEEK)
-        _rgb(roles['cheek'])
-        if roles['cheek'] != _DEFAULT_CHEEK:
-            raise ValueError('四配色腮红使用已指定的原作HD-025采样色')
-        gradient = item.get('gradient')
-        if not isinstance(gradient, dict) or gradient.get('region') not in ('hair', 'clothing'):
-            raise ValueError('四配色渐变只允许头发或衣服')
-        first, second = _rgb(gradient.get('from')), _rgb(gradient.get('to'))
-        if sum((a - b) ** 2 for a, b in zip(first, second)) ** 0.5 < 24:
-            raise ValueError('人物局部渐变端点必须有可见色差')
-        roles.setdefault('detail', '#FFFFFF')
-        _rgb(roles['detail'])
-        normalized.append(dict(item, roles=roles, gradient=dict(gradient), source_selection=selection))
-    if len(outlines) != 1:
-        raise ValueError('四版必须共用同一个原作主线色，不重新描线')
-    return normalized
+def _align_subject_to_bottom(ids, line_alpha):
+    """Translate the shared subject once, preserving its size and every role.
 
+    Only low-opacity trailing AA fringe may leave the canvas. Material must
+    reach the bottom over a substantial continuous span; a hair tip, loose
+    line, or isolated point cannot masquerade as a torso touching the edge.
+    """
+    width, height = ids.size
+    visible = line_alpha.point([255 if value < 224 else 0 for value in range(256)])
+    fill = ids.point([0 if value in (0, _IDS['background']) else 255 for value in range(256)])
+    meaningful = ImageChops.lighter(ImageChops.multiply(fill, visible),
+                                    line_alpha.point([255 if value >= 64 else 0 for value in range(256)]))
+    bbox = meaningful.getbbox()
+    if bbox is None:
+        raise ValueError('人物贴底失败：没有可靠人物区域')
+    shift = height - bbox[3]
+    if shift > round(height * 0.12):
+        raise ValueError('人物贴底失败：底部空隙超过画高12%，不能过度移动人物或猜补身体')
+    torso = ids.point([255 if value in tuple(_IDS[r] for r in garment_plan.GARMENT_ROLES)+(_IDS['skin_base'], _IDS['skin_shadow']) else 0
+                       for value in range(256)])
+    torso = ImageChops.multiply(torso, visible)
+    # A cropped garment may end on its antialiased outline. Accept that edge
+    # only when a wide torso span connects to it with no background row in
+    # between; an isolated horizontal stroke below a bust is not sufficient.
+    support = ImageChops.lighter(torso, line_alpha.point([
+        255 if value >= 64 else 0 for value in range(256)]))
+    connected = bytearray([255] * width)
+    longest = 0
+    contact_inset = None
+    for inset in range(max(2, round(height * 0.025)) + 1):
+        row_y = bbox[3] - 1 - inset
+        if row_y < 0:
+            break
+        support_row = support.crop((0,row_y,width,row_y+1)).tobytes()
+        torso_row = torso.crop((0,row_y,width,row_y+1)).tobytes()
+        current = candidate = 0
+        for index, (edge, material) in enumerate(zip(support_row, torso_row)):
+            connected[index] &= edge
+            current = current + 1 if connected[index] and material else 0
+            candidate = max(candidate, current)
+        if candidate >= max(4, round(width * 0.10)):
+            longest, contact_inset = candidate, inset
+            break
+    if contact_inset is None:
+        raise ValueError('人物贴底失败：底缘不是连续衣服或身体区域，不能用发梢、线条或零散像素冒充贴底')
+    original_ids, original_alpha = ids, line_alpha
+    if shift:
+        ids = Image.new('L', ids.size, _IDS['background'])
+        line_alpha = Image.new('L', line_alpha.size, 0)
+        ids.paste(original_ids, (0, shift))
+        line_alpha.paste(original_alpha, (0, shift))
+    assert ids.crop((0,height-1,width,height)).tobytes() == original_ids.crop((0,bbox[3]-1,width,bbox[3])).tobytes()
+    return ids, line_alpha, {
+        'policy_id': 'shared-subject-bottom-anchor-v1',
+        'offset_xy': [0, shift], 'source_subject_bbox': list(bbox),
+        'bottom_gap_pixels': 0, 'bottom_torso_continuous_pixels': longest,
+        'connected_bottom_outline_pixels': contact_inset,
+        'minimum_torso_continuous_pixels': max(4, round(width * 0.10)),
+        'translation_only': True, 'scale': 1, 'substantive_subject_preserved': True,
+        'discarded_fringe': 'Only trailing line alpha below 64/255; no meaningful fill or ink cropped',
+        'shared_across_variants': True,
+    }
 
 
 def _validate_plans(plans):
@@ -213,11 +257,11 @@ def _validate_plans(plans):
         raise ValueError('需要恰好一个或四个 variant_plans')
     if any(not isinstance(plan, dict) for plan in plans):
         raise ValueError('每个配色方案必须为对象')
-    if len(plans) == 1 and not plans[0].get('source_colorway'):
-        return _validate_single_plan(plans)
+    if any(not plan.get('source_colorway') for plan in plans):
+        raise ValueError('必须使用带TS模板来源与哈希的完整配色计划；旧单图混色入口已停用')
     normalized = [upgrade_gradient_plan(plan) for plan in plans]
     if len(normalized) == 4 and len({plan['source_hd_id'] for plan in normalized}) != 4:
-        raise ValueError('四配色必须对应四张不同原作，不能重复或拆拼色板')
+        raise ValueError('四配色必须对应四张不同模板，不能重复或拆拼色板')
     return normalized
 
 
@@ -363,26 +407,49 @@ def _save_png(image, destination):
         image.save(stream, format='PNG')
 
 
-def render_variants(master_path, plans, output_dir):
+def render_variants(master_path, plans, output_dir, *, encoding='semantic-cube-v1'):
     """Render one source-locked artwork or four variants and a 2×2 sheet."""
     started = perf_counter()
     master_path, output_dir = Path(master_path).resolve(), Path(output_dir).resolve()
     if output_dir.exists() and (not output_dir.is_dir() or any(output_dir.iterdir())):
         raise ValueError('四配色输出目录非空，不能覆盖此前结果')
     plans = _validate_plans(plans)
-    image, ids, line_alpha, manifest = _decode(master_path)
+    if encoding not in ('semantic-cube-v1',semantic_encoding.ENCODING_ID,semantic_encoding.PROP_ENCODING_ID):raise ValueError('未知技术底稿编码')
+    extended=encoding in (semantic_encoding.ENCODING_ID,semantic_encoding.PROP_ENCODING_ID)
+    prop_encoding=encoding==semantic_encoding.PROP_ENCODING_ID
+    if prop_encoding:plans=[object_plan.upgrade(plan) for plan in plans]
+    image, ids, line_alpha, manifest = _decode_garments(master_path,encoding=encoding) if extended else _decode(master_path)
+    if extended:
+        # Single flat garments can use fine structural lines. Requiring a
+        # second filled region encouraged the unwanted heavy fold patches.
+        from source_colorways import colorway
+        require_blush = any(colorway(p['source_hd_id']).get('role_presence', {}).get('cheek', {}).get('present', True) for p in plans if p.get('source_colorway'))
+        require_shadow = any(p['roles']['skin_base'] != p['roles']['skin_shadow'] for p in plans)
+        manifest['style_language'] = validate_role_map(ids, line_alpha, _IDS,
+            require_blush=require_blush, require_skin_shadow=require_shadow)
+    manifest['cheek_edge_cleanliness'] = validate_cheek_edge_specks(ids, line_alpha, _IDS)
+    if prop_encoding:manifest['object_cleanliness']=object_plan.validate_clean_regions(ids,line_alpha,_IDS)
+    ids, line_alpha, bottom_alignment = _align_subject_to_bottom(ids, line_alpha)
+    manifest['pre_alignment_role_map_sha256'] = manifest['role_map_sha256']
+    manifest['pre_alignment_line_alpha_sha256'] = manifest['line_alpha_sha256']
+    manifest['role_map_sha256'] = _sha(ids.tobytes())
+    manifest['line_alpha_sha256'] = _sha(line_alpha.tobytes())
+    manifest['role_pixel_counts'] = {role: int(_count(_mask(ids, role))) for role in _IDS}
+    manifest['bottom_alignment'] = bottom_alignment
+    manifest['background_corners_validation_stage'] = 'decoded-source-before-bottom-anchor'
     decoded_at = perf_counter()
     masks = {role: _mask(ids, role) for role in _IDS}
     # Exclude hidden role labels under opaque ink, then erode a pixel so
     # antialias colors cannot substitute for either real gradient endpoint.
     visible = line_alpha.point([255 if value == 0 else 0 for value in range(256)])
+    gradient_roles=('hair',)+garment_plan.GARMENT_ROLES
     gradient_masks = {role: ImageChops.multiply(masks[role], visible).filter(ImageFilter.MinFilter(3))
-                      for role in ('hair', 'clothing')}
+                      for role in gradient_roles}
     min_region = max(4, image.width * image.height * 0.001)
-    available = [role for role in ('hair', 'clothing')
+    available = [role for role in gradient_roles
                  if _count(gradient_masks[role]) >= min_region]
-    if not available:
-        raise ValueError('可见头发或衣服面积不足，不能交付无可见渐变的四配色')
+    if not available and any(plan.get('gradient') for plan in plans):
+        raise ValueError('可见头发或衣服面积不足，不能呈现所选模板渐变')
     output_dir.mkdir(parents=True, exist_ok=True)
     _save_png(ids, output_dir / 'role-ids.png')
     _save_png(line_alpha, output_dir / 'line-alpha.png')
@@ -403,6 +470,14 @@ def render_variants(master_path, plans, output_dir):
                   'skin_base': roles['skin_base'], 'skin_shadow': roles['skin_shadow'],
                   'hair': roles['hair'], 'clothing': roles['clothing'],
                   'accent': roles['cheek'], 'detail': roles['detail']}
+        if extended:
+            gp=plan.get('garment_plan')
+            garment_plan.validate(gp,plan['source_hd_id'])
+            colors.update(gp['render_roles'])
+            if prop_encoding:colors.update(plan['object_plan']['roles'])
+            inner_visible=_count(ImageChops.multiply(masks['clothing_inner'],visible))
+            if inner_visible>=min_region and colors['clothing']==colors['clothing_inner']:
+                raise ValueError('外套和内搭颜色仍相同，不能合并衣层交付')
         palette = [0] * 768
         for role, color in colors.items():
             offset = _IDS[role] * 3
@@ -410,21 +485,21 @@ def render_variants(master_path, plans, output_dir):
         indexed = ids.copy().convert('P')
         indexed.putpalette(palette)
         rendered = indexed.convert('RGB')
-        requested_gradient = dict(plan['gradient'])
-        requested_region = requested_gradient['region']
+        requested_gradient = dict(plan['gradient']) if plan.get('gradient') else None
+        gradient_options=list(plan.get('gradient_options',[]))
+        if extended:
+            gradient_options=[g for g in gradient_options if g['region']=='hair']+gp['gradients']
+            if requested_gradient and requested_gradient['region']=='clothing':
+                requested_gradient={k:v for k,v in gp['gradients'][0].items() if k!='samples'} if gp['gradients'] else None
+        requested_region = requested_gradient['region'] if requested_gradient else None
         # Keep all source-defined role gradients, one per visible role. A
         # clothing gradient is not discarded just because hair is visible.
         gradients = []
-        for candidate in [requested_gradient] + list(plan.get('gradient_options', [])):
+        for candidate in ([requested_gradient] if requested_gradient else []) + gradient_options:
             if candidate['region'] in available and candidate['region'] not in {item['region'] for item in gradients}:
                 gradients.append({key: candidate[key] for key in ('region', 'from', 'to', 'direction')})
-        if not gradients and plan.get('source_colorway'):
-            raise ValueError(f"HD-{plan['source_hd_id']:03d}的可见部位没有同角色渐变；不能把头发配色移到衣服，请换完整原作方案")
-        if not gradients:
-            # Preserve ordinary single-plan compatibility. Complete reference
-            # colorways above may only use their recorded same-role options.
-            fallback = dict(requested_gradient, region=available[0])
-            gradients.append(fallback)
+        if requested_gradient and not gradients and plan.get('source_colorway'):
+            raise ValueError(f"TS-{plan['source_hd_id']:03d}的可见部位没有同角色渐变；不能把头发配色移到衣服，请换完整模板方案")
         applied = []
         for gradient in gradients:
             region = gradient['region']
@@ -437,10 +512,10 @@ def render_variants(master_path, plans, output_dir):
         rendered = Image.composite(Image.new('RGB', image.size, roles['outline']), rendered, line_alpha)
         for item in applied:
             item['visibility'] = _gradient_metrics(rendered, gradient_masks[item['gradient']['region']], item['gradient'])
-        if not any(item['visibility']['qualifies_as_required'] for item in applied):
+        if requested_gradient and not any(item['visibility']['qualifies_as_required'] for item in applied):
             raise ValueError('人物局部渐变未通过最终RGB可见性检查：两端、连续过渡或色差不足，未生成最终拼图')
-        primary = next((item for item in applied if item['gradient']['region'] == requested_region), applied[0])
-        gradient = primary['gradient']
+        primary = next((item for item in applied if item['gradient']['region'] == requested_region), applied[0] if applied else None)
+        gradient = primary['gradient'] if primary else None
         signature = _sha(rendered.tobytes())
         if signature in signatures:
             raise ValueError('四版出现完全相同配色，未生成最终拼图')
@@ -454,11 +529,14 @@ def render_variants(master_path, plans, output_dir):
                         'pixel_sha256': signature, 'size': list(image.size),
                         'source_colorway': plan.get('source_colorway'),
                         'source_selection': plan['source_selection'],
+                        'garment_plan':gp if extended else None,
+                        'garment_encoding':encoding,
+                        'object_plan':plan.get('object_plan') if prop_encoding else None,
                         'role_map_sha256': manifest['role_map_sha256'],
                         'line_alpha_sha256': manifest['line_alpha_sha256'],
-                        'gradient': gradient, 'gradient_region_changed': gradient['region'] != requested_region,
-                        'visible_gradient_steps': primary['visible_gradient_steps'],
-                        'gradient_visibility': primary['visibility'], 'applied_gradients': applied})
+                        'gradient': gradient, 'gradient_region_changed': bool(gradient and gradient['region'] != requested_region),
+                        'visible_gradient_steps': primary['visible_gradient_steps'] if primary else 0,
+                        'gradient_visibility': primary['visibility'] if primary else {'required': False, 'reason': 'source_palette_is_flat'}, 'applied_gradients': applied})
     # Publish artwork only once every plan passes the delivered-pixel checks.
     for rendered, destination in pending:
         _save_png(rendered, destination)
@@ -469,9 +547,10 @@ def render_variants(master_path, plans, output_dir):
             'variants': variants, 'variant_details': details, 'master_size': list(image.size),
             'mask_manifest': str(manifest_path),
             'geometry_lock': {'same_pixel_geometry': True,
+                              'bottom_alignment': bottom_alignment,
                               'role_map_sha256': manifest['role_map_sha256'],
                               'line_alpha_sha256': manifest['line_alpha_sha256'],
-                              'scope': '共用一次解码的角色图与线条alpha；不重新绘制、裁切或移动人物'},
+                              'scope': '共用一次解码的角色图与线条alpha；换色前全体统一贴底平移，四版之间不重新绘制、裁切或移动人物'},
             'timings': {'decode_seconds': round(decoded_at - started, 6),
                         'render_seconds': round(perf_counter() - decoded_at, 6),
                         'total_seconds': round(perf_counter() - started, 6)}}
@@ -483,12 +562,15 @@ def main(argv=None):
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument('--plans', type=Path, help='Independent list of one or four standard color plans')
     source.add_argument('--request', type=Path, help='Request JSON containing variant_plans')
+    parser.add_argument('--encoding', choices=('semantic-cube-v1', semantic_encoding.ENCODING_ID, semantic_encoding.PROP_ENCODING_ID),
+                        help='底稿编码；默认读取request元数据，独立旧plans使用v1')
     parser.add_argument('--out-dir', type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         payload = json.loads((args.request or args.plans).read_text(encoding='utf-8'))
         plans = payload['variant_plans'] if args.request else payload
-        result = render_variants(args.master, plans, args.out_dir)
+        encoding = args.encoding or (payload.get('master_encoding', 'semantic-cube-v1') if args.request else 'semantic-cube-v1')
+        result = render_variants(args.master, plans, args.out_dir, encoding=encoding)
     except (OSError, ValueError, KeyError, TypeError) as error:
         parser.exit(2, 'Error: ' + str(error) + '\n')
     print(json.dumps(result, ensure_ascii=False, indent=2))

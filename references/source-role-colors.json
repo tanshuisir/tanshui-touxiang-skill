@@ -1,515 +1,750 @@
 {
   "schema_version": 1,
   "policy_id": "source-role-colors-v1",
-  "source_count": 69,
-  "missing_numeric_ids": [
-    51
-  ],
-  "method": "人工逐张识别肤面、皮肤暗面和背景区域，读取原PNG指定坐标的精确RGB；不取缩略图色、不量化、不跨角色重分配。",
-  "background_policy": "原作即使有渐变，也只将已采样背景RGB用作新头像的单一纯色底；不重建背景渐变。",
-  "skin_policy": "随机选择真实肤色模板，皮肤暗色跟随同一原作；无可靠暗色时复用肤面基色，不生成新肤色。",
+  "source_count": 70,
+  "missing_numeric_ids": [],
+  "method": "从每张当前批准1000×1000 PNG读取标注坐标的精确RGB；角色标签为编辑元数据，缺失角色显式披露同模板回退。",
+  "background_policy": "单一不透明纯色背景；模板中观测到的背景渐变仅作档案，新图使用已记录的纯色采样。",
+  "skin_policy": "肤面与暗面跟随同一当前模板；没有可靠可见暗面时复用肤面基色，不虚构新肤色。",
   "sources": [
     {
-      "id": 1,
-      "image": "assets/finished/001.png",
-      "sha256": "f043d51ce26a69d77f8502719e23cd7ba0274668d5a94ed1fecf79b23cb5fbc9",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 2,
-      "image": "assets/finished/002.png",
-      "sha256": "b7f1c127b6d3aecc16a4dcf4e0322840fa98ae8ca13f6d9f4477cf3560291da8",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。原背景含连续渐变，背景额外点为实际负形处的可见原色；新头像仅可作为单一纯色选项使用。"
-    },
-    {
-      "id": 3,
-      "image": "assets/finished/003.png",
-      "sha256": "4bd17021ec09976eb28f24677cca856ffb6a1d882026b7dcba692b3aaba5904d",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 4,
-      "image": "assets/finished/004.png",
-      "sha256": "d658436acc70f75fffc627326e98595cc37d64fa6819b548699bd7ea5d272e79",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 5,
-      "image": "assets/finished/005.png",
-      "sha256": "60b10be1296292d9e1c1b8e4a95419cf289b5b2debad85db2b4f1322c797f0f9",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 6,
-      "image": "assets/finished/006.png",
-      "sha256": "69b23f1c017756e05438d5bc259cccc8876846ab9d94aae6538517490297d72a",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 7,
-      "image": "assets/finished/007.png",
-      "sha256": "85174a81159506d4f1c0f006ce9b457e41c60abc65274db222fff038c6b861fb",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 8,
-      "image": "assets/finished/008.png",
-      "sha256": "36d6c9fb15cfe2471d6ed0cd8889f135257fbbd0ef469228738e521730898efb",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 9,
-      "image": "assets/finished/009.png",
-      "sha256": "b6f4815363877f374987def7228049d39aee9a858c756142766872181f65230d",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。原作局部存在栅格色值微差；直接保存真实像素，不平均、不捏造HEX。"
-    },
-    {
-      "id": 10,
-      "image": "assets/finished/010.png",
-      "sha256": "1a49be3efbbcda99c7dfcf29b00201e9c87c3e82b13ef00d2bcff2e2b84572a8",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。原背景含连续渐变，背景额外点为实际负形处的可见原色；新头像仅可作为单一纯色选项使用。"
-    },
-    {
-      "id": 11,
-      "image": "assets/finished/011.png",
-      "sha256": "63ef9ac1f633c0460a243b5bab09539fe54b01a8d5acca270b0a8fbe644f97cc",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 12,
-      "image": "assets/finished/012.png",
-      "sha256": "b308daa42687987ce49a5c9cf0230292db2eb50763b20b4c1eb322d51b3ec2fc",
-      "notes": "单色系作品；肤面与背景近同色，均直接采真实像素，不用发色/腮红代替肤色。无独立可确认的大块结构肤影。"
-    },
-    {
-      "id": 13,
-      "image": "assets/finished/013.png",
-      "sha256": "bcf2c6e19b0b583831fa0aeca30782e54eb2351c388197423421b1ee6722a561",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 14,
-      "image": "assets/finished/014.png",
-      "sha256": "9f2b357020f99f7202b09b8ae759c6a43b79a8a2e5d90579dc4bdc94a6abcba2",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 15,
-      "image": "assets/finished/015.png",
-      "sha256": "fcb5f4ea1787c02f166a07a77974c69994e4d80f0d55b2d20fba2b9c9c26c95c",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 16,
-      "image": "assets/finished/016.png",
-      "sha256": "186721f6d9d435a495eb8c0da4e037976b70acdf177f9d6014887e3dd386a222",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 17,
-      "image": "assets/finished/017.png",
-      "sha256": "2f0df3b48755e837a7a7c3a280330f8bb903e97d8b8e5bcf5c54e85116686f23",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 18,
-      "image": "assets/finished/018.png",
-      "sha256": "702ccc72bc5870717d4359d554779d5adf1fe8ef96b1e196751a9d9b7a1a9f1f",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 19,
-      "image": "assets/finished/019.png",
-      "sha256": "90b82b49a3b95b9f83650db1430b5dc0d11420531f4d0e590f05f343ef0a7357",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 20,
-      "image": "assets/finished/020.png",
-      "sha256": "042952d31a4e69da00c5311ce321f242fb24735bd062e4bdf17723a335927249",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 21,
-      "image": "assets/finished/021.png",
-      "sha256": "92272c4b04e9f35572f70d841b35c83469d3d492faea083df822bdc3b6bb8b2e",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 22,
-      "image": "assets/finished/022.png",
-      "sha256": "a6301e4432135478d35447f1258dbf00f8ed5a8839e9ca55e675eda28ea56215",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。"
-    },
-    {
-      "id": 23,
-      "image": "assets/finished/023.png",
-      "sha256": "2324f14883b18d4c94d54b8f880203171f680bc5abd3a7a5a255d948e53951fd",
-      "notes": "人工查看原作，肤色采样来自面部平涂主色；不是从全图主色推断。未确认独立大块结构肤影，不补造阴影色。"
-    },
-    {
-      "id": 24,
-      "image": "assets/finished/024.png",
-      "sha256": "fccb27eb1f181a1948b7224a6f0d101ef23b19b5f1073bcaa5e0054f5aa13686",
-      "notes": ""
-    },
-    {
-      "id": 25,
-      "image": "assets/finished/025.png",
-      "sha256": "1d2ab1a83168888990f19c38cc1e3a43206dbf755852666bdf906301aca97ec9",
-      "notes": ""
-    },
-    {
-      "id": 26,
-      "image": "assets/finished/026.png",
-      "sha256": "46781a90fcf57e7c0374440955f93e201b752343b242a36037f64128f8ecdf9e",
-      "notes": ""
-    },
-    {
-      "id": 27,
-      "image": "assets/finished/027.png",
-      "sha256": "6a060f8feff6a6b1d1ca6ffc624a1a128783d736fc0c703fbc42a1bcb5ca8061",
-      "notes": ""
-    },
-    {
-      "id": 28,
-      "image": "assets/finished/028.png",
-      "sha256": "bd2832e5064dfa2966b875acbcf8cd84c2b31e89697d84dd7008ad2fc56b7516",
-      "notes": ""
-    },
-    {
-      "id": 29,
-      "image": "assets/finished/029.png",
-      "sha256": "662f413dec3b437b8e538a8ce15a59d4535a9d72b23766ddc2c61bce55743667",
-      "notes": ""
-    },
-    {
-      "id": 30,
-      "image": "assets/finished/030.png",
-      "sha256": "148018d5a685d4c6c296e129b9c3d424d090984b811465e7a516452f38c02b50",
-      "notes": ""
-    },
-    {
-      "id": 31,
-      "image": "assets/finished/031.png",
-      "sha256": "6cad20db614ec97305c1b788ac38404cfed1a92cdd2c66c5ddb153f19119e244",
-      "notes": ""
-    },
-    {
-      "id": 32,
-      "image": "assets/finished/032.png",
-      "sha256": "5588fecbef143afcb6d8cde8c4163b23f594a2a526f2d90528c63aecd771c6dd",
-      "notes": ""
-    },
-    {
-      "id": 33,
-      "image": "assets/finished/033.png",
-      "sha256": "f48bd87ffa3b2b8705d4881295fcbd18ea4e9fe84c4eb524354ff518fc734a89",
-      "notes": ""
-    },
-    {
-      "id": 34,
-      "image": "assets/finished/034.png",
-      "sha256": "2c0c17433890665bca6d82755e1198ec5fde58bf119d5b5b2c91ff318778d32e",
-      "notes": "白色肤面；未发现独立皮肤暗面，粉色腮红不作为肤色暗面。"
-    },
-    {
-      "id": 35,
-      "image": "assets/finished/035.png",
-      "sha256": "45ed1521f48619cb7671a0f04082600cbf00e718d30cdd082ad5352ad3996621",
-      "notes": ""
-    },
-    {
-      "id": 36,
-      "image": "assets/finished/036.png",
-      "sha256": "64aeeda2ae5645f84ce7a90bc8092f86a9108a8ee9acb6922942114a1a779261",
-      "notes": ""
-    },
-    {
-      "id": 37,
-      "image": "assets/finished/037.png",
-      "sha256": "43835328a77dcff9c228d724dae691bc9aed1778f3deb1abc51e3786b7cb07d3",
-      "notes": "肤面有轻微明暗差异，未单独标记不明确的硬边皮肤暗面。"
-    },
-    {
-      "id": 38,
-      "image": "assets/finished/038.png",
-      "sha256": "88590ec406e838efbc109cd78c31a4210e5168382c394c603d2890fc6c325658",
-      "notes": ""
-    },
-    {
-      "id": 39,
-      "image": "assets/finished/039.png",
-      "sha256": "6d8d61a0156c8058864d13790a65935488184e77d4bfc0a49ae18fa26d84f615",
-      "notes": ""
-    },
-    {
-      "id": 40,
-      "image": "assets/finished/040.png",
-      "sha256": "eb3677dbb6344d3f7bc27fd8505441471443cab18705b337d726ae38cdbfc8ba",
-      "notes": ""
-    },
-    {
-      "id": 41,
-      "image": "assets/finished/041.png",
-      "sha256": "de22a6ebf685b4d588f004433eab4189d12174f29446ee415fe21fe4303d9241",
-      "notes": "暖橙肤面；未标记不明确的皮肤暗面。"
-    },
-    {
-      "id": 42,
-      "image": "assets/finished/042.png",
-      "sha256": "716d8fcc9ff5a369ecd861cfac7c29e45e1feef3caed27bd86246c5442bf84a5",
-      "notes": ""
-    },
-    {
-      "id": 43,
-      "image": "assets/finished/043.png",
-      "sha256": "fd91f21fbe396210fdf892cdbda3551a7c62757c27c4a2a82f36d67b3cfed058",
-      "notes": "主肤面为浅粉，与背景同色；颈部结构暗面为较深粉，与腮红同色但从真实颈部区域采样。"
-    },
-    {
-      "id": 44,
-      "image": "assets/finished/044.png",
-      "sha256": "85e07daf2c1dec582a636392dafcaff2bcabcf41b60aa9d60ee282a87f141202",
-      "notes": "原背景为纵向渐变；多个点为实际可见背景色，未来每次仅取其中一种作纯色底。面部没有可靠独立硬边暗面，未标暗色。"
-    },
-    {
-      "id": 45,
-      "image": "assets/finished/045.png",
-      "sha256": "0bc70352f28b6f9bd338513e4e7b92489ac2a83bd2b9bb661f2ea10292baa0a8",
-      "notes": ""
-    },
-    {
-      "id": 46,
-      "image": "assets/finished/046.png",
-      "sha256": "a3014577b3fdd2f45827ea9cf9e620460a3bdcf0ec75ea0cca1fa0f0877e2f39",
-      "notes": ""
-    },
-    {
-      "id": 47,
-      "image": "assets/finished/047.png",
-      "sha256": "5c0b65927ec76186d0def52f36e31ab5562754ebc45f546293d3798dfb1cd330",
-      "notes": "原背景为混色渐变；取左上、左下和右上负空间像素，未来每次只取一种纯色。阴影取右侧面部暖粉暗面。"
-    },
-    {
-      "id": 48,
-      "image": "assets/finished/048.png",
-      "sha256": "1695529402fc3a505d5c3d3b9c1aac316e217c6feda0de3bdb72a01441a62946",
-      "notes": "粉紫为原作真实肤色；主色和结构肤影分开采样，未取发色、腮红或服饰。"
-    },
-    {
-      "id": 49,
-      "image": "assets/finished/049.png",
-      "sha256": "3ad715e98ca56926fe7ed13044a259de6603a1a3333241df7e1dfa3c43ebd035",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 50,
-      "image": "assets/finished/050.png",
-      "sha256": "386061a835c802322744a3ced2f76dbbf4e588b2a11f429eba1d660b5e4c8d12",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 52,
-      "image": "assets/finished/052.png",
-      "sha256": "30756a1c23ba0b36e779233e8b6e9e148673bd340e1c6859fd2e88f0ecbde8f6",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 53,
-      "image": "assets/finished/053.png",
-      "sha256": "f56b80d4319f330ab84e50fbdfc143c83d37506517676f446a2ae5ceb3ae8a75",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 54,
-      "image": "assets/finished/054.png",
-      "sha256": "2de598f428b047c7bd84a04939649222bc0774eb8df3e9439d7467b0c3e3d6ef",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 55,
-      "image": "assets/finished/055.png",
-      "sha256": "18f0d475b2703ee4648a688c257763ba9d8bb6f42dcb87bc429eb5540f88b81c",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 56,
-      "image": "assets/finished/056.png",
-      "sha256": "14602ac96fae7381f1d57bb303dcc4ad456511381f25423b8e734e919f0548c3",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 57,
-      "image": "assets/finished/057.png",
-      "sha256": "c6e93a0072b853b2687239f1e66fa342f91024c64bc3634a7c021eaff7759ba8",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 58,
-      "image": "assets/finished/058.png",
-      "sha256": "23f867ef1ae3560381742a054d48b4dca16cf979d9649e0c0c14abce34252a79",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 59,
-      "image": "assets/finished/059.png",
-      "sha256": "7eb12f63cf83e3705fa769fa2078b36a978719b83c5fd1d64f27f293ffe7eff3",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 60,
-      "image": "assets/finished/060.png",
-      "sha256": "3d04775207b3f649f429f6ed68c8535f11d452fb04ab4de178841096269f8d85",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 61,
-      "image": "assets/finished/061.png",
-      "sha256": "2ce577319e5344e8f984b5d70eccca956a51e06c6841d98db551b62a734ff087",
-      "notes": "粉紫为原作真实肤色；主色和结构肤影分开采样，未取发色、腮红或服饰。"
-    },
-    {
-      "id": 62,
-      "image": "assets/finished/062.png",
-      "sha256": "431c4e2445d3d0f202c5c00d4372e0c3e54523909d2b981e2cd66eb146fd0e4a",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 63,
-      "image": "assets/finished/063.png",
-      "sha256": "cae91d36c1e0f636b4ec621fa420b4ec1ad56820a6809b9b69b984ef231873d8",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 64,
-      "image": "assets/finished/064.png",
-      "sha256": "6ad5f1f2be13baa0029557aa84c2034adcb0a7ce32b8f5f4f9b1309e9b22f533",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 65,
-      "image": "assets/finished/065.png",
-      "sha256": "da9b5f97415673f2e7ce4b6b894a8dfc55bd6555b6ba6c94234db69b98ad7bd8",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 66,
-      "image": "assets/finished/066.png",
-      "sha256": "98f53c0168d9de3ae21b03a3448ca7942647f66b3a7c1337cba68cc28174cfc0",
-      "notes": "深珊瑚棕为原作真实肤色；未发现独立结构肤影，不以腮红代替肤影。背景有纵向粉紫至浅青渐变，仅提取实际像素作为可选单色。"
-    },
-    {
-      "id": 67,
-      "image": "assets/finished/067.png",
-      "sha256": "d8c1bc3ece7aae6cc9eb39307d8084c867cd59e0fe62715e2bf5c056a2a7975c",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 68,
-      "image": "assets/finished/068.png",
-      "sha256": "2eb7222b1f3a19367e39cb3791be0b950a731371869c3efe2b302df9c510c978",
-      "notes": "亮粉为原作真实肤色，并非发色重分配。背景有蓝紫至紫红渐变，仅提取实际像素作为可选单色。"
-    },
-    {
-      "id": 69,
-      "image": "assets/finished/069.png",
-      "sha256": "a8adbbc7d573ec071ad4156b40f095f408e3aeeccc29505a83c8e3ae9a538831",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
-    },
-    {
-      "id": 70,
-      "image": "assets/finished/070.png",
-      "sha256": "a66e641fa2abeb8274a00262fdf869acefddcb5e4f5a8a2e1367329f99f63eca",
-      "notes": "主肤色采自额头/面部未腮红区域，阴影采自真实肤面/颈部，背景采自左上空白区。"
+      "source_hd_id": 1,
+      "source_template_id": "TS-001",
+      "source_image": "assets/templates/001.png",
+      "source_sha256": "4afe4871963f018c618c28fad8257c5b45fdb3a0801718afb14fd2633906ba20",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 2,
+      "source_template_id": "TS-002",
+      "source_image": "assets/templates/002.png",
+      "source_sha256": "d09d864b5d28cea41e2b8c689222732b335178900b826556e062119cd84a6ae4",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 3,
+      "source_template_id": "TS-003",
+      "source_image": "assets/templates/003.png",
+      "source_sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 4,
+      "source_template_id": "TS-004",
+      "source_image": "assets/templates/004.png",
+      "source_sha256": "4e8594e3846c420199b5151d244eba37c2561d50af4d66b6e4c6ec875a85caf8",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 5,
+      "source_template_id": "TS-005",
+      "source_image": "assets/templates/005.png",
+      "source_sha256": "39e181a4dff6f258193f6dadfdb815c9065255d15693877f101643613f4c1465",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 6,
+      "source_template_id": "TS-006",
+      "source_image": "assets/templates/006.png",
+      "source_sha256": "f7932900576ae478303321fa8d2c8fb2f4b48ff5d508aa0e96960f9bfc31cd13",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 7,
+      "source_template_id": "TS-007",
+      "source_image": "assets/templates/007.png",
+      "source_sha256": "1d1d4b2f9f9eab826366bdebe8631f5f70f6fd59387e6e390a7af4dd5810c0ec",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 8,
+      "source_template_id": "TS-008",
+      "source_image": "assets/templates/008.png",
+      "source_sha256": "f897d56485d99f42051dda080d5dfbcf4b8acb5c3c366e4a60ad0ffa0f42f332",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 9,
+      "source_template_id": "TS-009",
+      "source_image": "assets/templates/009.png",
+      "source_sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 10,
+      "source_template_id": "TS-010",
+      "source_image": "assets/templates/010.png",
+      "source_sha256": "efb083a612b21537293e805478459a7c71faefa317cdf7f1f72cbc7bde8f8bf1",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 11,
+      "source_template_id": "TS-011",
+      "source_image": "assets/templates/011.png",
+      "source_sha256": "a585cd9c225a9100ba9885572a265c03ac87d25116f8a63f1795aa275927f26d",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 12,
+      "source_template_id": "TS-012",
+      "source_image": "assets/templates/012.png",
+      "source_sha256": "cb2b9ed2141a923bab0ae4dc00f67cb68bae8d0ab32b7027c611634a3079fb5b",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 13,
+      "source_template_id": "TS-013",
+      "source_image": "assets/templates/013.png",
+      "source_sha256": "0e50ba68ba4e5d0928ddc40a2eca039af009c82ea751a2e4502d0ae0cc913548",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 14,
+      "source_template_id": "TS-014",
+      "source_image": "assets/templates/014.png",
+      "source_sha256": "b9c8541cf9594988ceeaa16cea8f5157d45ce05867a80f4956fa04ebc7072a7c",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 15,
+      "source_template_id": "TS-015",
+      "source_image": "assets/templates/015.png",
+      "source_sha256": "6530f519ec28a13aee235d9df91e69e4afa03a2335392d9ae803281b1ff66ce0",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 16,
+      "source_template_id": "TS-016",
+      "source_image": "assets/templates/016.png",
+      "source_sha256": "7ebcc52ed67540d3ea4e8106fcee9fc3a9cdf81568e96a87e31841f5152b90af",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 17,
+      "source_template_id": "TS-017",
+      "source_image": "assets/templates/017.png",
+      "source_sha256": "214c57e77b557acc62eaf7182f6551ccf1ac6f352d3dce7b09e1af293fb17707",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 18,
+      "source_template_id": "TS-018",
+      "source_image": "assets/templates/018.png",
+      "source_sha256": "1b4f4a534ad5ce0a60f990c839eebb123c42c64e7123ed5e7d90d7d0a69fe1b4",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 19,
+      "source_template_id": "TS-019",
+      "source_image": "assets/templates/019.png",
+      "source_sha256": "d07b40d434ceafbb40e70d87b1989bbe1ee6a0d5bfb55e3f8dd955da3cb13370",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 20,
+      "source_template_id": "TS-020",
+      "source_image": "assets/templates/020.png",
+      "source_sha256": "daced8500647def3b96751834bc2777f2bb43c454ae8b6b041838d9151160985",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 21,
+      "source_template_id": "TS-021",
+      "source_image": "assets/templates/021.png",
+      "source_sha256": "56aabe59426d36e48bcd1e9135840f3aa02107c7c96169e520327b1c4fb5fb54",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 22,
+      "source_template_id": "TS-022",
+      "source_image": "assets/templates/022.png",
+      "source_sha256": "9d4169b0191924028bca418de2ac5821ac5739b214991a286031adec5888a21d",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 23,
+      "source_template_id": "TS-023",
+      "source_image": "assets/templates/023.png",
+      "source_sha256": "8b74776e8df4bc4a32e59b220ddc7f35e9fdcb67498cd11af928b49fd7b549fe",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 24,
+      "source_template_id": "TS-024",
+      "source_image": "assets/templates/024.png",
+      "source_sha256": "41beab37c4ca92661ff3da519f6ec093fd8717af6f11b6fc332dc7fe34283473",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 25,
+      "source_template_id": "TS-025",
+      "source_image": "assets/templates/025.png",
+      "source_sha256": "d9243705c674f9997d50f025a900f98b338fa6a0fb50496218c0b151677b152d",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 26,
+      "source_template_id": "TS-026",
+      "source_image": "assets/templates/026.png",
+      "source_sha256": "f720fd07b2f2b45785657149fd416ec42bb7e23a2e3c549c82bdfe34f13f1920",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 27,
+      "source_template_id": "TS-027",
+      "source_image": "assets/templates/027.png",
+      "source_sha256": "45fb8b0d2dcc35637eed1fe2f75e66bf5555c3e63945952c23ac92c2486cde11",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 28,
+      "source_template_id": "TS-028",
+      "source_image": "assets/templates/028.png",
+      "source_sha256": "84968b83df3a47684f503bf0c2dcc3143e2d6126219c2607745e69a49aaa0eeb",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 29,
+      "source_template_id": "TS-029",
+      "source_image": "assets/templates/029.png",
+      "source_sha256": "2a5411416e56b42cd87ab2e4f4c92abaa2b1bf5e54a1069b66ace812f88149e8",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 30,
+      "source_template_id": "TS-030",
+      "source_image": "assets/templates/030.png",
+      "source_sha256": "1dd52b17689df900a0ec44bd6a220e387972b6194740c191f9ab2dc6b3d766f0",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 31,
+      "source_template_id": "TS-031",
+      "source_image": "assets/templates/031.png",
+      "source_sha256": "9cdef890b7898ce88ef6da48c3f20a68ffb43a16bd4f41d981dc66b11266f9b1",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 32,
+      "source_template_id": "TS-032",
+      "source_image": "assets/templates/032.png",
+      "source_sha256": "567462828e2cd35726c3870ba3aabfddb0d7150ceb808882e85ae72dad1a3839",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 33,
+      "source_template_id": "TS-033",
+      "source_image": "assets/templates/033.png",
+      "source_sha256": "22ea4b79cc092f01b867a8d336ae940a97321d8ecee15f80ba7e51e73c4829ef",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 34,
+      "source_template_id": "TS-034",
+      "source_image": "assets/templates/034.png",
+      "source_sha256": "6fa653bdfc75c3c23bfa58576fb4e73a88e72a2c758940c4056f685a16ad6e78",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 35,
+      "source_template_id": "TS-035",
+      "source_image": "assets/templates/035.png",
+      "source_sha256": "8730782fadde6f3bda3aac280a20e14753b42e52d91b20fb21d849f8cd4594ae",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 36,
+      "source_template_id": "TS-036",
+      "source_image": "assets/templates/036.png",
+      "source_sha256": "ebdf446ffde28d035519c4071d2f043e096123c738db000d83df755e243f8a87",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 37,
+      "source_template_id": "TS-037",
+      "source_image": "assets/templates/037.png",
+      "source_sha256": "8945a51da2b1354321d5848923af35a3631e445e1e2eaa895aee0974c7616e36",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 38,
+      "source_template_id": "TS-038",
+      "source_image": "assets/templates/038.png",
+      "source_sha256": "e7a5433024da2367f608f4391e52bcef4024ee5f0107f0de9994d4bb03f47c29",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 39,
+      "source_template_id": "TS-039",
+      "source_image": "assets/templates/039.png",
+      "source_sha256": "21fbdaeec8531fe305028956a1a2ee0d2453b8c3b76c3deb6100bc35bfc33f76",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 40,
+      "source_template_id": "TS-040",
+      "source_image": "assets/templates/040.png",
+      "source_sha256": "9f46c87b2544263d22f47de220eea3e09abfce40e5e03a0ea56868e2e770b31c",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 41,
+      "source_template_id": "TS-041",
+      "source_image": "assets/templates/041.png",
+      "source_sha256": "19e823b1ef08f1260ae3c9e126050c175bc4438845193fff03d490c48bfbe185",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 42,
+      "source_template_id": "TS-042",
+      "source_image": "assets/templates/042.png",
+      "source_sha256": "061247fd1f9413edfda3d6f308690f0f56bc9284773b66d669f72101ecd9f90f",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 43,
+      "source_template_id": "TS-043",
+      "source_image": "assets/templates/043.png",
+      "source_sha256": "38a4e57c8ced59130676be989a0f32129174e281cbef73b87f72922cfa661de3",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 44,
+      "source_template_id": "TS-044",
+      "source_image": "assets/templates/044.png",
+      "source_sha256": "d1bfb71a8a7ba24d9448b4342f78f11750b53086115697ec1d08c4779772eb20",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 45,
+      "source_template_id": "TS-045",
+      "source_image": "assets/templates/045.png",
+      "source_sha256": "c06def20cc3512decab0e7cb8658493076f1093b67e8599adcb31821d7007aee",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 46,
+      "source_template_id": "TS-046",
+      "source_image": "assets/templates/046.png",
+      "source_sha256": "bb13303a56776b6ce4d110949421a2f533a8738ba44092c88db9c0a0f4754088",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 47,
+      "source_template_id": "TS-047",
+      "source_image": "assets/templates/047.png",
+      "source_sha256": "11d2891fd2b5c9a90a0a06c1dd7e38b4e42c03da12f47ea22bc0d61d482439f3",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 48,
+      "source_template_id": "TS-048",
+      "source_image": "assets/templates/048.png",
+      "source_sha256": "c89836917bdd0fdd5d6a530dccc8026051d100a10960d25b3d01803b40a595c2",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 49,
+      "source_template_id": "TS-049",
+      "source_image": "assets/templates/049.png",
+      "source_sha256": "146b5c8ab215d277f518503390a2d18083bef35be14840b6239e38cde493aa90",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 50,
+      "source_template_id": "TS-050",
+      "source_image": "assets/templates/050.png",
+      "source_sha256": "c55d9a7fdee909ce5876caa5f4ae47081941fc3327220d7d98668b73daa9ca6f",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 51,
+      "source_template_id": "TS-051",
+      "source_image": "assets/templates/051.png",
+      "source_sha256": "31f9748ed8f5d243622fb19624a13956e9a7658df31fface3d6624db423fbfad",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 52,
+      "source_template_id": "TS-052",
+      "source_image": "assets/templates/052.png",
+      "source_sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 53,
+      "source_template_id": "TS-053",
+      "source_image": "assets/templates/053.png",
+      "source_sha256": "bc25a4d97837c17ccbcf42928464c6963b3c751a1aa7cc146e357a7584e1c3d0",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 54,
+      "source_template_id": "TS-054",
+      "source_image": "assets/templates/054.png",
+      "source_sha256": "3e19dbc9ecb864a11cb9fea7c361c3c52028067df4ab2b5efbd5e71be8a5d607",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 55,
+      "source_template_id": "TS-055",
+      "source_image": "assets/templates/055.png",
+      "source_sha256": "fe9ad5079e970797bb2633983beb48d197578abde47e49747852feac27dff69d",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 56,
+      "source_template_id": "TS-056",
+      "source_image": "assets/templates/056.png",
+      "source_sha256": "295e6ead5fb86dedd506cea71828732a714c9b7e3ee9e73a17cb04e4834c0b48",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 57,
+      "source_template_id": "TS-057",
+      "source_image": "assets/templates/057.png",
+      "source_sha256": "eff6b07c6de96ba1caadb35d48f46083477d104badb52881e537311603877b37",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 58,
+      "source_template_id": "TS-058",
+      "source_image": "assets/templates/058.png",
+      "source_sha256": "e59856863cce04e11e8fbc201d2834ccdb9bb95b41d8ca09eda49dbdeb7fc5e2",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 59,
+      "source_template_id": "TS-059",
+      "source_image": "assets/templates/059.png",
+      "source_sha256": "7f3da9a903758b993679827bb710a8096e2c7426d8de85c4bdba4395b2e70b80",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 60,
+      "source_template_id": "TS-060",
+      "source_image": "assets/templates/060.png",
+      "source_sha256": "393e4a7c6c2fba266147bb81208140c7c0c3171a7b1a06d9c956223b1c6f0f21",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 61,
+      "source_template_id": "TS-061",
+      "source_image": "assets/templates/061.png",
+      "source_sha256": "d1fdba2800d25d8f51fad3de4b49a695a39b1f99714059a47d3b9aeaaa614d9e",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 62,
+      "source_template_id": "TS-062",
+      "source_image": "assets/templates/062.png",
+      "source_sha256": "55fd3c98e94d7e47f8fccfe5262fad949c8909da3f7387989883270c73c0d45a",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 63,
+      "source_template_id": "TS-063",
+      "source_image": "assets/templates/063.png",
+      "source_sha256": "eda2bfbf4539c26dd11f6d43b08b1988804b72fc323a9bf15764a64f98e46c19",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 64,
+      "source_template_id": "TS-064",
+      "source_image": "assets/templates/064.png",
+      "source_sha256": "03a12fc5113fa68e8bead0105f271b18542ec40aa8b6e10d38eb45c7717ba994",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 65,
+      "source_template_id": "TS-065",
+      "source_image": "assets/templates/065.png",
+      "source_sha256": "fd396ecc10dd2168bb80e634fd34201aff54444397c157e3d5fc13679f5fe359",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 66,
+      "source_template_id": "TS-066",
+      "source_image": "assets/templates/066.png",
+      "source_sha256": "194de36efd14ee5f9c99c24024acfe131b9673824b76b3419c7ba7dc601cc7c4",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 67,
+      "source_template_id": "TS-067",
+      "source_image": "assets/templates/067.png",
+      "source_sha256": "20c7f676669ad4df6c06343c74fb79875f79441fa1fc8553a056e03fb911eedb",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 68,
+      "source_template_id": "TS-068",
+      "source_image": "assets/templates/068.png",
+      "source_sha256": "7237b5c4716bb9793fbbf1a4e221b7fe07519adec14aa52c39832cf6ee3a8630",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 69,
+      "source_template_id": "TS-069",
+      "source_image": "assets/templates/069.png",
+      "source_sha256": "dcf69e47f8224122f8c3c7a5cbbfce3b29e1a959d14703ff0638caf930800fed",
+      "image_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "source_hd_id": 70,
+      "source_template_id": "TS-070",
+      "source_image": "assets/templates/070.png",
+      "source_sha256": "71ae1b51a495e30c3167fee731368dda4c8b3b0e5894c7c37a3c0cc9439dedad",
+      "image_size": [
+        1000,
+        1000
+      ]
     }
   ],
   "skins": [
     {
-      "id": "HD-001-skin",
+      "id": "TS-001-skin",
       "source_hd_id": 1,
       "base": {
         "xy": [
-          370,
-          560
+          500,
+          440
         ],
-        "hex": "#FFD9D9",
+        "hex": "#FED6CF",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          510,
-          580
+          500,
+          440
         ],
-        "hex": "#FFADAD",
+        "hex": "#FED6CF",
         "patch_exact_fraction": 1.0
       },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-002-skin",
+      "id": "TS-002-skin",
       "source_hd_id": 2,
       "base": {
         "xy": [
-          600,
-          400
-        ],
-        "hex": "#FFB9FF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-003-skin",
-      "source_hd_id": 3,
-      "base": {
-        "xy": [
-          390,
-          350
-        ],
-        "hex": "#FFDDDD",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          525,
-          610
-        ],
-        "hex": "#FFACAC",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-004-skin",
-      "source_hd_id": 4,
-      "base": {
-        "xy": [
-          500,
-          345
-        ],
-        "hex": "#FFD8D0",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-005-skin",
-      "source_hd_id": 5,
-      "base": {
-        "xy": [
-          400,
-          530
+          480,
+          440
         ],
         "hex": "#FFD5B4",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          505,
-          625
+          520,
+          584
         ],
         "hex": "#FF7D8B",
         "patch_exact_fraction": 1.0
@@ -517,237 +752,83 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-006-skin",
+      "id": "TS-003-skin",
+      "source_hd_id": 3,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFE1D5",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          417,
+          663
+        ],
+        "hex": "#FFB090",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-004-skin",
+      "source_hd_id": 4,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFD9D9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          434,
+          602
+        ],
+        "hex": "#FFADAD",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-005-skin",
+      "source_hd_id": 5,
+      "base": {
+        "xy": [
+          497,
+          440
+        ],
+        "hex": "#FFDBC7",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          497,
+          440
+        ],
+        "hex": "#FFDBC7",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-006-skin",
       "source_hd_id": 6,
       "base": {
         "xy": [
-          490,
-          515
-        ],
-        "hex": "#FFFAF9",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-007-skin",
-      "source_hd_id": 7,
-      "base": {
-        "xy": [
-          510,
-          470
-        ],
-        "hex": "#FFF9F9",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-008-skin",
-      "source_hd_id": 8,
-      "base": {
-        "xy": [
-          450,
-          290
-        ],
-        "hex": "#FFCBD0",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          490,
-          655
-        ],
-        "hex": "#FFA5AE",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-009-skin",
-      "source_hd_id": 9,
-      "base": {
-        "xy": [
-          410,
-          280
-        ],
-        "hex": "#FFE6E0",
-        "patch_exact_fraction": 0.9259
-      },
-      "shadow": {
-        "xy": [
-          400,
-          625
-        ],
-        "hex": "#FEBCAC",
-        "patch_exact_fraction": 0.963
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-010-skin",
-      "source_hd_id": 10,
-      "base": {
-        "xy": [
-          390,
-          350
-        ],
-        "hex": "#FFECEC",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          510,
-          760
-        ],
-        "hex": "#FFBEBE",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-011-skin",
-      "source_hd_id": 11,
-      "base": {
-        "xy": [
-          480,
-          300
-        ],
-        "hex": "#FFCDCB",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          510,
-          690
-        ],
-        "hex": "#FFA4A0",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-012-skin",
-      "source_hd_id": 12,
-      "base": {
-        "xy": [
-          520,
-          450
-        ],
-        "hex": "#FFB3FE",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-013-skin",
-      "source_hd_id": 13,
-      "base": {
-        "xy": [
-          480,
-          330
-        ],
-        "hex": "#EA778C",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          560,
-          735
-        ],
-        "hex": "#CD566C",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-014-skin",
-      "source_hd_id": 14,
-      "base": {
-        "xy": [
-          480,
-          540
-        ],
-        "hex": "#FFE8E8",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-015-skin",
-      "source_hd_id": 15,
-      "base": {
-        "xy": [
-          380,
-          310
-        ],
-        "hex": "#FED6CF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          440,
-          660
-        ],
-        "hex": "#FFAEAD",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-016-skin",
-      "source_hd_id": 16,
-      "base": {
-        "xy": [
-          490,
-          330
-        ],
-        "hex": "#FFCEB7",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-017-skin",
-      "source_hd_id": 17,
-      "base": {
-        "xy": [
-          350,
-          330
-        ],
-        "hex": "#FFC4C4",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          440,
-          510
-        ],
-        "hex": "#FF9898",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-018-skin",
-      "source_hd_id": 18,
-      "base": {
-        "xy": [
-          480,
-          490
+          498,
+          440
         ],
         "hex": "#FFF0F0",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          560,
-          630
+          494,
+          518
         ],
         "hex": "#FFBDBD",
         "patch_exact_fraction": 1.0
@@ -755,160 +836,83 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-019-skin",
-      "source_hd_id": 19,
+      "id": "TS-007-skin",
+      "source_hd_id": 7,
       "base": {
         "xy": [
-          490,
-          280
+          465,
+          440
         ],
-        "hex": "#FFD9D9",
+        "hex": "#FFFFFF",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          520,
-          580
+          534,
+          650
         ],
-        "hex": "#FFBFBF",
+        "hex": "#FFCDEA",
         "patch_exact_fraction": 1.0
       },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-020-skin",
-      "source_hd_id": 20,
+      "id": "TS-008-skin",
+      "source_hd_id": 8,
       "base": {
         "xy": [
-          420,
-          610
+          500,
+          440
         ],
-        "hex": "#FFE7E7",
+        "hex": "#FFCFCF",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          510,
-          705
+          566,
+          483
         ],
-        "hex": "#FFBFBF",
-        "patch_exact_fraction": 0.9012
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-021-skin",
-      "source_hd_id": 21,
-      "base": {
-        "xy": [
-          450,
-          470
-        ],
-        "hex": "#FFC3C3",
-        "patch_exact_fraction": 0.8765
-      },
-      "shadow": {
-        "xy": [
-          520,
-          640
-        ],
-        "hex": "#FFA4A4",
+        "hex": "#FFAEAD",
         "patch_exact_fraction": 1.0
       },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-022-skin",
-      "source_hd_id": 22,
+      "id": "TS-009-skin",
+      "source_hd_id": 9,
       "base": {
         "xy": [
-          480,
-          300
-        ],
-        "hex": "#FE8849",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          550,
-          690
-        ],
-        "hex": "#D56131",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-023-skin",
-      "source_hd_id": 23,
-      "base": {
-        "xy": [
-          420,
-          345
+          500,
+          440
         ],
         "hex": "#FFF2F2",
         "patch_exact_fraction": 1.0
       },
-      "shadow": null,
+      "shadow": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFF2F2",
+        "patch_exact_fraction": 1.0
+      },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-024-skin",
-      "source_hd_id": 24,
+      "id": "TS-010-skin",
+      "source_hd_id": 10,
       "base": {
         "xy": [
           500,
-          350
-        ],
-        "hex": "#FFBDC4",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          565,
-          740
-        ],
-        "hex": "#FF7685",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-025-skin",
-      "source_hd_id": 25,
-      "base": {
-        "xy": [
-          420,
-          300
-        ],
-        "hex": "#FDD4D7",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          600,
-          590
-        ],
-        "hex": "#F6B4BE",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-026-skin",
-      "source_hd_id": 26,
-      "base": {
-        "xy": [
-          390,
-          330
+          440
         ],
         "hex": "#FFECEC",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          610,
-          650
+          510,
+          535
         ],
         "hex": "#FFD2D5",
         "patch_exact_fraction": 1.0
@@ -916,41 +920,20 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-027-skin",
-      "source_hd_id": 27,
+      "id": "TS-011-skin",
+      "source_hd_id": 11,
       "base": {
         "xy": [
-          550,
-          330
-        ],
-        "hex": "#FFC9B3",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          560,
-          690
-        ],
-        "hex": "#FF9164",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-028-skin",
-      "source_hd_id": 28,
-      "base": {
-        "xy": [
-          540,
-          340
+          506,
+          440
         ],
         "hex": "#FFD9D6",
-        "patch_exact_fraction": 0.8025
+        "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          420,
-          710
+          517,
+          621
         ],
         "hex": "#FFC5B3",
         "patch_exact_fraction": 1.0
@@ -958,83 +941,20 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-029-skin",
-      "source_hd_id": 29,
-      "base": {
-        "xy": [
-          555,
-          350
-        ],
-        "hex": "#FCDEE4",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          520,
-          725
-        ],
-        "hex": "#FDCCD6",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-030-skin",
-      "source_hd_id": 30,
-      "base": {
-        "xy": [
-          340,
-          350
-        ],
-        "hex": "#FFDDC9",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          555,
-          410
-        ],
-        "hex": "#FFBBB0",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-031-skin",
-      "source_hd_id": 31,
+      "id": "TS-012-skin",
+      "source_hd_id": 12,
       "base": {
         "xy": [
           500,
-          410
-        ],
-        "hex": "#FDC0B9",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          565,
-          600
-        ],
-        "hex": "#FF887A",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-032-skin",
-      "source_hd_id": 32,
-      "base": {
-        "xy": [
-          320,
-          285
+          440
         ],
         "hex": "#FFE1D7",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          540,
-          390
+          514,
+          650
         ],
         "hex": "#FFB1A6",
         "patch_exact_fraction": 1.0
@@ -1042,20 +962,125 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-033-skin",
-      "source_hd_id": 33,
+      "id": "TS-013-skin",
+      "source_hd_id": 13,
       "base": {
         "xy": [
-          400,
-          300
+          500,
+          440
+        ],
+        "hex": "#FFC4C4",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          392,
+          503
+        ],
+        "hex": "#FF9999",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-014-skin",
+      "source_hd_id": 14,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFD4CC",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          510,
+          520
+        ],
+        "hex": "#FFC0C0",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-015-skin",
+      "source_hd_id": 15,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFFAF9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFFAF9",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-016-skin",
+      "source_hd_id": 16,
+      "base": {
+        "xy": [
+          499,
+          440
+        ],
+        "hex": "#FFC5C5",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          448,
+          650
+        ],
+        "hex": "#FF9E9E",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-017-skin",
+      "source_hd_id": 17,
+      "base": {
+        "xy": [
+          499,
+          440
+        ],
+        "hex": "#FFBDC4",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          550,
+          649
+        ],
+        "hex": "#FF7685",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-018-skin",
+      "source_hd_id": 18,
+      "base": {
+        "xy": [
+          500,
+          440
         ],
         "hex": "#F4F5FC",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          450,
-          680
+          487,
+          617
         ],
         "hex": "#CDC7FF",
         "patch_exact_fraction": 1.0
@@ -1063,33 +1088,985 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-034-skin",
-      "source_hd_id": 34,
+      "id": "TS-019-skin",
+      "source_hd_id": 19,
+      "base": {
+        "xy": [
+          499,
+          440
+        ],
+        "hex": "#FFC3C3",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          555,
+          602
+        ],
+        "hex": "#FFA4A4",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-020-skin",
+      "source_hd_id": 20,
       "base": {
         "xy": [
           500,
-          300
+          440
         ],
         "hex": "#FFFFFF",
         "patch_exact_fraction": 1.0
       },
-      "shadow": null,
+      "shadow": {
+        "xy": [
+          500,
+          650
+        ],
+        "hex": "#FFE4EF",
+        "patch_exact_fraction": 1.0
+      },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-035-skin",
+      "id": "TS-021-skin",
+      "source_hd_id": 21,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFB9FB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          496,
+          650
+        ],
+        "hex": "#FF7DF8",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-022-skin",
+      "source_hd_id": 22,
+      "base": {
+        "xy": [
+          432,
+          413
+        ],
+        "hex": "#FED6CD",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          432,
+          413
+        ],
+        "hex": "#FED6CD",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-023-skin",
+      "source_hd_id": 23,
+      "base": {
+        "xy": [
+          529,
+          440
+        ],
+        "hex": "#FFCBD0",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          504,
+          600
+        ],
+        "hex": "#FFA5AE",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-024-skin",
+      "source_hd_id": 24,
+      "base": {
+        "xy": [
+          490,
+          440
+        ],
+        "hex": "#FFCECE",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          490,
+          440
+        ],
+        "hex": "#FFCECE",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-025-skin",
+      "source_hd_id": 25,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#D56955",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#D56955",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-026-skin",
+      "source_hd_id": 26,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFD9D9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          470,
+          614
+        ],
+        "hex": "#FFBFBF",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-027-skin",
+      "source_hd_id": 27,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFCDCB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          650
+        ],
+        "hex": "#FFA4A0",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-028-skin",
+      "source_hd_id": 28,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFC4C4",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          524,
+          650
+        ],
+        "hex": "#FF9898",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-029-skin",
+      "source_hd_id": 29,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFEBEB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          526,
+          650
+        ],
+        "hex": "#FFBCBC",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-030-skin",
+      "source_hd_id": 30,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFCEDA",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          437,
+          650
+        ],
+        "hex": "#FFA4BA",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-031-skin",
+      "source_hd_id": 31,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFF2F2",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          512,
+          598
+        ],
+        "hex": "#FFD6D6",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-032-skin",
+      "source_hd_id": 32,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFFFFF",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          553,
+          650
+        ],
+        "hex": "#CCF3F1",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-033-skin",
+      "source_hd_id": 33,
+      "base": {
+        "xy": [
+          469,
+          440
+        ],
+        "hex": "#FFFFFF",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          493,
+          650
+        ],
+        "hex": "#FFD4D4",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-034-skin",
+      "source_hd_id": 34,
+      "base": {
+        "xy": [
+          492,
+          440
+        ],
+        "hex": "#FFD8C5",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          539,
+          650
+        ],
+        "hex": "#FFC093",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-035-skin",
       "source_hd_id": 35,
       "base": {
         "xy": [
-          430,
-          310
+          491,
+          440
+        ],
+        "hex": "#FDE8E6",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          400,
+          629
+        ],
+        "hex": "#FED0CC",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-036-skin",
+      "source_hd_id": 36,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFF4B4",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          505,
+          650
+        ],
+        "hex": "#C5DA7D",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-037-skin",
+      "source_hd_id": 37,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFDDDD",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          497,
+          650
+        ],
+        "hex": "#FFACAC",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-038-skin",
+      "source_hd_id": 38,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFD1CB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          590,
+          651
+        ],
+        "hex": "#FF9F93",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-039-skin",
+      "source_hd_id": 39,
+      "base": {
+        "xy": [
+          514,
+          440
+        ],
+        "hex": "#FFE7E7",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          457,
+          650
+        ],
+        "hex": "#FFBFBF",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-040-skin",
+      "source_hd_id": 40,
+      "base": {
+        "xy": [
+          481,
+          440
+        ],
+        "hex": "#FFB9FF",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          481,
+          440
+        ],
+        "hex": "#FFB9FF",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-041-skin",
+      "source_hd_id": 41,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFE6E0",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          329,
+          622
+        ],
+        "hex": "#FEBCAC",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-042-skin",
+      "source_hd_id": 42,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFE8E8",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFE8E8",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-043-skin",
+      "source_hd_id": 43,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FCDEE4",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          680,
+          522
+        ],
+        "hex": "#FDCCD6",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-044-skin",
+      "source_hd_id": 44,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FF6B9A",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          650
+        ],
+        "hex": "#FF366A",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-045-skin",
+      "source_hd_id": 45,
+      "base": {
+        "xy": [
+          492,
+          531
+        ],
+        "hex": "#FEF0DA",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          563,
+          489
+        ],
+        "hex": "#FDA58A",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-046-skin",
+      "source_hd_id": 46,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FDD4D7",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          437,
+          650
+        ],
+        "hex": "#F6B4BE",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-047-skin",
+      "source_hd_id": 47,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FCB1AB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          547,
+          650
+        ],
+        "hex": "#FD8E85",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-048-skin",
+      "source_hd_id": 48,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFC788",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          493,
+          650
+        ],
+        "hex": "#FF9965",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-049-skin",
+      "source_hd_id": 49,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFCCD0",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          518,
+          650
+        ],
+        "hex": "#FF9494",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-050-skin",
+      "source_hd_id": 50,
+      "base": {
+        "xy": [
+          468,
+          440
+        ],
+        "hex": "#FFC9B3",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          555,
+          650
+        ],
+        "hex": "#FF9164",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-051-skin",
+      "source_hd_id": 51,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFCEB7",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFCEB7",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-052-skin",
+      "source_hd_id": 52,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FDC0B9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          475,
+          630
+        ],
+        "hex": "#FF887A",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-053-skin",
+      "source_hd_id": 53,
+      "base": {
+        "xy": [
+          506,
+          440
+        ],
+        "hex": "#FFD7BE",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          506,
+          440
+        ],
+        "hex": "#FFD7BE",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-054-skin",
+      "source_hd_id": 54,
+      "base": {
+        "xy": [
+          486,
+          440
+        ],
+        "hex": "#FFE2DD",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          627,
+          650
+        ],
+        "hex": "#FFC0B6",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-055-skin",
+      "source_hd_id": 55,
+      "base": {
+        "xy": [
+          499,
+          440
+        ],
+        "hex": "#FFF9F9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          499,
+          440
+        ],
+        "hex": "#FFF9F9",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-056-skin",
+      "source_hd_id": 56,
+      "base": {
+        "xy": [
+          587,
+          440
+        ],
+        "hex": "#FFCBCB",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          563,
+          628
+        ],
+        "hex": "#FF9C9C",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-057-skin",
+      "source_hd_id": 57,
+      "base": {
+        "xy": [
+          448,
+          440
+        ],
+        "hex": "#FFCCCC",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          598,
+          656
+        ],
+        "hex": "#FFADAD",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-058-skin",
+      "source_hd_id": 58,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FE8849",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          605,
+          650
+        ],
+        "hex": "#D56131",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-059-skin",
+      "source_hd_id": 59,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFD0D0",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          439,
+          650
+        ],
+        "hex": "#FFA0A0",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-060-skin",
+      "source_hd_id": 60,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFDED7",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          572,
+          650
+        ],
+        "hex": "#FFC7BA",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-061-skin",
+      "source_hd_id": 61,
+      "base": {
+        "xy": [
+          525,
+          440
+        ],
+        "hex": "#FFECEC",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          485,
+          650
+        ],
+        "hex": "#FFBEBE",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-062-skin",
+      "source_hd_id": 62,
+      "base": {
+        "xy": [
+          500,
+          440
+        ],
+        "hex": "#FFDDC9",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          592,
+          650
+        ],
+        "hex": "#FFBBB0",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-063-skin",
+      "source_hd_id": 63,
+      "base": {
+        "xy": [
+          508,
+          440
+        ],
+        "hex": "#EA778C",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          500,
+          650
+        ],
+        "hex": "#CD566C",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-064-skin",
+      "source_hd_id": 64,
+      "base": {
+        "xy": [
+          502,
+          440
+        ],
+        "hex": "#FEC293",
+        "patch_exact_fraction": 1.0
+      },
+      "shadow": {
+        "xy": [
+          502,
+          440
+        ],
+        "hex": "#FEC293",
+        "patch_exact_fraction": 1.0
+      },
+      "additional_skin_samples": []
+    },
+    {
+      "id": "TS-065-skin",
+      "source_hd_id": 65,
+      "base": {
+        "xy": [
+          483,
+          440
         ],
         "hex": "#FCBBB8",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          470,
+          449,
           650
         ],
         "hex": "#FF9AA0",
@@ -1098,251 +2075,20 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-036-skin",
-      "source_hd_id": 36,
+      "id": "TS-066-skin",
+      "source_hd_id": 66,
       "base": {
         "xy": [
-          290,
-          380
-        ],
-        "hex": "#FFD1CB",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          560,
-          630
-        ],
-        "hex": "#FF9F93",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-037-skin",
-      "source_hd_id": 37,
-      "base": {
-        "xy": [
-          545,
-          350
-        ],
-        "hex": "#FFD7BE",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-038-skin",
-      "source_hd_id": 38,
-      "base": {
-        "xy": [
-          610,
-          310
-        ],
-        "hex": "#FFDBC7",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          520,
-          570
-        ],
-        "hex": "#FFAFA9",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-039-skin",
-      "source_hd_id": 39,
-      "base": {
-        "xy": [
-          425,
-          650
-        ],
-        "hex": "#FFD8C5",
-        "patch_exact_fraction": 0.9877
-      },
-      "shadow": {
-        "xy": [
-          455,
-          790
-        ],
-        "hex": "#FFC093",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-040-skin",
-      "source_hd_id": 40,
-      "base": {
-        "xy": [
-          420,
-          330
-        ],
-        "hex": "#FFCCD0",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          545,
-          570
-        ],
-        "hex": "#FF9494",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-041-skin",
-      "source_hd_id": 41,
-      "base": {
-        "xy": [
-          625,
-          320
-        ],
-        "hex": "#FEC293",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-042-skin",
-      "source_hd_id": 42,
-      "base": {
-        "xy": [
-          450,
-          590
-        ],
-        "hex": "#FFFFFF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          460,
-          690
-        ],
-        "hex": "#FFD4D4",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-043-skin",
-      "source_hd_id": 43,
-      "base": {
-        "xy": [
-          400,
-          230
-        ],
-        "hex": "#FFCEDA",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          550,
-          500
-        ],
-        "hex": "#FFA4BA",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-044-skin",
-      "source_hd_id": 44,
-      "base": {
-        "xy": [
-          520,
-          340
-        ],
-        "hex": "#FFCECE",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-045-skin",
-      "source_hd_id": 45,
-      "base": {
-        "xy": [
-          300,
-          300
-        ],
-        "hex": "#FFFFFF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          520,
-          560
-        ],
-        "hex": "#CCF3F1",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-046-skin",
-      "source_hd_id": 46,
-      "base": {
-        "xy": [
-          300,
-          300
-        ],
-        "hex": "#FFC4C4",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          510,
-          390
-        ],
-        "hex": "#FF9999",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-047-skin",
-      "source_hd_id": 47,
-      "base": {
-        "xy": [
-          390,
-          370
-        ],
-        "hex": "#FFDED7",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          530,
-          500
-        ],
-        "hex": "#FFC7BA",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-048-skin",
-      "source_hd_id": 48,
-      "base": {
-        "xy": [
-          350,
-          280
+          502,
+          440
         ],
         "hex": "#FF95EB",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          463,
-          547
+          500,
+          650
         ],
         "hex": "#F25BD6",
         "patch_exact_fraction": 1.0
@@ -1350,335 +2096,20 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-049-skin",
-      "source_hd_id": 49,
+      "id": "TS-067-skin",
+      "source_hd_id": 67,
       "base": {
-        "xy": [
-          335,
-          335
-        ],
-        "hex": "#FDE8E6",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          423,
-          650
-        ],
-        "hex": "#FED0CC",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-050-skin",
-      "source_hd_id": 50,
-      "base": {
-        "xy": [
-          300,
-          500
-        ],
-        "hex": "#FFCCCC",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          420,
-          565
-        ],
-        "hex": "#FFADAD",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-052-skin",
-      "source_hd_id": 52,
-      "base": {
-        "xy": [
-          400,
-          245
-        ],
-        "hex": "#FFE1D5",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          546,
-          594
-        ],
-        "hex": "#FFB090",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-053-skin",
-      "source_hd_id": 53,
-      "base": {
-        "xy": [
-          550,
-          250
-        ],
-        "hex": "#FFC5C5",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          420,
-          350
-        ],
-        "hex": "#FF9E9E",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-054-skin",
-      "source_hd_id": 54,
-      "base": {
-        "xy": [
-          450,
-          340
-        ],
-        "hex": "#FFF2F2",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          550,
-          520
-        ],
-        "hex": "#FFD6D6",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-055-skin",
-      "source_hd_id": 55,
-      "base": {
-        "xy": [
-          465,
-          275
-        ],
-        "hex": "#FFCFCF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          525,
-          620
-        ],
-        "hex": "#FFAEAD",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-056-skin",
-      "source_hd_id": 56,
-      "base": {
-        "xy": [
-          370,
-          240
-        ],
-        "hex": "#FFF7E1",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          487,
-          605
-        ],
-        "hex": "#FF9F87",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-057-skin",
-      "source_hd_id": 57,
-      "base": {
-        "xy": [
-          300,
-          500
-        ],
-        "hex": "#FFC788",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
         "xy": [
           500,
-          583
-        ],
-        "hex": "#FF9965",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-058-skin",
-      "source_hd_id": 58,
-      "base": {
-        "xy": [
-          340,
-          300
-        ],
-        "hex": "#FCB1AB",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          505,
-          600
-        ],
-        "hex": "#FD8E85",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-059-skin",
-      "source_hd_id": 59,
-      "base": {
-        "xy": [
-          600,
-          264
-        ],
-        "hex": "#FFD0D0",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          531,
-          619
-        ],
-        "hex": "#FFA0A0",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-060-skin",
-      "source_hd_id": 60,
-      "base": {
-        "xy": [
-          400,
-          265
-        ],
-        "hex": "#FFF4B4",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          575,
-          582
-        ],
-        "hex": "#C5DA7D",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-061-skin",
-      "source_hd_id": 61,
-      "base": {
-        "xy": [
-          510,
-          365
-        ],
-        "hex": "#FFB9FB",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          405,
-          555
-        ],
-        "hex": "#FF7DF8",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-062-skin",
-      "source_hd_id": 62,
-      "base": {
-        "xy": [
-          380,
-          330
-        ],
-        "hex": "#FFE2DD",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          525,
-          642
-        ],
-        "hex": "#FFC0B6",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-063-skin",
-      "source_hd_id": 63,
-      "base": {
-        "xy": [
-          391,
-          370
-        ],
-        "hex": "#FFFFFF",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          555,
-          611
-        ],
-        "hex": "#FFCDEA",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-064-skin",
-      "source_hd_id": 64,
-      "base": {
-        "xy": [
-          502,
-          410
-        ],
-        "hex": "#FFD4CC",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          410,
-          496
-        ],
-        "hex": "#FFBABD",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-065-skin",
-      "source_hd_id": 65,
-      "base": {
-        "xy": [
-          280,
-          329
+          440
         ],
         "hex": "#FFD0C8",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          485,
-          410
+          626,
+          637
         ],
         "hex": "#FFB6AE",
         "patch_exact_fraction": 1.0
@@ -1686,34 +2117,20 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-066-skin",
-      "source_hd_id": 66,
+      "id": "TS-068-skin",
+      "source_hd_id": 68,
       "base": {
         "xy": [
-          477,
-          296
-        ],
-        "hex": "#D56955",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": null,
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-067-skin",
-      "source_hd_id": 67,
-      "base": {
-        "xy": [
-          376,
-          317
+          500,
+          440
         ],
         "hex": "#FFB079",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          430,
-          575
+          508,
+          640
         ],
         "hex": "#FF8649",
         "patch_exact_fraction": 1.0
@@ -1721,64 +2138,43 @@
       "additional_skin_samples": []
     },
     {
-      "id": "HD-068-skin",
-      "source_hd_id": 68,
-      "base": {
-        "xy": [
-          456,
-          297
-        ],
-        "hex": "#FF6B9A",
-        "patch_exact_fraction": 1.0
-      },
-      "shadow": {
-        "xy": [
-          455,
-          641
-        ],
-        "hex": "#FF366A",
-        "patch_exact_fraction": 1.0
-      },
-      "additional_skin_samples": []
-    },
-    {
-      "id": "HD-069-skin",
+      "id": "TS-069-skin",
       "source_hd_id": 69,
       "base": {
         "xy": [
-          405,
-          250
+          511,
+          440
         ],
-        "hex": "#FFEBEB",
+        "hex": "#FFB3FE",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          398,
-          670
+          621,
+          650
         ],
-        "hex": "#FFBCBC",
+        "hex": "#C64DC6",
         "patch_exact_fraction": 1.0
       },
       "additional_skin_samples": []
     },
     {
-      "id": "HD-070-skin",
+      "id": "TS-070-skin",
       "source_hd_id": 70,
       "base": {
         "xy": [
-          330,
-          315
+          484,
+          440
         ],
-        "hex": "#FFCBCB",
+        "hex": "#FFD9D9",
         "patch_exact_fraction": 1.0
       },
       "shadow": {
         "xy": [
-          559,
-          617
+          500,
+          650
         ],
-        "hex": "#FF9C9C",
+        "hex": "#FFADAD",
         "patch_exact_fraction": 1.0
       },
       "additional_skin_samples": []
@@ -1786,712 +2182,30 @@
   ],
   "backgrounds": [
     {
-      "id": "HD-001-bg-1",
       "source_hd_id": 1,
+      "id": "TS-001-bg-1",
       "xy": [
-        30,
-        30
-      ],
-      "hex": "#5C40A6",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-1",
-      "source_hd_id": 2,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#8629B0",
-      "patch_exact_fraction": 0.6173,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-2",
-      "source_hd_id": 2,
-      "xy": [
-        30,
-        500
-      ],
-      "hex": "#A842C6",
-      "patch_exact_fraction": 0.8148,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-3",
-      "source_hd_id": 2,
-      "xy": [
-        30,
-        970
-      ],
-      "hex": "#D260E1",
-      "patch_exact_fraction": 0.5062,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-4",
-      "source_hd_id": 2,
-      "xy": [
-        970,
-        30
-      ],
-      "hex": "#9A38BD",
-      "patch_exact_fraction": 0.7407,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-5",
-      "source_hd_id": 2,
-      "xy": [
-        970,
-        500
-      ],
-      "hex": "#C356D8",
-      "patch_exact_fraction": 0.5309,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-002-bg-6",
-      "source_hd_id": 2,
-      "xy": [
-        970,
-        970
-      ],
-      "hex": "#EA72F2",
-      "patch_exact_fraction": 0.1728,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-003-bg-1",
-      "source_hd_id": 3,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#B3B2C3",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-004-bg-1",
-      "source_hd_id": 4,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFF1D7",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-005-bg-1",
-      "source_hd_id": 5,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#32C0FF",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-006-bg-1",
-      "source_hd_id": 6,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FF7B63",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-007-bg-1",
-      "source_hd_id": 7,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FEBD03",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-008-bg-1",
-      "source_hd_id": 8,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#BFB7C4",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-009-bg-1",
-      "source_hd_id": 9,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FF7A21",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-010-bg-1",
-      "source_hd_id": 10,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#155A66",
-      "patch_exact_fraction": 0.6667,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-010-bg-2",
-      "source_hd_id": 10,
-      "xy": [
-        30,
-        500
-      ],
-      "hex": "#2F9093",
-      "patch_exact_fraction": 0.3333,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-010-bg-3",
-      "source_hd_id": 10,
-      "xy": [
-        5,
-        970
-      ],
-      "hex": "#4DCEC9",
-      "patch_exact_fraction": 0.4444,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-010-bg-4",
-      "source_hd_id": 10,
-      "xy": [
-        970,
-        30
-      ],
-      "hex": "#155A66",
-      "patch_exact_fraction": 0.6667,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-010-bg-5",
-      "source_hd_id": 10,
-      "xy": [
-        970,
-        500
-      ],
-      "hex": "#2F9093",
-      "patch_exact_fraction": 0.3333,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-011-bg-1",
-      "source_hd_id": 11,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFC000",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-012-bg-1",
-      "source_hd_id": 12,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFB3FE",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-013-bg-1",
-      "source_hd_id": 13,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#45694D",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-014-bg-1",
-      "source_hd_id": 14,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#2D87DD",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-015-bg-1",
-      "source_hd_id": 15,
-      "xy": [
-        30,
-        30
+        20,
+        20
       ],
       "hex": "#DF8852",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-016-bg-1",
-      "source_hd_id": 16,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FF8347",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-017-bg-1",
-      "source_hd_id": 17,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#203EC8",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-018-bg-1",
-      "source_hd_id": 18,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#0732F7",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-019-bg-1",
-      "source_hd_id": 19,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#6A69EF",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-020-bg-1",
-      "source_hd_id": 20,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#034C33",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-021-bg-1",
-      "source_hd_id": 21,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#B0DDFF",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-022-bg-1",
-      "source_hd_id": 22,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFC17B",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-023-bg-1",
-      "source_hd_id": 23,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#82FFE3",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-024-bg-1",
-      "source_hd_id": 24,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FC3467",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-025-bg-1",
-      "source_hd_id": 25,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#A1E5D2",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-026-bg-1",
-      "source_hd_id": 26,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#5377BD",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-027-bg-1",
-      "source_hd_id": 27,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#D8FF00",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-028-bg-1",
-      "source_hd_id": 28,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#E39A7E",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-029-bg-1",
-      "source_hd_id": 29,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#30C394",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-030-bg-1",
-      "source_hd_id": 30,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#D5A8AC",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-031-bg-1",
-      "source_hd_id": 31,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FE6223",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-032-bg-1",
-      "source_hd_id": 32,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#AC97AA",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-033-bg-1",
-      "source_hd_id": 33,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#ACF4E0",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-034-bg-1",
-      "source_hd_id": 34,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FAF7FA",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-035-bg-1",
-      "source_hd_id": 35,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#3B98A4",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-036-bg-1",
-      "source_hd_id": 36,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#319CE8",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-037-bg-1",
-      "source_hd_id": 37,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#C86B2B",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-038-bg-1",
-      "source_hd_id": 38,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#C9D1D7",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-039-bg-1",
-      "source_hd_id": 39,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFBA45",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-040-bg-1",
-      "source_hd_id": 40,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FF9C00",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-041-bg-1",
-      "source_hd_id": 41,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FD8576",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-042-bg-1",
-      "source_hd_id": 42,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#01C4B9",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-043-bg-1",
-      "source_hd_id": 43,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#FFCEDA",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-044-bg-1",
-      "source_hd_id": 44,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#E154E4",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-044-bg-2",
-      "source_hd_id": 44,
-      "xy": [
-        30,
-        500
-      ],
-      "hex": "#F13CB5",
-      "patch_exact_fraction": 0.8889,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-044-bg-3",
-      "source_hd_id": 44,
-      "xy": [
-        970,
-        500
-      ],
-      "hex": "#F13CB5",
-      "patch_exact_fraction": 0.8889,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-044-bg-4",
-      "source_hd_id": 44,
-      "xy": [
-        970,
-        970
-      ],
-      "hex": "#FE2A91",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-045-bg-1",
-      "source_hd_id": 45,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#01C4B9",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-046-bg-1",
-      "source_hd_id": 46,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#4E3440",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-047-bg-1",
-      "source_hd_id": 47,
-      "xy": [
-        30,
-        30
-      ],
-      "hex": "#F28162",
-      "patch_exact_fraction": 0.7407,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-047-bg-2",
-      "source_hd_id": 47,
-      "xy": [
-        30,
-        970
-      ],
-      "hex": "#A89466",
-      "patch_exact_fraction": 0.6667,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-047-bg-3",
-      "source_hd_id": 47,
-      "xy": [
-        970,
-        30
-      ],
-      "hex": "#FF7D61",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-048-bg-1",
-      "source_hd_id": 48,
+      "source_hd_id": 2,
+      "id": "TS-002-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#8857EA",
+      "hex": "#32C0FF",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-049-bg-1",
-      "source_hd_id": 49,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#00DDD6",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-050-bg-1",
-      "source_hd_id": 50,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#CCA07C",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-052-bg-1",
-      "source_hd_id": 52,
+      "source_hd_id": 3,
+      "id": "TS-003-bg-1",
       "xy": [
         20,
         20
@@ -2501,118 +2215,41 @@
       "usage": "solid_fill"
     },
     {
-      "id": "HD-053-bg-1",
-      "source_hd_id": 53,
+      "source_hd_id": 4,
+      "id": "TS-004-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#FFE9F0",
+      "hex": "#5C40A6",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-054-bg-1",
-      "source_hd_id": 54,
+      "source_hd_id": 5,
+      "id": "TS-005-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#FECFD8",
+      "hex": "#C9D1D7",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-055-bg-1",
-      "source_hd_id": 55,
+      "source_hd_id": 6,
+      "id": "TS-006-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#F7CFDA",
+      "hex": "#0732F7",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-056-bg-1",
-      "source_hd_id": 56,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#FF90B4",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-057-bg-1",
-      "source_hd_id": 57,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#FF9000",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-058-bg-1",
-      "source_hd_id": 58,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#281D48",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-059-bg-1",
-      "source_hd_id": 59,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#49316B",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-060-bg-1",
-      "source_hd_id": 60,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#4E8367",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-061-bg-1",
-      "source_hd_id": 61,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#FFB9FB",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-062-bg-1",
-      "source_hd_id": 62,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#C891E6",
-      "patch_exact_fraction": 1.0,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-063-bg-1",
-      "source_hd_id": 63,
+      "source_hd_id": 7,
+      "id": "TS-007-bg-1",
       "xy": [
         20,
         20
@@ -2622,8 +2259,74 @@
       "usage": "solid_fill"
     },
     {
-      "id": "HD-064-bg-1",
-      "source_hd_id": 64,
+      "source_hd_id": 8,
+      "id": "TS-008-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#F7CFDA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 9,
+      "id": "TS-009-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#82FFE3",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 10,
+      "id": "TS-010-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#5377BD",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 11,
+      "id": "TS-011-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#E39A7E",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 12,
+      "id": "TS-012-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#AC97AA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 13,
+      "id": "TS-013-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#4E3440",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 14,
+      "id": "TS-014-bg-1",
       "xy": [
         20,
         20
@@ -2633,96 +2336,162 @@
       "usage": "solid_fill"
     },
     {
-      "id": "HD-065-bg-1",
-      "source_hd_id": 65,
+      "source_hd_id": 15,
+      "id": "TS-015-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#B3C731",
+      "hex": "#FF7B63",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-066-bg-1",
-      "source_hd_id": 66,
+      "source_hd_id": 16,
+      "id": "TS-016-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFE9F0",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 17,
+      "id": "TS-017-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FC3467",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 18,
+      "id": "TS-018-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#ACF4E0",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 19,
+      "id": "TS-019-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#B0DDFF",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 20,
+      "id": "TS-020-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FAF7FA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 21,
+      "id": "TS-021-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFB9FB",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 22,
+      "id": "TS-022-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FDF1DA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 23,
+      "id": "TS-023-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#BFB7C4",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 24,
+      "id": "TS-024-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#E154E4",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 25,
+      "id": "TS-025-bg-1",
       "xy": [
         20,
         20
       ],
       "hex": "#F696E0",
-      "patch_exact_fraction": 0.7778,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-066-bg-2",
-      "source_hd_id": 66,
-      "xy": [
-        20,
-        500
-      ],
-      "hex": "#E1BAEA",
-      "patch_exact_fraction": 0.6667,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-066-bg-3",
-      "source_hd_id": 66,
-      "xy": [
-        20,
-        980
-      ],
-      "hex": "#CAE0F5",
-      "patch_exact_fraction": 0.6667,
-      "usage": "solid_fill"
-    },
-    {
-      "id": "HD-067-bg-1",
-      "source_hd_id": 67,
-      "xy": [
-        20,
-        20
-      ],
-      "hex": "#E26B36",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-068-bg-1",
-      "source_hd_id": 68,
+      "source_hd_id": 26,
+      "id": "TS-026-bg-1",
       "xy": [
         20,
         20
       ],
-      "hex": "#3D01FE",
-      "patch_exact_fraction": 0.6667,
+      "hex": "#6A69EF",
+      "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-068-bg-2",
-      "source_hd_id": 68,
+      "source_hd_id": 27,
+      "id": "TS-027-bg-1",
       "xy": [
         20,
-        500
+        20
       ],
-      "hex": "#6919CD",
-      "patch_exact_fraction": 0.4444,
+      "hex": "#FFC000",
+      "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-068-bg-3",
-      "source_hd_id": 68,
+      "source_hd_id": 28,
+      "id": "TS-028-bg-1",
       "xy": [
-        990,
-        760
+        20,
+        20
       ],
-      "hex": "#993399",
-      "patch_exact_fraction": 0.5309,
+      "hex": "#203EC8",
+      "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
     },
     {
-      "id": "HD-069-bg-1",
-      "source_hd_id": 69,
+      "source_hd_id": 29,
+      "id": "TS-029-bg-1",
       "xy": [
         20,
         20
@@ -2732,8 +2501,294 @@
       "usage": "solid_fill"
     },
     {
-      "id": "HD-070-bg-1",
-      "source_hd_id": 70,
+      "source_hd_id": 30,
+      "id": "TS-030-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFCEDA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 31,
+      "id": "TS-031-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FECFD8",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 32,
+      "id": "TS-032-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#01C4B9",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 33,
+      "id": "TS-033-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#01C4B9",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 34,
+      "id": "TS-034-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFBA45",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 35,
+      "id": "TS-035-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#00DDD6",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 36,
+      "id": "TS-036-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#4E8367",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 37,
+      "id": "TS-037-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#B3B2C3",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 38,
+      "id": "TS-038-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#319CE8",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 39,
+      "id": "TS-039-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#034C33",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 40,
+      "id": "TS-040-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#8529B0",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 41,
+      "id": "TS-041-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FF7A21",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 42,
+      "id": "TS-042-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#2D87DD",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 43,
+      "id": "TS-043-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#30C394",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 44,
+      "id": "TS-044-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#3D00FE",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 45,
+      "id": "TS-045-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FB8DB9",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 46,
+      "id": "TS-046-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#A1E5D2",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 47,
+      "id": "TS-047-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#281D48",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 48,
+      "id": "TS-048-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FF9000",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 49,
+      "id": "TS-049-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FF9C00",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 50,
+      "id": "TS-050-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#D8FF00",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 51,
+      "id": "TS-051-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FF8347",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 52,
+      "id": "TS-052-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FE6223",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 53,
+      "id": "TS-053-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#C86B2B",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 54,
+      "id": "TS-054-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#C891E6",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 55,
+      "id": "TS-055-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FEBD03",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 56,
+      "id": "TS-056-bg-1",
       "xy": [
         20,
         20
@@ -2741,9 +2796,163 @@
       "hex": "#5B39C6",
       "patch_exact_fraction": 1.0,
       "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 57,
+      "id": "TS-057-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#CCA07C",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 58,
+      "id": "TS-058-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFC17B",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 59,
+      "id": "TS-059-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#49316B",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 60,
+      "id": "TS-060-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FF7D61",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 61,
+      "id": "TS-061-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#4DCEC9",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 62,
+      "id": "TS-062-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#D5A8AC",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 63,
+      "id": "TS-063-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#45694D",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 64,
+      "id": "TS-064-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FD8576",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 65,
+      "id": "TS-065-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#3B98A4",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 66,
+      "id": "TS-066-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#8857EA",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 67,
+      "id": "TS-067-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#B3C731",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 68,
+      "id": "TS-068-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#E26B36",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 69,
+      "id": "TS-069-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#FFB3FE",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    },
+    {
+      "source_hd_id": 70,
+      "id": "TS-070-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#613BC8",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
     }
   ],
   "unique_skin_base_count": 62,
-  "unique_skin_color_count": 115,
-  "unique_background_color_count": 83
+  "unique_skin_color_count": 116,
+  "unique_background_color_count": 69
 }

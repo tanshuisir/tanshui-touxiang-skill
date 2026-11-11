@@ -30,6 +30,8 @@ def image_paths(argv):
 
 class PreviewInputTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         temporary = tempfile.TemporaryDirectory(prefix='avatar-preview-input-test-')
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name).resolve()
@@ -181,7 +183,7 @@ class PreviewInputTests(unittest.TestCase):
             directory.mkdir()
             original = directory/'image-01.png'
             from avatar_test_fixture import encoded_fixture
-            encoded_fixture(original)
+            encoded_fixture(original, garments=True)
             (directory/'result.json').write_text(json.dumps({'status':'completed',
                 'files':[{'original':str(original), 'format':'png'}]}), encoding='utf-8')
             return subprocess.CompletedProcess(argv, 0)

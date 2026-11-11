@@ -1,50 +1,27 @@
-# 素材来源说明
+# 素材与取色说明
 
-本文件记录“碳水头像 Skill”中参考插画、公开照片及分析资料的来源与范围。它是来源说明，不是第三方素材的再许可文件。本仓库不为第三方素材授予 MIT 或其他新许可，也不声称这些素材为本项目原创。
+当前运行参考库为 70 张已确认头像，统一编号 TS-001—TS-070，存放在 `assets/templates/001.png` 至 `070.png`。尺寸均为 1000×1000 RGB；这是参考素材的整理尺寸，不保证为模型原生高清。此版不包含早期参考图片、其裁片或对应的历史素材目录。
 
-## 参考插画：776／七七六
+## 可核验的数据
 
-关联作品页：[站酷作品](https://www.zcool.com.cn/work/ZMzcxNzUwMDA=.html)。用户提供的作品截图可见“Draw 100 super star / design by 776”与“七七六”署名；本项目按图中署名记录来源，不额外推定作者账号身份。
+- `references/finished-reference-library.json`：当前模板图片路径、尺寸和 SHA-256。
+- `references/source-colorways.json` 与 `references/colorways/`：每套当前模板的完整角色色。
+- `references/source-role-colors.json`：当前图片上的 HEX 与像素坐标。实测色、已有渐变与同套角色回退应分别标记。
+- `references/line-library.json` 与 `references/garment-library.json`：当前模板的线色和衣饰信息。
+- `references/confirmed-cases.json`：确认过的修正及其适用范围；确认单张成品不表示整张图的所有表现都成为通用规则。
 
-| 仓库位置 | 素材范围与处理 |
-|---|---|
-| `assets/finished/NNN.png` | 用户提供的 69 张高清参考，原编号 1–70，缺少 51；统一标记为 HD 编号 |
-| `assets/finished/contact-*.jpg` | 由高清参考制作的检索总览，沿用原插画素材归属 |
-| `assets/finished/detail-overview.jpg` | 由参考插画局部及文字标注组成的暗面、投影和细节研究图 |
-| `assets/line-library/line-atlas-*.jpg`、`line-colors.png` | 由高清原作局部裁切、分类、取色和标注制作的线条研究总览；图中原作部分沿用原插画素材归属 |
-| `assets/portraits/001.png` 至 `100.png` | 从用户提供的早期作品拼版截图逐格裁出的 100 张参考，与高清编号不是同一序列 |
-| `assets/reference-contact-sheet.jpg` | 早期参考的总览图 |
+色值应当对应当前 PNG 的实际像素，不沿用其他图片上的旧取色坐标或哈希。某个部位在模板里不存在时，采用已记录的同套回退，不将它描述为实测部位。背景有变化的模板应如实保留采样说明；默认生图仍执行纯色背景规则。
 
-69 张高清原件中，37 张为 1000×1000，32 张为 1001×1000；后者只去除一列完全透明边缘，可见画面未缩放、调色或裁去人物。原始尺寸、哈希和规范化说明见 [高清参考资料库](references/finished-reference-library.json)。
+## 介绍中的照片对照
 
-旧版裁切、四色标签、采样与来源附件记录分别见 [早期色库](references/palette-library.json)、[附件记录](references/source-manifest.json) 和 [详细来源说明](references/reference-source.md)。高清与早期版本的同幅图形对应见 [编号对应表](references/artwork-crosswalk.json)，该表不提供人物身份。
+README 的三张对照板展示 5 组实际照片与当前确认头像，编号为 TS-003、TS-009、TS-052、TS-057、TS-045。照片与头像完整适配展示，不裁去边缘；右侧头像来自本次发布的相应 PNG。
 
-README 展示的 HD-025、HD-008、HD-055 属于上述参考插画，**不是本 Skill 生成的效果图**。参考图及其裁切、总览、标注图的公开收录，不意味着素材版权转让或原作者认可本 Skill。
+公开核验清单为 `docs/images/showcase-source-manifest.json`，记录照片校验值、尺寸、对应模板和对照板文件校验值，不包含本机绝对路径、会话记录或凭据。对照板仅用于展示转换效果；照片中的人物身份不是本 Skill 的识别功能。
 
-## 公开人物照片
+## 其他配色参考
 
-`assets/cases/public-photos/` 与 `assets/cases/yan-rujing/` 包含照片造型研究资料。照片来源包括新闻、时尚报道、人物资料页与公开知识卡，原网页、图片地址、文字归属依据、文件哈希、观察和使用限制记录在以下文件中：
+`assets/color-cards/` 和 `references/four-swatch-cards.json` 保留用户提供的 100 组四色卡。它们为 `reference_only`，不替换默认 70 套完整角色配色。色卡网站入口保存在 `references/custom-palette-sources.md`，仅在要求设计新配色时使用。
 
-- [公开照片目录](references/public-photo-catalog.json)：33 个去重姓名条目，共 31 张照片资料；包含候选与来源受限条目，不能统称为原照配对。
-- [颜如晶案例来源](assets/cases/yan-rujing/sources.json)：3 张用户认可的近似参考照片及原链接。
-- [颜如晶对照说明](references/yan-rujing-case.md)：插图与近似照片的可比之处及明显差异。
+## 使用范围
 
-其中，Yamy 的一张为有姓名说明的人物知识卡，详情原页受阻；都敏俊条目的一张只有同时提到多个角色的原文上下文，单图人物归属待补证；“秀敏”和“孟美琦”的姓名解释也保留待确认状态。具体限制以目录中的对应记录为准。
-
-`assets/cases/yan-rujing/comparison.jpg` 是插图与 3 张近似照片组成的对照图，保留各部分原素材的来源与归属。照片不是本项目拍摄，也未被声称为插图作者使用的创作原照。
-
-## 分析与新增设计的边界
-
-线宽建议、造型概括、阴影解释、细节预算和绘制顺序，是本 Skill 根据可见画面归纳的制作建议，不是原作者的笔刷参数、源图层工程或逐步创作记录。
-
-[完整原作配色目录](references/source-colorways.json) 记录当前单图与四图使用的同源方案：每套角色色、渐变端色与取样依据均来自对应原作的可见像素，保留原图编号、哈希及角色来源。肤面与肤影的同角色取样另见[角色色库](references/source-role-colors.json)，主线取样见[线色库](references/line-library.json)。这些记录是本 Skill 对成品图的采样与归纳，不是原作者提供的源色板、图层或工程渐变节点；将可见采样映射到新人物仍是本 Skill 的绘制处理。
-
-[艺术角色色组](references/artistic-palettes.json) 是保留的旧版资料，区分过实际采样色与新增设计色。当前 `single-source-colorways-v1` 不从该旧库跨原作拼接或新增角色色；旧版的设计色和角色重分配不能作为当前成品的取色依据。
-
-参考资料收录不等于模型训练、权重更新、作者原照确认或新照片生成效果验证。高清参考的人名对应不能仅凭外观相似推断。
-
-## 仓库范围
-
-本仓库未发布使用者的私人输入照片、网关凭据或实际生图输出。运行时产生的照片路径、提示词、预览与高清文件保存在使用者自己的项目工作区，不属于本仓库的参考素材。
-
-素材权益仍归各原权利人。本说明保留已有来源信息，不替任何第三方提供授权，也不将不同来源的素材统一设定为开放许可资产。
+本次发布整理的是 Skill、当前模板及其可核验信息，不构成对照片或其他素材权利的统一授权。各素材权利仍归相应权利人；仓库没有附加统一开源许可证。

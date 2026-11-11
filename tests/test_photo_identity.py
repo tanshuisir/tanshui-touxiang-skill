@@ -16,6 +16,8 @@ from eye_style import EYE_INSTRUCTIONS
 
 class PhotoIdentityTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-photo-identity-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -23,7 +25,7 @@ class PhotoIdentityTests(unittest.TestCase):
         # A synthetic, featureless fixture verifies preparation, not likeness.
         Image.new('RGB', (240, 320), '#ba8968').save(self.photo)
         self.brief = {'photo': str(self.photo), 'identity_source': 'photo',
-                      'art_palette': 'mint-apricot'}
+                      'art_palette': 'TS-025'}
 
     def prepare(self, name='request', **changes):
         brief = dict(self.brief, **changes)
@@ -71,7 +73,7 @@ class PhotoIdentityTests(unittest.TestCase):
                     self.assertEqual(request['variant_plans'][0]['background_plan'], request['background_plan'])
                     self.assertIn('中间底稿禁止渐变', prompt)
                     self.assertIn('背景满幅单一白色', prompt)
-                    self.assertIn('程序会在最终头发或衣服中填入连续渐变', prompt)
+                    self.assertEqual(request['review_spec']['style_lock']['gradient_visibility']['required_per_image'], bool(request['color_plan']['gradient']))
 
     def test_explicit_expression_pose_and_clothing_remain_user_requirements(self):
         for workflow in ('fast', 'review'):

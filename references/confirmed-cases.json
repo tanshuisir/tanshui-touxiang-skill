@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "policy_id": "confirmed-avatar-corrections-v6",
+  "purpose": "当前批准模板中可复核的局部修订经验；learning_scope界定每个案例可迁移的规则。",
+  "reference_count": 12,
+  "numbering": {
+    "avatar_id": "当前批准模板001–070",
+    "template_id": "TS-001–TS-070"
+  },
+  "default_attachment": "none; inspect relevant examples only when needed",
+  "authority": "learning_scope only; current explicit user requirements and general style rules still apply",
+  "source_manifest_sha256": "2757438c39c2c3ea7ea99e2cad1018ad8e51d93df9310f0b41d80a683368bce1",
+  "cases": [
+    {
+      "avatar_id": "003",
+      "template_id": "TS-003",
+      "title": "照片结构与简化表达",
+      "status": "user_confirmed",
+      "evidence": "用户确认新图并要求替换Figma中的对应成品。",
+      "image": "assets/templates/003.png",
+      "sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e",
+      "reference_size": [
+        1000,
+        1000
+      ],
+      "learning_scope": [
+        "人物身份特征与衣物的关键层次服从照片，线条和色面遵守当前通用规范。"
+      ],
+      "not_authoritative_for": [
+        "不复制人物、衣服或配色到其他照片。"
+      ]
+    },
+    {
+      "avatar_id": "004",
+      "title": "衣褶的线重",
+      "status": "user_confirmed",
+      "evidence": "用户同意04/09修订并要求替换对应Figma，后要求作为1000×1000参考。",
+      "learning_scope": [
+        "褶皱是清楚可读的结构曲线，轻于外轮廓，不能是大片暗块或细到消失的毛线。"
+      ],
+      "not_authoritative_for": [
+        "衣型、人物和配色不能直接移植。"
+      ],
+      "template_id": "TS-004",
+      "image": "assets/templates/004.png",
+      "sha256": "4e8594e3846c420199b5151d244eba37c2561d50af4d66b6e4c6ec875a85caf8",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "007",
+      "template_id": "TS-007",
+      "title": "男性露齿笑的简化嘴型",
+      "status": "user_confirmed",
+      "evidence": "用户确认新图并要求替换Figma中的对应成品。",
+      "image": "assets/templates/007.png",
+      "sha256": "1d1d4b2f9f9eab826366bdebe8631f5f70f6fd59387e6e390a7af4dd5810c0ec",
+      "reference_size": [
+        1000,
+        1000
+      ],
+      "learning_scope": [
+        "保留照片中露齿笑的关键表情；唇形克制，不把男生画成夸张厚唇，不逐颗描牙。"
+      ],
+      "not_authoritative_for": [
+        "不复制人物、衣服或配色到其他照片。"
+      ]
+    },
+    {
+      "avatar_id": "009",
+      "title": "肩带与缩小构图",
+      "status": "user_confirmed",
+      "evidence": "用户确认重设计后要求09人物适当缩小，并将04/09确认成品替换进Figma。",
+      "learning_scope": [
+        "两侧可见肩带、扣件与衣片连接；人物缩小后仍保留肩胸和贴底关系。"
+      ],
+      "not_authoritative_for": [
+        "不借此例替代新照片嘴型；不要把例图表情、背带裤移给新人物。"
+      ],
+      "template_id": "TS-009",
+      "image": "assets/templates/009.png",
+      "sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "022",
+      "title": "项链的真实连接",
+      "status": "user_confirmed",
+      "evidence": "用户答复“可以”，继续提出07修订；022已保存Figma。",
+      "learning_scope": [
+        "连续悬垂链条、实际挂接的小吊坠，与锁骨及衣领区分，保持配饰洁净。"
+      ],
+      "not_authoritative_for": [
+        "项链颜色与造型只属022，不是所有人物通用。"
+      ],
+      "template_id": "TS-022",
+      "image": "assets/templates/022.png",
+      "sha256": "9d4169b0191924028bca418de2ac5821ac5739b214991a286031adec5888a21d",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "035",
+      "title": "嘴部相对比例",
+      "status": "user_requested_revision_saved",
+      "evidence": "按用户035嘴太小的要求修订，当前素材库与Figma保存为mouth_refined版本；仅作为该局部修订记录。",
+      "learning_scope": [
+        "嘴宽与原照脸部关系匹配，不能因符号化缩得失去特征。"
+      ],
+      "not_authoritative_for": [
+        "不把例图双唇、红唇及衣服阴影当成所有人的标准。"
+      ],
+      "template_id": "TS-035",
+      "image": "assets/templates/035.png",
+      "sha256": "8730782fadde6f3bda3aac280a20e14753b42e52d91b20fb21d849f8cd4594ae",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "043",
+      "title": "不添加眼角纹",
+      "status": "user_confirmed",
+      "evidence": "用户要求去除043眼角褶皱，后续“可以”保存043/044修订。",
+      "learning_scope": [
+        "删除原照没有的外眼角短褶皱；保留眉、上睑与人物原有特征。"
+      ],
+      "not_authoritative_for": [
+        "不推广为所有人物去皱或去除真实年龄特征。"
+      ],
+      "template_id": "TS-043",
+      "image": "assets/templates/043.png",
+      "sha256": "38a4e57c8ced59130676be989a0f32129174e281cbef73b87f72922cfa661de3",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "044",
+      "title": "内搭不是皮肤",
+      "status": "user_confirmed",
+      "evidence": "用户要求内搭换色后答复“可以”，修订已保存Figma。",
+      "learning_scope": [
+        "外套中的T恤、领口和链条两侧可见布料保持独立，不与颈部合色。"
+      ],
+      "not_authoritative_for": [
+        "#515AF1是该例用户授权的局部改色，不能覆盖其他色板的内搭角色。"
+      ],
+      "template_id": "TS-044",
+      "image": "assets/templates/044.png",
+      "sha256": "d1bfb71a8a7ba24d9448b4342f78f11750b53086115697ec1d08c4779772eb20",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "045",
+      "title": "网格简化与手臂可读性",
+      "status": "user_confirmed",
+      "evidence": "用户在衣纹简化和手臂歧义修复后答复“可以”，确认版已保存Figma。",
+      "learning_scope": [
+        "保留原衣型和内搭，密集网格改稀疏大网眼；衣纹弱于真实轮廓，不形成假关节。"
+      ],
+      "not_authoritative_for": [
+        "不把网格套到无纹样衣服；不以例图整张画面替代最新发型/线条规范。"
+      ],
+      "template_id": "TS-045",
+      "image": "assets/templates/045.png",
+      "sha256": "c06def20cc3512decab0e7cb8658493076f1093b67e8599adcb31821d7007aee",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "052",
+      "title": "投影与遮挡后的衣着",
+      "status": "user_confirmed",
+      "evidence": "用户在补齐绿色框中衬衫领带细节后明确“保存figma”。",
+      "learning_scope": [
+        "脸缘连接，下巴下方合理投影，抬袖与躯干分界；手臂后重新露出的衬衫和领带延续。"
+      ],
+      "not_authoritative_for": [
+        "不凭空给其他照片加领带；不复用修补坐标；不继承无依据的衣服暗片。"
+      ],
+      "template_id": "TS-052",
+      "image": "assets/templates/052.png",
+      "sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "057",
+      "title": "同线色眼形与符号嘴",
+      "status": "user_confirmed",
+      "evidence": "用户确认重新设计后要求保存至Figma，沉淀为后续使用的当前头像模板。",
+      "learning_scope": [
+        "实心眼形有可读面积，使用本套描边色，口线平顺且线重协调。"
+      ],
+      "not_authoritative_for": [
+        "不套固定眼珠像素、口宽、棕色或此人的五官；新嘴宽仍按原照片。"
+      ],
+      "template_id": "TS-057",
+      "image": "assets/templates/057.png",
+      "sha256": "eff6b07c6de96ba1caadb35d48f46083477d104badb52881e537311603877b37",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "avatar_id": "065",
+      "title": "明确指定的双唇分支",
+      "status": "user_requested_revision_saved",
+      "evidence": "用户明确给嘴型参考、要求不显示牙齿；当前素材库与Figma保存reference_lips_no_teeth版本，仅此局部适用。",
+      "learning_scope": [
+        "按用户给定嘴型参考保留上下唇；明确不显示牙齿时不得添加牙排。"
+      ],
+      "not_authoritative_for": [
+        "不把双唇当所有头像默认；口缝亮面不能解读为必须补牙。"
+      ],
+      "template_id": "TS-065",
+      "image": "assets/templates/065.png",
+      "sha256": "fd396ecc10dd2168bb80e634fd34201aff54444397c157e3d5fc13679f5fe359",
+      "reference_size": [
+        1000,
+        1000
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "TS-023-colorway",
+  "source_hd_id": 23,
+  "source_template_id": "TS-023",
+  "name": "回头女生与无袖上衣肩部线饰",
+  "source_image": "assets/templates/023.png",
+  "source_sha256": "8b74776e8df4bc4a32e59b220ddc7f35e9fdcb67498cd11af928b49fd7b549fe",
+  "skin_template_id": "TS-023-skin",
+  "background_template_id": "TS-023-bg-1",
+  "roles": {
+    "outline": "#333333",
+    "skin_base": "#FFCBD0",
+    "skin_shadow": "#FFA5AE",
+    "background": "#BFB7C4",
+    "hair": "#FBD571",
+    "clothing": "#867E43",
+    "cheek": "#FFA5AE",
+    "detail": "#FFFFFF"
+  },
+  "samples": {
+    "outline": {
+      "xy": [
+        356,
+        494
+      ],
+      "hex": "#333333",
+      "patch_exact_fraction": 1.0
+    },
+    "skin_base": {
+      "xy": [
+        529,
+        440
+      ],
+      "hex": "#FFCBD0",
+      "patch_exact_fraction": 1.0
+    },
+    "skin_shadow": {
+      "xy": [
+        504,
+        600
+      ],
+      "hex": "#FFA5AE",
+      "patch_exact_fraction": 1.0
+    },
+    "hair": {
+      "xy": [
+        480,
+        186
+      ],
+      "hex": "#FBD571",
+      "patch_exact_fraction": 1.0
+    },
+    "clothing": {
+      "xy": [
+        624,
+        890
+      ],
+      "hex": "#867E43",
+      "patch_exact_fraction": 1.0
+    },
+    "background": {
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#BFB7C4",
+      "patch_exact_fraction": 1.0
+    },
+    "cheek": {
+      "xy": [
+        537,
+        510
+      ],
+      "hex": "#FFA5AE",
+      "patch_exact_fraction": 1.0
+    },
+    "detail": {
+      "xy": [
+        438,
+        810
+      ],
+      "hex": "#FFFFFF",
+      "patch_exact_fraction": 1.0
+    },
+    "gradient_from": {
+      "xy": [
+        480,
+        186
+      ],
+      "hex": "#FBD571",
+      "patch_exact_fraction": 1.0
+    },
+    "gradient_to": {
+      "xy": [
+        340,
+        642
+      ],
+      "hex": "#B0EAB1",
+      "patch_exact_fraction": 1.0
+    }
+  },
+  "gradient": {
+    "region": "hair",
+    "from": "#FBD571",
+    "to": "#B0EAB1",
+    "direction": "从上到下"
+  },
+  "gradient_options": [
+    {
+      "region": "hair",
+      "from": "#FBD571",
+      "to": "#B0EAB1",
+      "direction": "从上到下",
+      "samples": {
+        "from": {
+          "xy": [
+            480,
+            186
+          ],
+          "hex": "#FBD571",
+          "patch_exact_fraction": 1.0
+        },
+        "to": {
+          "xy": [
+            340,
+            642
+          ],
+          "hex": "#B0EAB1",
+          "patch_exact_fraction": 1.0
+        }
+      }
+    }
+  ],
+  "role_presence": {
+    "outline": {
+      "present": true
+    },
+    "skin_base": {
+      "present": true
+    },
+    "skin_shadow": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    },
+    "background": {
+      "present": true
+    },
+    "hair": {
+      "present": true
+    },
+    "clothing": {
+      "present": true
+    },
+    "cheek": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    },
+    "detail": {
+      "present": true,
+      "basis": "visible role sampled from current approved template"
+    }
+  },
+  "image_size": [
+    1000,
+    1000
+  ],
+  "coordinate_system": "1000×1000 template pixels; origin top-left",
+  "background_samples": [
+    {
+      "id": "TS-023-bg-1",
+      "xy": [
+        20,
+        20
+      ],
+      "hex": "#BFB7C4",
+      "patch_exact_fraction": 1.0,
+      "usage": "solid_fill"
+    }
+  ],
+  "additional_skin_samples": [],
+  "generation_eligibility": {
+    "eligible": true,
+    "reasons": [],
+    "policy": "all-70-approved-template-palettes-v1",
+    "archive_complete": true
+  },
+  "gradient_observation": "Only actually sampled, sufficiently populated continuous hair/clothing ramps are executable. Absence means no observed executable ramp."
+}

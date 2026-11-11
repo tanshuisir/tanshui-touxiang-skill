@@ -22,6 +22,8 @@ import run_avatar
 
 class NativeOutputTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-native-output-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)

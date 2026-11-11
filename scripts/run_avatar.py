@@ -19,7 +19,7 @@ from line_plan import FAMILY_IDS
 
 
 SKILL = Path(__file__).resolve().parents[1]
-INSTALLED_SKILL = Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))).expanduser() / 'skills/tanshui-touxiang-skill'
+INSTALLED_SKILL = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex').expanduser() / 'skills/tanshui-touxiang-skill'
 
 
 def _inside(path, directory):
@@ -113,8 +113,12 @@ def run(brief, out_dir, gateway_runner=None):
         request_path.write_text(json.dumps(request, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         # Freeze all selected source templates and line rules for the HD brief.
         prepared_brief['art_palette'] = request['color_plan']['id']
+        prepared_brief.pop('palette_selection', None)
+        if request['color_plan'].get('palette_selection'):
+            prepared_brief['palette_selection'] = request['color_plan']['palette_selection']
         prepared_brief['color_roles'] = dict(request['color_plan']['roles'])
-        prepared_brief['gradient'] = dict(request['color_plan']['gradient'])
+        prepared_brief['gradient'] = (dict(request['color_plan']['gradient'])
+                                      if request['color_plan']['gradient'] else None)
         prepared_brief['line_reference_id'] = request['line_plan']['source_reference_id']
         prepared_brief['line_family'] = request['line_plan']['family_id']
         source_colors = request['color_plan']['source_selection']
@@ -130,12 +134,16 @@ def run(brief, out_dir, gateway_runner=None):
             prepared_brief['gradient_adjustment'] = request['color_plan']['gradient_adjustment']
         if request.get('variants') == 4:
             prepared_brief['variants'] = 4
+            prepared_brief.pop('garment_plan',None)
+            prepared_brief.pop('object_plan',None)
             prepared_brief['variant_plans'] = request['variant_plans']
             # Explicit selections choose a new set once; subsequent HD runs
             # reuse the saved plans, rather than regenerating them from IDs.
             prepared_brief.pop('colorway_reference_ids', None)
         else:
             prepared_brief['variants'] = 1
+            prepared_brief['garment_plan'] = request['color_plan']['garment_plan']
+            prepared_brief['object_plan'] = request['color_plan']['object_plan']
             prepared_brief.pop('variant_plans', None)
         if request['color_plan'].get('source_colorway'):
             prepared_brief['source_colorway_id'] = request['color_plan']['id']
@@ -153,6 +161,8 @@ def run(brief, out_dir, gateway_runner=None):
     result.update(stage=request['stage'], size_policy=request['size_policy'],
                   requested_render_size=request['render_size'],
                   requested_quality=request['quality'])
+    if request['color_plan'].get('palette_selection'):
+        result['palette_selection'] = request['color_plan']['palette_selection']
     background = request['background_plan']
     if not background['meets_plan'] or background['unevaluated_roles']:
         result['background_notice'] = background['reason'] + '；须实际看图确认人物与背景反差。'
@@ -221,15 +231,19 @@ def run(brief, out_dir, gateway_runner=None):
         from recolor_avatar import render_variants
         # Normalize once before exact source-backed local filling. The single
         # route keeps its transparent-margin composition: technical white is
-        # replaced with the final non-white background by the local renderer.
+        # replaced with the final palette background by the local renderer.
+        # Role encodings are labels: interpolation creates unrelated clothing
+        # or blush codes at boundaries. Keep their existing sampled RGB values.
         if request.get('variants') == 4:
             with Image.open(source) as master_image:
                 if ('A' in master_image.getbands() or 'transparency' in master_image.info) and master_image.convert('RGBA').getchannel('A').getextrema() != (255, 255):
                     raise ValueError('四配色技术底稿必须不透明，不能猜补透明区域')
         normalized = finalize_avatar.finalize(source, out_dir / 'master.png', size=size,
                                               background={'color': '#FFFFFF'},
-                                              fit_square=request['size_policy'] == 'square')
-        delivered = render_variants(Path(normalized['delivery']), request['variant_plans'], out_dir / 'variants')
+                                              fit_square=request['size_policy'] == 'square',
+                                              resample=Image.Resampling.NEAREST)
+        delivered = render_variants(Path(normalized['delivery']), request['variant_plans'], out_dir / 'variants',
+                                    encoding=request.get('master_encoding','semantic-cube-v1'))
         delivered['original_size'] = normalized['original_size']
         delivered['master_operations'] = normalized['operations']
         delivered['operations'] = normalized['operations']
@@ -276,6 +290,19 @@ def run(brief, out_dir, gateway_runner=None):
     return _finish(result, out_dir, started)
 
 
+def template_number(value):
+    text = str(value)
+    if text.startswith('TS-'):
+        text = text[3:]
+    try:
+        number = int(text)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError('模板须为TS-001至TS-070或数字1至70') from error
+    if not text.isdigit() or not 1 <= number <= 70:
+        raise argparse.ArgumentTypeError('模板须为TS-001至TS-070或数字1至70')
+    return number
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     source = parser.add_mutually_exclusive_group(required=True)
@@ -287,11 +314,11 @@ def main(argv=None):
     parser.add_argument('--clothing')
     parser.add_argument('--stylization')
     parser.add_argument('--notes')
-    parser.add_argument('--reference', type=int, help='HD reference; default 25')
+    parser.add_argument('--reference', '--template', type=template_number, help='TS template; default 25')
     parser.add_argument('--mode', choices=['auto'] + list(build_prompt.MODES),
                         help='Default flat with --photo; auto for an existing brief without mode')
     parser.add_argument('--color-mode', choices=['natural', 'expressive'], help='Complete source palettes only; natural is retained solely to report a clear incompatibility error')
-    parser.add_argument('--palette', help='Whole source colorway ID, legacy palette alias, auto, or reference; cannot override individual roles')
+    parser.add_argument('--palette', help='Whole TS colorway ID, auto, or reference; cannot override individual roles')
     parser.add_argument('--variants', type=int, choices=(1, 4),
                         help='Default 4: one master, four local colorways; 1 uses the single-avatar route')
     parser.add_argument('--select-variant', type=int, choices=(1, 2, 3, 4),
@@ -299,7 +326,9 @@ def main(argv=None):
     parser.add_argument('--colorway-references', type=int, nargs=4,
                         help='Four verified whole-reference palettes, e.g. 25 55 16 47')
     parser.add_argument('--colorway-reference', type=int, help='One complete source palette for --variants 1, e.g. 25 or 55')
-    parser.add_argument('--line-reference', type=int, help='Compatibility selector for one complete HD palette, including its line color')
+    parser.add_argument('--random-colors', action='store_true',
+                        help='Explicitly redraw library palettes when reusing a saved brief; HD normally keeps its approved palette')
+    parser.add_argument('--line-reference', type=int, help='Compatibility selector for one complete TS palette, including its line color')
     parser.add_argument('--line-family', choices=FAMILY_IDS,
                         help='Drawing category from the local line library')
     parser.add_argument('--model', help='Optional; passed to global gen-img for model filtering')
@@ -338,6 +367,16 @@ def main(argv=None):
                 brief['identity_source'] = 'photo'
         if args.color_mode == 'natural':
             parser.error('单图与四图均执行完整同源配色，natural 已停用')
+        if args.random_colors:
+            if (args.select_variant is not None or args.colorway_references is not None or
+                    args.colorway_reference is not None or args.palette is not None or args.line_reference is not None):
+                parser.error('--random-colors 不能与显式选色或 --select-variant 同用')
+            for key in ('variant_plans', 'colorway_reference_ids', 'colorway_reference_id',
+                        'source_colorway_id', 'requested_palette', 'art_palette', 'line_reference_id',
+                        'color_roles', 'gradient', 'gradient_adjustment', 'skin_template_id',
+                        'background_template_id', 'palette_selection', 'colorway_migration',
+                        'background_policy_migration', 'gradient_migration', 'object_plan'):
+                brief.pop(key, None)
         if args.select_variant is not None:
             if not args.brief or args.variants == 4 or args.colorway_references:
                 parser.error('--select-variant 需要四配色的 --brief，且不能与 --variants 4 同用')
@@ -361,15 +400,21 @@ def main(argv=None):
             value = getattr(args, name)
             if value is not None:
                 brief[key] = value
+        if args.reference is not None:
+            brief.pop('template_id', None)
         if args.palette is not None or args.colorway_reference is not None or args.line_reference is not None:
             from source_colorways import requested_colorway
             if brief.get('variants', 4) != 1:
-                parser.error('四图用 --colorway-references 选择整套原作；单图选色请加 --variants 1')
+                parser.error('四图用 --colorway-references 选择整套模板；单图选色请加 --variants 1')
             choices = [requested_colorway(value, brief.get('hd_reference_id', 25))
                        for value in (args.colorway_reference, args.palette, args.line_reference) if value is not None]
             if len({item['id'] for item in choices}) != 1:
-                parser.error('配色与线色选择冲突，所有角色必须来自同一原作')
+                parser.error('配色与线色选择冲突，所有角色必须来自同一模板')
             brief['colorway_reference_id'] = choices[0]['source_hd_id']
+            brief.pop('object_plan', None)
+            brief.pop('palette_selection', None)
+            if choices[0].get('palette_selection'):
+                brief['palette_selection'] = choices[0]['palette_selection']
             brief.pop('source_colorway_id', None)
         if args.approved_preview is not None:
             brief['approved_preview'] = str(args.approved_preview.expanduser().resolve())
@@ -385,7 +430,7 @@ def main(argv=None):
             brief['size'] = args.size
             if args.render_size:
                 brief['render_size'] = args.render_size
-        if 'palette_id' not in brief:
+        if 'palette_id' not in brief and 'template_id' not in brief:
             brief.setdefault('hd_reference_id', 25)
         brief.setdefault('mode', 'auto' if args.brief else 'flat')
         brief.setdefault('color_mode', 'expressive')

@@ -49,39 +49,60 @@ def checks_for(request):
         {'id': 'style', 'expected': '保持本次选定参考的平顺轮廓、五官符号、色面、腮红与主模式；'
          + json.dumps(request['review_spec']['style_lock'], ensure_ascii=False)},
         {'id': 'art_color_gradient', 'expected': '肤发、服饰和背景按本次角色色组织，不按照片颜色判人物一致性；'
-         '每张成品（含四配色每版）至少一处连续二色渐变，在普通头像尺寸看清两端颜色与中间连续过渡，两端各占可辨认面积；微弱同色变化、细边、硬边色块/亮线/噪点不算；'
+         '有已采样渐变的模板版本保留连续二色渐变；纯平涂模板不补造渐变。有渐变时，在普通头像尺寸看清两端颜色与中间连续过渡，两端各占可辨认面积；微弱同色变化、细边、硬边色块/亮线/噪点不算；'
          + request.get('color_plan', {}).get('gradient_instructions', '渐变只在头发或服饰内部，背景为单一纯色')},
         {'id': 'shadow_detail', 'expected': '暗面留在对应脸、颈或衣面；线条、纹理与局部细节服从本次 shadow_plan，不改画风'},
+        {'id': 'bottom_anchor', 'expected': '逐张单图检查衣服或身体连续区域到达画布最后一行；四宫格逐格贴底，不能只检查整张拼图底边。只在顶部与左右留白，人物下方没有背景横带，不以发梢或孤立像素冒充身体贴底。'},
         {'id': 'background_contrast', 'expected': '背景为均匀单一纯色，铺满整幅且不透明，与头发和服装等大色面形成清楚反差；'
-         '严禁白色、近白色背景，必须使用本次选定的库内明亮非白色；'
+         '背景须为本次模板精确采样色，允许模板白、近白和深色；'
          '禁止背景渐变、纹理、图案或投影；'
          '不能把透明区、查看器灰底或白色画板当作已绘制背景。'
          + request.get('background_plan', {}).get('instructions', '')},
         {'id': 'framing_readability', 'expected': '实际交付图及128像素缩略图中关键面部特征可读；按framing_plan核对头高、顶空、侧边留白与肩胸可见，避免大头挤满画面'},
     ]
+    checks += [
+        {'id': 'jaw_neck_shadow', 'expected': '可见下颌下方颈部有依头颈方向的同源skin_shadow硬边结构影；检查实际位置及可见色差，不能仅凭有此HEX或若干像素通过。禁衣服暗片不删除肤影。'},
+        {'id': 'garment_occlusion_continuity', 'expected': '沿照片已见或用户明确要求的内搭、衣襟、领带及配饰追踪遮挡前后的对应关系；重新露出的部分须接续方向、宽度和部位色，不能全部变成外套色。手臂/头发/道具只遮住实际覆盖范围，后方轮廓不画穿前景；完全隐藏或仍在画外的部分不强行露出，不新增无依据的领结或部件。'},
+        {'id': 'garment_accents', 'expected': '核对同源内搭、领袖滚边和装饰辅色；白底也保留服饰细节。用户要求增强时可添加少量同源滚边/几何小装饰，保留原照衣型；不加模板首饰/标志，不借肤发背景色，不用粗阴影代替装饰。'},
+        {'id': 'light_cheeks', 'expected': '模板有腮红、面颊可见时男女均保留，侧脸保留可见一侧，不能省略；对照各版模板cheek采样，轻淡程度一致；无深色圆块、描边；腮红内区平涂、边界平顺，无点状颗粒、散点、杂色、锯齿或描边式断点；正常抗锯齿保留。皮肤内不能出现服饰色误码。'},
+        {'id': 'jewelry_cleanliness', 'expected': '项链等配饰沿照片保留形状和遮挡；连续轮廓、少量完整色面，内部无针尖杂点、编码杂色、密集网纹或细碎链节。明确银色时仅该配饰用干净银白/浅灰面，保留必要主线；不得误改皮肤或衣服，不把所有首饰默认银色。'},
+        {'id': 'symbol_mouth', 'expected': '嘴形先按本次明确要求，再按原照片判断：默认 `mouth_style: auto` 区分闭嘴、微张与露齿；闭嘴且没有辨识性唇形时用符号口线，双唇清楚可见且确为人物特征时可保留简化双唇，微张与露齿保留相应开口和嘴角。不能把所有嘴都缩成短线或复制模板的厚唇。明确的 `line` 只用口线，`upper-lip` 用简化上唇配独立短下唇线，`full-lips` 允许简化双唇；明确“不露牙”时不画牙齿。所有模式均为平面概括，无写实唇纹、高光或唇部体积；不按性别决定唇形，腮红编码不作唇色。'},
+        {'id': 'toothy_smile_proportions', 'expected': '露齿表情先保留原照嘴角方向、开口与笑容，再概括唇形：牙齿用一块干净连续的浅色面，不逐颗分割、不画牙龈；上唇以细轮廓概括，下唇仅用短弧或省略，不用一圈浓色厚唇包住牙齿。嘴宽、开口高度和唇厚按原照相对面部的比例，不得沿用模板的夸大厚唇，也不能因简化而把露齿笑画成闭嘴。牙齿只用同套色板中已有的白或近白浅色；detail角色可能是粉色或深色，不能未经判断就当作牙色。编码底稿仍将牙区独立画为detail；若同套detail不适合作牙色，成品需按已观察的明确牙齿局部蒙版，复用同套已有白/近白色重填并记录，仅修改牙区，不改全局detail映射；不能可靠分出牙区时停止说明。不借腮红、发色或服饰色涂牙。007的男性露齿笑按此处理；性别不替代对原照结构的判断，原有明确双唇与闭嘴要求继续按本次指令执行。'},
+        {'id': 'strap_and_bag_roles', 'expected': '肩带逐侧核对数量、宽度、扣件与衣片的连接：照片可见或本次明确要求的第二条不能遗漏；真实遮挡保留，不强行穿过头发或手臂。用服饰底色加细轮廓/缝线表达，不能把整条肩带和扣件合成粗实心墨块。背包、背包肩带、胸带和内搭按实际部件区分，明暗分配服从照片或本次明确要求，不把背包与内搭的色位颠倒；不将某次“深背包、浅内搭”推广到所有照片。'},
+        {'id': 'line_folds', 'expected': '褶皱为细疏、圆端且随衣片受力的结构曲线；无粗楔形/镰刀形填充或大块投影。真实衣层、花纹、领袖和模板衣料渐变保留。即使暗片与主线同色、或连着外轮廓，也属于禁用填充衣褶；逐段检查线条是否仍是细线，不能仅凭没有clothing_shadow编码判通过。'},
+    ]
+    # Use the request's frozen criteria, with no extra model call.
+    checks.extend(dict(item) for item in request['review_spec'].get('confirmed_corrections', {}).get('checks', []))
     eye_style = request['review_spec']['style_lock'].get('eye_style')
+    if request['review_spec'].get('garment_layers'):
+        checks.append({'id':'garment_layers','expected':
+                       '对照照片逐件确认外套、内搭、领口、领结、帽饰与道具；两件衣服独立且可辨色。'
+                       '单衣用真实领袖、同源服饰辅色、模板衣料渐变和细结构线；禁止粗楔形暗片或投影式填充。'
+                       '花纹、纽扣、带扣、口袋来自照片或用户本次明确增强服饰的要求；格纹/条纹跟随衣片，不侵入皮肤。'
+                       '服饰色对照该版garment_plan的原图坐标；旧底稿没有的内层不能靠程序猜出。'})
     if eye_style:
         checks.append({'id': 'eye_style', 'expected': eye_style['instructions']})
     source_colors = request['review_spec']['style_lock'].get('source_colors')
     if source_colors:
         checks.append({'id': 'source_skin_background', 'expected':
-                       '肤面及皮肤暗面严格使用69张原作库内同一模板的指定HEX，不能调亮、调暗、混色或新增皮肤高光；'
-                       '腮红和线条为独立角色，边缘抗锯齿不作为新肤色。背景为本次原作背景采样的明亮非白单色；'
+                       '肤面及皮肤暗面严格使用70张模板库内同一模板的指定HEX，不能调亮、调暗、混色或新增皮肤高光；'
+                       '腮红和线条为独立角色，边缘抗锯齿不作为新肤色。背景为本次模板背景采样的模板单色；'
                        '若编码语义分错区导致发衣色落入皮肤，仍判失败，不因填色程序通过就声称合格。'
                        + json.dumps(source_colors, ensure_ascii=False)})
     for index, plan in enumerate(request.get('variant_plans', []), 1):
         if plan.get('source_colorway'):
             checks.append({'id': f'source_colorway.{index}', 'expected':
-                           f'第{index}版逐角色对照其对应原作HD-{plan["source_hd_id"]:03d}；'
-                           '肤面/肤影、明亮非白纯色背景、发衣、腮红、细节、主线和人物渐变均沿用该套来源，'
+                           f'第{index}版逐角色对照其对应模板TS-{plan["source_hd_id"]:03d}；'
+                           '肤面/肤影、模板纯色背景、发衣、腮红、细节、主线和人物渐变均沿用该套来源，'
                            '不能全部按造型参考025判配色。分区语义错误或库外肤色仍判失败。'
                            + json.dumps({'source_colorway': plan['source_colorway'],
-                                         'roles': plan['roles'], 'gradient': plan['gradient']}, ensure_ascii=False)})
+                                         'roles': plan['roles'], 'gradient': plan['gradient'],
+                                         'garment_plan':plan.get('garment_plan')}, ensure_ascii=False)})
     source_colorway = request['review_spec']['style_lock'].get('source_colorway')
     if source_colorway:
         checks.append({'id': 'complete_source_colorway', 'expected':
-                       '单图与四图逐版核对同一张原作的肤色、肤影、背景、头发、服装、腮红、细节、主线与渐变；'
-                       '全部角色必须保持该原作的配对关系，不能因各颜色分别在库内而接受跨原作混搭。'
+                       '单图与四图逐版核对同一张模板的肤色、肤影、背景、头发、服装、腮红、细节、主线与渐变；'
+                       '全部角色必须保持该模板的配对关系，不能因各颜色分别在库内而接受跨模板混搭。'
                        + json.dumps(source_colorway, ensure_ascii=False)})
     return checks
 

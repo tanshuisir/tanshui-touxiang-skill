@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
-  "title": "69张高清头像的线条设计与核心线色库",
-  "analysis_date": "2026-11-07",
+  "title": "70套批准头像的线条设计与核心线色库",
   "source_catalog": "references/finished-reference-library.json",
-  "count": 69,
-  "missing_numeric_ids": [
-    51
-  ],
-  "basis": "逐张查看用户提供的高清PNG，人工区分主轮廓、五官、发内结构、服饰线和辅助亮线；在原PNG的线条实色内部记录坐标并读取精确RGB。分类是本Skill的绘画归纳，不是作者原始标签。",
-  "measurement_boundary": "HEX及坐标可从本仓库PNG复核；它们是成品栅格像素，不等于作者工程色板、ICC管理后的物理色或源笔刷设置。单点说明该色在该处出现，线条角色依赖人工视觉判断。相邻抗锯齿和压缩混色不合并冒充源色。",
-  "generation_policy": "新图主轮廓、五官、发内结构、衣饰结构统一使用所选参考的primary_hex。本版执行器不添加辅助线色；secondary_colors按原图实际角色保存为可复核档案，尚无启用参数。阴影面、头发填色、背景色与主线色分开。所有生成阶段与模式均读取本库，旧眼白/高光不覆盖当前实心眼规则。",
+  "count": 70,
+  "missing_numeric_ids": [],
+  "basis": "线色HEX与坐标来自当前1000×1000批准模板；角色和画法分类是本Skill的编辑标注。",
+  "measurement_boundary": "采样证明成品栅格中此处存在此RGB，不声称恢复源工程色板、笔刷或独立图层。",
+  "generation_policy": "主轮廓、五官、发内结构和衣饰结构统一使用所选模板primary_hex；通用减线规则优先于成品中更密的细节。",
   "role_rules": {
     "contour": {
       "label": "人物外轮廓",
@@ -68,13 +65,14 @@
       "default_enabled": false
     }
   },
-  "width_policy": "所有width_ratio均为本Skill对新图的建议，主轮廓=1；不是69张原图笔刷宽度的精密测量。跟随模型原生画布和头像显示尺寸调整，不在默认生成请求中指定像素。",
+  "width_policy": "所有width_ratio均为本Skill对新图的建议，主轮廓=1；不是70张模板笔刷宽度的精密测量。跟随模型原生画布和头像显示尺寸调整，不在默认生成请求中指定像素。",
   "families": [
     {
       "id": "rounded-monoline",
       "classification_kind": "primary",
       "name": "圆润常规单线",
       "instructions": "主轮廓平顺、粗细相对稳定，弧线与少量明确折点交替；内部结构少于外缘，五官以同色短线和实心形概括。",
+      "short_instructions": "平顺近等粗，弧线与少量明确折点交替",
       "reference_ids": [
         1,
         2,
@@ -84,2139 +82,1645 @@
         6,
         7,
         8,
+        9,
         10,
+        11,
+        12,
         13,
         14,
         15,
         16,
+        17,
         18,
         19,
         20,
         21,
         22,
+        23,
+        24,
         25,
+        26,
+        27,
+        28,
+        29,
         30,
+        31,
+        32,
+        33,
+        34,
         35,
         36,
+        37,
+        38,
         39,
         40,
         41,
+        42,
+        43,
         44,
+        45,
         46,
         47,
         48,
         49,
+        50,
+        51,
+        52,
+        53,
         54,
         55,
+        56,
+        57,
         58,
+        59,
         60,
         61,
         62,
+        63,
+        64,
+        65,
         66,
         67,
         68,
-        69
-      ],
-      "short_instructions": "平顺近等粗，弧线与少量明确折点交替"
+        69,
+        70
+      ]
     },
     {
       "id": "bold-graphic",
       "classification_kind": "primary",
       "name": "粗线图形",
       "instructions": "主轮廓更有分量，内线更少，以同色实心眉眼和清楚大色块建立辨识；不把服装纹理、鼻口和每一块阴影都加粗。",
-      "reference_ids": [
-        9,
-        11,
-        17,
-        23,
-        24,
-        26,
-        27,
-        28,
-        29,
-        31,
-        38,
-        42,
-        57,
-        59,
-        63,
-        65,
-        70
-      ],
-      "short_instructions": "主线加重、内线更少，不把纹理一起加粗"
+      "short_instructions": "主线加重、内线更少，不把纹理一起加粗",
+      "reference_ids": []
     },
     {
       "id": "fine-structured",
       "classification_kind": "primary",
       "name": "细线结构与服饰纹理",
       "instructions": "轮廓仍清楚，结构线更轻、更疏；领口与衣片分界优先于纹理，必要排线按衣片方向并受遮挡裁切，面部与头发不排密线。",
-      "reference_ids": [
-        32,
-        37,
-        50,
-        52,
-        53,
-        56,
-        64
-      ],
-      "short_instructions": "结构线轻疏，领口衣片先于纹理"
+      "short_instructions": "结构线轻疏，领口衣片先于纹理",
+      "reference_ids": []
     },
     {
       "id": "open-duotone",
       "classification_kind": "primary",
       "name": "留白与彩色单线",
       "instructions": "用选定的一个核心线色连接轮廓与五官，允许有意断线及较大负形，线与色面共同解释结构；不为了补全封闭形状重复勾线。新图仍采用统一实心眼与必需人物局部渐变。",
-      "reference_ids": [
-        12,
-        33,
-        34,
-        43,
-        45
-      ],
-      "short_instructions": "单色连轮廓五官，允许断线与负形"
+      "short_instructions": "单色连轮廓五官，允许断线与负形",
+      "reference_ids": []
     },
     {
       "id": "offset-accent",
       "classification_kind": "composable",
-      "classification_note": "局部强调是可叠加技法，不是本批原图的独立主类；reference_ids只统计主类，故为空。以下technique_reference_ids指实际含局部装饰亮线或亮边的原图，不包含只有项链/耳饰/排线的样张。",
-      "technique_reference_ids": [
-        17,
-        23,
-        26,
-        27,
-        28,
-        30,
-        31,
-        35,
-        39,
-        40,
-        55,
-        58,
-        65
-      ],
+      "classification_note": "可选的通用局部强调技法；当前70套统一使用圆润单线主类，不单独启用辅助线色。",
       "name": "局部强调边线",
       "instructions": "以常规主线建立清楚轮廓，可用同一主线色的少量短段或并行线强调局部，不造成重影或全身光圈。原图辅助亮线和偏色边已记录，本版不绘制这些辅助色。",
+      "short_instructions": "主线稳定，局部同色短段强调；不加辅助色、重影或光圈",
       "reference_ids": [],
-      "short_instructions": "主线稳定，局部同色短段强调；不加辅助色、重影或光圈"
+      "technique_reference_ids": []
     }
   ],
   "portraits": [
     {
       "id": 1,
-      "primary_hex": "#2F2155",
+      "label": "TS-001",
+      "primary_hex": "#7E421E",
       "primary_sample_xy": [
-        572,
-        490
-      ],
-      "line_family": "rounded-monoline",
-      "role_notes": {
-        "contour": "深紫主线勾勒发型、侧脸及衣领，圆端与自然断线并用",
-        "face": "浓缩短眉眼、短鼻钩和短口线同属深紫",
-        "hair": "短卷发外缘为少量大起伏，内部短弧提示流向",
-        "clothing": "外套翻领与袖肩用同色简洁结构线，白衬衫是填面而非白线"
-      },
-      "technique_notes": "同一深紫贯穿脸、发与服装，色面交界不重复描边。",
-      "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-001",
-      "reference_image": "assets/finished/001.png",
-      "sha256": "f043d51ce26a69d77f8502719e23cd7ba0274668d5a94ed1fecf79b23cb5fbc9",
-      "color_family": "violet"
-    },
-    {
-      "id": 2,
-      "primary_hex": "#4A0955",
-      "primary_sample_xy": [
-        513,
+        557,
         480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/001.png",
+      "sha256": "4afe4871963f018c618c28fad8257c5b45fdb3a0801718afb14fd2633906ba20",
       "role_notes": {
-        "contour": "紫梅轮廓围合回眸人物及长马尾，转折圆滑",
-        "face": "紫梅眉眼与鼻嘴线沿面部侧转压缩，眼部简洁",
-        "hair": "马尾大S曲线与少量内分线，头部大紫色填面不等同线色",
-        "clothing": "肩颈和衣物边缘以少量同色线概括，饰物为局部强调"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "主线色是紫梅，不能将更大面积的亮紫发块或渐变背景误作主线。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-002",
-      "reference_image": "assets/finished/002.png",
-      "sha256": "b7f1c127b6d3aecc16a4dcf4e0322840fa98ae8ca13f6d9f4477cf3560291da8",
-      "color_family": "violet"
-    },
-    {
-      "id": 3,
-      "primary_hex": "#181818",
-      "primary_sample_xy": [
-        484,
-        484
-      ],
-      "line_family": "rounded-monoline",
-      "role_notes": {
-        "contour": "近黑轮廓分开头发、耳、脸、衬衫和外套",
-        "face": "近黑粗眉实心眼配极短鼻嘴线；镜框保留细框形",
-        "hair": "酒红发块内只留少量黑色方向弧和发簇转折",
-        "clothing": "衬衫领、翻领、肩部用同色短线，镜片玫瑰透色不是线色"
-      },
-      "technique_notes": "眼镜用细结构线嵌入主轮廓体系，不把透色镜片计作线。",
-      "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-003",
-      "reference_image": "assets/finished/003.png",
-      "sha256": "4bd17021ec09976eb28f24677cca856ffb6a1d882026b7dcba692b3aaba5904d",
-      "color_family": "neutral-ink"
-    },
-    {
-      "id": 4,
-      "primary_hex": "#9E4A37",
-      "primary_sample_xy": [
-        504,
-        494
-      ],
-      "line_family": "rounded-monoline",
-      "role_notes": {
-        "contour": "暖褐线勾勒正面头肩和交叠手臂，线条较细",
-        "face": "眉眼为暖褐实心短块，鼻和嘴用少数细短线",
-        "hair": "贴头中分发型以外轮廓和一条分缝概括",
-        "clothing": "吊带及手指交叠以同色边界分清前后，衣服青绿为填色"
-      },
-      "technique_notes": "暖褐代替纯黑，手部细线服从实际遮挡。",
-      "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-004",
-      "reference_image": "assets/finished/004.png",
-      "sha256": "d658436acc70f75fffc627326e98595cc37d64fa6819b548699bd7ea5d272e79",
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
-      "id": 5,
+      "id": 2,
+      "label": "TS-002",
       "primary_hex": "#181C2C",
       "primary_sample_xy": [
-        500,
-        500
+        315,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/002.png",
+      "sha256": "d09d864b5d28cea41e2b8c689222732b335178900b826556e062119cd84a6ae4",
       "role_notes": {
-        "contour": "蓝黑线概括额鼻唇颏的侧脸节奏及发型边缘",
-        "face": "短眉眼和小口线服从纯侧脸，不套正面五官",
-        "hair": "浅黄大剪影与少量缺口/短簇，不靠发丝排线",
-        "clothing": "圆领与衣身轮廓同属蓝黑体系，领口灰蓝是宽色带"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "轮廓线与近黑衣身填色相近但角色不同，线色取自侧脸笔画。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-005",
-      "reference_image": "assets/finished/005.png",
-      "sha256": "60b10be1296292d9e1c1b8e4a95419cf289b5b2debad85db2b4f1322c797f0f9",
+      "confidence": "measured",
       "color_family": "blue-cyan"
     },
     {
-      "id": 6,
-      "primary_hex": "#F04E31",
+      "id": 3,
+      "label": "TS-003",
+      "primary_hex": "#004D2D",
       "primary_sample_xy": [
-        512,
-        501
+        500,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/003.png",
+      "sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e",
       "role_notes": {
-        "contour": "珊瑚橘细线勾勒长发、脸颈和衣领，整体轻盈",
-        "face": "眉眼、鼻嘴沿用珊瑚橘，五官以短符号表达",
-        "hair": "长发用大弧和少量向内卷曲线，发内连续渐变是填色",
-        "clothing": "领口、肩线与发块遮挡仅用少量同色线"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "这是浅暖色主线例，不能按全套最暗像素规则自动选黑。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-006",
-      "reference_image": "assets/finished/006.png",
-      "sha256": "69b23f1c017756e05438d5bc259cccc8876846ab9d94aae6538517490297d72a",
-      "color_family": "red-coral"
+      "confidence": "measured",
+      "color_family": "green-teal"
+    },
+    {
+      "id": 4,
+      "label": "TS-004",
+      "primary_hex": "#2F2155",
+      "primary_sample_xy": [
+        260,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/004.png",
+      "sha256": "4e8594e3846c420199b5151d244eba37c2561d50af4d66b6e4c6ec875a85caf8",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "blue-cyan"
+    },
+    {
+      "id": 5,
+      "label": "TS-005",
+      "primary_hex": "#000000",
+      "primary_sample_xy": [
+        639,
+        482
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/005.png",
+      "sha256": "39e181a4dff6f258193f6dadfdb815c9065255d15693877f101643613f4c1465",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "neutral-ink"
+    },
+    {
+      "id": 6,
+      "label": "TS-006",
+      "primary_hex": "#152259",
+      "primary_sample_xy": [
+        613,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/006.png",
+      "sha256": "f7932900576ae478303321fa8d2c8fb2f4b48ff5d508aa0e96960f9bfc31cd13",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
       "id": 7,
-      "primary_hex": "#9A6500",
+      "label": "TS-007",
+      "primary_hex": "#FF5CAD",
       "primary_sample_xy": [
-        491,
-        499
+        419,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/007.png",
+      "sha256": "1d1d4b2f9f9eab826366bdebe8631f5f70f6fd59387e6e390a7af4dd5810c0ec",
       "role_notes": {
-        "contour": "赭黄/棕金线勾勒短发、耳颈与衣领",
-        "face": "粗短眉、实心眼和鼻嘴同用赭黄",
-        "hair": "发顶轮廓分少量起伏，内部短发流线，绿黄渐变属于发面",
-        "clothing": "衬衫领与手势用同色结构线，衣服黄绿填面独立"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "以赭黄统一线色，保持暖线与浅肤面的区分。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-007",
-      "reference_image": "assets/finished/007.png",
-      "sha256": "85174a81159506d4f1c0f006ce9b457e41c60abc65274db222fff038c6b861fb",
-      "color_family": "brown-ochre"
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 8,
-      "primary_hex": "#333333",
+      "label": "TS-008",
+      "primary_hex": "#4C293F",
       "primary_sample_xy": [
-        441,
-        535
+        394,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/008.png",
+      "sha256": "f897d56485d99f42051dda080d5dfbcf4b8acb5c3c366e4a60ad0ffa0f42f332",
       "role_notes": {
-        "contour": "炭灰轮廓形成耳侧、脸颈与背肩的连续转折",
-        "face": "一侧实心眼、一侧闭眼弧，与张嘴表情联动",
-        "hair": "长发以大外缘和少量分缝线概括，黄绿渐变在发块内",
-        "clothing": "肩上白链为独立线状配饰，耳饰的近黑条带与主线邻近"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "白链条是局部配饰线，不能变成全人物白色描边。",
-      "secondary_colors": [
-        {
-          "hex": "#FFFFFF",
-          "role": "肩上链条的白色线状配饰",
-          "sample_xy": [
-            447,
-            790
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-008",
-      "reference_image": "assets/finished/008.png",
-      "sha256": "36d6c9fb15cfe2471d6ed0cd8889f135257fbbd0ef469228738e521730898efb",
-      "color_family": "neutral-ink"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 9,
-      "primary_hex": "#040201",
+      "label": "TS-009",
+      "primary_hex": "#005E4A",
       "primary_sample_xy": [
-        558,
-        526
+        622,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/009.png",
+      "sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732",
       "role_notes": {
-        "contour": "近黑粗轮廓强调仰头侧脸、后脑与肩颈，外形有力",
-        "face": "眉眼鼻口为近黑短笔及实心块，侧脸外缘承担鼻唇形",
-        "hair": "后梳发以粗边界和少数宽分区线，灰色是发块填面",
-        "clothing": "衣服内密集细排线明显细于外轮廓，并按肩衣方向弯曲"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "粗轮廓与细服饰排线分层；近黑RGB存在轻微栅格变化，所列色是实测代表点。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-009",
-      "reference_image": "assets/finished/009.png",
-      "sha256": "b6f4815363877f374987def7228049d39aee9a858c756142766872181f65230d",
-      "color_family": "neutral-ink"
+      "confidence": "measured",
+      "color_family": "green-teal"
     },
     {
       "id": 10,
-      "primary_hex": "#162CA5",
+      "label": "TS-010",
+      "primary_hex": "#092356",
       "primary_sample_xy": [
-        540,
-        495
+        649,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/010.png",
+      "sha256": "efb083a612b21537293e805478459a7c71faefa317cdf7f1f72cbc7bde8f8bf1",
       "role_notes": {
-        "contour": "钴蓝主线勾勒脸、耳、衣领和肩部，与深蓝发块分离",
-        "face": "钴蓝实心眉眼，鼻用短折线，嘴用两段短线",
-        "hair": "深蓝发面配钴蓝外缘和有限方向笔画，深蓝填色不是主线",
-        "clothing": "衬衫领、门襟和袖缝用同色线，纽扣为小环"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "深色发块与蓝色线条并不相同，主线从耳/面部实线取样。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-010",
-      "reference_image": "assets/finished/010.png",
-      "sha256": "1a49be3efbbcda99c7dfcf29b00201e9c87c3e82b13ef00d2bcff2e2b84572a8",
+      "confidence": "measured",
       "color_family": "blue-cyan"
     },
     {
       "id": 11,
-      "primary_hex": "#000000",
+      "label": "TS-011",
+      "primary_hex": "#040202",
       "primary_sample_xy": [
-        512,
-        519
+        637,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/011.png",
+      "sha256": "a585cd9c225a9100ba9885572a265c03ac87d25116f8a63f1795aa275927f26d",
       "role_notes": {
-        "contour": "黑色粗主线围合头肩、手与衣领，填面边界清楚",
-        "face": "黑色粗短眉、实心眼及夸张短鼻口线，胡茬为少数点线",
-        "hair": "黑发填面与主线同色，边缘以少量转折形成头型",
-        "clothing": "衬衫领和袖口粗线明确，黑圆点为服装图案而非额外线色"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "黑发/黑圆点不能代替取样证据，主色点选在鼻口结构笔画。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-011",
-      "reference_image": "assets/finished/011.png",
-      "sha256": "63ef9ac1f633c0460a243b5bab09539fe54b01a8d5acca270b0a8fbe644f97cc",
+      "confidence": "measured",
       "color_family": "neutral-ink"
     },
     {
       "id": 12,
-      "primary_hex": "#C64DC6",
+      "label": "TS-012",
+      "primary_hex": "#715A6F",
       "primary_sample_xy": [
-        541,
-        459
+        390,
+        480
       ],
-      "line_family": "open-duotone",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/012.png",
+      "sha256": "cb2b9ed2141a923bab0ae4dc00f67cb68bae8d0ab32b7027c611634a3079fb5b",
       "role_notes": {
-        "contour": "粉紫单线勾勒侧面、肩背和宽帽檐，部分区域借底色留空",
-        "face": "粉紫短眉、闭眼短弧和侧脸鼻口，省略大部分面部阴影",
-        "hair": "头发由外缘和少数分缕弧构成，浅渐变发面不增加毛丝",
-        "clothing": "帽子与围巾以同色轮廓分区，亮黄耳饰细线形成局部反差"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "开放留白与单线组织是主手法；荧光黄是耳饰线而非主轮廓。",
-      "secondary_colors": [
-        {
-          "hex": "#EAFF00",
-          "role": "耳饰流苏的亮黄细线；局部配饰，不是主线",
-          "sample_xy": [
-            383,
-            606
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-012",
-      "reference_image": "assets/finished/012.png",
-      "sha256": "b308daa42687987ce49a5c9cf0230292db2eb50763b20b4c1eb322d51b3ec2fc",
-      "color_family": "magenta-plum"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "violet"
     },
     {
       "id": 13,
-      "primary_hex": "#252525",
+      "label": "TS-013",
+      "primary_hex": "#351926",
       "primary_sample_xy": [
-        535,
-        511
+        438,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/013.png",
+      "sha256": "0e50ba68ba4e5d0928ddc40a2eca039af009c82ea751a2e4502d0ae0cc913548",
       "role_notes": {
-        "contour": "深灰近黑线勾勒短发、脸颈与衬衫轮廓",
-        "face": "短粗眉眼与折鼻/短口线，五官对比集中",
-        "hair": "发顶有限尖簇和少量方向线，淡紫发面独立",
-        "clothing": "衣领和衣片结构线简短，衣服内部渐变不逐块描边"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "深灰贯穿主要结构，脸侧暗面保留为无额外边线的色块。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-013",
-      "reference_image": "assets/finished/013.png",
-      "sha256": "bcf2c6e19b0b583831fa0aeca30782e54eb2351c388197423421b1ee6722a561",
-      "color_family": "neutral-ink"
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 14,
-      "primary_hex": "#9B280C",
+      "label": "TS-014",
+      "primary_hex": "#C5466F",
       "primary_sample_xy": [
-        514,
-        506
+        631,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/014.png",
+      "sha256": "b9c8541cf9594988ceeaa16cea8f5157d45ce05867a80f4956fa04ebc7072a7c",
       "role_notes": {
-        "contour": "红褐轮廓与鲜红发块、深青黑外衣形成有意反差",
-        "face": "红褐实心眉眼和短鼻嘴线，表情克制",
-        "hair": "齐刘海加少量内分线，外侧发梢有有限断开转折",
-        "clothing": "外衣边界用红褐线，深青黑是衣服填面而非主线"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "深色衣面上的暖色轮廓仍为同一主线体系，不按衣色改黑线。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-014",
-      "reference_image": "assets/finished/014.png",
-      "sha256": "9f2b357020f99f7202b09b8ae759c6a43b79a8a2e5d90579dc4bdc94a6abcba2",
-      "color_family": "red-coral"
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 15,
-      "primary_hex": "#7E421E",
+      "label": "TS-015",
+      "primary_hex": "#F04E31",
       "primary_sample_xy": [
-        553,
-        529
+        653,
+        473
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/015.png",
+      "sha256": "6530f519ec28a13aee235d9df91e69e4afa03a2335392d9ae803281b1ff66ce0",
       "role_notes": {
-        "contour": "棕褐线勾勒侧转脸、发缘与立领，线条轻柔",
-        "face": "棕褐短眉眼、鼻钩与两段口线，面部符号简洁",
-        "hair": "短发以有限齿状外缘及小分缝概括，紫褐发渐变为填面",
-        "clothing": "高领及肩袖分界用细棕褐线，深绿衣身为填色"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "线色存在轻微像素变动，代表点取在脸侧结构线，非深绿衣服。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-015",
-      "reference_image": "assets/finished/015.png",
-      "sha256": "fcb5f4ea1787c02f166a07a77974c69994e4d80f0d55b2d20fba2b9c9c26c95c",
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
       "id": 16,
-      "primary_hex": "#813B19",
+      "label": "TS-016",
+      "primary_hex": "#F1497E",
       "primary_sample_xy": [
-        505,
-        445
+        552,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/016.png",
+      "sha256": "7ebcc52ed67540d3ea4e8106fcee9fc3a9cdf81568e96a87e31841f5152b90af",
       "role_notes": {
-        "contour": "暖棕线勾勒侧脸、耳颈、发型及西装，轮廓近等粗",
-        "face": "深棕短眉眼与侧脸鼻唇边界，口线很短",
-        "hair": "短发顶部用几处尖簇和少量内部线，发色冷暖渐变为大面",
-        "clothing": "翻领、领带与肩线用同一暖棕，尽量少内线"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "暖棕可统一冷发色与冷衣色的轮廓，不要求照片原发色。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-016",
-      "reference_image": "assets/finished/016.png",
-      "sha256": "186721f6d9d435a495eb8c0da4e037976b70acdf177f9d6014887e3dd386a222",
-      "color_family": "red-coral"
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 17,
-      "primary_hex": "#1A2868",
+      "label": "TS-017",
+      "primary_hex": "#B40C37",
       "primary_sample_xy": [
-        473,
-        495
+        401,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/017.png",
+      "sha256": "214c57e77b557acc62eaf7182f6551ccf1ac6f352d3dce7b09e1af293fb17707",
       "role_notes": {
-        "contour": "深蓝粗圆端轮廓强调歪头、脸颈及宽大衣肩",
-        "face": "粗短眉眼和短鼻嘴线与头部倾斜协同，闭眼用弧线",
-        "hair": "头顶大发块加少数粗发簇方向线，不用细丝",
-        "clothing": "卷领内有较细密排线，衣领肩袖的薄荷亮线停在局部"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "主线、卷领纹理和亮边为三层；亮线不沿全身扩展，脸颊还有局部近白装饰线。",
-      "secondary_colors": [
-        {
-          "hex": "#57FFE9",
-          "role": "衣领与肩袖局部薄荷亮线",
-          "sample_xy": [
-            644,
-            664
-          ]
-        },
-        {
-          "hex": "#FFFBFB",
-          "role": "脸颊沿下颌走向的一段近白装饰线",
-          "sample_xy": [
-            248,
-            543
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-017",
-      "reference_image": "assets/finished/017.png",
-      "sha256": "2f0df3b48755e837a7a7c3a280330f8bb903e97d8b8e5bcf5c54e85116686f23",
-      "color_family": "blue-cyan"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 18,
-      "primary_hex": "#152259",
+      "label": "TS-018",
+      "primary_hex": "#161958",
       "primary_sample_xy": [
-        477,
-        563
+        646,
+        484
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/018.png",
+      "sha256": "1b4f4a534ad5ce0a60f990c839eebb123c42c64e7123ed5e7d90d7d0a69fe1b4",
       "role_notes": {
-        "contour": "深蓝轮廓概括短发、圆眼镜、脸颈与衬衫",
-        "face": "圆镜框后用简单实心眼，短鼻口线，眼镜为细一层的结构",
-        "hair": "有限发簇和少量短线，与黄绿发面渐变分开",
-        "clothing": "衬衫外缘深蓝，内部橙黄弯曲细线顺领口和衣片方向"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "服装排线另用橙黄，不能把条纹应用到脸或每件服装。",
-      "secondary_colors": [
-        {
-          "hex": "#FFAE00",
-          "role": "衬衫衣片内的橙黄纹理细线",
-          "sample_xy": [
-            776,
-            795
-          ]
-        }
-      ],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-018",
-      "reference_image": "assets/finished/018.png",
-      "sha256": "702ccc72bc5870717d4359d554779d5adf1fe8ef96b1e196751a9d9b7a1a9f1f",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
       "color_family": "blue-cyan"
     },
     {
       "id": 19,
-      "primary_hex": "#262662",
-      "primary_sample_xy": [
-        485,
-        487
-      ],
-      "line_family": "rounded-monoline",
-      "role_notes": {
-        "contour": "深紫蓝线勾勒长发、脸颈和肩带，曲线流畅",
-        "face": "深紫蓝短实心眉眼、鼻钩与嘴线",
-        "hair": "长发大S轮廓及少量内部流线，浅亮段平行一小段后终止",
-        "clothing": "肩带轮廓沿用主线，白色螺旋耳饰和项链用细线"
-      },
-      "technique_notes": "白线仅供饰物，不能当每张头像的必须首饰。",
-      "secondary_colors": [
-        {
-          "hex": "#FFFFFF",
-          "role": "螺旋耳饰及项链细线",
-          "sample_xy": [
-            655,
-            519
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-019",
-      "reference_image": "assets/finished/019.png",
-      "sha256": "90b82b49a3b95b9f83650db1430b5dc0d11420531f4d0e590f05f343ef0a7357",
-      "color_family": "blue-cyan"
-    },
-    {
-      "id": 20,
-      "primary_hex": "#083224",
-      "primary_sample_xy": [
-        500,
-        495
-      ],
-      "line_family": "rounded-monoline",
-      "role_notes": {
-        "contour": "墨绿主线连接短发、眼镜、脸与外衣结构",
-        "face": "墨绿眼镜细框，框内简单实心眼；鼻嘴线极少",
-        "hair": "圆顶短发剪影加少数刘海缕线，不加密集纹理",
-        "clothing": "外衣翻领/门襟与领口用同色线，暖黄衣身形成色面对比"
-      },
-      "technique_notes": "主线与背景同属绿系但色值和角色不同，主线取自鼻/镜框结构。",
-      "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-020",
-      "reference_image": "assets/finished/020.png",
-      "sha256": "042952d31a4e69da00c5311ce321f242fb24735bd062e4bdf17723a335927249",
-      "color_family": "green-teal"
-    },
-    {
-      "id": 21,
+      "label": "TS-019",
       "primary_hex": "#5B0320",
       "primary_sample_xy": [
-        604,
-        504
+        390,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/019.png",
+      "sha256": "d07b40d434ceafbb40e70d87b1989bbe1ee6a0d5bfb55e3f8dd955da3cb13370",
       "role_notes": {
-        "contour": "深酒红轮廓贯穿脸缘、发型和衣领，大转折平顺",
-        "face": "酒红短粗眉眼与鼻口，胡须为一小块实心形",
-        "hair": "短发用少量内分线，酒红发面比主线更浅",
-        "clothing": "衣领与胸前一条大弯线说明衣服，不堆满皱纹"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "深酒红主线有细微栅格色差；以轮廓实际点为代表，不取橄榄衣面。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-021",
-      "reference_image": "assets/finished/021.png",
-      "sha256": "92272c4b04e9f35572f70d841b35c83469d3d492faea083df822bdc3b6bb8b2e",
+      "confidence": "measured",
       "color_family": "magenta-plum"
     },
     {
-      "id": 22,
-      "primary_hex": "#670300",
+      "id": 20,
+      "label": "TS-020",
+      "primary_hex": "#913586",
       "primary_sample_xy": [
-        489,
-        538
+        308,
+        481
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/020.png",
+      "sha256": "daced8500647def3b96751834bc2777f2bb43c454ae8b6b041838d9151160985",
       "role_notes": {
-        "contour": "深红褐轮廓勾勒脸、发型、手及衣领，有限断线",
-        "face": "深红褐眉眼和鼻口，棕色脸颊不是独立线色",
-        "hair": "中分发型以宽弧和少量内线解释方向，深棕填面独立",
-        "clothing": "手指、领口、翻领沿用主线，浅领面与青绿衣身分开"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "深红褐主线与棕红发块同族不同角色，不能按头发面积选择主线。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-022",
-      "reference_image": "assets/finished/022.png",
-      "sha256": "a6301e4432135478d35447f1258dbf00f8ed5a8839e9ca55e675eda28ea56215",
+      "confidence": "measured",
+      "color_family": "violet"
+    },
+    {
+      "id": 21,
+      "label": "TS-021",
+      "primary_hex": "#BA1FB1",
+      "primary_sample_xy": [
+        637,
+        479
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/021.png",
+      "sha256": "56aabe59426d36e48bcd1e9135840f3aa02107c7c96169e520327b1c4fb5fb54",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "violet"
+    },
+    {
+      "id": 22,
+      "label": "TS-022",
+      "primary_hex": "#9E4936",
+      "primary_sample_xy": [
+        374,
+        283
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/022.png",
+      "sha256": "9d4169b0191924028bca418de2ac5821ac5739b214991a286031adec5888a21d",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
       "id": 23,
-      "primary_hex": "#005E4A",
+      "label": "TS-023",
+      "primary_hex": "#333333",
       "primary_sample_xy": [
-        408,
-        604
+        356,
+        494
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/023.png",
+      "sha256": "8b74776e8df4bc4a32e59b220ddc7f35e9fdcb67498cd11af928b49fd7b549fe",
       "role_notes": {
-        "contour": "深青绿粗线分开大衣片、手、侧脸与后脑，外缘圆端",
-        "face": "实心短眉和闭眼线，鼻口短钩与小实心口形",
-        "hair": "后梳短发为少量大块，主体方向线深青绿；太阳穴有极少浅橘细线及白亮段",
-        "clothing": "外套翻领、袖口与口袋以粗细两级青绿线，暗面边界不全加线"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "粗主线承担结构；发内白亮线与橘细线是局部可选提示，不能增加碎发。",
-      "secondary_colors": [
-        {
-          "hex": "#F0EDF1",
-          "role": "前发内部的一小段浅白亮线",
-          "sample_xy": [
-            283,
-            261
-          ]
-        },
-        {
-          "hex": "#FE7A2A",
-          "role": "太阳穴发块内极少橘色细结构线",
-          "sample_xy": [
-            535,
-            273
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-023",
-      "reference_image": "assets/finished/023.png",
-      "sha256": "2324f14883b18d4c94d54b8f880203171f680bc5abd3a7a5a255d948e53951fd",
-      "color_family": "green-teal"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
       "id": 24,
-      "primary_hex": "#B40C37",
+      "label": "TS-024",
+      "primary_hex": "#BF009F",
       "primary_sample_xy": [
-        454,
-        455
+        582,
+        482
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/024.png",
+      "sha256": "41beab37c4ca92661ff3da519f6ec093fd8717af6f11b6fc332dc7fe34283473",
       "role_notes": {
-        "contour": "洋红深红粗轮廓围合歪头脸、发型和衣身",
-        "face": "粗短眉、向下实心眼形及短鼻口线，全部深红",
-        "hair": "头发外缘与少量分缝用深红，蓝紫到酒红的连续部分是发块渐变，不是蓝色线",
-        "clothing": "衣领及肩袖以少数粗结构线，胸前大片深粉为填色"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "蓝发块容易被误认高光线，实际主轮廓与五官同属深红线族。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-024",
-      "reference_image": "assets/finished/024.png",
-      "sha256": "fccb27eb1f181a1948b7224a6f0d101ef23b19b5f1073bcaa5e0054f5aa13686",
+      "confidence": "measured",
       "color_family": "magenta-plum"
     },
     {
       "id": 25,
-      "primary_hex": "#0A654B",
+      "label": "TS-025",
+      "primary_hex": "#7E2918",
       "primary_sample_xy": [
-        476,
-        448
+        621,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/025.png",
+      "sha256": "d9243705c674f9997d50f025a900f98b338fa6a0fb50496218c0b151677b152d",
       "role_notes": {
-        "contour": "深绿圆润主线连接头、脸、颈肩与西装，遮挡处有意断开",
-        "face": "短楔眉和向下实心眼形、鼻钩、短口线统一深绿",
-        "hair": "发顶大弧和少数内分线，尖角与圆弧形成有限节奏",
-        "clothing": "衬衫领、领带和翻领均以清楚短线概括，脸侧粉面不另描边"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "此图是当前默认造型语言：同一深绿同时服务外轮廓与五官。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-025",
-      "reference_image": "assets/finished/025.png",
-      "sha256": "1d2ab1a83168888990f19c38cc1e3a43206dbf755852666bdf906301aca97ec9",
-      "color_family": "green-teal"
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 26,
-      "primary_hex": "#092356",
+      "label": "TS-026",
+      "primary_hex": "#262662",
       "primary_sample_xy": [
-        453,
-        581
+        318,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/026.png",
+      "sha256": "f720fd07b2f2b45785657149fd416ec42bb7e23a2e3c549c82bdfe34f13f1920",
       "role_notes": {
-        "contour": "深蓝粗圆端轮廓强调长发与肩颈，发束交会处有断线",
-        "face": "深蓝短眉与实心眼、鼻嘴短线；原图眼内小亮点不迁移到新图",
-        "hair": "长发为宽发块与少量方向线，黄绿亮线只沿局部发束",
-        "clothing": "领口与肩带边界深蓝，肩部有一段黄绿亮边"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "亮黄绿为装饰线，主线仍深蓝；新头像遵循统一无高光实心眼。",
-      "secondary_colors": [
-        {
-          "hex": "#E4FF00",
-          "role": "头发和肩部局部黄绿亮线",
-          "sample_xy": [
-            459,
-            184
-          ]
-        }
-      ],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-026",
-      "reference_image": "assets/finished/026.png",
-      "sha256": "46781a90fcf57e7c0374440955f93e201b752343b242a36037f64128f8ecdf9e",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
       "color_family": "blue-cyan"
     },
     {
       "id": 27,
-      "primary_hex": "#303802",
+      "label": "TS-027",
+      "primary_hex": "#000000",
       "primary_sample_xy": [
-        500,
-        500
+        632,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/027.png",
+      "sha256": "45fb8b0d2dcc35637eed1fe2f75e66bf5555c3e63945952c23ac92c2486cde11",
       "role_notes": {
-        "contour": "深橄榄粗轮廓建立正面头型、耳颈与西装外形",
-        "face": "深橄榄实心眉眼、折鼻和短嘴，眼白省略",
-        "hair": "短发大剪影加少数方向弧，紫色发块渐变独立",
-        "clothing": "翻领与门襟主线较粗，翻领内部少量更细黄绿亮边"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "低明度橄榄线统一暖肤面与紫发；亮边仅局部辅助。",
-      "secondary_colors": [
-        {
-          "hex": "#E4FF00",
-          "role": "翻领内部黄绿装饰亮线",
-          "sample_xy": [
-            283,
-            852
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-027",
-      "reference_image": "assets/finished/027.png",
-      "sha256": "6a060f8feff6a6b1d1ca6ffc624a1a128783d736fc0c703fbc42a1bcb5ca8061",
-      "color_family": "yellow-olive"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
       "id": 28,
-      "primary_hex": "#040202",
+      "label": "TS-028",
+      "primary_hex": "#1A2868",
       "primary_sample_xy": [
-        428,
-        485
+        618,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/028.png",
+      "sha256": "84968b83df3a47684f503bf0c2dcc3143e2d6126219c2607745e69a49aaa0eeb",
       "role_notes": {
-        "contour": "近黑粗轮廓强调后梳头型、仰头侧脸与肩颈，线段间有空隙",
-        "face": "粗短眉眼、侧脸鼻口与下颌短线，原图亮点不迁移",
-        "hair": "深蓝发面内粗主线与细分缕线分层，青绿亮线沿局部发流",
-        "clothing": "圆领和肩线粗，袖缝和领内辅助线明显更细"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "近黑的多个RGB是同一视觉线族的栅格变化；青绿仅属发内亮线。",
-      "secondary_colors": [
-        {
-          "hex": "#09FCE4",
-          "role": "头发内部青绿发流亮线",
-          "sample_xy": [
-            477,
-            244
-          ]
-        }
-      ],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-028",
-      "reference_image": "assets/finished/028.png",
-      "sha256": "bd2832e5064dfa2966b875acbcf8cd84c2b31e89697d84dd7008ad2fc56b7516",
-      "color_family": "neutral-ink"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
       "id": 29,
-      "primary_hex": "#000000",
+      "label": "TS-029",
+      "primary_hex": "#191936",
       "primary_sample_xy": [
-        500,
-        500
+        720,
+        480
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/029.png",
+      "sha256": "2a5411416e56b42cd87ab2e4f4c92abaa2b1bf5e54a1069b66ace812f88149e8",
       "role_notes": {
-        "contour": "纯黑有力轮廓分开手机、手指、脸颈和衬衫",
-        "face": "可见眉眼及耳内短线为黑色；被手机遮挡的鼻口保持遮挡",
-        "hair": "黑发为整块剪影与有限发际线，外部白短段仅局部",
-        "clothing": "手指轮廓、衬衫领与门襟同色，衣物白色是填面"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "用真实遮挡关系组织轮廓，不因图示配手机就为新照片添加手机。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-029",
-      "reference_image": "assets/finished/029.png",
-      "sha256": "662f413dec3b437b8e538a8ce15a59d4535a9d72b23766ddc2c61bce55743667",
-      "color_family": "neutral-ink"
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
       "id": 30,
-      "primary_hex": "#673035",
+      "label": "TS-030",
+      "primary_hex": "#40AC58",
       "primary_sample_xy": [
-        517,
-        517
+        688,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/030.png",
+      "sha256": "1dd52b17689df900a0ec44bd6a220e387972b6194740c191f9ab2dc6b3d766f0",
       "role_notes": {
-        "contour": "暖紫褐圆端线贯穿头发、脸颈和衬衫，线段有选择地断开",
-        "face": "短实心眉眼与鼻钩、两段短嘴线，原图眼内浅缝不迁移",
-        "hair": "浅黄发块以少量刘海缺口和流向短线形成蓬松感",
-        "clothing": "衣领和袖肩同色结构线，局部浅绿亮线服从衣片转折"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "黄耳环与浅绿衣服亮线各有局部用途，不转为全身霓虹边。",
-      "secondary_colors": [
-        {
-          "hex": "#87D88C",
-          "role": "衣领与衣片内部浅绿亮线",
-          "sample_xy": [
-            550,
-            630
-          ]
-        },
-        {
-          "hex": "#FDEA15",
-          "role": "耳环的亮黄线状配饰",
-          "sample_xy": [
-            581,
-            446
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-030",
-      "reference_image": "assets/finished/030.png",
-      "sha256": "148018d5a685d4c6c296e129b9c3d424d090984b811465e7a516452f38c02b50",
-      "color_family": "red-coral"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "yellow-olive"
     },
     {
       "id": 31,
-      "primary_hex": "#040201",
+      "label": "TS-031",
+      "primary_hex": "#FF5172",
       "primary_sample_xy": [
-        537,
-        468
+        307,
+        479
       ],
-      "line_family": "bold-graphic",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/031.png",
+      "sha256": "9cdef890b7898ce88ef6da48c3f20a68ffb43a16bd4f41d981dc66b11266f9b1",
       "role_notes": {
-        "contour": "近黑粗圆端外轮廓勾勒长发、脸颈及夸张翻领",
-        "face": "粗楔眉、实心眼与短鼻口；眼部橘色缺口是原图例外，新图不迁移",
-        "hair": "白发面内少数粗方向弧与断线，发梢宽块处理",
-        "clothing": "翻领内有橘色窄边，与背景同色但位于衣片内部；外轮廓仍近黑"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "粗线配宽色块、内外轮廓之间留足空间；橘边不是背景延伸的泛光。",
-      "secondary_colors": [
-        {
-          "hex": "#FE6223",
-          "role": "衣服翻领内缘的橘色窄线，与背景同色但位于衣片内",
-          "sample_xy": [
-            692,
-            809
-          ]
-        }
-      ],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-031",
-      "reference_image": "assets/finished/031.png",
-      "sha256": "6cad20db614ec97305c1b788ac38404cfed1a92cdd2c66c5ddb153f19119e244",
-      "color_family": "neutral-ink"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 32,
-      "primary_hex": "#715A6F",
+      "label": "TS-032",
+      "primary_hex": "#00817A",
       "primary_sample_xy": [
-        522,
-        512
+        657,
+        480
       ],
-      "line_family": "fine-structured",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/032.png",
+      "sha256": "567462828e2cd35726c3870ba3aabfddb0d7150ceb808882e85ae72dad1a3839",
       "role_notes": {
-        "contour": "灰紫轮廓较柔和，发型、脸颈与衣片仍有明确主次",
-        "face": "灰紫短眉实心眼与鼻嘴，五官线不按肤色降低到消失",
-        "hair": "深褐发块内用灰紫少量发流线，深褐填面不是主线",
-        "clothing": "主线之外，大量更细同色衣服排线顺卷领、肩缝及袖面改变方向"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "纹理线明显细于结构线，随织物表面转向；新头像仅按照片衣物需要保留。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-032",
-      "reference_image": "assets/finished/032.png",
-      "sha256": "5588fecbef143afcb6d8cde8c4163b23f594a2a526f2d90528c63aecd771c6dd",
-      "color_family": "magenta-plum"
+      "confidence": "measured",
+      "color_family": "green-teal"
     },
     {
       "id": 33,
-      "primary_hex": "#161958",
+      "label": "TS-033",
+      "primary_hex": "#000000",
       "primary_sample_xy": [
-        495,
-        472
+        403,
+        480
       ],
-      "line_family": "open-duotone",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/033.png",
+      "sha256": "22ea4b79cc092f01b867a8d336ae940a97321d8ecee15f80ba7e51e73c4829ef",
       "role_notes": {
-        "contour": "深靛蓝线勾勒短发、肩颈与衣服，面部留白承担大面积",
-        "face": "短眉眼与鼻嘴采用深靛蓝，少量浅紫块不承担描边",
-        "hair": "外轮廓和几条内弧分开紫发宽块，省略密集发丝",
-        "clothing": "深蓝衣面以有限更深线提示领口和肩袖，白颈脸为负形"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "同色系有限色面加单色线与留白，保留人物比例而非细节堆叠。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "high",
-      "label": "HD-033",
-      "reference_image": "assets/finished/033.png",
-      "sha256": "f48bd87ffa3b2b8705d4881295fcbd18ea4e9fe84c4eb524354ff518fc734a89",
-      "color_family": "blue-cyan"
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
       "id": 34,
-      "primary_hex": "#913586",
+      "label": "TS-034",
+      "primary_hex": "#33201C",
       "primary_sample_xy": [
-        500,
-        500
+        343,
+        480
       ],
-      "line_family": "open-duotone",
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/034.png",
+      "sha256": "6fa653bdfc75c3c23bfa58576fb4e73a88e72a2c758940c4056f685a16ad6e78",
       "role_notes": {
-        "contour": "紫梅单线围合脸、发、手臂和衬衫，白色面部形成负形",
-        "face": "紫梅粗短眉、眼镜与鼻嘴，原图较细眼部细节不迁移",
-        "hair": "粉发大外形与少量同色方向线，不以细丝填满",
-        "clothing": "衬衫领口、门襟和手臂使用同色线，粉色为大填面"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "单色线、粉面和白负形形成高概括；当前统一实心眼规则高于原眼部细节。",
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "confidence": "medium",
-      "raster_variation_note": "原PNG内同一视觉线族存在相近RGB；此HEX为实际轮廓/眉眼笔画内的精确代表采样，不声称为作者源工程唯一色号。",
-      "label": "HD-034",
-      "reference_image": "assets/finished/034.png",
-      "sha256": "2c0c17433890665bca6d82755e1198ec5fde58bf119d5b5b2c91ff318778d32e",
-      "color_family": "magenta-plum"
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 35,
-      "primary_hex": "#0C535A",
+      "label": "TS-035",
+      "primary_hex": "#350F91",
       "primary_sample_xy": [
-        535,
-        508
+        527,
+        480
       ],
       "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/035.png",
+      "sha256": "8730782fadde6f3bda3aac280a20e14753b42e52d91b20fb21d849f8cd4594ae",
       "role_notes": {
-        "contour": "深青主线围合脸、发、耳颈及衣身，转折圆润而明确",
-        "face": "深青短楔眉、向下实心眼形、鼻钩与克制嘴线",
-        "hair": "发顶大弧、鬓角转折与少量内线，浅青发块和深青线分开",
-        "clothing": "翻领、门襟、肩袖同色结构线，局部冰蓝亮边在衣片内终止"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "technique_notes": "暗面粉块无额外描边，冰蓝衣饰亮边与主青线有明确层级。",
-      "secondary_colors": [
-        {
-          "hex": "#E1F4FE",
-          "role": "翻领门襟肩袖上的冰蓝局部亮线",
-          "sample_xy": [
-            573,
-            743
-          ]
-        }
-      ],
-      "confidence": "high",
-      "label": "HD-035",
-      "reference_image": "assets/finished/035.png",
-      "sha256": "45ed1521f48619cb7671a0f04082600cbf00e718d30cdd082ad5352ad3996621",
-      "color_family": "blue-cyan"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "violet"
     },
     {
       "id": 36,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#0B3553",
+      "label": "TS-036",
+      "primary_hex": "#224D35",
       "primary_sample_xy": [
-        306,
-        459
+        410,
+        471
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/036.png",
+      "sha256": "ebdf446ffde28d035519c4071d2f043e096123c738db000d83df755e243f8a87",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "海军蓝轮廓贯穿发型、脸颈和T恤，眉眼用同色实心块；后梳发只留大弧线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-036",
-      "reference_image": "assets/finished/036.png",
-      "sha256": "64aeeda2ae5645f84ce7a90bc8092f86a9108a8ee9acb6922942114a1a779261",
-      "color_family": "blue-cyan"
+      "confidence": "measured",
+      "color_family": "yellow-olive"
     },
     {
       "id": 37,
-      "line_family": "fine-structured",
-      "primary_hex": "#833601",
+      "label": "TS-037",
+      "primary_hex": "#181818",
       "primary_sample_xy": [
-        417,
-        392
+        331,
+        473
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/037.png",
+      "sha256": "8945a51da2b1354321d5848923af35a3631e445e1e2eaa895aee0974c7616e36",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#FF0000",
-          "role": "衣服短斜纹理线",
-          "sample_xy": [
-            390,
-            820
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "暖棕圆头轮廓与五官统一；领口有细密环线，衣服另用短斜线重复纹理，主轮廓明显更重。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-037",
-      "reference_image": "assets/finished/037.png",
-      "sha256": "43835328a77dcff9c228d724dae691bc9aed1778f3deb1abc51e3786b7cb07d3",
-      "color_family": "red-coral"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
       "id": 38,
-      "line_family": "bold-graphic",
-      "primary_hex": "#000000",
+      "label": "TS-038",
+      "primary_hex": "#0B3553",
       "primary_sample_xy": [
-        570,
-        360
+        311,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/038.png",
+      "sha256": "e7a5433024da2367f608f4391e52bcef4024ee5f0107f0de9994d4bb03f47c29",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "高领与肩部褶缝另用低对比紫褐 #341F24，外部黑轮廓和五官仍为主。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#341F24",
-          "role": "高领与肩部褶缝线",
-          "sample_xy": [
-            307,
-            803
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "黑色脸缘与实心眉眼较有力；头发以少量块面弧线分束，高领衣服用低对比深褐线说明肩褶。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-038",
-      "reference_image": "assets/finished/038.png",
-      "sha256": "88590ec406e838efbc109cd78c31a4210e5168382c394c603d2890fc6c325658",
-      "color_family": "neutral-ink"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "green-teal"
     },
     {
       "id": 39,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#33201C",
+      "label": "TS-039",
+      "primary_hex": "#083224",
       "primary_sample_xy": [
-        451,
-        412
+        681,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/039.png",
+      "sha256": "21fbdaeec8531fe305028956a1a2ee0d2453b8c3b76c3deb6100bc35bfc33f76",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#EAAD46",
-          "role": "头发内部暖黄装饰亮线",
-          "sample_xy": [
-            184,
-            320
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "深褐圆头轮廓、短眉眼鼻口线；遮眼长刘海形成大弧，外套翻领以连续折线分片，局部暖黄亮线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-039",
-      "reference_image": "assets/finished/039.png",
-      "sha256": "6d8d61a0156c8058864d13790a65935488184e77d4bfc0a49ae18fa26d84f615",
-      "color_family": "red-coral"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "green-teal"
     },
     {
       "id": 40,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#AB4000",
+      "label": "TS-040",
+      "primary_hex": "#4A0955",
       "primary_sample_xy": [
-        358,
-        320
+        607,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/040.png",
+      "sha256": "9f46c87b2544263d22f47de220eea3e09abfce40e5e03a0ea56868e2e770b31c",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#B6D8E5",
-          "role": "白衬衫内侧平行装饰线",
-          "sample_xy": [
-            319,
-            801
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "赭棕主线勾勒发型、脸颈和衬衫；用断开的弧线与短线刻画五官，衣服局部添浅蓝平行亮线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-040",
-      "reference_image": "assets/finished/040.png",
-      "sha256": "eb3677dbb6344d3f7bc27fd8505441471443cab18705b337d726ae38cdbfc8ba",
-      "color_family": "red-coral"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "violet"
     },
     {
       "id": 41,
+      "label": "TS-041",
+      "primary_hex": "#040201",
+      "primary_sample_xy": [
+        631,
+        480
+      ],
       "line_family": "rounded-monoline",
-      "primary_hex": "#AF2110",
-      "primary_sample_xy": [
-        560,
-        314
-      ],
-      "primary_sample_interior_3x3": true,
+      "reference_image": "assets/templates/041.png",
+      "sha256": "19e823b1ef08f1260ae3c9e126050c175bc4438845193fff03d490c48bfbe185",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "砖红弧形轮廓组织长卷发、脸颈和衣领；外轮廓与五官厚度相近，刘海和卷发用大幅起伏。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-041",
-      "reference_image": "assets/finished/041.png",
-      "sha256": "de22a6ebf685b4d588f004433eab4189d12174f29446ee415fe21fe4303d9241",
-      "color_family": "red-coral"
-    },
-    {
-      "id": 42,
-      "line_family": "bold-graphic",
-      "primary_hex": "#000000",
-      "primary_sample_xy": [
-        400,
-        370
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "粗黑连续外缘与大实心眉眼，鼻口极短；西装以强折线区分翻领，头发亮带为色面而非附加线色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-042",
-      "reference_image": "assets/finished/042.png",
-      "sha256": "716d8fcc9ff5a369ecd861cfac7c29e45e1feef3caed27bd86246c5442bf84a5",
+      "confidence": "measured",
       "color_family": "neutral-ink"
     },
     {
-      "id": 43,
-      "line_family": "open-duotone",
-      "primary_hex": "#40AC58",
+      "id": 42,
+      "label": "TS-042",
+      "primary_hex": "#9B280C",
       "primary_sample_xy": [
-        390,
-        172
+        698,
+        484
       ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "亮绿开放线描与大片留白，头发、露肩躯干和面部不闭合填满；肩下衣纹细密，耳饰由小环点概括。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-043",
-      "reference_image": "assets/finished/043.png",
-      "sha256": "fd91f21fbe396210fdf892cdbda3551a7c62757c27c4a2a82f36d67b3cfed058",
-      "color_family": "green-teal"
-    },
-    {
-      "id": 44,
       "line_family": "rounded-monoline",
-      "primary_hex": "#BF009F",
-      "primary_sample_xy": [
-        468,
-        416
-      ],
-      "primary_sample_interior_3x3": true,
+      "reference_image": "assets/templates/042.png",
+      "sha256": "061247fd1f9413edfda3d6f308690f0f56bc9284773b66d669f72101ecd9f90f",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "洋红主线统一长发、实心眉眼和扣领上衣；外形流畅，衣服内部分界线比主轮廓细。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-044",
-      "reference_image": "assets/finished/044.png",
-      "sha256": "85e07daf2c1dec582a636392dafcaff2bcabcf41b60aa9d60ee282a87f141202",
-      "color_family": "magenta-plum"
-    },
-    {
-      "id": 45,
-      "line_family": "open-duotone",
-      "primary_hex": "#00817A",
-      "primary_sample_xy": [
-        349,
-        349
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "深青同色系线描，短发外缘有断线；镜框用细线，面部与肩颈以同一深青线概括，留白形成皮肤。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-045",
-      "reference_image": "assets/finished/045.png",
-      "sha256": "0bc70352f28b6f9bd338513e4e7b92489ac2a83bd2b9bb661f2ea10292baa0a8",
-      "color_family": "green-teal"
-    },
-    {
-      "id": 46,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#351926",
-      "primary_sample_xy": [
-        327,
-        406
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "紫褐主线统一发型、五官和深V衣领，线头圆顺；头倾由脸颈弧线衔接，发束与衣领不密集排线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-046",
-      "reference_image": "assets/finished/046.png",
-      "sha256": "a3014577b3fdd2f45827ea9cf9e620460a3bdcf0ec75ea0cca1fa0f0877e2f39",
-      "color_family": "magenta-plum"
-    },
-    {
-      "id": 47,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#623025",
-      "primary_sample_xy": [
-        393,
-        381
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "深暖棕连续轮廓，头发只保留流向弧；包带与条纹的绿色和白色主要是填面，不作为附加线色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-047",
-      "reference_image": "assets/finished/047.png",
-      "sha256": "5c0b65927ec76186d0def52f36e31ab5562754ebc45f546293d3798dfb1cd330",
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
-      "id": 48,
+      "id": 43,
+      "label": "TS-043",
+      "primary_hex": "#000000",
+      "primary_sample_xy": [
+        382,
+        480
+      ],
       "line_family": "rounded-monoline",
-      "primary_hex": "#5934A1",
-      "primary_sample_xy": [
-        330,
-        329
-      ],
-      "primary_sample_interior_3x3": true,
+      "reference_image": "assets/templates/043.png",
+      "sha256": "38a4e57c8ced59130676be989a0f32129174e281cbef73b87f72922cfa661de3",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "中深紫描线与同色实心眉眼，发丝只保留数条大弧，衣领内线较细；更深紫头发为填面，不能误记主线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-048",
-      "reference_image": "assets/finished/048.png",
-      "sha256": "1695529402fc3a505d5c3d3b9c1aac316e217c6feda0de3bdb72a01441a62946",
-      "color_family": "violet"
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
-      "id": 49,
+      "id": 44,
+      "label": "TS-044",
+      "primary_hex": "#06082E",
+      "primary_sample_xy": [
+        321,
+        480
+      ],
       "line_family": "rounded-monoline",
-      "primary_hex": "#350F91",
-      "primary_sample_xy": [
-        350,
-        367
-      ],
-      "primary_sample_interior_3x3": true,
+      "reference_image": "assets/templates/044.png",
+      "sha256": "d1bfb71a8a7ba24d9448b4342f78f11750b53086115697ec1d08c4779772eb20",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "深紫线统一波浪发、脸颈和露肩衣服，外缘与衣口连续，发束内部用少量大曲线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-049",
-      "reference_image": "assets/finished/049.png",
-      "sha256": "3ad715e98ca56926fe7ed13044a259de6603a1a3333241df7e1dfa3c43ebd035",
-      "color_family": "violet"
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
-      "id": 50,
-      "line_family": "fine-structured",
-      "primary_hex": "#6B3B13",
+      "id": 45,
+      "label": "TS-045",
+      "primary_hex": "#900E33",
       "primary_sample_xy": [
-        312,
-        371
+        685,
+        493
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/045.png",
+      "sha256": "c06def20cc3512decab0e7cb8658493076f1093b67e8599adcb31821d7007aee",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "棕色外轮廓与眉眼保持较重，外套用更细同色交叉线织出格纹；卷发只留关键短弧和轮廓凸起。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-050",
-      "reference_image": "assets/finished/050.png",
-      "sha256": "386061a835c802322744a3ced2f76dbbf4e588b2a11f429eba1d660b5e4c8d12",
-      "color_family": "brown-ochre"
-    },
-    {
-      "id": 52,
-      "line_family": "fine-structured",
-      "primary_hex": "#004D2D",
-      "primary_sample_xy": [
-        384,
-        294
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "深绿轮廓与五官统一，短波浪发以大起伏和有意断线表达；露肩衣服用细平行线，耳饰为小环与线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-052",
-      "reference_image": "assets/finished/052.png",
-      "sha256": "30756a1c23ba0b36e779233e8b6e9e148673bd340e1c6859fd2e88f0ecbde8f6",
-      "color_family": "green-teal"
-    },
-    {
-      "id": 53,
-      "line_family": "fine-structured",
-      "primary_hex": "#F1497E",
-      "primary_sample_xy": [
-        543,
-        314
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "桃红细主线勾出长直发、脸缘和衣缝，五官用同色符号；紫衣网点为填面纹理，长耳饰以浅色小环链表示。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-053",
-      "reference_image": "assets/finished/053.png",
-      "sha256": "f56b80d4319f330ab84e50fbdfc143c83d37506517676f446a2ae5ceb3ae8a75",
+      "confidence": "measured",
       "color_family": "magenta-plum"
     },
     {
-      "id": 54,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#FF5172",
+      "id": 46,
+      "label": "TS-046",
+      "primary_hex": "#0A654B",
       "primary_sample_xy": [
-        462,
-        381
+        347,
+        470
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/046.png",
+      "sha256": "bb13303a56776b6ce4d110949421a2f533a8738ba44092c88db9c0a0f4754088",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "珊瑚粉较粗圆头轮廓、短鼻口线，头发与肩颈交会处分段停笔；衣服保留少量同色细结构线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-054",
-      "reference_image": "assets/finished/054.png",
-      "sha256": "2de598f428b047c7bd84a04939649222bc0774eb8df3e9439d7467b0c3e3d6ef",
+      "confidence": "measured",
+      "color_family": "green-teal"
+    },
+    {
+      "id": 47,
+      "label": "TS-047",
+      "primary_hex": "#120732",
+      "primary_sample_xy": [
+        317,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/047.png",
+      "sha256": "11d2891fd2b5c9a90a0a06c1dd7e38b4e42c03da12f47ea22bc0d61d482439f3",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "blue-cyan"
+    },
+    {
+      "id": 48,
+      "label": "TS-048",
+      "primary_hex": "#B42900",
+      "primary_sample_xy": [
+        690,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/048.png",
+      "sha256": "c89836917bdd0fdd5d6a530dccc8026051d100a10960d25b3d01803b40a595c2",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
+    },
+    {
+      "id": 49,
+      "label": "TS-049",
+      "primary_hex": "#AB4000",
+      "primary_sample_xy": [
+        330,
+        464
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/049.png",
+      "sha256": "146b5c8ab215d277f518503390a2d18083bef35be14840b6239e38cde493aa90",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
+    },
+    {
+      "id": 50,
+      "label": "TS-050",
+      "primary_hex": "#303802",
+      "primary_sample_xy": [
+        638,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/050.png",
+      "sha256": "c55d9a7fdee909ce5876caa5f4ae47081941fc3327220d7d98668b73daa9ca6f",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "brown-ochre"
+    },
+    {
+      "id": 51,
+      "label": "TS-051",
+      "primary_hex": "#813B19",
+      "primary_sample_xy": [
+        759,
+        483
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/051.png",
+      "sha256": "31f9748ed8f5d243622fb19624a13956e9a7658df31fface3d6624db423fbfad",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
+    },
+    {
+      "id": 52,
+      "label": "TS-052",
+      "primary_hex": "#040201",
+      "primary_sample_xy": [
+        377,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/052.png",
+      "sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "neutral-ink"
+    },
+    {
+      "id": 53,
+      "label": "TS-053",
+      "primary_hex": "#833601",
+      "primary_sample_xy": [
+        632,
+        475
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/053.png",
+      "sha256": "bc25a4d97837c17ccbcf42928464c6963b3c751a1aa7cc146e357a7584e1c3d0",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
+    },
+    {
+      "id": 54,
+      "label": "TS-054",
+      "primary_hex": "#9A3928",
+      "primary_sample_xy": [
+        524,
+        480
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/054.png",
+      "sha256": "3e19dbc9ecb864a11cb9fea7c361c3c52028067df4ab2b5efbd5e71be8a5d607",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
       "id": 55,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#4C293F",
+      "label": "TS-055",
+      "primary_hex": "#9A6500",
       "primary_sample_xy": [
-        470,
-        320
+        554,
+        484
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/055.png",
+      "sha256": "fe9ad5079e970797bb2633983beb48d197578abde47e49747852feac27dff69d",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#FDADAE",
-          "role": "头发内部局部短亮线",
-          "sample_xy": [
-            205,
-            551
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "紫褐圆润外线统一长发、脸颈与衣领；内部只以少量弧线分束，发内和衣褶的粉色短亮线是可选装饰。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-055",
-      "reference_image": "assets/finished/055.png",
-      "sha256": "18f0d475b2703ee4648a688c257763ba9d8bb6f42dcb87bc429eb5540f88b81c",
-      "color_family": "magenta-plum"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 56,
-      "line_family": "fine-structured",
-      "primary_hex": "#8A133A",
+      "label": "TS-056",
+      "primary_hex": "#21047C",
       "primary_sample_xy": [
-        368,
-        326
+        389,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/056.png",
+      "sha256": "295e6ead5fb86dedd506cea71828732a714c9b7e3ee9e73a17cb04e4834c0b48",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "酒红主线统一脸颈、低马尾和外套轮廓，领口格纹使用显著更细的交叉线；肩带扣用圆形与小实心点。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-056",
-      "reference_image": "assets/finished/056.png",
-      "sha256": "14602ac96fae7381f1d57bb303dcc4ad456511381f25423b8e734e919f0548c3",
-      "color_family": "magenta-plum"
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
       "id": 57,
-      "line_family": "bold-graphic",
-      "primary_hex": "#B42900",
+      "label": "TS-057",
+      "primary_hex": "#6B3B13",
       "primary_sample_xy": [
-        410,
-        401
+        514,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/057.png",
+      "sha256": "eff6b07c6de96ba1caadb35d48f46083477d104badb52881e537311603877b37",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "焦橙粗圆头轮廓与实心眉眼，卷发用有限大弧，衣领与肩线用少量大折转；亮色耳环不影响主线色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-057",
-      "reference_image": "assets/finished/057.png",
-      "sha256": "c6e93a0072b853b2687239f1e66fa342f91024c64bc3634a7c021eaff7759ba8",
+      "confidence": "measured",
       "color_family": "red-coral"
     },
     {
       "id": 58,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#120732",
+      "label": "TS-058",
+      "primary_hex": "#670300",
       "primary_sample_xy": [
-        350,
-        380
+        516,
+        473
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/058.png",
+      "sha256": "e59856863cce04e11e8fbc201d2834ccdb9bb95b41d8ca09eda49dbdeb7fc5e2",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#FAA993",
-          "role": "发束内部暖粉弧形亮线",
-          "sample_xy": [
-            320,
-            110
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "深紫蓝线统一头发、面部和外套，领口折线与眉眼厚度协调；头发只在局部增加暖粉弧形亮线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-058",
-      "reference_image": "assets/finished/058.png",
-      "sha256": "23f867ef1ae3560381742a054d48b4dca16cf979d9649e0c0c14abce34252a79",
-      "color_family": "violet"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 59,
-      "line_family": "bold-graphic",
+      "label": "TS-059",
       "primary_hex": "#000000",
       "primary_sample_xy": [
-        523,
-        271
+        340,
+        488
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/059.png",
+      "sha256": "7f3da9a903758b993679827bb710a8096e2c7426d8de85c4bdba4395b2e70b80",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "粗黑轮廓与实心眉眼、唇形形成强图形感，长发内部仅少量延伸弧线；不同黑色像素属栅格细微变化，不能当多套主线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-059",
-      "reference_image": "assets/finished/059.png",
-      "sha256": "7eb12f63cf83e3705fa769fa2078b36a978719b83c5fd1d64f27f293ffe7eff3",
+      "confidence": "measured",
       "color_family": "neutral-ink"
     },
     {
       "id": 60,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#224D35",
+      "label": "TS-060",
+      "primary_hex": "#623025",
       "primary_sample_xy": [
-        599,
-        551
+        447,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/060.png",
+      "sha256": "393e4a7c6c2fba266147bb81208140c7c0c3171a7b1a06d9c956223b1c6f0f21",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "森林深绿轮廓、实心眉眼与短鼻口线统一；翻领和肩片用粗细两层同色线，亮黄带是局部强调。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-060",
-      "reference_image": "assets/finished/060.png",
-      "sha256": "3d04775207b3f649f429f6ed68c8535f11d452fb04ab4de178841096269f8d85",
-      "color_family": "green-teal"
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 61,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#BA1FB1",
+      "label": "TS-061",
+      "primary_hex": "#162CA5",
       "primary_sample_xy": [
-        478,
-        434
+        614,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/061.png",
+      "sha256": "d1fdba2800d25d8f51fad3de4b49a695a39b1f99714059a47d3b9aeaaa614d9e",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "深蓝 #12134A 是头发填面，洋红主线勾勒外缘与刘海走向；不能按最暗色选主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
-      "secondary_colors": [
-        {
-          "hex": "#FFFFFF",
-          "role": "细项链",
-          "sample_xy": [
-            289,
-            841
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "洋红主线贯穿脸、耳、衣领、刘海发缘与内部发流；深蓝头发为大片填色，不能据其更暗而误选轮廓色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-061",
-      "reference_image": "assets/finished/061.png",
-      "sha256": "2ce577319e5344e8f984b5d70eccca956a51e06c6841d98db551b62a734ff087",
-      "color_family": "magenta-plum"
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "blue-cyan"
     },
     {
       "id": 62,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#9A3928",
+      "label": "TS-062",
+      "primary_hex": "#673035",
       "primary_sample_xy": [
-        450,
-        380
+        540,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/062.png",
+      "sha256": "55fd3c98e94d7e47f8fccfe5262fad949c8909da3f7387989883270c73c0d45a",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "红棕主轮廓和眉眼鼻口统一，卷发外缘只保留几个鼓包和短钩；衬衫领口与肩线为少量折线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-062",
-      "reference_image": "assets/finished/062.png",
-      "sha256": "431c4e2445d3d0f202c5c00d4372e0c3e54523909d2b981e2cd66eb146fd0e4a",
-      "color_family": "red-coral"
+      "confidence": "measured",
+      "color_family": "magenta-plum"
     },
     {
       "id": 63,
-      "line_family": "bold-graphic",
-      "primary_hex": "#FF5CAD",
+      "label": "TS-063",
+      "primary_hex": "#252525",
       "primary_sample_xy": [
-        341,
-        430
+        553,
+        473
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/063.png",
+      "sha256": "eda2bfbf4539c26dd11f6d43b08b1988804b72fc323a9bf15764a64f98e46c19",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "亮粉粗轮廓与侧脸剪影、实心眉眼同色，发型以圆头块状波浪概括；翻领内部较深粉为折面，不另记主线色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-063",
-      "reference_image": "assets/finished/063.png",
-      "sha256": "cae91d36c1e0f636b4ec621fa420b4ec1ad56820a6809b9b69b984ef231873d8",
-      "color_family": "magenta-plum"
-    },
-    {
-      "id": 64,
-      "line_family": "fine-structured",
-      "primary_hex": "#C5466F",
-      "primary_sample_xy": [
-        450,
-        299
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [],
-      "technique_notes": "莓粉线组织短发、脸缘与脖颈，五官同色实心；高领与背带边界较细，细项链与吊坠不替代人物主线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-064",
-      "reference_image": "assets/finished/064.png",
-      "sha256": "6ad5f1f2be13baa0029557aa84c2034adcb0a7ce32b8f5f4f9b1309e9b22f533",
-      "color_family": "magenta-plum"
-    },
-    {
-      "id": 65,
-      "line_family": "bold-graphic",
-      "primary_hex": "#000000",
-      "primary_sample_xy": [
-        330,
-        358
-      ],
-      "primary_sample_interior_3x3": true,
-      "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
-      },
-      "secondary_colors": [
-        {
-          "hex": "#01FD82",
-          "role": "大衣衣片局部荧绿亮边",
-          "sample_xy": [
-            431,
-            738
-          ],
-          "sample_interior_3x3": true
-        }
-      ],
-      "technique_notes": "粗黑外轮廓与眉眼强对比，头发和大衣以少量粗弧/折线成形；荧绿亮边仅沿衣片局部，深绿领面属于填色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-065",
-      "reference_image": "assets/finished/065.png",
-      "sha256": "da9b5f97415673f2e7ce4b6b894a8dfc55bd6555b6ba6c94234db69b98ad7bd8",
+      "confidence": "measured",
       "color_family": "neutral-ink"
     },
     {
-      "id": 66,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#7E2918",
+      "id": 64,
+      "label": "TS-064",
+      "primary_hex": "#AF2110",
       "primary_sample_xy": [
-        482,
-        305
+        601,
+        510
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/064.png",
+      "sha256": "03a12fc5113fa68e8bead0105f271b18542ec40aa8b6e10d38eb45c7717ba994",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "暖深棕线统一长发、脸颈和肩臂，发型外缘大曲线、内部少量短弧；五官使用实心短眉眼与短嘴线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-066",
-      "reference_image": "assets/finished/066.png",
-      "sha256": "98f53c0168d9de3ae21b03a3448ca7942647f66b3a7c1337cba68cc28174cfc0",
+      "confidence": "measured",
       "color_family": "red-coral"
+    },
+    {
+      "id": 65,
+      "label": "TS-065",
+      "primary_hex": "#0C535A",
+      "primary_sample_xy": [
+        630,
+        458
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/065.png",
+      "sha256": "fd396ecc10dd2168bb80e634fd34201aff54444397c157e3d5fc13679f5fe359",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "green-teal"
+    },
+    {
+      "id": 66,
+      "label": "TS-066",
+      "primary_hex": "#5933A0",
+      "primary_sample_xy": [
+        568,
+        718
+      ],
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/066.png",
+      "sha256": "194de36efd14ee5f9c99c24024acfe131b9673824b76b3419c7ba7dc601cc7c4",
+      "role_notes": {
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
+      },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
+      "secondary_colors": [],
+      "confidence": "measured",
+      "color_family": "violet"
     },
     {
       "id": 67,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#C53B27",
+      "label": "TS-067",
+      "primary_hex": "#000000",
       "primary_sample_xy": [
-        363,
-        281
+        331,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/067.png",
+      "sha256": "20c7f676669ad4df6c06343c74fb79875f79441fa1fc8553a056e03fb911eedb",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "深红发块为填面；砖红 #C53B27 用于头发外缘及发流，原图局部更深红不是整张主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "砖红主轮廓与五官形成暖色同类色关系；短发内部少量方向弧，衣口和手部用简洁弧线；更深红发块或局部字形不是主线。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-067",
-      "reference_image": "assets/finished/067.png",
-      "sha256": "d8c1bc3ece7aae6cc9eb39307d8084c867cd59e0fe62715e2bf5c056a2a7975c",
-      "color_family": "red-coral"
+      "confidence": "measured",
+      "color_family": "neutral-ink"
     },
     {
       "id": 68,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#06082E",
+      "label": "TS-068",
+      "primary_hex": "#C53B27",
       "primary_sample_xy": [
-        400,
-        350
+        659,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/068.png",
+      "sha256": "7237b5c4716bb9793fbbf1a4e221b7fe07519adec14aa52c39832cf6ee3a8630",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "近黑靛蓝主线统一头发、面部和夹克，发束只留少量方向弧；条纹内搭保留宽带节奏，衣服结构线较少。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-068",
-      "reference_image": "assets/finished/068.png",
-      "sha256": "2eb7222b1f3a19367e39cb3791be0b950a731371869c3efe2b302df9c510c978",
-      "color_family": "blue-cyan"
+      "confidence": "measured",
+      "color_family": "red-coral"
     },
     {
       "id": 69,
-      "line_family": "rounded-monoline",
-      "primary_hex": "#191936",
+      "label": "TS-069",
+      "primary_hex": "#C64DC6",
       "primary_sample_xy": [
-        387,
-        361
+        582,
+        480
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/069.png",
+      "sha256": "dcf69e47f8224122f8c3c7a5cbbfce3b29e1a959d14703ff0638caf930800fed",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "深靛灰主线统一头发、脸缘、手和西装，发际线与发流有意断笔；领结用色块加少量折线，眉眼和主线同色。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-069",
-      "reference_image": "assets/finished/069.png",
-      "sha256": "a8adbbc7d573ec071ad4156b40f095f408e3aeeccc29505a83c8e3ae9a538831",
-      "color_family": "blue-cyan"
+      "confidence": "measured",
+      "color_family": "violet"
     },
     {
       "id": 70,
-      "line_family": "bold-graphic",
-      "primary_hex": "#21047C",
+      "label": "TS-070",
+      "primary_hex": "#192038",
       "primary_sample_xy": [
-        393,
-        427
+        601,
+        489
       ],
-      "primary_sample_interior_3x3": true,
+      "line_family": "rounded-monoline",
+      "reference_image": "assets/templates/070.png",
+      "sha256": "71ae1b51a495e30c3167fee731368dda4c8b3b0e5894c7c37a3c0cc9439dedad",
       "role_notes": {
-        "contour": "以主线色形成清楚的脸、颈肩、发型与衣饰大轮廓；断线服从实际遮挡。",
-        "face": "主线色用于眉眼、短鼻口线；参考中的眼白或高光不进入新图统一实心眼规则。",
-        "hair": "主轮廓与必要发流线使用主线色，合并小发束；发色填面不当作主线。",
-        "clothing": "主结构线沿衣领、肩线与折叠；密纹仅作为参考观察，默认新头像减少细节。"
+        "contour": "连续平顺外轮廓，遮挡边界有序连接。",
+        "face": "眉眼及鼻口用同色清楚符号，表情服从人物照片。",
+        "hair": "完整发型剪影优先；当前减线预算优先于成品内部细节。",
+        "clothing": "领口、衣片、袖口和必要折线用疏线区分，不画大片阴影块。"
       },
+      "technique_notes": "从当前模板提取统一线色；照片决定人物、衣服和动作。",
       "secondary_colors": [],
-      "technique_notes": "深紫粗圆头轮廓统一齐肩发、五官和扣口，发丝合并成大束；纽扣、耳环与衣口用同色环线和短弧。",
-      "confidence": "high",
-      "evidence_basis": "已实际查看原图缩略/放大研究图，角色由空间观察确定；HEX取自未缩放PNG内精确像素，坐标原图左上角起算。",
-      "label": "HD-070",
-      "reference_image": "assets/finished/070.png",
-      "sha256": "a66e641fa2abeb8274a00262fdf869acefddcb5e4f5a8a2e1367329f99f63eca",
+      "confidence": "measured",
       "color_family": "blue-cyan"
-    }
-  ],
-  "unique_core_color_count": 63,
-  "color_family_basis": "按采样HEX的HSV色相区间归纳，低饱和或极暗色另归中性墨色；是检索分类，不是作者标签或额外设计色。",
-  "color_family_counts": {
-    "violet": 5,
-    "neutral-ink": 12,
-    "red-coral": 17,
-    "blue-cyan": 12,
-    "brown-ochre": 2,
-    "magenta-plum": 13,
-    "green-teal": 7,
-    "yellow-olive": 1
-  },
-  "color_families": [
-    {
-      "id": "neutral-ink",
-      "name": "中性墨色",
-      "reference_ids": [
-        3,
-        8,
-        9,
-        11,
-        13,
-        28,
-        29,
-        31,
-        38,
-        42,
-        59,
-        65
-      ],
-      "hex_values": [
-        "#000000",
-        "#040201",
-        "#040202",
-        "#181818",
-        "#252525",
-        "#333333"
-      ]
-    },
-    {
-      "id": "red-coral",
-      "name": "红与珊瑚",
-      "reference_ids": [
-        4,
-        6,
-        14,
-        15,
-        16,
-        22,
-        30,
-        37,
-        39,
-        40,
-        41,
-        47,
-        54,
-        57,
-        62,
-        66,
-        67
-      ],
-      "hex_values": [
-        "#33201C",
-        "#623025",
-        "#670300",
-        "#673035",
-        "#7E2918",
-        "#7E421E",
-        "#813B19",
-        "#833601",
-        "#9A3928",
-        "#9B280C",
-        "#9E4A37",
-        "#AB4000",
-        "#AF2110",
-        "#B42900",
-        "#C53B27",
-        "#F04E31",
-        "#FF5172"
-      ]
-    },
-    {
-      "id": "brown-ochre",
-      "name": "棕褐与赭黄",
-      "reference_ids": [
-        7,
-        50
-      ],
-      "hex_values": [
-        "#6B3B13",
-        "#9A6500"
-      ]
-    },
-    {
-      "id": "yellow-olive",
-      "name": "黄绿与橄榄",
-      "reference_ids": [
-        27
-      ],
-      "hex_values": [
-        "#303802"
-      ]
-    },
-    {
-      "id": "green-teal",
-      "name": "绿与青绿",
-      "reference_ids": [
-        20,
-        23,
-        25,
-        43,
-        45,
-        52,
-        60
-      ],
-      "hex_values": [
-        "#004D2D",
-        "#005E4A",
-        "#00817A",
-        "#083224",
-        "#0A654B",
-        "#224D35",
-        "#40AC58"
-      ]
-    },
-    {
-      "id": "blue-cyan",
-      "name": "蓝与青蓝",
-      "reference_ids": [
-        5,
-        10,
-        17,
-        18,
-        19,
-        26,
-        33,
-        35,
-        36,
-        68,
-        69,
-        70
-      ],
-      "hex_values": [
-        "#06082E",
-        "#092356",
-        "#0B3553",
-        "#0C535A",
-        "#152259",
-        "#161958",
-        "#162CA5",
-        "#181C2C",
-        "#191936",
-        "#1A2868",
-        "#21047C",
-        "#262662"
-      ]
-    },
-    {
-      "id": "violet",
-      "name": "紫色",
-      "reference_ids": [
-        1,
-        2,
-        48,
-        49,
-        58
-      ],
-      "hex_values": [
-        "#120732",
-        "#2F2155",
-        "#350F91",
-        "#4A0955",
-        "#5934A1"
-      ]
-    },
-    {
-      "id": "magenta-plum",
-      "name": "洋红与紫梅",
-      "reference_ids": [
-        12,
-        21,
-        24,
-        32,
-        34,
-        44,
-        46,
-        53,
-        55,
-        56,
-        61,
-        63,
-        64
-      ],
-      "hex_values": [
-        "#351926",
-        "#4C293F",
-        "#5B0320",
-        "#715A6F",
-        "#8A133A",
-        "#913586",
-        "#B40C37",
-        "#BA1FB1",
-        "#BF009F",
-        "#C5466F",
-        "#C64DC6",
-        "#F1497E",
-        "#FF5CAD"
-      ]
     }
   ]
 }

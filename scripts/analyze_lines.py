@@ -26,21 +26,21 @@ def font(size):
 def verify(library):
     """Pixel/hash verification does not replace the curator's visual role judgment."""
     rows, seen = [], set()
-    expected = set(range(1, 71)) - {51}
+    expected = set(range(1, 71))
     family_ids = {entry['id'] for entry in library['families']}
     for item in library['portraits']:
         ident = item['id']
         if ident in seen or ident not in expected:
-            raise ValueError(f'Duplicate or unexpected HD id: {ident}')
+            raise ValueError(f'Duplicate or unexpected TS id: {ident}')
         seen.add(ident)
         if item['line_family'] not in family_ids:
-            raise ValueError(f'Unknown family at HD-{ident:03d}')
+            raise ValueError(f'Unknown family at TS-{ident:03d}')
         source = (SKILL / item['reference_image']).resolve()
         if SKILL.resolve() not in source.parents:
             raise ValueError('Reference path must remain within the skill')
         digest = hashlib.sha256(source.read_bytes()).hexdigest()
         if digest != item['sha256']:
-            raise ValueError(f'Source hash mismatch at HD-{ident:03d}')
+            raise ValueError(f'Source hash mismatch at TS-{ident:03d}')
         with Image.open(source) as opened:
             rgba = opened.convert('RGBA')
             counts = Counter(rgba.getdata())
@@ -50,13 +50,13 @@ def verify(library):
             report = []
             for role, value, point in samples:
                 if len(point) != 2 or any(type(v) is not int for v in point):
-                    raise ValueError(f'Invalid sampling coordinates at HD-{ident:03d}')
+                    raise ValueError(f'Invalid sampling coordinates at TS-{ident:03d}')
                 x, y = point
                 if not (0 <= x < rgba.width and 0 <= y < rgba.height):
-                    raise ValueError(f'Sample outside source at HD-{ident:03d}')
+                    raise ValueError(f'Sample outside source at TS-{ident:03d}')
                 pixel = rgba.getpixel((x, y))
                 if pixel[3] != 255 or as_hex(pixel) != value.upper():
-                    raise ValueError(f'RGB/alpha mismatch at HD-{ident:03d} {role}: {point}')
+                    raise ValueError(f'RGB/alpha mismatch at TS-{ident:03d} {role}: {point}')
                 # A 3x3 core check helps flag isolated antialias pixels. It is
                 # reported as evidence, never as proof of semantic line roles.
                 patch = rgba.crop((max(0, x-1), max(0, y-1), min(rgba.width, x+2), min(rgba.height, y+2)))
@@ -68,7 +68,7 @@ def verify(library):
                                'core_3x3_total': patch.width * patch.height})
             rows.append({'id': ident, 'source_sha256': digest, 'samples': report})
     if seen != expected or library.get('count') != len(seen):
-        raise ValueError('Library must cover all 69 references, retaining missing HD-051')
+        raise ValueError('Library must cover all 70 current templates')
     for family in library['families']:
         members = sorted(item['id'] for item in library['portraits']
                          if item['line_family'] == family['id'])
@@ -83,13 +83,13 @@ def draw_colours(library, target):
     columns, cw, ch, heading = 6, 220, 104, 64
     canvas = Image.new('RGB', (columns*cw, heading + ((len(items)+columns-1)//columns)*ch), '#FAF9F6')
     draw = ImageDraw.Draw(canvas)
-    draw.text((18, 12), '69 reference portraits | sampled core line colours', font=font(25), fill='#262626')
+    draw.text((18, 12), '70 template portraits | sampled core line colours', font=font(25), fill='#262626')
     draw.text((18, 42), 'Exact raster RGB; original brush/source swatches are not available.', font=font(14), fill='#555555')
     for index, item in enumerate(items):
         x, y = (index % columns)*cw, heading + (index // columns)*ch
         draw.rounded_rectangle((x+12, y+6, x+cw-12, y+ch-6), radius=8, fill='white', outline='#DDDAD4')
         draw.line((x+24, y+29, x+cw-24, y+29), fill=item['primary_hex'], width=12)
-        draw.text((x+24, y+46), f'HD-{item["id"]:03d}  {item["primary_hex"]}', font=font(18), fill='#222222')
+        draw.text((x+24, y+46), f'TS-{item["id"]:03d}  {item["primary_hex"]}', font=font(18), fill='#222222')
         draw.text((x+24, y+73), item.get('color_family', 'curated')[:25], font=font(12), fill='#555555')
     canvas.save(target, optimize=True)
 
@@ -107,7 +107,7 @@ def draw_atlases(library, target):
             with Image.open(SKILL/item['reference_image']) as opened:
                 thumb = ImageOps.contain(opened.convert('RGB'), (204, 204))
                 canvas.paste(thumb, (x+8, y+2))
-            draw.text((x+8, y+213), f'HD-{item["id"]:03d}  {item["primary_hex"]}', font=font(17), fill='#222222')
+            draw.text((x+8, y+213), f'TS-{item["id"]:03d}  {item["primary_hex"]}', font=font(17), fill='#222222')
             draw.line((x+10, y+246, x+206, y+246), fill=item['primary_hex'], width=8)
             draw.text((x+8, y+260), item['line_family'], font=font(13), fill='#444444')
             draw.text((x+8, y+279), f'core pixel {tuple(item["primary_sample_xy"])}', font=font(12), fill='#555555')
@@ -127,7 +127,7 @@ def markdown_index(library):
     for item in library['portraits']:
         secondary = '；'.join(entry['hex']+' '+entry['role'] for entry in item.get('secondary_colors', [])) or '无另记辅助线色'
         note = item['technique_notes'].replace('|', '／').replace('\n', ' ')
-        lines.append(f'| HD-{item["id"]:03d} | `{item["primary_hex"]}` | {family_names[item["line_family"]]} | {tuple(item["primary_sample_xy"])} | {secondary} | {note} |')
+        lines.append(f'| TS-{item["id"]:03d} | `{item["primary_hex"]}` | {family_names[item["line_family"]]} | {tuple(item["primary_sample_xy"])} | {secondary} | {note} |')
     return '\n'.join(lines)+'\n'
 
 

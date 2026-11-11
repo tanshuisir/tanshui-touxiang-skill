@@ -23,6 +23,8 @@ import run_avatar
 
 class OpaqueBackgroundTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-opaque-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name).resolve()
@@ -164,7 +166,7 @@ class OpaqueBackgroundTests(unittest.TestCase):
             directory = Path(argv[argv.index('--out-dir')+1])
             directory.mkdir()
             destination = directory/'image-01.png'
-            encoded_fixture(destination, transparent_background=True)
+            encoded_fixture(destination, transparent_background=True, garments=True)
             originals['bytes'] = destination.read_bytes()
             payload = {'status': 'completed', 'files': [{'original': str(destination), 'format': 'png'}]}
             (directory/'result.json').write_text(json.dumps(payload), encoding='utf-8')

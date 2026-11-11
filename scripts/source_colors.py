@@ -32,7 +32,7 @@ def is_white_background(color):
 
 
 def is_allowed_background(color):
-    """Check tone policy; callers separately require source-library membership."""
+    """Historical independent planner only; complete 70-palette selection ignores tone."""
     return (background_brightness(color) >= MIN_BACKGROUND_BRIGHTNESS
             and not is_white_background(color))
 
@@ -86,10 +86,8 @@ def background_request(brief, roles):
 
 
 def background_source(color, preferred=None):
-    if not is_allowed_background(color):
-        raise ValueError('背景禁止白色、近白或深色，须从库内明亮非白背景重新选择')
     matches = [item for item in background_templates() if item['hex'] == color]
     selected = next((item for item in matches if item['id'] == preferred), matches[0] if matches else None)
     if selected is None:
-        raise ValueError('背景颜色不在原作背景库，停止，不使用自创回退色')
+        raise ValueError('背景颜色不在模板背景库，停止，不使用自创回退色')
     return {'template_id': selected['id'], 'source_hd_id': selected['source_hd_id'], 'hex': selected['hex']}

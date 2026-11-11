@@ -14,24 +14,22 @@ import source_colors
 
 class BackgroundPlanTests(unittest.TestCase):
     def setUp(self):
-        self.palettes = json.loads((SKILL / 'references/artistic-palettes.json').read_text())['palettes']
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
+        self.palettes = json.loads((SKILL / 'references/source-colorways.json').read_text())['colorways']
         self.background_colors = {item['hex'] for item in source_colors.background_templates()}
 
-    def test_all_eight_palettes_have_traceable_separated_background_plans(self):
-        self.assertEqual(len(self.palettes), 8)
+    def test_current_palette_planner_never_adds_outside_library_backgrounds(self):
+        self.assertEqual(len(self.palettes), 70)
         for palette in self.palettes:
             with self.subTest(palette=palette['id']):
-                roles, gradient = deepcopy(palette['color_roles']), deepcopy(palette['gradient'])
+                roles, gradient = deepcopy(palette['roles']), deepcopy(palette['gradient'])
                 before = deepcopy((roles, gradient))
-                subject_gradient = gradient if gradient['region'] in ('hair', 'clothing') else None
-                result = background_plan.plan_background(roles, subject_gradient)
-                self.assertRegex(result['color'], r'^#[0-9A-F]{6}$')
-                self.assertEqual((roles, gradient), before)
-                self.assertTrue(result['meets_plan'], result)
-                self.assertIsNone(result['original_color'])
+                result = background_plan.plan_background(roles, gradient)
                 self.assertIn(result['color'], self.background_colors)
+                self.assertEqual((roles, gradient), before)
                 self.assertIn('完全不透明', result['instructions'])
-                self.assertEqual(result['gradient'], subject_gradient)
+                self.assertEqual(result['gradient'], gradient)
 
     def test_purple_hair_and_clothes_with_white_skin_get_a_distinct_background(self):
         roles = {'background': '#7B61FE', 'hair': '#4706F3', 'clothing': '#7B61FE',
@@ -52,12 +50,13 @@ class BackgroundPlanTests(unittest.TestCase):
         self.assertEqual(result['gradient']['from'], '#663399')
 
     def test_suitable_existing_background_and_subject_gradient_are_preserved(self):
-        roles = {'background': '#A1E5D2', 'hair': '#000000', 'clothing': '#000000'}
+        color=next(x['hex'] for x in source_colors.background_templates()
+                   if source_colors.is_allowed_background(x['hex']) and min(bytes.fromhex(x['hex'][1:]))>30)
+        roles = {'background': color, 'hair': '#000000', 'clothing': '#000000'}
         gradient = {'region': 'hair', 'from': '#000000', 'to': '#222222'}
-        self.assertIn(roles['background'], self.background_colors)
         result = background_plan.plan_background(roles, gradient)
         self.assertFalse(result['adjusted'])
-        self.assertEqual(result['color'], roles['background'])
+        self.assertEqual(result['color'], color)
         self.assertEqual(result['gradient'], gradient)
 
     def test_outside_background_cannot_survive_even_if_it_has_good_contrast(self):
@@ -80,16 +79,16 @@ class BackgroundPlanTests(unittest.TestCase):
         self.assertEqual(result['color'], '#FFCEDA')
         self.assertFalse(result['meets_plan'])
 
-    def test_saved_dark_source_background_is_migrated_even_when_contrast_is_good(self):
-        for dark in ('#292945', '#281D48', '#034C33', '#4E3440', '#0732F7'):
+    def test_independent_planner_changes_dark_backgrounds_using_only_current_sources(self):
+        darks=[x['hex'] for x in source_colors.background_templates()
+               if source_colors.background_brightness(x['hex'])<150]
+        for dark in darks:
             with self.subTest(background=dark):
-                self.assertIn(dark, self.background_colors)
-                result = background_plan.plan_background(
-                    {'background': dark, 'hair': '#FFFFFF', 'clothing': '#FFE4A6'}, None)
+                result=background_plan.plan_background(
+                    {'background':dark,'hair':'#FFFFFF','clothing':'#FFE4A6'},None)
                 self.assertTrue(result['adjusted'])
-                self.assertNotEqual(result['color'], dark)
-                self.assertIn(result['color'], self.background_colors)
-                self.assertGreaterEqual(result['tone_policy']['selected_brightness'], 150)
+                self.assertIn(result['color'],self.background_colors)
+                self.assertGreaterEqual(result['tone_policy']['selected_brightness'],150)
 
     def test_no_foreground_still_chooses_only_bright_source_backgrounds(self):
         light = {'id': 'light-source', 'hex': '#A1E5D2'}
@@ -121,19 +120,20 @@ class BackgroundPlanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             background_plan.plan_background(roles, gradient)
 
-    def test_even_previously_suitable_palette_background_gradient_is_rejected(self):
-        palette = next(item for item in self.palettes if item['id'] == 'sky-lemon')
+    def test_palette_background_gradient_is_rejected(self):
+        palette = self.palettes[0]
+        gradient = {'region':'background','from':palette['roles']['background'],'to':'#FFFFFF'}
         with self.assertRaises(ValueError):
-            background_plan.plan_background(palette['color_roles'], palette['gradient'])
+            background_plan.plan_background(palette['roles'], gradient)
 
     def test_frozen_palette_keeps_background_and_gradient_across_stages(self):
         for palette in self.palettes:
             for natural in (False, True):
                 with self.subTest(palette=palette['id'], natural=natural):
-                    roles = deepcopy(palette['color_roles'])
+                    roles = deepcopy(palette['roles'])
                     if natural:
                         roles.pop('hair', None)
-                    gradient = palette['gradient'] if palette['gradient']['region'] in ('hair', 'clothing') else None
+                    gradient = palette['gradient'] if palette['gradient'] and palette['gradient']['region'] in ('hair', 'clothing') else None
                     first = background_plan.plan_background(roles, gradient)
                     roles['background'] = first['color']
                     second = background_plan.plan_background(roles, first['gradient'])

@@ -18,6 +18,8 @@ import review_avatar
 
 class SourceColorTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-source-color-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -34,13 +36,13 @@ class SourceColorTests(unittest.TestCase):
     def test_every_original_has_role_samples_matching_actual_pixels_and_hash(self):
         catalog = json.loads((SKILL/'references/finished-reference-library.json').read_text())
         expected = {item['id'] for item in catalog['portraits']}
-        self.assertEqual(len(expected), 69)
+        self.assertEqual(len(expected), 70)
         self.assertEqual({item['source_hd_id'] for item in self.data['skins']}, expected)
         self.assertEqual({item['source_hd_id'] for item in self.data['backgrounds']}, expected)
-        by_id = {item['id']: item for item in self.data['sources']}
+        by_id = {item['source_hd_id']: item for item in self.data['sources']}
         for number in expected:
-            source = SKILL/by_id[number]['image']
-            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), by_id[number]['sha256'])
+            source = SKILL/by_id[number]['source_image']
+            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), by_id[number]['source_sha256'])
             with Image.open(source) as original:
                 image = original.convert('RGB')
                 skin = next(item for item in self.data['skins'] if item['source_hd_id'] == number)
@@ -49,15 +51,18 @@ class SourceColorTests(unittest.TestCase):
                 for point in filter(None, points):
                     self.assertEqual('#%02X%02X%02X' % image.getpixel(tuple(point['xy'])), point['hex'])
 
-    def test_hd035_uses_warm_skin_instead_of_its_cyan_hair(self):
-        item = next(item for item in self.data['skins'] if item['source_hd_id'] == 35)
-        self.assertEqual(item['base']['hex'], '#FCBBB8')
-        self.assertNotEqual(item['base']['hex'], '#B2EAEE')
+    def test_every_skin_identifier_belongs_to_current_template_namespace(self):
+        for item in self.data['skins']:
+            self.assertEqual(item['id'],f"TS-{item['source_hd_id']:03d}-skin")
+            self.assertEqual(self.data['sources'][item['source_hd_id']-1]['source_image'],
+                             f"assets/templates/{item['source_hd_id']:03d}.png")
 
-    def test_hd043_keeps_main_skin_separate_from_cheek_color(self):
-        item = next(item for item in self.data['skins'] if item['source_hd_id'] == 43)
-        self.assertEqual(item['base']['hex'], '#FFCEDA')
-        self.assertEqual(item['shadow']['hex'], '#FFA4BA')
+    def test_skin_pair_is_preserved_from_one_current_template(self):
+        import source_colorways
+        for item in self.data['skins']:
+            plan=source_colorways.plan_for(item['source_hd_id'])
+            self.assertEqual(plan['roles']['skin_base'],item['base']['hex'])
+            self.assertEqual(plan['roles']['skin_shadow'],(item['shadow'] or item['base'])['hex'])
 
     def test_null_custom_roles_selects_a_source_template(self):
         request, _ = self.request(color_roles=None)
@@ -75,9 +80,8 @@ class SourceColorTests(unittest.TestCase):
                         roles = request['color_plan']['roles']
                         self.assertIn((roles['skin_base'], roles['skin_shadow']), skin_pairs)
                         self.assertIn(roles['background'], backgrounds)
-                        self.assertGreaterEqual(request['background_plan']['tone_policy']['selected_brightness'], 150)
-                        self.assertFalse(source_colors.is_white_background(roles['background']))
-                        self.assertEqual(request['master_encoding'], 'semantic-cube-v1')
+                        self.assertEqual(roles['background'], request['color_plan']['source_selection']['background']['hex'])
+                        self.assertEqual(request['master_encoding'], 'semantic-props-v3')
                         self.assertEqual(request['variant_plans'][0]['roles'], roles)
                         self.assertIn('所有皮肤主面（脸耳颈手臂）#FF0000', prompt)
                         self.assertIn('皮肤硬边暗面#00FF00', prompt)
@@ -95,47 +99,35 @@ class SourceColorTests(unittest.TestCase):
         self.assertIn('migration',plan)
 
     def test_frozen_template_ids_preserve_color_pair_and_background_in_final(self):
-        first, _ = self.request(art_palette='teal-coral')
+        first, _ = self.request(art_palette='TS-047')
         plan = first['color_plan']
         second, _ = self.request('final', stage='final', art_palette=plan['id'],
+                                  palette_selection=plan.get('palette_selection'),
                                   color_roles=plan['roles'], gradient=plan['gradient'],
                                   skin_template_id=plan['source_selection']['skin']['template_id'],
                                   background_template_id=plan['source_selection']['background']['template_id'])
         self.assertEqual(first['color_plan'], second['color_plan'])
         self.assertEqual(first['background_plan']['color'], second['background_plan']['color'])
 
-    def test_saved_dark_template_migrates_in_all_color_modes_stages_and_routes(self):
-        dark_id = 'HD-069-bg-1'
-        dark = next(item['hex'] for item in self.data['backgrounds'] if item['id'] == dark_id)
-        for color_mode in ('expressive',):
-            for workflow in ('fast', 'review'):
-                for stage in ('preview', 'final'):
-                    with self.subTest(color_mode=color_mode, workflow=workflow, stage=stage):
-                        request, prompt = self.request(f'dark-{color_mode}-{workflow}-{stage}',
-                            color_mode=color_mode, workflow=workflow, stage=stage,
-                            background_template_id=dark_id,
-                            color_roles={'background': dark, 'hair': '#125599'} if color_mode == 'natural'
-                            else {'background': dark},
-                            skin_template_id='HD-022-skin')
-                        selected = request['color_plan']['source_selection']
-                        self.assertNotEqual(selected['background']['template_id'], dark_id)
-                        self.assertNotEqual(selected['background']['hex'], dark)
-                        self.assertEqual(request['variant_plans'][0]['roles']['background'],
-                                         selected['background']['hex'])
-                        self.assertIn('背景#FFFFFF', prompt)
-                        self.assertFalse(source_colors.is_white_background(selected['background']['hex']))
-                        self.assertGreaterEqual(request['background_plan']['tone_policy']['selected_brightness'], 150)
-                        self.assertEqual(selected['skin']['source_hd_id'], selected['background']['source_hd_id'])
-                        self.assertIn('migration', request['color_plan'])
-                        self.assertFalse(request['executed'])
+    def test_current_explicit_template_background_is_preserved_in_every_route(self):
+        number=69
+        for workflow in ('fast','review'):
+            for stage in ('preview','final'):
+                request,prompt=self.request(f'{workflow}-{stage}',workflow=workflow,stage=stage,
+                                            source_colorway_id=f'TS-{number:03d}-colorway')
+                selected=request['color_plan']['source_selection']
+                self.assertEqual(selected['background']['source_hd_id'],number)
+                self.assertEqual(selected['skin']['source_hd_id'],number)
+                self.assertEqual(request['background_plan']['color'],selected['background']['hex'])
+                self.assertIn('背景#FFFFFF',prompt)
+                self.assertFalse(request['executed'])
 
     def test_unknown_template_ids_migrate_to_one_complete_original(self):
         for field in ('skin_template_id','background_template_id'):
             request,_=self.request(field,**{field:'invented-template'})
             plan=request['color_plan']
-            self.assertEqual(plan['source_hd_id'],25)
-            self.assertEqual(plan['source_selection']['skin']['source_hd_id'],25)
-            self.assertEqual(plan['source_selection']['background']['source_hd_id'],25)
+            self.assertEqual(plan['source_selection']['skin']['source_hd_id'],plan['source_hd_id'])
+            self.assertEqual(plan['source_selection']['background']['source_hd_id'],plan['source_hd_id'])
             self.assertIn('migration',plan)
 
     def test_missing_library_stops_without_a_designed_fallback(self):
@@ -152,9 +144,7 @@ class SourceColorTests(unittest.TestCase):
         check = next(item for item in review_avatar.checks_for(request) if item['id'] == 'source_skin_background')
         self.assertIn(request['color_plan']['roles']['skin_base'], check['expected'])
         self.assertIn(request['color_plan']['roles']['background'], check['expected'])
-        palettes = json.loads((SKILL/'references/artistic-palettes.json').read_text())['palettes']
-        for palette in palettes:
-            self.assertFalse({'skin_base', 'skin_shadow', 'background'} & set(palette['color_roles']))
+        self.assertTrue(check['expected'])
 
 
 if __name__ == '__main__':

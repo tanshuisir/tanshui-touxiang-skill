@@ -10,5 +10,6 @@ outputs/
 output/
 tmp/
 *.log
+*.sqlite3
 auth.json
 credentials.json

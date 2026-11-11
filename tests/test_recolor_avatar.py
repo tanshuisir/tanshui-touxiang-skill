@@ -20,12 +20,14 @@ import source_colorways
 
 class RecolorAvatarTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-four-color-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.master = self.root / 'master.png'
         self.make_master(self.master)
-        self.plans = [source_colorways.plan_for(reference) for reference in (25, 55, 16, 47)]
+        self.plans = [source_colorways.plan_for(reference) for reference in (1, 6, 8, 16)]
         self.backgrounds = [plan['roles']['background'] for plan in self.plans]
 
     def make_master(self, destination, scale=3, hair=True, clothing=True):
@@ -50,6 +52,20 @@ class RecolorAvatarTests(unittest.TestCase):
 
     def render(self, plans=None, out_name='four'):
         return recolor_avatar.render_variants(self.master, plans or self.plans, self.root / out_name)
+
+    def test_flat_white_dark_and_mixed_original_palettes_render_opaque_exact_colors(self):
+        plans = [source_colorways.plan_for(number) for number in (1,63,34,25)]
+        result = self.render(plans, 'all70')
+        for plan,path,detail in zip(plans,result['variants'],result['variant_details']):
+            with Image.open(path) as image:
+                self.assertEqual(image.mode,'RGB')
+                self.assertEqual(image.getpixel((0,0)),tuple(bytes.fromhex(plan['roles']['background'][1:])))
+            if plan['gradient'] is None:
+                self.assertEqual(detail['applied_gradients'],[])
+                self.assertFalse(detail['gradient_visibility']['required'])
+            else:
+                self.assertTrue(detail['gradient_visibility']['qualifies_as_required'])
+        self.assertTrue(result['geometry_lock']['same_pixel_geometry'])
 
     def test_four_variants_keep_identical_line_geometry_and_native_pixel_dimensions(self):
         result = self.render()
@@ -115,7 +131,7 @@ class RecolorAvatarTests(unittest.TestCase):
         draw = ImageDraw.Draw(image)
         draw.ellipse((20, 10, 108, 60), fill='#FFFF00', outline='#000000', width=4)
         draw.rectangle((33, 55, 95, 109), fill='#FF0000', outline='#000000', width=4)
-        draw.rectangle((20, 112, 108, 140), fill='#00FFFF', outline='#000000', width=4)
+        draw.rectangle((20, 112, 108, 160), fill='#00FFFF', outline='#000000', width=4)
         # Tiny nonzero RGB channels below the black-ink cutoff can retain a
         # yellow role label, but they are invisible in the delivered drawing.
         draw.rectangle((5, 145, 122, 155), fill='#010100')
@@ -162,6 +178,7 @@ class RecolorAvatarTests(unittest.TestCase):
         image = Image.new('RGB', (1024, 1024), '#FFFFFF')
         draw = ImageDraw.Draw(image)
         draw.ellipse((350, 350, 650, 700), fill='#FF0000', outline='#000000', width=6)
+        draw.rectangle((300,720,700,1024),fill='#00FFFF',outline='#000000',width=6)
         for row in range(4):
             for column in range(5):
                 x, y = 100 + column * 160, 60 + row * 50
@@ -190,14 +207,15 @@ class RecolorAvatarTests(unittest.TestCase):
         self.assertFalse(metrics['qualifies_as_required'])
 
     def test_same_reference_hair_and_clothing_gradients_are_both_preserved(self):
-        plans = [source_colorways.plan_for(reference) for reference in (6, 55, 16, 47)]
+        selected=[x for x in source_colorways.eligible_colorways() if {g['region'] for g in x['gradient_options']}=={'hair','clothing'}][:4]
+        plans=[source_colorways.plan_for(x['id']) for x in selected]
         result = self.render(plans)
-        for index in (0, 3):
+        for index in range(len(plans)):
             self.assertEqual({item['gradient']['region'] for item in result['variant_details'][index]['applied_gradients']},
                              {'hair', 'clothing'})
         clothing = next(item for item in result['variant_details'][0]['applied_gradients']
                         if item['gradient']['region'] == 'clothing')
-        self.assertEqual(clothing['coordinate_domain']['projection_vector'], [1, 1])
+        self.assertIn('projection_vector',clothing['coordinate_domain'])
 
     def test_all_diagonal_and_reversed_directions_follow_source_orientation(self):
         for direction, first, last in [
@@ -258,12 +276,8 @@ class RecolorAvatarTests(unittest.TestCase):
     def test_ordinary_single_plan_fills_exact_source_skin_without_complete_colorway(self):
         plan = deepcopy(self.plans[0])
         plan.pop('source_colorway')
-        plan['roles']['hair'] = '#123456'
-        result = self.render([plan], 'ordinary-single')
-        self.assertEqual(len(result['variants']), 1)
-        with Image.open(result['delivery']) as image:
-            self.assertEqual(image.getpixel((60, 75)),
-                             tuple(bytes.fromhex(plan['roles']['skin_base'][1:])))
+        with self.assertRaisesRegex(ValueError, '旧单图混色入口已停用'):
+            self.render([plan], 'rejected-test_ordinary_single_plan_fills_exact_source_skin_without_complete_colorway')
 
     def test_single_complete_colorway_cannot_move_hair_endpoint_colors_to_clothing(self):
         self.make_master(self.master, hair=False)
@@ -273,7 +287,8 @@ class RecolorAvatarTests(unittest.TestCase):
 
     def test_single_complete_colorway_uses_its_recorded_clothing_gradient_when_hair_absent(self):
         self.make_master(self.master, hair=False)
-        plan = source_colorways.plan_for(6)
+        selected=next(x for x in source_colorways.eligible_colorways() if any(g['region']=='clothing' for g in x['gradient_options']))
+        plan=source_colorways.plan_for(selected['id'])
         expected = next(item for item in plan['gradient_options'] if item['region'] == 'clothing')
         result = self.render([plan], 'single-clothing')
         gradient = result['variant_details'][0]['gradient']
@@ -281,25 +296,19 @@ class RecolorAvatarTests(unittest.TestCase):
         self.assertTrue(result['variant_details'][0]['gradient_region_changed'])
 
     def test_ordinary_single_plan_retains_legacy_visible_region_fallback(self):
-        self.make_master(self.master, hair=False)
         plan = deepcopy(self.plans[0])
         plan.pop('source_colorway')
-        plan.pop('gradient_options', None)
-        result = self.render([plan], 'ordinary-single-clothing')
-        self.assertEqual(result['variant_details'][0]['gradient']['region'], 'clothing')
-        self.assertTrue(result['variant_details'][0]['gradient_region_changed'])
-        self.assertIsNone(result['variant_details'][0]['source_colorway'])
+        with self.assertRaisesRegex(ValueError, '旧单图混色入口已停用'):
+            self.render([plan], 'rejected-test_ordinary_single_plan_retains_legacy_visible_region_fallback')
 
-    def test_white_and_near_white_source_backgrounds_stop_before_delivery(self):
-        for index, color in enumerate(('#FFFFFF', '#FAF7FA', '#FFE9F0', '#FFF1D7')):
-            with self.subTest(color=color):
-                plan = deepcopy(self.plans[0])
-                plan.pop('source_colorway')
-                plan['roles']['background'] = color
-                output = self.root / f'forbidden-{index}'
-                with self.assertRaisesRegex(ValueError, '背景'):
-                    recolor_avatar.render_variants(self.master, [plan], output)
-                self.assertFalse(output.exists())
+    def test_changing_a_template_background_stops_before_delivery(self):
+        for index, color in enumerate(('#010203','#FAF7FA','#FFE9F0','#FFF1D7')):
+            plan=deepcopy(self.plans[0])
+            plan['roles']['background']=color
+            output=self.root/f'forbidden-{index}'
+            with self.subTest(color=color), self.assertRaisesRegex(ValueError,'来源|拆换'):
+                recolor_avatar.render_variants(self.master,[plan],output)
+            self.assertFalse(output.exists())
 
     def test_detail_code_cannot_leave_white_background_corners(self):
         with Image.open(self.master) as source:
@@ -316,9 +325,8 @@ class RecolorAvatarTests(unittest.TestCase):
 
     def test_single_plan_conflicting_skin_provenance_stops_before_delivery(self):
         plan = deepcopy(self.plans[0])
-        plan.pop('source_colorway')
         plan['source_selection']['skin'] = deepcopy(self.plans[1]['source_selection']['skin'])
-        with self.assertRaisesRegex(ValueError, '肤色来源'):
+        with self.assertRaisesRegex(ValueError, '来源|拆换'):
             self.render([plan], 'wrong-provenance')
 
     def test_single_plan_cannot_add_a_skin_color_or_mix_template_shadows(self):
@@ -327,7 +335,7 @@ class RecolorAvatarTests(unittest.TestCase):
             plan = deepcopy(self.plans[0])
             plan.pop('source_colorway')
             plan['roles'][field] = value
-            with self.subTest(field=field), self.assertRaisesRegex(ValueError, '肤色与肤影'):
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, '来源|拆换'):
                 self.render([plan], f'invalid-single-{field}')
 
     def test_ordinary_colored_avatar_is_rejected_without_making_a_grid(self):

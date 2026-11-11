@@ -25,7 +25,7 @@ def fixture_library():
     return {
         'schema_version': 1,
         'portraits': [
-            {'id': number, 'label': f'HD-{number:03d}', 'line_family': family,
+            {'id': number, 'label': f'TS-{number:03d}', 'line_family': family,
              'primary_hex': color, 'primary_sample_xy': [100, 200],
              'secondary_colors': [{'hex': '#FFFF00', 'role': 'accent', 'sample_xy': [10, 20]}]}
             for number, color, family in ((25, '#0A654B', 'rounded-monoline'),
@@ -40,6 +40,8 @@ def fixture_library():
 
 class LineSelectionTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.library = fixture_library()
 
     def plan(self, brief=None, palette=25, reference=25, mode='flat'):
@@ -86,7 +88,7 @@ class LineSelectionTests(unittest.TestCase):
                 self.assertEqual(plan['primary_hex'], '#0A654B')
 
     def test_missing_or_unknown_evidence_cannot_become_a_verified_line_plan(self):
-        for brief in ({'line_reference_id': 51}, {'line_reference_id': True},
+        for brief in ({'line_reference_id': 71}, {'line_reference_id': True},
                       {'line_family': 'arbitrary-brush'},
                       {'color_roles': {'outline': 'random green'}}):
             with self.subTest(brief=brief), self.assertRaises(ValueError):
@@ -98,6 +100,8 @@ class LineSelectionTests(unittest.TestCase):
 
 class LineLibraryIntegrationTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-lines-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -113,7 +117,7 @@ class LineLibraryIntegrationTests(unittest.TestCase):
         return result, Path(result['prompt_file']).read_text()
 
     def test_every_finished_reference_has_exact_raster_color_evidence(self):
-        image_ids = {int(path.stem) for path in (SKILL / 'assets/finished').glob('*.png')}
+        image_ids = {int(path.stem) for path in (SKILL / 'assets/templates').glob('*.png')}
         records = self.library['portraits']
         self.assertEqual(len(records), len(image_ids))
         self.assertEqual({item['id'] for item in records}, image_ids)
@@ -136,7 +140,7 @@ class LineLibraryIntegrationTests(unittest.TestCase):
             line = result['line_plan']
             self.assertEqual(result['color_plan']['roles']['outline'], line['primary_hex'])
             self.assertEqual(result['review_spec']['style_lock']['lines'], line)
-            self.assertEqual(result['master_encoding'], 'semantic-cube-v1')
+            self.assertEqual(result['master_encoding'], 'semantic-props-v3')
             self.assertEqual(result['variant_plans'][0]['roles']['outline'], line['primary_hex'])
             self.assertIn(line['family_instructions'], prompt)
             for color in ENCODING.values():
@@ -147,18 +151,19 @@ class LineLibraryIntegrationTests(unittest.TestCase):
             self.assertEqual(result['argv'][result['argv'].index('--size') + 1], '1024x1024')
 
     def test_selected_source_keeps_its_whole_palette_and_measured_ink(self):
-        result,_=self.prepare(source_colorway_id='HD-047-colorway')
+        result,_=self.prepare(source_colorway_id='TS-047-colorway')
         record=next(item for item in self.library['portraits'] if item['id']==47)
         self.assertEqual(result['line_plan']['source_reference_id'],47)
         self.assertEqual(result['color_plan']['roles']['outline'],record['primary_hex'].upper())
         self.assertEqual(result['color_plan']['source_selection']['background']['source_hd_id'],47)
 
-    def test_auto_palette_and_line_plan_repeat_for_identical_inputs(self):
+    def test_new_auto_requests_change_colorway_but_explicit_sources_keep_measured_ink(self):
         first, _ = self.prepare('one')
         second, _ = self.prepare('two')
-        self.assertEqual(first['color_plan']['id'], second['color_plan']['id'])
-        self.assertEqual(first['color_plan']['roles']['outline'], second['color_plan']['roles']['outline'])
-        self.assertEqual(first['line_plan'], second['line_plan'])
+        self.assertNotEqual(first['color_plan']['id'], second['color_plan']['id'])
+        frozen, _ = self.prepare('frozen', source_colorway_id=first['color_plan']['id'])
+        self.assertEqual(first['line_plan'], frozen['line_plan'])
+        self.assertEqual(first['color_plan']['roles']['outline'], frozen['color_plan']['roles']['outline'])
 
     def test_all_prompt_routes_read_current_hair_rules_after_legacy_detail_cues(self):
         updated = json.loads(json.dumps(self.library))
@@ -212,12 +217,12 @@ class LineLibraryIntegrationTests(unittest.TestCase):
             out = Path(argv[argv.index('--out-dir') + 1])
             out.mkdir()
             image = out / 'image-01.png'
-            encoded_fixture(image, size=(1200, 1400))
+            encoded_fixture(image, size=(1200, 1400), garments=True)
             (out / 'result.json').write_text(json.dumps({'status': 'completed',
                                                        'files': [{'original': str(image)}]}))
             return subprocess.CompletedProcess(argv, 0)
         with contextlib.redirect_stdout(io.StringIO()):
-            preview = run_avatar.run(dict(self.brief, art_palette='pink-plum'), self.root / 'preview',
+            preview = run_avatar.run(dict(self.brief, art_palette='TS-055'), self.root / 'preview',
                                       gateway_runner=gateway)
         self.assertEqual(preview['status'], 'completed')
         saved = json.loads((self.root / 'preview/brief.json').read_text())

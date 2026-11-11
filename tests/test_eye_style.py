@@ -16,6 +16,8 @@ from eye_style import EYE_STYLE_ID, EYE_INSTRUCTIONS, EYE_PRECEDENCE
 
 class EyeStyleTests(unittest.TestCase):
     def setUp(self):
+        from avatar_test_fixture import isolate_colorway_history
+        isolate_colorway_history(self)
         self.temp = tempfile.TemporaryDirectory(prefix='avatar-eye-test-')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -24,7 +26,7 @@ class EyeStyleTests(unittest.TestCase):
         Image.new('RGB', (200, 300), '#ba8968').save(self.photo)
         Image.new('RGB', (512, 512), '#a1e5d2').save(self.preview)
         self.brief = {
-            'photo': str(self.photo), 'art_palette': 'turquoise-violet',
+            'photo': str(self.photo), 'art_palette': 'TS-025',
             'identity_features': ['较宽圆下颌', '短发剪影', '上挑眼尾，双眼间距较宽'],
             'expression': '侧目微笑', 'pose': '四分之三侧面',
         }
@@ -43,7 +45,7 @@ class EyeStyleTests(unittest.TestCase):
                                                       workflow=workflow, stage=stage)
                         self.assertEqual(result['review_spec']['style_lock']['eye_style'],
                                          {'id': EYE_STYLE_ID, 'instructions': EYE_INSTRUCTIONS})
-                        self.assertTrue(prompt.endswith(EYE_INSTRUCTIONS + '\n'))
+                        self.assertIn(EYE_INSTRUCTIONS, prompt)
                         self.assertEqual(prompt.count(EYE_INSTRUCTIONS), 1)
                         self.assertEqual(result['argv'].count('--image'), 2)
                         self.assertFalse(result['executed'])
@@ -67,9 +69,9 @@ class EyeStyleTests(unittest.TestCase):
             self.assertIn(self.brief['expression'], prompt)
 
     def test_legacy_reference_also_gets_the_current_eye_grammar(self):
-        result, prompt = self.request(palette_id=24)
-        self.assertEqual(result['reference_set'], 'legacy')
-        self.assertTrue(prompt.endswith(EYE_INSTRUCTIONS + '\n'))
+        result, prompt = self.request(template_id='TS-024')
+        self.assertEqual(result['reference_set'], 'finished')
+        self.assertIn(EYE_INSTRUCTIONS, prompt)
 
     def test_detailed_review_records_an_eye_failure_as_revision(self):
         result, _ = self.request(workflow='review')

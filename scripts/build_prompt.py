@@ -11,17 +11,19 @@ from pathlib import Path
 from string import Template
 from background_plan import plan_background
 from eye_style import EYE_STYLE_ID, EYE_INSTRUCTIONS, EYE_PRECEDENCE
+from style_language import (POLICY_ID as STYLE_LANGUAGE_ID, INSTRUCTIONS as STYLE_LANGUAGE_INSTRUCTIONS,
+                            CONFIRMED_CORRECTION_CHECKS)
 from line_plan import plan_lines
-from composition import DEFAULT_SIZE, FRAMING_PLAN, FRAMING_INSTRUCTIONS
+from composition import DEFAULT_SIZE, FRAMING_PLAN, FRAMING_INSTRUCTIONS, STRUCTURE_REVIEW
 from source_colors import skin_for, background_request, background_source, library as source_color_library
+import object_plan
+from semantic_encoding import PROP_ENCODING_ID
 
 SKILL = Path(__file__).resolve().parents[1]
-CODEX_HOME = Path(os.environ.get('CODEX_HOME', str(Path.home() / '.codex'))).expanduser()
-GEN_IMG_SKILL = Path(os.environ.get('GEN_IMG_SKILL_DIR', str(CODEX_HOME / 'skills/gen-img'))).expanduser()
-GEN_IMG = GEN_IMG_SKILL / 'scripts/run.py'
+GEN_IMG = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex').expanduser() / 'skills/gen-img/scripts/run.py'
 MODES = {
-    'flat': '平涂大面为主，常规轮廓、实心眉眼和圆腮红，少量硬边暗面；局部必须保留指定渐变，不铺网点。',
-    'gradient': '彩色平涂为基础，在头发或服饰可见大面保留清楚的二色连续渐变；正常头像尺寸须看见两端颜色及过渡，主轮廓锐利，面部不作写实渐变，背景始终为单一纯色。',
+    'flat': '平涂大面为主，常规轮廓、实心眉眼和圆腮红，少量硬边暗面；模板有渐变时保留指定渐变，不铺网点。',
+    'gradient': '彩色平涂为基础，仅当模板有已采样发衣渐变时，在对应可见大面保留清楚的二色连续渐变；模板无则保留平涂；正常头像尺寸须看见两端颜色及过渡，主轮廓锐利，面部不作写实渐变，背景始终为单一纯色。',
     'texture': '保持清楚平涂，只在照片原本可见的衣服区域加入与该服装相符的简化线纹或网点。保留照片服装类别，不照搬参考衣领或图案。',
     'bold': '使用有力、平顺、较粗的外轮廓，减少内部结构线和小细节；保持照片的头型、五官比例和年龄。',
     'cartoon': '用较粗轮廓、简化短眉眼、少量弧线和圆腮红概括成卡通头像。简化细节但保持照片面部结构和年龄，不统一成大眼幼态脸。',
@@ -201,27 +203,28 @@ def prepare(brief, brief_path, out_dir):
                 raise ValueError(f'缺少从照片观察到的 {key}')
         expression, pose = brief['expression'], brief['pose']
         plan_source = 'explicit' if 'identity_plan' in brief else 'legacy_identity_features'
-    if 'hd_reference_id' in brief and 'palette_id' in brief:
-        raise ValueError('hd_reference_id 与旧版 palette_id 是独立编号，请只指定一项')
-    palette_id = brief.get('palette_id')
     if 'palette_id' in brief:
-        if type(palette_id) is not int or not 1 <= palette_id <= 100:
-            raise ValueError('旧版 palette_id 必须为 1–100 的整数')
-        catalog = json.loads((SKILL/'references/palette-library.json').read_text(encoding='utf-8'))
-        record = catalog['portraits'][palette_id-1]
-        if record['id'] != palette_id:
-            raise ValueError('旧版色库编号顺序不正确')
-        reference_set = 'legacy'
+        raise ValueError('旧版 palette_id 素材库已移除；请使用 template_id=TS-001 至 TS-070')
+    selected_template = brief.get('template_id')
+    if selected_template is not None:
+        if not isinstance(selected_template, str) or not re.fullmatch(r'TS-0(?:[0-6][0-9]|70)', selected_template):
+            raise ValueError('template_id 必须为 TS-001 至 TS-070')
+        hd_id = int(selected_template[3:])
+        if 'hd_reference_id' in brief and brief['hd_reference_id'] != hd_id:
+            raise ValueError('template_id 与数字模板编号冲突')
     else:
         hd_id = brief.get('hd_reference_id', 25)
-        if type(hd_id) is not int:
-            raise ValueError('hd_reference_id 必须为现有高清参考的整数编号')
-        catalog = json.loads((SKILL/'references/finished-reference-library.json').read_text(encoding='utf-8'))
-        record = next((r for r in catalog['portraits'] if r['id'] == hd_id), None)
-        if record is None:
-            raise ValueError(f'不存在 HD-{hd_id:03d}；高清参考保留原编号，51 缺号')
-        reference_set = 'finished'
+    if type(hd_id) is not int or not 1 <= hd_id <= 70:
+        raise ValueError('模板编号必须为1至70的整数')
+    catalog = json.loads((SKILL/'references/finished-reference-library.json').read_text(encoding='utf-8'))
+    record = next((r for r in catalog['portraits'] if r['id'] == hd_id), None)
+    if record is None:
+        raise ValueError(f'不存在 TS-{hd_id:03d}')
+    reference_set = 'finished'
     style_image = SKILL / record['reference_image']
+    expected_style = SKILL / 'assets/templates' / f'{hd_id:03d}.png'
+    if style_image.resolve() != expected_style.resolve():
+        raise ValueError('风格参考必须来自当前70套模板库，拒绝旧素材路径')
     if not style_image.is_file():
         raise ValueError(f'缺少风格参考图片: {style_image}')
     mode = brief.get('mode', 'auto')
@@ -241,14 +244,16 @@ def prepare(brief, brief_path, out_dir):
     else:
         variant_plans = [single_variant_plan(
             color_plan_for(brief, record, reference_set, color_mode), color_mode)]
+    variant_plans = [object_plan.upgrade(plan, brief.get('object_plan') if variant_count == 1 else None)
+                     for plan in variant_plans]
     color_plan = dict(variant_plans[0])
     # Store one copy of the background decision, separately from the palette.
     background = color_plan.pop('background_plan')
     lines = color_plan.pop('line_plan')
     color_roles = color_plan['color_text']
-    color_source = (f"HD-{color_plan['source_hd_id']:03d}" if color_plan['source_hd_id'] is not None else f"旧版{record['id']:03d}")
-    palette_summary = f"整套沿用原作{color_source}（{color_plan['id']}）的角色色与渐变，不跨图拼色。"
-    color_instructions = '照片仅决定结构神态；肤色、肤影、背景、发衣、腮红、细节、线色及渐变全部沿用同一原作，不独立换色。'
+    color_source = (f"TS-{color_plan['source_hd_id']:03d}" if color_plan['source_hd_id'] is not None else f"旧版{record['id']:03d}")
+    palette_summary = f"整套沿用模板{color_source}（{color_plan['id']}）的角色色与渐变，不跨图拼色。"
+    color_instructions = '照片仅决定结构神态；肤色、肤影、背景、发衣、腮红、细节、线色及渐变全部沿用同一模板，不独立换色。'
     # Historical native output migrates to the fixed square default.
     size_policy = brief.get('size_policy', 'square')
     if size_policy == 'native':
@@ -280,7 +285,7 @@ def prepare(brief, brief_path, out_dir):
             f"处理：{'同方向适度加强' if item['emphasis'] == 'emphasize' else '保留辨识关系'}；"
             f"不可改变：{item['do_not_change']}" for item in identity_plan),
         'stylization':brief.get('stylization','从照片可见的辨识特征中选 1–2 项适度放大，可加强已有的头倾、视线或表情；保持个体轮廓与五官关系，次要信息简化，不要求 1:1 复刻角度。'),
-        'shadow_plan':brief.get('shadow_plan','依据照片头肩结构与参考的简化光向，按需要安排一块脸侧结构暗面和下颌投在颈部的硬边影；在发根、耳后或领口仅补必要接触暗部。暗面留在对应表面，边界通常不另描线；皮肤暗色与腮红可复用但形状和作用分开。不加人物落地影或背景悬浮投影，不把皮肤画成写实光照。'),
+        'shadow_plan':brief.get('shadow_plan','依据照片头肩结构与参考的简化光向，按需要安排一块脸侧结构暗面和下颌投在颈部的硬边影；在发根、耳后或领口仅补必要接触暗部。暗面留在对应表面，边界通常不另描线；腮红独立使用模板cheek采样，不由主线色或肤影自动代替。不加人物落地影或背景悬浮投影，不把皮肤画成写实光照。'),
         'clothing':brief.get('clothing','沿照片保留可见衣领、实际配饰与遮挡，不添加参考中的物品'),
         'mode_instructions':MODES[mode], 'palette_summary':palette_summary, 'color_roles':color_roles,
         'color_instructions':color_instructions,
@@ -327,7 +332,7 @@ def prepare(brief, brief_path, out_dir):
         values['fast_stylization'] = brief.get('stylization', default_stylization)
         values['fast_shadow'] = brief.get('shadow_plan', '少量脸侧硬边暗面、下颌颈影与接触暗部；暗形不描边，无背景投影。')
         values['fast_framing'] = values['framing']
-        fast_color_policy = f"整套颜色来自原作{color_source}，不跨图拼色；旧brief/图3冲突色以本方案为准。"
+        fast_color_policy = f"整套颜色来自模板{color_source}，不跨图拼色；旧brief/图3冲突色以本方案为准。"
         # Core ink and skin shadow have dedicated exact-value rules.
         fast_roles = '；'.join(f'{key}: {value}' for key, value in color_plan['roles'].items()
                               if key not in ('outline', 'skin_shadow'))
@@ -354,13 +359,13 @@ def prepare(brief, brief_path, out_dir):
     skin = color_plan['source_selection']['skin']
     bg = color_plan['source_selection']['background']
     if workflow == 'fast':
-        prompt += (f"\n采样颜色锁定：肤面{skin['base']}、肤影{skin['shadow']}（HD-{skin['source_hd_id']:03d}肤色）；"
-                   f"背景{bg['hex']}（HD-{bg['source_hd_id']:03d}背景）。按值使用，禁止发衣移作肤色或混出新肤色/背景；"
+        prompt += (f"\n采样颜色锁定：肤面{skin['base']}、肤影{skin['shadow']}（TS-{skin['source_hd_id']:03d}肤色）；"
+                   f"背景{bg['hex']}（TS-{bg['source_hd_id']:03d}背景）。按值使用，禁止发衣移作肤色或混出新肤色/背景；"
                    '优先于照片、图2、旧brief、图3配色。皮肤平涂，渐变只在发衣。\n')
     else:
         prompt += (f"\n采样颜色锁定：肤面只用{skin['base']}、皮肤硬边暗面只用{skin['shadow']}"
-                   f"（原作HD-{skin['source_hd_id']:03d}肤色）；背景只用{bg['hex']}"
-                   f"（原作HD-{bg['source_hd_id']:03d}背景），均按指定值。禁止将发衣色移作肤色、调色或合成新肤色/背景色；"
+                   f"（模板TS-{skin['source_hd_id']:03d}肤色）；背景只用{bg['hex']}"
+                   f"（模板TS-{bg['source_hd_id']:03d}背景），均按指定值。禁止将发衣色移作肤色、调色或合成新肤色/背景色；"
                    '照片、图2、旧brief和图3的冲突配色均以本锁定为准。皮肤平涂，渐变仅在发或衣。\n')
     # Apply after observations, custom treatments and approved-preview guidance
     # so no route silently restores the former detailed eye rendering.
@@ -393,6 +398,16 @@ def prepare(brief, brief_path, out_dir):
         # Put the shared grammar after old observations, user notes and the
         # approved-preview instruction, with a single canonical copy.
         prompt += '\n' + EYE_PRECEDENCE + '\n统一眼睛：' + EYE_INSTRUCTIONS + '\n'
+    mouth_style = brief.get('mouth_style', 'auto')
+    if mouth_style not in ('auto', 'line', 'upper-lip', 'full-lips'):
+        raise ValueError('mouth_style只能为auto、line、upper-lip或full-lips')
+    prompt += '\n本次面颊、嘴与衣褶规则（覆盖旧brief/旧预览的冲突画法）：' + STYLE_LANGUAGE_INSTRUCTIONS + '\n'
+    prompt += '本次mouth_style=' + mouth_style + '。\n'
+    prompt += '\n道具与舌头分区：' + object_plan.INSTRUCTIONS + '\n'
+    if mouth_style == 'auto':
+        prompt += '本次由生图模型查看图1，先判断闭嘴、微张或露齿及其真实比例：露齿时使用简洁开口轮廓和连续浅色牙齿面，不套用闭嘴短线或夸大双唇；闭嘴时仅在双唇确为可见辨识特征才保留简化双唇，否则用常规符号口线。此准备步骤未声称观察到任何唇部特征。\n'
+    elif mouth_style == 'full-lips':
+        prompt += '本次明确允许简化双唇；仍保持平面符号，不加写实唇纹或高光，腮红编码不得作为唇色。\n'
     if out_dir.exists():
         raise ValueError('输出目录已存在，请选择新目录以保留先前提示词')
     out_dir.mkdir(parents=True)
@@ -406,7 +421,7 @@ def prepare(brief, brief_path, out_dir):
     argv.extend(['--size', render_size])
     if model is not None:
         argv.extend(['--model', model])
-    result = {'status':'prepared','executed':False,'stage':stage,'quality':quality,'workflow':workflow,'palette_id':palette_id,'mode':mode,'color_mode':color_mode,
+    result = {'status':'prepared','executed':False,'stage':stage,'quality':quality,'workflow':workflow,'palette_id':None,'mode':mode,'color_mode':color_mode,
               'reference_set':reference_set,'reference_id':record['id'],'identity_source':identity_source,
               'size_policy':size_policy,'render_size':render_size,'delivery_size':size,
               'framing_plan': dict(FRAMING_PLAN),
@@ -419,20 +434,27 @@ def prepare(brief, brief_path, out_dir):
               'next_step':'Read the global gen-img SKILL.md, then run argv from the project workspace. No model is selected here.'}
     result['variants'] = variant_count
     result['variant_plans'] = variant_plans
-    result['master_encoding'] = 'semantic-cube-v1'
+    result['master_encoding'] = PROP_ENCODING_ID
     if approved_preview is not None:
         result['approved_preview'] = str(approved_preview)
     result['review_spec'] = {
         'schema_version': 1, 'identity_source': identity_source, 'identity_plan': identity_plan,
         'plan_source': plan_source,
         'expression_pose': f"表情：{expression}；姿态：{pose}；转译：{values['stylization']}",
+        'structure_continuity': dict(STRUCTURE_REVIEW),
+        'bottom_anchor': {'required': True, 'scope': 'each individual tile, preview and final',
+                          'criterion': '衣服/身体连续区域接触最后一行，无底部背景条'},
+        'garment_layers': {'policy_id':'source-garment-layers-v1',
+                           'criterion':'外套、内搭、衣褶、滚边、花纹和配饰独立；禁止把所有服饰合并成一色；单衣保留模板渐变、真实领袖与细结构线；不为分色添加粗暗片',
+                           'geometry_from':'photo', 'color_from':'same selected source garment samples'},
         'style_lock': {
             'reference_set': reference_set, 'reference_id': record['id'], 'mode': mode,
             'color_mode': color_mode, 'color_roles': color_roles,
             'color_policy': color_instructions,
             'gradient': color_plan['gradient'],
             'gradient_visibility': {
-                'required_per_image': True, 'allowed_regions': ['hair', 'clothing'],
+                'required_per_image': bool(color_plan['gradient']),
+                'required_per_variant': [bool(p['gradient']) for p in variant_plans], 'allowed_regions': ['hair', 'clothing'],
                 'criterion': '普通头像尺寸看清两端颜色、连续过渡及可辨认面积；微弱同色变化或细边不通过',
                 'verification': 'final-rgb-local-check-plus-visual',
             },
@@ -440,6 +462,7 @@ def prepare(brief, brief_path, out_dir):
             'source_colors': color_plan['source_selection'],
             'source_colorway': color_plan['source_colorway'],
             'eye_style': {'id': EYE_STYLE_ID, 'instructions': EYE_INSTRUCTIONS},
+            'style_language': {'id': STYLE_LANGUAGE_ID, 'mouth_style': mouth_style, 'instructions': STYLE_LANGUAGE_INSTRUCTIONS},
             'lines': lines,
             'shadow_plan': values['shadow_plan'], 'framing': values['framing'],
             'framing_plan': dict(FRAMING_PLAN),
@@ -450,6 +473,16 @@ def prepare(brief, brief_path, out_dir):
             'style_reference': hashlib.sha256(style_image.read_bytes()).hexdigest(),
         },
         'review_script': str(SKILL/'scripts/review_avatar.py'),
+        'confirmed_corrections': {
+            'policy_id': STYLE_LANGUAGE_ID,
+            'reference_index': str(SKILL/'references/confirmed-cases.json'),
+            'checks': deepcopy(CONFIRMED_CORRECTION_CHECKS),
+            'verification': 'same final visual comparison; not an automatic semantic verdict',
+            'example_images_attached_by_default': False,
+        },
+        'object_details': {'policy_id':object_plan.POLICY_ID,
+                           'criterion':'道具材料分色，表面连续无颗粒；可见舌头独立非墨色填色；核对接触、遮挡及连接',
+                           'color_scope':'reuse exact values within each same frozen palette'},
         'enabled': workflow == 'review',
         'max_automatic_corrections': 1 if workflow == 'review' else 0,
         'scope': '逐项视觉对照人物特征与画风，不是身份识别，不计算相似度分数',
