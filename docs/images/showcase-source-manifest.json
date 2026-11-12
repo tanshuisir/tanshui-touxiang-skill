@@ -133,5 +133,37 @@
       1694
     ],
     "sha256": "e73c3b7d9cf290731874fa03ee6dd5a47b7b58b415f87c80b542c3f47dfdb2d0"
+  },
+  "readme_showcase": {
+    "layout": "three columns; source photos above their approved avatars",
+    "display_width_per_image": 216,
+    "image_policy": "Original photo files fitted in square canvases without cropping; approved avatar PNGs embedded directly; no screenshots.",
+    "samples": [
+      {
+        "template_id": "TS-003",
+        "photo": "photo-003.jpg",
+        "photo_sha256": "11892aefeb160ff43957d1eedf155ddd0a7ffb65f964fc8fab6b00ddd1ce4e6d",
+        "source_photo_sha256": "7e88bd6a609c6782eb1dd2430c85438a24873fbeb7755ecc1c135fb70c6fbd67",
+        "avatar": "../../assets/templates/003.png",
+        "avatar_sha256": "906869eca98c07fd2e030aa43a3c53dd7f226536f221f31cc74bdbef3dd8338e"
+      },
+      {
+        "template_id": "TS-009",
+        "photo": "photo-009.jpg",
+        "photo_sha256": "793cc1ef88b953405d27b74b8072a1e6ce70c4addf721a043c74cfae33ad4c9e",
+        "source_photo_sha256": "e0a81cd14fdaa1c9ca99187887bda90595a50d71b7b6498f1110dd5d5982925e",
+        "avatar": "../../assets/templates/009.png",
+        "avatar_sha256": "80538d844c93804be27a56f358b5ec9ffd9e826535c7c33829e25dbaebf00732"
+      },
+      {
+        "template_id": "TS-052",
+        "photo": "photo-052.jpg",
+        "photo_sha256": "b1dff435ec0774b4e2eeb2a07f204fb08bf5f1dfbe2fbeabeab62ee40cfb3b8c",
+        "source_photo_sha256": "4d1d994418357f2828c6c1d4be58a9a13f557ca3e6e9d89a35e5780febd3c962",
+        "avatar": "../../assets/templates/052.png",
+        "avatar_sha256": "0fc601af695a2a4800432393e2752db7710a5b78ee29de46ac134f9f01353468"
+      }
+    ],
+    "full_overview_embedded": false
   }
 }

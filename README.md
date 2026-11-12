@@ -1,22 +1,34 @@
 # 碳水头像
 
-把人物照片转换为平面线描头像：保留脸型、发型、表情和姿势，用统一线条、简化五官、轻腮红与分层衣饰建立稳定的视觉风格。
+把人物照片变成平面线描头像。
 
-本版以 **70 套整理好的新模板 TS-001—TS-070** 作为运行参考库，包含 1000×1000 PNG、角色色值、取色坐标、文件校验值和画法索引。旧参考图片与旧素材索引已从当前版本及发布包移除。模板规定画法与配色，输入照片决定画谁、穿什么、做什么动作。
+保留脸型、发型、表情与姿势，用简化五官、统一线条、轻腮红和分层衣饰，画出有辨识度的人物。
 
-[下载最新版与素材包](https://github.com/tanshuisir/tanshui-touxiang-skill/releases/latest) · [Skill 规则](SKILL.md) · [70 套模板索引](references/finished-reference-index.md)
+[下载与安装包](https://github.com/tanshuisir/tanshui-touxiang-skill/releases/latest) · [Skill 规则](SKILL.md) · [模板库](references/finished-reference-index.md)
 
-## 照片与头像对照
+## 效果对照
 
-以下展示真实照片与对应的已确认头像。左侧为输入照片，右侧为头像；完整保留画面，不通过裁切隐藏构图差异。
+上排为原始照片，下排为对应的已确认头像。
 
-![照片转头像：帽饰、视线与服装分层](docs/images/comparison-01.jpg)
+<table>
+  <tr>
+    <td align="center"><img src="docs/images/photo-003.jpg" width="216" height="216" alt="帽饰人物的原始照片"></td>
+    <td align="center"><img src="docs/images/photo-009.jpg" width="216" height="216" alt="手持手机人物的原始照片"></td>
+    <td align="center"><img src="docs/images/photo-052.jpg" width="216" height="216" alt="穿西装抬臂人物的原始照片"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/templates/003.png" width="216" height="216" alt="TS-003：保留帽饰与侧向视线的头像"></td>
+    <td align="center"><img src="assets/templates/009.png" width="216" height="216" alt="TS-009：保留自拍姿势与服装分层的头像"></td>
+    <td align="center"><img src="assets/templates/052.png" width="216" height="216" alt="TS-052：保留西装层次与抬臂遮挡的头像"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>帽饰与视线</sub></td>
+    <td align="center"><sub>姿态与衣饰</sub></td>
+    <td align="center"><sub>服装与遮挡</sub></td>
+  </tr>
+</table>
 
-![照片转头像：抬臂遮挡、西装层次与五官概括](docs/images/comparison-02.jpg)
-
-![照片转头像：衣料线条与首饰](docs/images/comparison-03.jpg)
-
-## 它处理什么
+## 主要特点
 
 - **人物特征**：保留真实的五官关系、发型剪影、视线和表情，避免所有人变成同一张脸。
 - **一致画法**：实心符号眼形、自然嘴形、轻淡腮红、下巴投影；衣褶使用疏密适当的线条，衣物分层与首饰保持可读。
@@ -27,13 +39,21 @@
 
 默认背景为所选模板的纯色、不透明、满幅背景，包括模板中已有的白色或近白色。另保留 100 组用户提供的四色卡作为独立参考，默认不混入随机模板库；自定义配色可按规则从 Coolors 或 Color Hunt 选择。
 
-## 70 套模板总览
+当前模板库为 **TS-001—TS-070**，参考 PNG 整理为 1000×1000，并附角色色值、取色坐标与画法索引。完整素材可从[模板索引](references/finished-reference-index.md)查看，或[单独下载](https://github.com/tanshuisir/tanshui-touxiang-skill/releases/latest)。部分素材经过尺寸适配，不表示每张都是模型原生高清输出。
 
-按每列 7 张、共 10 列排列，编号对应 `assets/templates/001.png` 至 `070.png`。
+## 快速使用
 
-![70 套新模板总览](docs/images/templates-overview.jpg)
+在 Codex 中提供人物照片并输入：
 
-1000×1000 是整理后的参考素材尺寸，部分素材经过尺寸适配；这不表示每张都是模型原生的高清输出。
+```text
+使用 $tanshui-touxiang-skill 出图。
+```
+
+默认同线稿四配色。需要单张或指定新模板时，可以说：
+
+```text
+使用 $tanshui-touxiang-skill，只出一张，使用 TS-050 的完整配色。
+```
 
 ## 安装与依赖
 
@@ -50,19 +70,8 @@ python3 -m pip install -r "${CODEX_HOME:-$HOME/.codex}/skills/tanshui-touxiang-s
 
 也可下载 Release 中的 `tanshui-touxiang-skill-v2.0.0.zip`，解压后将整个 `tanshui-touxiang-skill` 文件夹放入 Skills 目录。已有安装请先保存自己的改动，避免直接覆盖。
 
-## 使用
-
-在 Codex 中提供人物照片并输入：
-
-```text
-使用 $tanshui-touxiang-skill 出图。
-```
-
-默认同线稿四配色。需要单张或指定新模板时，可以说：
-
-```text
-使用 $tanshui-touxiang-skill，只出一张，使用 TS-050 的完整配色。
-```
+<details>
+<summary>命令行使用与运行说明</summary>
 
 脚本应从当前项目工作区运行，生成产物不会写回 Skill 安装目录：
 
@@ -77,6 +86,8 @@ python3 "<skill-dir>/scripts/run_avatar.py" --photo "<absolute-photo>" --variant
 执行器保存输入、冻结配色、提示词、模型结果与交付路径。预览默认使用 low 质量；生成模型的实际尺寸会被记录，必要的方形适配不是重新生图。90 秒是交付目标，实际时间受后端排队与模型响应影响。失败或状态不明时先检查本次结果，不自动重复收费请求。
 
 旧版本的冻结配色不能通过相同编号直接套用到新库；请从照片创建新任务。新库使用独立抽色账本，当前模板的编号、像素采样和哈希共同用于核验来源。
+
+</details>
 
 ## 文件与下载
 
